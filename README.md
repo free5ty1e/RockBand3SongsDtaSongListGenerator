@@ -1,7 +1,7 @@
 # RockBand3SongsDtaSongListGenerator
 Rock Band 3 songs.dta song list generator for parties
 
-(I throw Rock Band 3 parties, where I run Rock Band 3 Deluxe on my hacked PS3 with all the instruments and all 3 microphones, and I manage my own `songs.dta`.  My guests like to be able to look through songs on their phones when they are not active in the current band to help them decide what they'd like to play or sing next, as a lot of time is spent scrolling through songs trying to choose what to play.  This Python 3 script takes such a `songs.dta` file and generates two files, exemplified below, for sharing with rock band party guests so they can select songs when they are waiting their turn / watching others play.)
+(I throw Rock Band 3 parties, where I run [Rock Band 3 Deluxe](https://rb3dx.milohax.org/) on my hacked PS3 with all the instruments and all 3 microphones, and I manage my own `songs.dta`.  My guests like to be able to look through songs on their phones when they are not active in the current band to help them decide what they'd like to play or sing next, as a lot of time is spent scrolling through songs trying to choose what to play.  This Python 3 script takes such a `songs.dta` file and generates two files, exemplified below, for sharing with rock band party guests so they can select songs when they are waiting their turn / watching others play.)
 
 To run:
 ```
