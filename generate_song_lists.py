@@ -74,40 +74,67 @@ def _unescape_dta_string(s: str) -> str:
 
 
 def extract_string_field(entry_text: str, key: str) -> Optional[str]:
-    # Look for pattern: (key "value") or (key value) where value is a bare atom
+    # Extract only from DIRECT CHILDREN of the entry root: (key ...)
+    # Since entry_text itself is a single top-level list, its direct children
+    # appear when depth == 2 while scanning characters.
+    depth = 0
     i = 0
-    pattern = f'({key}'
-    while True:
-        idx = entry_text.find(pattern, i)
-        if idx == -1:
-            return None
-        # Ensure it's actually a list start: previous char must be '(' at idx
-        # We already searched for '(' + key so that's fine; now move after key
-        j = idx + len(pattern)
-        # Skip whitespace
-        while j < len(entry_text) and entry_text[j].isspace():
-            j += 1
-        if j >= len(entry_text):
-            return None
-        if entry_text[j] == '"':
-            j += 1
-            end_q = _find_unescaped_quote(entry_text, j)
-            if end_q == -1:
-                return None
-            raw = entry_text[j:end_q]
-            try:
-                return _unescape_dta_string(raw)
-            except Exception:
-                return raw
-        else:
-            # read until whitespace or ')'
-            start_val = j
-            while j < len(entry_text) and not entry_text[j].isspace() and entry_text[j] != ')':
-                j += 1
-            val = entry_text[start_val:j].strip()
-            if val:
-                return val
-        i = j
+    n = len(entry_text)
+    while i < n:
+        ch = entry_text[i]
+        if ch == '"':
+            # skip strings
+            i += 1
+            while i < n:
+                c = entry_text[i]
+                if c == '\\':
+                    i += 2
+                    continue
+                if c == '"':
+                    i += 1
+                    break
+                i += 1
+            continue
+        if ch == '(':
+            depth += 1
+            # Direct children inside the entry are at depth 2
+            if depth == 2:
+                j = i + 1
+                # skip whitespace
+                while j < n and entry_text[j].isspace():
+                    j += 1
+                # check if key matches
+                if entry_text.startswith(key, j):
+                    k_end = j + len(key)
+                    # next must be whitespace or ')' or '"' for a valid atom key
+                    if k_end < n and (entry_text[k_end].isspace() or entry_text[k_end] in (')', '"')):
+                        # move to value
+                        j = k_end
+                        while j < n and entry_text[j].isspace():
+                            j += 1
+                        if j >= n:
+                            return None
+                        if entry_text[j] == '"':
+                            j += 1
+                            end_q = _find_unescaped_quote(entry_text, j)
+                            if end_q == -1:
+                                return None
+                            raw = entry_text[j:end_q]
+                            try:
+                                return _unescape_dta_string(raw)
+                            except Exception:
+                                return raw
+                        else:
+                            start_val = j
+                            while j < n and not entry_text[j].isspace() and entry_text[j] != ')':
+                                j += 1
+                            val = entry_text[start_val:j].strip()
+                            if val:
+                                return val
+        elif ch == ')':
+            depth = max(0, depth - 1)
+        i += 1
+    return None
     
 
 def extract_first_of(entry_text: str, keys: List[str]) -> Optional[str]:
@@ -118,9 +145,37 @@ def extract_first_of(entry_text: str, keys: List[str]) -> Optional[str]:
     return None
 
 
-def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, str]], Dict[str, int], List[Tuple[Optional[str], Optional[str]]]]:
+def _extract_song_identifier(entry_text: str) -> Optional[str]:
+    # The identifier is the FIRST atom after the entry's opening '('
+    i = entry_text.find('(')
+    if i == -1:
+        return None
+    j = i + 1
+    n = len(entry_text)
+    while j < n and entry_text[j].isspace():
+        j += 1
+    if j >= n:
+        return None
+    if entry_text[j] == '"':
+        j += 1
+        end_q = _find_unescaped_quote(entry_text, j)
+        if end_q == -1:
+            return None
+        raw = entry_text[j:end_q]
+        try:
+            return _unescape_dta_string(raw)
+        except Exception:
+            return raw
+    start_val = j
+    while j < n and not entry_text[j].isspace() and entry_text[j] != ')':
+        j += 1
+    ident = entry_text[start_val:j].strip()
+    return ident if ident else None
+
+
+def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, str]], Dict[str, int], List[Tuple[Optional[str], Optional[str], Optional[str]]]]:
     results: List[Tuple[str, str]] = []
-    partials: List[Tuple[Optional[str], Optional[str]]] = []
+    partials: List[Tuple[Optional[str], Optional[str], Optional[str]]] = []
     stats: Dict[str, int] = {
         'total_entries': len(entries),
         'missing_artist': 0,
@@ -131,6 +186,7 @@ def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, s
         # Prefer common display-name keys first, then fall back to 'name'
         name = extract_first_of(e, ['songname', 'song_name', 'title', 'name'])
         artist = extract_first_of(e, ['artist', 'song_artist'])
+        ident = _extract_song_identifier(e)
         if name and artist:
             results.append((artist, name))
             stats['completed_pairs'] += 1
@@ -139,7 +195,7 @@ def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, s
                 stats['missing_artist'] += 1
             if not name:
                 stats['missing_name'] += 1
-            partials.append((artist, name))
+            partials.append((artist, name, ident))
     return results, stats, partials
 
 
@@ -189,12 +245,14 @@ def main(argv: Optional[List[str]] = None) -> int:
     # Log partial entries for analysis
     if partials:
         logging.info('Partial entries (missing artist or name):')
-        for a, n in partials:
-            logging.info(f"  artist={a if a else '<missing>'} | name={n if n else '<missing>'}")
+        for a, n, ident in partials:
+            logging.info(
+                f"  id={ident if ident else '<unknown id>'} | artist={a if a else '<missing>'} | name={n if n else '<missing>'}"
+            )
 
     # Augment outputs with partials using placeholders so lists remain comprehensive
     placeholder_pairs: List[Tuple[str, str]] = []
-    for a, n in partials:
+    for a, n, _ in partials:
         artist_val = a if a else '(unknown artist)'
         name_val = n if n else '(unknown title)'
         placeholder_pairs.append((artist_val, name_val))
