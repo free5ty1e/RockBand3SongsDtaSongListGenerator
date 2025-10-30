@@ -103,11 +103,22 @@ def extract_string_field(entry_text: str, key: str) -> Optional[str]:
                 # skip whitespace
                 while j < n and entry_text[j].isspace():
                     j += 1
-                # check if key matches
+                # key may be optionally wrapped in single quotes
+                quoted_key = False
+                if j < n and entry_text[j] == "'":
+                    quoted_key = True
+                    j += 1
                 if entry_text.startswith(key, j):
                     k_end = j + len(key)
-                    # next must be whitespace or ')' or '"' for a valid atom key
-                    if k_end < n and (entry_text[k_end].isspace() or entry_text[k_end] in (')', '"')):
+                    # if quoted, the next char must be a closing single quote
+                    if quoted_key:
+                        if k_end < n and entry_text[k_end] == "'":
+                            k_end += 1
+                        else:
+                            # not an exact quoted key match
+                            pass
+                    # next must be whitespace or ')' or '"' or '\'' for a valid atom key
+                    if k_end < n and (entry_text[k_end].isspace() or entry_text[k_end] in (')', '"', "'")):
                         # move to value
                         j = k_end
                         while j < n and entry_text[j].isspace():
@@ -124,6 +135,14 @@ def extract_string_field(entry_text: str, key: str) -> Optional[str]:
                                 return _unescape_dta_string(raw)
                             except Exception:
                                 return raw
+                        elif entry_text[j] == "'":
+                            # single-quoted string value
+                            j += 1
+                            start_val = j
+                            while j < n and entry_text[j] != "'":
+                                j += 1
+                            raw = entry_text[start_val:j]
+                            return raw if raw else None
                         else:
                             start_val = j
                             while j < n and not entry_text[j].isspace() and entry_text[j] != ')':
@@ -166,6 +185,13 @@ def _extract_song_identifier(entry_text: str) -> Optional[str]:
             return _unescape_dta_string(raw)
         except Exception:
             return raw
+    if entry_text[j] == "'":
+        j += 1
+        start_val = j
+        while j < n and entry_text[j] != "'":
+            j += 1
+        ident = entry_text[start_val:j]
+        return ident if ident else None
     start_val = j
     while j < n and not entry_text[j].isspace() and entry_text[j] != ')':
         j += 1
