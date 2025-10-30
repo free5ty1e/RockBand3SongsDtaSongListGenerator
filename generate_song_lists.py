@@ -34,6 +34,21 @@ def split_top_level_entries(dta_text: str) -> List[str]:
                 i += 1
             continue
 
+        # Skip over single-quoted atoms/strings: '...'
+        if ch == "'":
+            i += 1
+            while i < len(dta_text) and dta_text[i] != "'":
+                i += 1
+            if i < len(dta_text) and dta_text[i] == "'":
+                i += 1
+            continue
+
+        # Skip comments starting with ';' until end of line
+        if ch == ';':
+            while i < len(dta_text) and dta_text[i] not in ('\n', '\r'):
+                i += 1
+            continue
+
         if ch == '(':
             if depth == 0:
                 start_idx = i
