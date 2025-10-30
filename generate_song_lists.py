@@ -199,8 +199,8 @@ def _extract_song_identifier(entry_text: str) -> Optional[str]:
     return ident if ident else None
 
 
-def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, str]], Dict[str, int], List[Tuple[Optional[str], Optional[str], Optional[str]]]]:
-    results: List[Tuple[str, str]] = []
+def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, str, Optional[str]]], Dict[str, int], List[Tuple[Optional[str], Optional[str], Optional[str], Optional[str]]]]:
+    results: List[Tuple[str, str, Optional[str]]] = []
     partials: List[Tuple[Optional[str], Optional[str], Optional[str]]] = []
     stats: Dict[str, int] = {
         'total_entries': len(entries),
@@ -213,32 +213,37 @@ def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, s
         name = extract_first_of(e, ['songname', 'song_name', 'title', 'name'])
         artist = extract_first_of(e, ['artist', 'song_artist'])
         ident = _extract_song_identifier(e)
+        album = extract_first_of(e, ['album_name'])
         if name and artist:
-            results.append((artist, name))
+            results.append((artist, name, album))
             stats['completed_pairs'] += 1
         else:
             if not artist:
                 stats['missing_artist'] += 1
             if not name:
                 stats['missing_name'] += 1
-            partials.append((artist, name, ident))
+            partials.append((artist, name, ident, album))
     return results, stats, partials
 
 
-def write_outputs(pairs: List[Tuple[str, str]], cwd: str) -> None:
-    artist_sorted = sorted(pairs, key=lambda x: (x[0].lower(), x[1].lower()))
+def write_outputs(pairs: List[Tuple[str, str, Optional[str]]], cwd: str) -> None:
+    # Sort explicitly by artist, then album (if present), then name for artist list
+    artist_sorted = sorted(pairs, key=lambda x: (x[0].lower(), (x[2] or '').lower(), x[1].lower()))
+    # Sort by name, then artist for name list
     name_sorted = sorted(pairs, key=lambda x: (x[1].lower(), x[0].lower()))
 
     artist_path = os.path.join(cwd, 'SongListSortedByArtist.txt')
     name_path = os.path.join(cwd, 'SongListSortedBySongName.txt')
 
     with open(artist_path, 'w', encoding='utf-8') as fa:
-        for artist, name in artist_sorted:
-            fa.write(f"{artist} - {name}\n")
+        for artist, name, album in artist_sorted:
+            album_disp = album if album else '(unknown album)'
+            fa.write(f"{artist} ({album_disp}) - {name}\n")
 
     with open(name_path, 'w', encoding='utf-8') as fn:
-        for artist, name in name_sorted:
-            fn.write(f"{name} by {artist}\n")
+        for artist, name, album in name_sorted:
+            album_disp = album if album else '(unknown album)'
+            fn.write(f"{name} by {artist} on {album_disp}\n")
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -271,17 +276,18 @@ def main(argv: Optional[List[str]] = None) -> int:
     # Log partial entries for analysis
     if partials:
         logging.info('Partial entries (missing artist or name):')
-        for a, n, ident in partials:
+        for a, n, ident, album in partials:
             logging.info(
-                f"  id={ident if ident else '<unknown id>'} | artist={a if a else '<missing>'} | name={n if n else '<missing>'}"
+                f"  id={ident if ident else '<unknown id>'} | artist={a if a else '<missing>'} | name={n if n else '<missing>'} | album={album if album else '<missing>'}"
             )
 
     # Augment outputs with partials using placeholders so lists remain comprehensive
-    placeholder_pairs: List[Tuple[str, str]] = []
-    for a, n, _ in partials:
+    placeholder_pairs: List[Tuple[str, str, Optional[str]]] = []
+    for a, n, _, album in partials:
         artist_val = a if a else '(unknown artist)'
         name_val = n if n else '(unknown title)'
-        placeholder_pairs.append((artist_val, name_val))
+        album_val = album if album else None
+        placeholder_pairs.append((artist_val, name_val, album_val))
 
     all_pairs = pairs + placeholder_pairs
 
