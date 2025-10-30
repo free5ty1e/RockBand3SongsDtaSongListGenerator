@@ -3,7 +3,8 @@
 import argparse
 import os
 import sys
-from typing import List, Tuple, Optional
+import logging
+from typing import List, Tuple, Optional, Dict
 
 
 def read_file_text(path: str) -> str:
@@ -109,14 +110,24 @@ def extract_string_field(entry_text: str, key: str) -> Optional[str]:
         i = j
 
 
-def parse_entries_for_artist_name(entries: List[str]) -> List[Tuple[str, str]]:
+def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, str]], Dict[str, int]]:
     results: List[Tuple[str, str]] = []
+    stats: Dict[str, int] = {
+        'total_entries': len(entries),
+        'missing_artist': 0,
+        'missing_name': 0,
+    }
     for e in entries:
         name = extract_string_field(e, 'name')
         artist = extract_string_field(e, 'artist')
         if name and artist:
             results.append((artist, name))
-    return results
+        else:
+            if not artist:
+                stats['missing_artist'] += 1
+            if not name:
+                stats['missing_name'] += 1
+    return results, stats
 
 
 def write_outputs(pairs: List[Tuple[str, str]], cwd: str) -> None:
@@ -153,14 +164,35 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"Error reading file: {e}", file=sys.stderr)
         return 1
 
+    # Basic logger setup
+    logging.basicConfig(level=logging.INFO, format='[%(levelname)s] %(message)s')
+
     entries = split_top_level_entries(text)
-    pairs = parse_entries_for_artist_name(entries)
+    pairs, stats = parse_entries_for_artist_name(entries)
 
     if not pairs:
-        print('Warning: no (artist, name) pairs found. Outputs may be empty.', file=sys.stderr)
+        logging.warning('No (artist, name) pairs found. Outputs may be empty.')
 
     write_outputs(pairs, os.getcwd())
+
+    # Summary
+    total = stats.get('total_entries', 0)
+    extracted = len(pairs)
+    skipped = total - extracted
+    missing_artist = stats.get('missing_artist', 0)
+    missing_name = stats.get('missing_name', 0)
+
     print('Wrote SongListSortedByArtist.txt and SongListSortedBySongName.txt')
+    print('Summary:')
+    print(f'- Total entries parsed: {total}')
+    print(f'- Pairs extracted: {extracted}')
+    print(f'- Skipped entries (missing artist and/or name): {skipped}')
+    if skipped:
+        # Provide a bit more detail about what was missing
+        print(f'  - Missing artist: {missing_artist}')
+        print(f'  - Missing name: {missing_name}')
+    print(f'- Lines written to SongListSortedByArtist.txt: {extracted}')
+    print(f'- Lines written to SongListSortedBySongName.txt: {extracted}')
     return 0
 
 
