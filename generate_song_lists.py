@@ -108,26 +108,39 @@ def extract_string_field(entry_text: str, key: str) -> Optional[str]:
             if val:
                 return val
         i = j
+    
+
+def extract_first_of(entry_text: str, keys: List[str]) -> Optional[str]:
+    for k in keys:
+        val = extract_string_field(entry_text, k)
+        if val:
+            return val
+    return None
 
 
-def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, str]], Dict[str, int]]:
+def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, str]], Dict[str, int], List[Tuple[Optional[str], Optional[str]]]]:
     results: List[Tuple[str, str]] = []
+    partials: List[Tuple[Optional[str], Optional[str]]] = []
     stats: Dict[str, int] = {
         'total_entries': len(entries),
         'missing_artist': 0,
         'missing_name': 0,
+        'completed_pairs': 0,
     }
     for e in entries:
-        name = extract_string_field(e, 'name')
-        artist = extract_string_field(e, 'artist')
+        # Prefer common display-name keys first, then fall back to 'name'
+        name = extract_first_of(e, ['songname', 'song_name', 'title', 'name'])
+        artist = extract_first_of(e, ['artist', 'song_artist'])
         if name and artist:
             results.append((artist, name))
+            stats['completed_pairs'] += 1
         else:
             if not artist:
                 stats['missing_artist'] += 1
             if not name:
                 stats['missing_name'] += 1
-    return results, stats
+            partials.append((artist, name))
+    return results, stats, partials
 
 
 def write_outputs(pairs: List[Tuple[str, str]], cwd: str) -> None:
@@ -168,16 +181,31 @@ def main(argv: Optional[List[str]] = None) -> int:
     logging.basicConfig(level=logging.INFO, format='[%(levelname)s] %(message)s')
 
     entries = split_top_level_entries(text)
-    pairs, stats = parse_entries_for_artist_name(entries)
+    pairs, stats, partials = parse_entries_for_artist_name(entries)
 
     if not pairs:
         logging.warning('No (artist, name) pairs found. Outputs may be empty.')
 
-    write_outputs(pairs, os.getcwd())
+    # Log partial entries for analysis
+    if partials:
+        logging.info('Partial entries (missing artist or name):')
+        for a, n in partials:
+            logging.info(f"  artist={a if a else '<missing>'} | name={n if n else '<missing>'}")
+
+    # Augment outputs with partials using placeholders so lists remain comprehensive
+    placeholder_pairs: List[Tuple[str, str]] = []
+    for a, n in partials:
+        artist_val = a if a else '(unknown artist)'
+        name_val = n if n else '(unknown title)'
+        placeholder_pairs.append((artist_val, name_val))
+
+    all_pairs = pairs + placeholder_pairs
+
+    write_outputs(all_pairs, os.getcwd())
 
     # Summary
     total = stats.get('total_entries', 0)
-    extracted = len(pairs)
+    extracted = stats.get('completed_pairs', 0)
     skipped = total - extracted
     missing_artist = stats.get('missing_artist', 0)
     missing_name = stats.get('missing_name', 0)
@@ -191,8 +219,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         # Provide a bit more detail about what was missing
         print(f'  - Missing artist: {missing_artist}')
         print(f'  - Missing name: {missing_name}')
-    print(f'- Lines written to SongListSortedByArtist.txt: {extracted}')
-    print(f'- Lines written to SongListSortedBySongName.txt: {extracted}')
+    print(f'- Lines written to SongListSortedByArtist.txt: {len(all_pairs)}')
+    print(f'- Lines written to SongListSortedBySongName.txt: {len(all_pairs)}')
     return 0
 
 
