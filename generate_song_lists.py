@@ -199,8 +199,8 @@ def _extract_song_identifier(entry_text: str) -> Optional[str]:
     return ident if ident else None
 
 
-def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, str, Optional[str]]], Dict[str, int], List[Tuple[Optional[str], Optional[str], Optional[str], Optional[str]]]]:
-    results: List[Tuple[str, str, Optional[str]]] = []
+def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]], Dict[str, int], List[Tuple[Optional[str], Optional[str], Optional[str], Optional[str], Optional[int], Optional[int]]]]:
+    results: List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]] = []
     partials: List[Tuple[Optional[str], Optional[str], Optional[str]]] = []
     stats: Dict[str, int] = {
         'total_entries': len(entries),
@@ -214,19 +214,42 @@ def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, s
         artist = extract_first_of(e, ['artist', 'song_artist'])
         ident = _extract_song_identifier(e)
         album = extract_first_of(e, ['album_name'])
+        year_str = extract_first_of(e, ['year_released'])
+        length_str = extract_first_of(e, ['song_length'])
+        year_val: Optional[int] = None
+        length_ms_val: Optional[int] = None
+        try:
+            if year_str is not None:
+                year_val = int(str(year_str).strip())
+        except Exception:
+            year_val = None
+        try:
+            if length_str is not None:
+                length_ms_val = int(str(length_str).strip())
+        except Exception:
+            length_ms_val = None
         if name and artist:
-            results.append((artist, name, album))
+            results.append((artist, name, album, year_val, length_ms_val))
             stats['completed_pairs'] += 1
         else:
             if not artist:
                 stats['missing_artist'] += 1
             if not name:
                 stats['missing_name'] += 1
-            partials.append((artist, name, ident, album))
+            partials.append((artist, name, ident, album, year_val, length_ms_val))
     return results, stats, partials
 
 
-def write_outputs(pairs: List[Tuple[str, str, Optional[str]]], cwd: str) -> None:
+def _format_mm_ss(length_ms: Optional[int]) -> str:
+    if length_ms is None or length_ms < 0:
+        return '?:??'
+    total_seconds = length_ms // 1000
+    minutes = total_seconds // 60
+    seconds = total_seconds % 60
+    return f"{minutes}:{seconds:02d}"
+
+
+def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]], cwd: str) -> None:
     # Sort explicitly by artist, then album (if present), then name for artist list
     artist_sorted = sorted(pairs, key=lambda x: (x[0].lower(), (x[2] or '').lower(), x[1].lower()))
     # Sort by name, then artist for name list
@@ -236,14 +259,18 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str]]], cwd: str) -> None
     name_path = os.path.join(cwd, 'SongListSortedBySongName.txt')
 
     with open(artist_path, 'w', encoding='utf-8') as fa:
-        for artist, name, album in artist_sorted:
+        for artist, name, album, year_val, length_ms_val in artist_sorted:
             album_disp = album if album else '(unknown album)'
-            fa.write(f"{artist} ({album_disp}) - {name}\n")
+            year_disp = str(year_val) if year_val is not None else '?'
+            length_disp = _format_mm_ss(length_ms_val)
+            fa.write(f"{artist} ({album_disp}) - {name} ({year_disp} / {length_disp})\n")
 
     with open(name_path, 'w', encoding='utf-8') as fn:
-        for artist, name, album in name_sorted:
+        for artist, name, album, year_val, length_ms_val in name_sorted:
             album_disp = album if album else '(unknown album)'
-            fn.write(f"{name} by {artist} on {album_disp}\n")
+            year_disp = str(year_val) if year_val is not None else '?'
+            length_disp = _format_mm_ss(length_ms_val)
+            fn.write(f"{name} by {artist} on {album_disp} ({year_disp} / {length_disp})\n")
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -276,18 +303,18 @@ def main(argv: Optional[List[str]] = None) -> int:
     # Log partial entries for analysis
     if partials:
         logging.info('Partial entries (missing artist or name):')
-        for a, n, ident, album in partials:
+        for a, n, ident, album, year_val, length_ms_val in partials:
             logging.info(
-                f"  id={ident if ident else '<unknown id>'} | artist={a if a else '<missing>'} | name={n if n else '<missing>'} | album={album if album else '<missing>'}"
+                f"  id={ident if ident else '<unknown id>'} | artist={a if a else '<missing>'} | name={n if n else '<missing>'} | album={album if album else '<missing>'} | year={year_val if year_val is not None else '<missing>'} | length={_format_mm_ss(length_ms_val)}"
             )
 
     # Augment outputs with partials using placeholders so lists remain comprehensive
-    placeholder_pairs: List[Tuple[str, str, Optional[str]]] = []
-    for a, n, _, album in partials:
+    placeholder_pairs: List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]] = []
+    for a, n, _, album, year_val, length_ms_val in partials:
         artist_val = a if a else '(unknown artist)'
         name_val = n if n else '(unknown title)'
         album_val = album if album else None
-        placeholder_pairs.append((artist_val, name_val, album_val))
+        placeholder_pairs.append((artist_val, name_val, album_val, year_val, length_ms_val))
 
     all_pairs = pairs + placeholder_pairs
 
