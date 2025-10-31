@@ -6,6 +6,13 @@ import sys
 import logging
 from typing import List, Tuple, Optional, Dict
 
+# Lines containing any of these (case-insensitive) will be excluded from the
+# "Clean" output files. Extend this list as needed.
+CURSE_WORDS: List[str] = [
+    'shit',
+    'fuck',
+]
+
 
 def read_file_text(path: str) -> str:
     with open(path, 'r', encoding='utf-8', errors='replace') as f:
@@ -272,20 +279,47 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
 
     artist_path = os.path.join(cwd, 'SongListSortedByArtist.txt')
     name_path = os.path.join(cwd, 'SongListSortedBySongName.txt')
+    artist_clean_path = os.path.join(cwd, 'SongListSortedByArtistClean.txt')
+    name_clean_path = os.path.join(cwd, 'SongListSortedBySongNameClean.txt')
+
+    def _contains_curse(line: str) -> bool:
+        low = line.lower()
+        for w in CURSE_WORDS:
+            if w in low:
+                return True
+        return False
+
+    artist_lines: List[str] = []
+    for artist, name, album, year_val, length_ms_val in artist_sorted:
+        album_disp = album if album else '(unknown album)'
+        year_disp = str(year_val) if year_val is not None else '?'
+        length_disp = _format_mm_ss(length_ms_val)
+        artist_lines.append(f"{artist} ({album_disp}) - {name} ({year_disp} / {length_disp})")
 
     with open(artist_path, 'w', encoding='utf-8') as fa:
-        for artist, name, album, year_val, length_ms_val in artist_sorted:
-            album_disp = album if album else '(unknown album)'
-            year_disp = str(year_val) if year_val is not None else '?'
-            length_disp = _format_mm_ss(length_ms_val)
-            fa.write(f"{artist} ({album_disp}) - {name} ({year_disp} / {length_disp})\n")
+        for line in artist_lines:
+            fa.write(line + "\n")
+
+    with open(artist_clean_path, 'w', encoding='utf-8') as fa_clean:
+        for line in artist_lines:
+            if not _contains_curse(line):
+                fa_clean.write(line + "\n")
+
+    name_lines: List[str] = []
+    for artist, name, album, year_val, length_ms_val in name_sorted:
+        album_disp = album if album else '(unknown album)'
+        year_disp = str(year_val) if year_val is not None else '?'
+        length_disp = _format_mm_ss(length_ms_val)
+        name_lines.append(f"{name} by {artist} on {album_disp} ({year_disp} / {length_disp})")
 
     with open(name_path, 'w', encoding='utf-8') as fn:
-        for artist, name, album, year_val, length_ms_val in name_sorted:
-            album_disp = album if album else '(unknown album)'
-            year_disp = str(year_val) if year_val is not None else '?'
-            length_disp = _format_mm_ss(length_ms_val)
-            fn.write(f"{name} by {artist} on {album_disp} ({year_disp} / {length_disp})\n")
+        for line in name_lines:
+            fn.write(line + "\n")
+
+    with open(name_clean_path, 'w', encoding='utf-8') as fn_clean:
+        for line in name_lines:
+            if not _contains_curse(line):
+                fn_clean.write(line + "\n")
 
 
 def main(argv: Optional[List[str]] = None) -> int:
