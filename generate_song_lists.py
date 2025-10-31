@@ -290,14 +290,14 @@ def _format_mm_ss(length_ms: Optional[int]) -> str:
 
 
 def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]], cwd: str) -> Dict[str, int]:
-    # Calculate totals
+    # Calculate totals for full lists
     total_songs = len(pairs)
     unique_artists = set(artist for artist, _, _, _, _ in pairs if artist and artist != '(unknown artist)')
     total_artists = len(unique_artists)
     unique_albums = set(album for _, _, album, _, _ in pairs if album and album != '(unknown album)')
     total_albums = len(unique_albums)
     
-    header = f"Total songs: {total_songs}\nTotal albums: {total_albums}\nTotal artists: {total_artists}\n\n"
+    header_full = f"Total songs: {total_songs}\nTotal albums: {total_albums}\nTotal artists: {total_artists}\n\n"
 
     # Sort explicitly by artist, then album (if present), then name for artist list
     artist_sorted = sorted(pairs, key=lambda x: (x[0].lower(), (x[2] or '').lower(), x[1].lower()))
@@ -336,25 +336,42 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         artist_lines.append(f"{artist} ({album_disp}) - {name} ({year_disp} / {length_disp})")
 
     with open(artist_path, 'w', encoding='utf-8') as fa:
-        fa.write(header)  # Add header
+        fa.write(header_full)  # Use full totals
         for line in artist_lines:
             fa.write(line + "\n")
 
+    # Collect clean artist lines and compute clean totals
+    artist_clean_lines: List[str] = []
     artist_clean_filtered = 0
     artist_clean_written = 0
     artist_term_counts: Dict[str, int] = {}
+    for line in artist_lines:
+        terms = _matched_curses(line)
+        if terms:
+            artist_clean_filtered += 1
+            for t in terms:
+                artist_term_counts[t] = artist_term_counts.get(t, 0) + 1
+            logging.info(f"Filtered (artist-clean): {line}")
+            logging.info(f"  -> matched: {', '.join(sorted(terms))}")
+            continue
+        artist_clean_written += 1
+        artist_clean_lines.append(line)
+
+    # Calculate clean totals from artist_clean_lines
+    clean_artist_data = [line for line in artist_clean_lines]  # Parse back to get artist/album
+    # For simplicity, parse from the lines (since we have the original data, but to keep it simple)
+    # Actually, better: track the tuples for clean data
+    artist_clean_pairs = [artist_sorted[i] for i, line in enumerate(artist_lines) if _matched_curses(line) == set()]  # Unfiltered tuples
+    clean_unique_artists = set(artist for artist, _, _, _, _ in artist_clean_pairs if artist and artist != '(unknown artist)')
+    clean_total_artists_artist = len(clean_unique_artists)
+    clean_unique_albums = set(album for _, _, album, _, _ in artist_clean_pairs if album and album != '(unknown album)')
+    clean_total_albums_artist = len(clean_unique_albums)
+    clean_total_songs_artist = len(artist_clean_pairs)
+    header_clean_artist = f"Total songs: {clean_total_songs_artist}\nTotal albums: {clean_total_albums_artist}\nTotal artists: {clean_total_artists_artist}\n\n"
+
     with open(artist_clean_path, 'w', encoding='utf-8') as fa_clean:
-        fa_clean.write(header)  # Add header
-        for line in artist_lines:
-            terms = _matched_curses(line)
-            if terms:
-                artist_clean_filtered += 1
-                for t in terms:
-                    artist_term_counts[t] = artist_term_counts.get(t, 0) + 1
-                logging.info(f"Filtered (artist-clean): {line}")
-                logging.info(f"  -> matched: {', '.join(sorted(terms))}")
-                continue
-            artist_clean_written += 1
+        fa_clean.write(header_clean_artist)  # Use clean totals
+        for line in artist_clean_lines:
             fa_clean.write(line + "\n")
 
     name_lines: List[str] = []
@@ -365,25 +382,39 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         name_lines.append(f"{name} by {artist} on {album_disp} ({year_disp} / {length_disp})")
 
     with open(name_path, 'w', encoding='utf-8') as fn:
-        fn.write(header)  # Add header
+        fn.write(header_full)  # Use full totals
         for line in name_lines:
             fn.write(line + "\n")
 
+    # Collect clean name lines and compute clean totals
+    name_clean_lines: List[str] = []
     name_clean_filtered = 0
     name_clean_written = 0
     name_term_counts: Dict[str, int] = {}
+    for line in name_lines:
+        terms = _matched_curses(line)
+        if terms:
+            name_clean_filtered += 1
+            for t in terms:
+                name_term_counts[t] = name_term_counts.get(t, 0) + 1
+            logging.info(f"Filtered (name-clean):   {line}")
+            logging.info(f"  -> matched: {', '.join(sorted(terms))}")
+            continue
+        name_clean_written += 1
+        name_clean_lines.append(line)
+
+    # Calculate clean totals from name_clean_lines (same as above)
+    name_clean_pairs = [name_sorted[i] for i, line in enumerate(name_lines) if _matched_curses(line) == set()]  # Unfiltered tuples
+    clean_unique_artists_name = set(artist for artist, _, _, _, _ in name_clean_pairs if artist and artist != '(unknown artist)')
+    clean_total_artists_name = len(clean_unique_artists_name)
+    clean_unique_albums_name = set(album for _, _, album, _, _ in name_clean_pairs if album and album != '(unknown album)')
+    clean_total_albums_name = len(clean_unique_albums_name)
+    clean_total_songs_name = len(name_clean_pairs)
+    header_clean_name = f"Total songs: {clean_total_songs_name}\nTotal albums: {clean_total_albums_name}\nTotal artists: {clean_total_artists_name}\n\n"
+
     with open(name_clean_path, 'w', encoding='utf-8') as fn_clean:
-        fn_clean.write(header)  # Add header
-        for line in name_lines:
-            terms = _matched_curses(line)
-            if terms:
-                name_clean_filtered += 1
-                for t in terms:
-                    name_term_counts[t] = name_term_counts.get(t, 0) + 1
-                logging.info(f"Filtered (name-clean):   {line}")
-                logging.info(f"  -> matched: {', '.join(sorted(terms))}")
-                continue
-            name_clean_written += 1
+        fn_clean.write(header_clean_name)  # Use clean totals
+        for line in name_clean_lines:
             fn_clean.write(line + "\n")
 
     return {
@@ -397,7 +428,6 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         'artist_term_counts': artist_term_counts,
         'name_term_counts': name_term_counts,
     }
-
 
 def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(
