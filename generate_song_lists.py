@@ -4,14 +4,32 @@ import argparse
 import os
 import sys
 import logging
-from typing import List, Tuple, Optional, Dict
+import re
+from typing import List, Tuple, Optional, Dict, Iterable, Set
 
 # Lines containing any of these (case-insensitive) will be excluded from the
 # "Clean" output files. Extend this list as needed.
 CURSE_WORDS: List[str] = [
-    'shit',
-    'fuck',
+    # strong profanity
+    'shit', 'fuck', 'bitch', 'bullshit', 'motherfucker', 'mother fucker',
+    # sexual/body terms (note: see regex boundary list below for risky ones)
+    'tits', 'boobs', 'jizz',
+    # ass compounds (avoid plain 'ass')
+    'asshole', 'dumbass', 'badass', 'jackass', 'smartass',
+    # other
+    'bastard', 'damn', 'dammit', 'goddamn', 'god damn',
 ]
+
+# Regex patterns with word boundaries to reduce false positives
+# Use lowercase in patterns; matching is case-insensitive
+CURSE_REGEX_PATTERNS: List[str] = [
+    r"\bdick\b",
+    r"\bcock\b",
+    r"\bcum\b",
+    r"\bpiss(ed|ing)?\b",
+]
+
+_CURSE_REGEX: List[re.Pattern] = [re.compile(p, re.IGNORECASE) for p in CURSE_REGEX_PATTERNS]
 
 
 def read_file_text(path: str) -> str:
@@ -282,12 +300,16 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
     artist_clean_path = os.path.join(cwd, 'SongListSortedByArtistClean.txt')
     name_clean_path = os.path.join(cwd, 'SongListSortedBySongNameClean.txt')
 
-    def _contains_curse(line: str) -> bool:
+    def _matched_curses(line: str) -> Set[str]:
         low = line.lower()
+        matched: Set[str] = set()
         for w in CURSE_WORDS:
             if w in low:
-                return True
-        return False
+                matched.add(w)
+        for pat in _CURSE_REGEX:
+            if pat.search(line):
+                matched.add(pat.pattern)
+        return matched
 
     artist_lines: List[str] = []
     for artist, name, album, year_val, length_ms_val in artist_sorted:
@@ -302,11 +324,16 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
 
     artist_clean_filtered = 0
     artist_clean_written = 0
+    artist_term_counts: Dict[str, int] = {}
     with open(artist_clean_path, 'w', encoding='utf-8') as fa_clean:
         for line in artist_lines:
-            if _contains_curse(line):
+            terms = _matched_curses(line)
+            if terms:
                 artist_clean_filtered += 1
+                for t in terms:
+                    artist_term_counts[t] = artist_term_counts.get(t, 0) + 1
                 logging.info(f"Filtered (artist-clean): {line}")
+                logging.info(f"  -> matched: {', '.join(sorted(terms))}")
                 continue
             artist_clean_written += 1
             fa_clean.write(line + "\n")
@@ -324,11 +351,16 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
 
     name_clean_filtered = 0
     name_clean_written = 0
+    name_term_counts: Dict[str, int] = {}
     with open(name_clean_path, 'w', encoding='utf-8') as fn_clean:
         for line in name_lines:
-            if _contains_curse(line):
+            terms = _matched_curses(line)
+            if terms:
                 name_clean_filtered += 1
+                for t in terms:
+                    name_term_counts[t] = name_term_counts.get(t, 0) + 1
                 logging.info(f"Filtered (name-clean):   {line}")
+                logging.info(f"  -> matched: {', '.join(sorted(terms))}")
                 continue
             name_clean_written += 1
             fn_clean.write(line + "\n")
@@ -340,6 +372,9 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         'name_total': len(name_lines),
         'name_clean_written': name_clean_written,
         'name_clean_filtered': name_clean_filtered,
+        # include per-term counts for analysis
+        'artist_term_counts': artist_term_counts,
+        'name_term_counts': name_term_counts,
     }
 
 
@@ -416,6 +451,16 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"  - Name clean:   total={out_stats.get('name_total', 0)}, "
               f"written={out_stats.get('name_clean_written', 0)}, "
               f"filtered={out_stats.get('name_clean_filtered', 0)}")
+        # Per-term breakdown (only show non-zero terms), merged across both outputs
+        term_counts: Dict[str, int] = {}
+        for k, v in (out_stats.get('artist_term_counts', {}) or {}).items():
+            term_counts[k] = term_counts.get(k, 0) + v
+        for k, v in (out_stats.get('name_term_counts', {}) or {}).items():
+            term_counts[k] = term_counts.get(k, 0) + v
+        if term_counts:
+            print('  - Filter term counts:')
+            for term, count in sorted(term_counts.items(), key=lambda kv: (-kv[1], kv[0])):
+                print(f'    • {term}: {count}')
     return 0
 
 
