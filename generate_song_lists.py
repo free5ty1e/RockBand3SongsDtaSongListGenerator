@@ -271,7 +271,7 @@ def _format_mm_ss(length_ms: Optional[int]) -> str:
     return f"{minutes}:{seconds:02d}"
 
 
-def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]], cwd: str) -> None:
+def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]], cwd: str) -> Dict[str, int]:
     # Sort explicitly by artist, then album (if present), then name for artist list
     artist_sorted = sorted(pairs, key=lambda x: (x[0].lower(), (x[2] or '').lower(), x[1].lower()))
     # Sort by name, then artist for name list
@@ -300,10 +300,16 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         for line in artist_lines:
             fa.write(line + "\n")
 
+    artist_clean_filtered = 0
+    artist_clean_written = 0
     with open(artist_clean_path, 'w', encoding='utf-8') as fa_clean:
         for line in artist_lines:
-            if not _contains_curse(line):
-                fa_clean.write(line + "\n")
+            if _contains_curse(line):
+                artist_clean_filtered += 1
+                logging.info(f"Filtered (artist-clean): {line}")
+                continue
+            artist_clean_written += 1
+            fa_clean.write(line + "\n")
 
     name_lines: List[str] = []
     for artist, name, album, year_val, length_ms_val in name_sorted:
@@ -316,10 +322,25 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         for line in name_lines:
             fn.write(line + "\n")
 
+    name_clean_filtered = 0
+    name_clean_written = 0
     with open(name_clean_path, 'w', encoding='utf-8') as fn_clean:
         for line in name_lines:
-            if not _contains_curse(line):
-                fn_clean.write(line + "\n")
+            if _contains_curse(line):
+                name_clean_filtered += 1
+                logging.info(f"Filtered (name-clean):   {line}")
+                continue
+            name_clean_written += 1
+            fn_clean.write(line + "\n")
+
+    return {
+        'artist_total': len(artist_lines),
+        'artist_clean_written': artist_clean_written,
+        'artist_clean_filtered': artist_clean_filtered,
+        'name_total': len(name_lines),
+        'name_clean_written': name_clean_written,
+        'name_clean_filtered': name_clean_filtered,
+    }
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -367,7 +388,7 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     all_pairs = pairs + placeholder_pairs
 
-    write_outputs(all_pairs, os.getcwd())
+    out_stats = write_outputs(all_pairs, os.getcwd())
 
     # Summary
     total = stats.get('total_entries', 0)
@@ -387,6 +408,14 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f'  - Missing name: {missing_name}')
     print(f'- Lines written to SongListSortedByArtist.txt: {len(all_pairs)}')
     print(f'- Lines written to SongListSortedBySongName.txt: {len(all_pairs)}')
+    if out_stats:
+        print('- Clean outputs:')
+        print(f"  - Artist clean: total={out_stats.get('artist_total', 0)}, "
+              f"written={out_stats.get('artist_clean_written', 0)}, "
+              f"filtered={out_stats.get('artist_clean_filtered', 0)}")
+        print(f"  - Name clean:   total={out_stats.get('name_total', 0)}, "
+              f"written={out_stats.get('name_clean_written', 0)}, "
+              f"filtered={out_stats.get('name_clean_filtered', 0)}")
     return 0
 
 
