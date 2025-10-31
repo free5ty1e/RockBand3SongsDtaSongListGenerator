@@ -290,6 +290,15 @@ def _format_mm_ss(length_ms: Optional[int]) -> str:
 
 
 def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]], cwd: str) -> Dict[str, int]:
+    # Calculate totals
+    total_songs = len(pairs)
+    unique_artists = set(artist for artist, _, _, _, _ in pairs if artist and artist != '(unknown artist)')
+    total_artists = len(unique_artists)
+    unique_albums = set(album for _, _, album, _, _ in pairs if album and album != '(unknown album)')
+    total_albums = len(unique_albums)
+    
+    header = f"Total songs: {total_songs}\nTotal albums: {total_albums}\nTotal artists: {total_artists}\n\n"
+
     # Sort explicitly by artist, then album (if present), then name for artist list
     artist_sorted = sorted(pairs, key=lambda x: (x[0].lower(), (x[2] or '').lower(), x[1].lower()))
     # Sort by name, then artist for name list
@@ -299,6 +308,14 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
     name_path = os.path.join(cwd, 'SongListSortedBySongName.txt')
     artist_clean_path = os.path.join(cwd, 'SongListSortedByArtistClean.txt')
     name_clean_path = os.path.join(cwd, 'SongListSortedBySongNameClean.txt')
+
+    def _format_mm_ss(length_ms: Optional[int]) -> str:
+        if length_ms is None or length_ms < 0:
+            return '?:??'
+        total_seconds = length_ms // 1000
+        minutes = total_seconds // 60
+        seconds = total_seconds % 60
+        return f"{minutes}:{seconds:02d}"
 
     def _matched_curses(line: str) -> Set[str]:
         low = line.lower()
@@ -319,6 +336,7 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         artist_lines.append(f"{artist} ({album_disp}) - {name} ({year_disp} / {length_disp})")
 
     with open(artist_path, 'w', encoding='utf-8') as fa:
+        fa.write(header)  # Add header
         for line in artist_lines:
             fa.write(line + "\n")
 
@@ -326,6 +344,7 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
     artist_clean_written = 0
     artist_term_counts: Dict[str, int] = {}
     with open(artist_clean_path, 'w', encoding='utf-8') as fa_clean:
+        fa_clean.write(header)  # Add header
         for line in artist_lines:
             terms = _matched_curses(line)
             if terms:
@@ -346,6 +365,7 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         name_lines.append(f"{name} by {artist} on {album_disp} ({year_disp} / {length_disp})")
 
     with open(name_path, 'w', encoding='utf-8') as fn:
+        fn.write(header)  # Add header
         for line in name_lines:
             fn.write(line + "\n")
 
@@ -353,6 +373,7 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
     name_clean_written = 0
     name_term_counts: Dict[str, int] = {}
     with open(name_clean_path, 'w', encoding='utf-8') as fn_clean:
+        fn_clean.write(header)  # Add header
         for line in name_lines:
             terms = _matched_curses(line)
             if terms:
