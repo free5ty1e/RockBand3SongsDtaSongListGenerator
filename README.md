@@ -1,14 +1,86 @@
 # RockBand3SongsDtaSongListGenerator
-Rock Band 3 songs.dta song list generator for parties
 
-(I throw Rock Band 3 parties, where I run [Rock Band 3 Deluxe](https://rb3dx.milohax.org/) on my hacked PS3 with all the instruments and all 3 microphones, and I manage my own `songs.dta`.  My guests like to be able to look through songs on their phones when they are not active in the current band to help them decide what they'd like to play or sing next, as a lot of time is spent scrolling through songs trying to choose what to play.  This Python 3 script takes such a `songs.dta` file and generates two files, exemplified below, for sharing with rock band party guests so they can select songs when they are waiting their turn / watching others play.)
+Rock Band 3 `songs.dta` song list generator for parties.
 
-To run:
+I run [Rock Band 3 Deluxe](https://rb3dx.milohax.org/) on a PS3 at parties and maintain a large custom `songs.dta`. Guests like browsing songs on their phones to plan what to play next. This Python 3 tool parses the `songs.dta` and produces sharable, human-friendly lists.
+
+## Features
+
+- Robust parsing of large `songs.dta` files (handles quoted strings, single-quoted atoms, and comments)
+- Extracts artist, song name, album name (if present), year released, and song length
+- Generates four text files:
+  - `SongListSortedByArtist.txt` — sorted by artist, then album, then song name
+  - `SongListSortedBySongName.txt` — sorted by song name, then artist
+  - `SongListSortedByArtistClean.txt` — same as artist list, with profanity-filtered lines removed
+  - `SongListSortedBySongNameClean.txt` — same as song-name list, with profanity-filtered lines removed
+- Summary at the end: entries parsed, extracted pairs, missing counts, lines written, clean-file stats, and per-term profanity counts
+- Logs partial/malformed entries (with song identifier) to help diagnose parsing issues
+
+## Requirements
+
+- Python 3.8+
+
+## Usage
+
+```bash
+python3 generate_song_lists.py /path/to/songs.dta
 ```
-python3 generate_song_lists.py songs.dta
-```
 
-Output examples
+Notes:
+- Input may be a standard `songs.dta` or a text export (e.g., `songs.dta.txt`).
+- The script writes outputs into the current working directory.
+
+## Output format
+
+- `SongListSortedByArtist.txt`
+  - Line format: `artist (album) - name (year_released / mm:ss)`
+  - Sorted by artist → album → name
+
+- `SongListSortedBySongName.txt`
+  - Line format: `name by artist on album (year_released / mm:ss)`
+  - Sorted by name → artist
+
+Placeholders when data is missing:
+- Album: `(unknown album)`
+- Year: `?`
+- Length: `?:??` (length is interpreted as milliseconds in the DTA and converted to mm:ss)
+
+## Clean outputs and profanity filtering
+
+Two additional files exclude lines containing configured profanity (case-insensitive):
+- `SongListSortedByArtistClean.txt`
+- `SongListSortedBySongNameClean.txt`
+
+The filter uses a combined approach:
+- Simple substrings (e.g., `shit`, `bitch`, `asshole`, `bastard`, `damn`, etc.)
+- Regexes with word boundaries for risky matches (e.g., `\bdick\b`, `\bcock\b`)
+
+Every filtered line is logged with the specific matching terms. The summary includes per-term counts so you can refine the list.
+
+### Customizing the word list
+
+Edit the lists near the top of `generate_song_lists.py`:
+- `CURSE_WORDS`: simple case-insensitive substrings
+- `CURSE_REGEX_PATTERNS`: regex patterns (compiled with `re.IGNORECASE`)
+
+
+## Console logging and summary
+
+The script prints:
+- Warnings if no (artist, name) pairs were found
+- Partial entries with missing fields in the form: `id=<identifier> | artist=<...> | name=<...> | album=<...> | year=<...> | length=<...>`
+- Final summary with counts for total parsed, extracted pairs, skipped entries, lines written for each file, and clean-file filtering stats (including per-term counts)
+
+## Troubleshooting
+
+- Unexpectedly low entry count:
+  - The parser skips quoted strings, single-quoted atoms, and `;` comments while tracking parentheses depth. If your DTA has unusual formatting, share an example entry to refine the parser.
+- Missing data for some entries:
+  - The tool includes entries even when only one of artist/name is available, using placeholders so lists remain comprehensive.
+- Garbled characters:
+  - Input is read as UTF-8 with replacement for invalid sequences (`errors='replace'`). Provide a properly encoded export if possible.
+
+## Example outputs
 
 `SongListSortedByArtist.txt`:
 ```
@@ -24,26 +96,7 @@ Foster the People (Torches) - Pumped Up Kicks (2011 / 3:57)
 Fountains of Wayne (Welcome Interstate Managers) - Stacy's Mom (2003 / 3:21)
 Frank Sinatra (It Might as Well Be Swing) - Fly Me to the Moon (In Other Words) (1964 / 2:37)
 Frank Sinatra (My Way) - My Way (1969 / 4:49)
-Frankie Valli (Grease: The Original Soundtrack) - Grease (1978 / 3:31)
-Franz Ferdinand (Franz Ferdinand) - Take Me Out (2004 / ?:??)
-Franz Ferdinand (Tonight: Franz Ferdinand) - Lucid Dreams (2009 / ?:??)
-Franz Ferdinand (You Could Have It So Much Better) - Do You Want To (2005 / ?:??)
-Freezepop ((unknown album)) - Brainpower (? / ?:??)
-Freezepop ((unknown album)) - Sprode (? / ?:??)
-Freezepop (Freezepop Forever) - Get Ready 2 Rokk (2000 / ?:??)
-Freezepop (Freezepop Forever) - Science Genius Girl (2000 / ?:??)
-Freezepop (Future Future Future Perfect) - Less Talk More Rokk (2007 / ?:??)
-Freezepop (Imaginary Friends) - Doppelgï¿½nger (2010 / 4:03)
-Freezepop (Imaginary Friends) - Special Effects (2010 / 4:10)
-Fun. (Some Nights) - Carry On (2012 / 4:44)
-G. Love & Special Sauce (The Hustle) - Front Porch Lounger (2004 / 4:08)
-Galantis (Pharmacy) - Peanut Butter Jelly (2015 / 3:38)
-Galneryus ((unknown album)) - Destiny (1960 / 7:49)
-Galneryus ((unknown album)) - Save You! (1960 / 7:32)
-Garbage ((unknown album)) - I Think I'm Paranoid (? / ?:??)
-Garbage (Garbage) - Stupid Girl (1995 / 4:22)
 ```
-
 
 `SongListSortedBySongName.txt`
 ```
@@ -53,21 +106,4 @@ Garbage (Garbage) - Stupid Girl (1995 / 4:22)
 5 Minutes Alone by Pantera on Far Beyond Driven (1994 / 5:58)
 7 Things by Miley Cyrus on Breakout (2008 / 3:33)
 867-5309/Jenny by Tommy Tutone on Tutone-Ality (1981 / 3:48)
-99 Luftballons by Nena on Nena (1983 / 3:53)
-A Bullet in the Head by Anarchy Club on The Art of War (2009 / 3:41)
-A Day In The Life by The Beatles on Sgt. Pepper's Lonely Hearts Club Band (1967 / 5:11)
-A Day Like This by SpongeBob SquarePants on SpongeBob's Greatest Hits (2009 / ?:??)
-A Drug Against War by KMFDM on Angst (1993 / 4:52)
-A Favor House Atlantic by Coheed and Cambria on In Keeping Secrets of Silent Earth: 3 (2004 / ?:??)
-A Forest by The Cure on Seventeen Seconds (1980 / 6:02)
-A Hard Day's Night by The Beatles on A Hard Day's Night (1964 / 2:31)
-A Hard Day's Night by The Beatles on A Hard Day's Night (1964 / 2:31)
-A Jagged Gorgeous Winter by The Main Drag on Yours As Fast As Mine (2008 / 3:58)
-A Little Less Sixteen Candles, a Little More \qTouch Me\q by Fall Out Boy on From Under the Cork Tree (2005 / 2:51)
-A Little Respect by Erasure on The Innocents (1988 / 3:43)
-A Looking in View by Alice In Chains on Black Gives Way to Blue (2009 / ?:??)
-A Lot Like Me by The Offspring on Rise and Fall, Rage and Grace (2008 / 4:17)
-A Milli by Lil Wayne on Tha Carter III (2008 / 3:42)
-A Night Like This by The Cure on The Head on the Door (1985 / 4:17)
 ```
-
