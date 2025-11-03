@@ -1,6 +1,6 @@
-# 🚀 Rock Band 3 Deluxe: Encrypted MOGG Fix Workflow
+# 🚀 Rock Band 3 Deluxe: Encrypted MOGG Detection & Fix Workflow
 
-This guide details a reliable, three-step workflow to identify and fix custom songs in your library that fail to load (hang on the loading screen) due to **encrypted MOGG audio files**. This process leverages the **Nautilus Batch Cryptor** tool and two custom PowerShell scripts to efficiently process a large library.
+This guide details a reliable, three-step workflow to **automatically identify and fix** custom songs in your library that fail to load (hang on the loading screen) due to **encrypted MOGG audio files**. The process leverages intelligent file scanning, the **Nautilus Batch Cryptor** tool, and two custom PowerShell scripts to efficiently process only the songs that need fixing.
 
 ---
 
@@ -28,27 +28,33 @@ Before starting, ensure you have the following:
 
 This workflow is designed to be safe, creating a new, clean output directory containing **only** the fixed songs, leaving your original library untouched.
 
-### Step 1: Extract All MOGG Files to a Temp Folder (Script 1)
+### Step 1: Extract MOGG Files to a Temp Folder (Script 1)
 
-This script flattens your entire library's MOGG files into one temporary location so Nautilus can process them all at once.
+This script flattens your entire library's MOGG files into one temporary location so Nautilus can process them all at once. By default, all MOGG files are copied, but you can optionally use the `-FilterEncryptedOnly` parameter to copy only encrypted MOGG files (first two bytes = '11' hex).
 
-#### **Script 1: `copy_mogg_to_temp.ps1`**
+#### **Script 1: `moggFlattenAllForDecryptionStep1.ps1`**
 
 | Parameter | Description |
 | :--- | :--- |
 | **`-RootPath`** | **Mandatory.** The root directory of your entire custom song library. |
 | **`-TempPath`** | **Mandatory.** The temporary directory where MOGG files will be copied for Nautilus. |
+| **`-LogFile`** | **Optional.** Path to a log file for detailed processing information. |
+| **`-FilterEncryptedOnly`** | **Optional.** Only copy encrypted MOGG files (first two bytes = '11' hex). Default: copy all MOGG files. |
 
-**Execution Example:**
+**Execution Examples:**
 \`\`\`powershell
-.\copy_mogg_to_temp.ps1 -RootPath 'C:\MyRB3Library\Original_Songs' -TempPath 'C:\RB3DX_Temp_MOGG_Process'
+# Copy all MOGG files (recommended for most cases):
+.\moggFlattenAllForDecryptionStep1.ps1 -RootPath 'C:\MyRB3Library\Original_Songs' -TempPath 'C:\RB3DX_Temp_MOGG_Process'
+
+# Copy only encrypted MOGG files (for targeted processing):
+.\moggFlattenAllForDecryptionStep1.ps1 -RootPath 'C:\MyRB3Library\Original_Songs' -TempPath 'C:\RB3DX_Temp_MOGG_Process' -FilterEncryptedOnly -LogFile 'C:\RB3DX_Temp_MOGG_Process\log.txt'
 \`\`\`
 
 ---
 
 ### Step 2: Batch Decrypt the MOGG Files (Nautilus)
 
-Run the Nautilus tool on the temporary folder to decrypt any encrypted MOGG files.
+Run the Nautilus tool on the temporary folder containing only the encrypted MOGG files identified in Step 1.
 
 1.  Open **Nautilus** and navigate to the **Batch Cryptor** tab.
 2.  Set the mode to **Decrypt**.
