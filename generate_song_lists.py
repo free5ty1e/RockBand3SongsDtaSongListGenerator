@@ -6,6 +6,8 @@ import sys
 import logging
 import re
 from typing import List, Tuple, Optional, Dict, Iterable, Set
+import datetime
+
 
 # Lines containing any of these (case-insensitive) will be excluded from the
 # "Clean" output files. Extend this list as needed.
@@ -290,6 +292,12 @@ def _format_mm_ss(length_ms: Optional[int]) -> str:
 
 
 def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]], cwd: str) -> Dict[str, int]:
+    # Get current time in Eastern Time
+    now = datetime.datetime.now()
+    timestamp = now.strftime("%A, %B %d, %Y at %I:%M:%S %p ET")
+    
+    header_timestamp = f"Generated on: {timestamp}\n\n"
+
     # Calculate totals for full lists
     total_songs = len(pairs)
     unique_artists = set(artist for artist, _, _, _, _ in pairs if artist and artist != '(unknown artist)')
@@ -297,7 +305,7 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
     unique_albums = set(album for _, _, album, _, _ in pairs if album and album != '(unknown album)')
     total_albums = len(unique_albums)
     
-    header_full = f"Total songs: {total_songs}\nTotal albums: {total_albums}\nTotal artists: {total_artists}\n\n"
+    header_full = header_timestamp + f"Total songs: {total_songs}\nTotal albums: {total_albums}\nTotal artists: {total_artists}\n\n"
 
     # Sort explicitly by artist, then album (if present), then name for artist list
     artist_sorted = sorted(pairs, key=lambda x: (x[0].lower(), (x[2] or '').lower(), x[1].lower()))
@@ -336,7 +344,7 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         artist_lines.append(f"{artist} ({album_disp}) - {name} ({year_disp} / {length_disp})")
 
     with open(artist_path, 'w', encoding='utf-8') as fa:
-        fa.write(header_full)  # Use full totals
+        fa.write(header_full)  # Use full totals with timestamp
         for line in artist_lines:
             fa.write(line + "\n")
 
@@ -358,19 +366,16 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         artist_clean_lines.append(line)
 
     # Calculate clean totals from artist_clean_lines
-    clean_artist_data = [line for line in artist_clean_lines]  # Parse back to get artist/album
-    # For simplicity, parse from the lines (since we have the original data, but to keep it simple)
-    # Actually, better: track the tuples for clean data
     artist_clean_pairs = [artist_sorted[i] for i, line in enumerate(artist_lines) if _matched_curses(line) == set()]  # Unfiltered tuples
-    clean_unique_artists = set(artist for artist, _, _, _, _ in artist_clean_pairs if artist and artist != '(unknown artist)')
-    clean_total_artists_artist = len(clean_unique_artists)
-    clean_unique_albums = set(album for _, _, album, _, _ in artist_clean_pairs if album and album != '(unknown album)')
-    clean_total_albums_artist = len(clean_unique_albums)
+    clean_unique_artists_artist = set(artist for artist, _, _, _, _ in artist_clean_pairs if artist and artist != '(unknown artist)')
+    clean_total_artists_artist = len(clean_unique_artists_artist)
+    clean_unique_albums_artist = set(album for _, _, album, _, _ in artist_clean_pairs if album and album != '(unknown album)')
+    clean_total_albums_artist = len(clean_unique_albums_artist)
     clean_total_songs_artist = len(artist_clean_pairs)
-    header_clean_artist = f"Total songs: {clean_total_songs_artist}\nTotal albums: {clean_total_albums_artist}\nTotal artists: {clean_total_artists_artist}\n\n"
+    header_clean_artist = header_timestamp + f"Total songs: {clean_total_songs_artist}\nTotal albums: {clean_total_albums_artist}\nTotal artists: {clean_total_artists_artist}\n\n"
 
     with open(artist_clean_path, 'w', encoding='utf-8') as fa_clean:
-        fa_clean.write(header_clean_artist)  # Use clean totals
+        fa_clean.write(header_clean_artist)  # Use clean totals with timestamp
         for line in artist_clean_lines:
             fa_clean.write(line + "\n")
 
@@ -382,7 +387,7 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         name_lines.append(f"{name} by {artist} on {album_disp} ({year_disp} / {length_disp})")
 
     with open(name_path, 'w', encoding='utf-8') as fn:
-        fn.write(header_full)  # Use full totals
+        fn.write(header_full)  # Use full totals with timestamp
         for line in name_lines:
             fn.write(line + "\n")
 
@@ -403,17 +408,17 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         name_clean_written += 1
         name_clean_lines.append(line)
 
-    # Calculate clean totals from name_clean_lines (same as above)
+    # Calculate clean totals from name_clean_lines
     name_clean_pairs = [name_sorted[i] for i, line in enumerate(name_lines) if _matched_curses(line) == set()]  # Unfiltered tuples
     clean_unique_artists_name = set(artist for artist, _, _, _, _ in name_clean_pairs if artist and artist != '(unknown artist)')
     clean_total_artists_name = len(clean_unique_artists_name)
     clean_unique_albums_name = set(album for _, _, album, _, _ in name_clean_pairs if album and album != '(unknown album)')
     clean_total_albums_name = len(clean_unique_albums_name)
     clean_total_songs_name = len(name_clean_pairs)
-    header_clean_name = f"Total songs: {clean_total_songs_name}\nTotal albums: {clean_total_albums_name}\nTotal artists: {clean_total_artists_name}\n\n"
+    header_clean_name = header_timestamp + f"Total songs: {clean_total_songs_name}\nTotal albums: {clean_total_albums_name}\nTotal artists: {clean_total_artists_name}\n\n"
 
     with open(name_clean_path, 'w', encoding='utf-8') as fn_clean:
-        fn_clean.write(header_clean_name)  # Use clean totals
+        fn_clean.write(header_clean_name)  # Use clean totals with timestamp
         for line in name_clean_lines:
             fn_clean.write(line + "\n")
 
