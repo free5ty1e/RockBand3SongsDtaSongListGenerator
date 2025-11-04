@@ -14,11 +14,72 @@ Start here first.
 ###Fix with Nautilus CON/RBA Converter: drag CON here, it converts to LIVE.  Drag LIVE here, converts back to fixed CON.  
 * R.E.M. - The One I Love
 
+####May also have to balance your two required sections, `tracks_count` and `tracks`
+`tracks_count` contains track counts for each of the `track` sections, each in order
+Also, the `rank` section will contain difficulties for each part?  `0` rank means part is not included, so this can clue you in on how to fill these sections all out
+For example:
+
+```
+  ( 'song'
+      (
+         'tracks_count'
+         (6 2 2 2 2 2)
+      )
+      (
+         'tracks'
+         (
+            (
+               'drum'
+               (0 1 2 3 4 5)
+            )
+            (
+               'bass'
+               (6 7)
+            )
+            (
+               'guitar'
+               (8 9)
+            )
+            (
+               'vocals'
+               (10 11)
+            )
+            (
+               'keys'
+               (12 13)
+            )
+            (
+               'real_keys'
+               (14 15)
+            )
+         )
+      )
+   )
+   (
+      'rank'
+      ('drum' 178)
+      ('guitar' 139)
+      ('bass' 1)
+      ('vocals' 132)
+      ('keys' 211)
+      ('real_keys' 211)
+      ('band' 165)
+   )
+```
+
+Additionally, if `tracks_count` section is missing, add it!
+
 
 ##Issue: Crash upon highlighting / stopping on a song in the song list for a second or two, when preview attempts to play
 ###Fix with Nautilus CON/RBA Converter: drag CON here, it converts to LIVE.  Drag LIVE here, converts back to fixed CON.
-After this fix, the song no longer crashes when it attempts to play a preview in the song list, but it also does not play a preview and hangs endlessly on loading
 * GOTYE - Somebody That I Used To Know
+*   After this fix, this song no longer crashes when it attempts to play a preview in the song list, but it also does not play a preview and hangs endlessly on loading.
+*   I attempted decrypting with the Batch Cryptor tool to fix this, but after this step the song crashes when scrolling to it
+*   I had worked through the songs.dta entry with AI and had to add `tracks` for `real_keys` to match the `tracks_count`, and this change got lost along the way, which leads to the next issue:
+
+
+
+
 
 
 ##Issue: Endless hang on song loading (shows tip of the day / fun fact text endlessly) - accompanied by no preview audio in the song list
@@ -27,4 +88,5 @@ If song loading hangs endlessly on the text screen where it shows a quote or tip
 ####For batches of songs that need this treatment, see the [moggFlattenReadme](otherTools/moggFlattenReadme.md) file.
 
 * Counting Crows - A Long December
+
 
