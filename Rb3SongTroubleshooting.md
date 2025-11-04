@@ -5,6 +5,9 @@
 Start here first.  
 
 
+##Warning: Using the Nautilus PS3 Converter tool to Merge Songs with an existing `songs.dta` song list might result in unintended modifications to your song list.  Specifically:
+* If you have commented out songs by using semicolons, they may be uncommented by the merge process.
+
 ##Issue: Endless looping at end of song / hang / crash instead of score
 ###Fix with Nautilus PS3 Converter's File -> Batch Fix Looping Songs (input CON, output fixed CON) :
 * Dire Straits - Money for Nothing
@@ -88,5 +91,6 @@ If song loading hangs endlessly on the text screen where it shows a quote or tip
 ####For batches of songs that need this treatment, see the [moggFlattenReadme](otherTools/moggFlattenReadme.md) file.
 
 * Counting Crows - A Long December
+
 
 
