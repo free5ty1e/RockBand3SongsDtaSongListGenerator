@@ -14,6 +14,6 @@ Start here first.
 
 
 ##Issue: Endless hang on song loading (shows tip of the day / fun fact text endlessly) 
-###Fix by decrypting the .mogg file for
+###Fix by directly decrypting the .mogg file in Nautilus Batch Cryptor: drag PS3 song folder MOGG here, decrypts into `decrypted` folder.  Replace MOGG with decrypted version.
 1. If song loading hangs endlessly on the text screen where it shows a quote or tip of the day or fun fact about the band when attempting to play certain songs, this might be the problem / solution:
 * Counting Crows - A Long December
