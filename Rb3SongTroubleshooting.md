@@ -23,5 +23,8 @@ After this fix, the song no longer crashes when it attempts to play a preview in
 
 ##Issue: Endless hang on song loading (shows tip of the day / fun fact text endlessly) - accompanied by no preview audio in the song list
 ###Fix by directly decrypting the .mogg file in Nautilus Batch Cryptor: drag PS3 song folder MOGG here, decrypts into `decrypted` folder.  Replace MOGG with decrypted version.
-1. If song loading hangs endlessly on the text screen where it shows a quote or tip of the day or fun fact about the band when attempting to play certain songs, this might be the problem / solution:
+If song loading hangs endlessly on the text screen where it shows a quote or tip of the day or fun fact about the band when attempting to play certain songs, this might be the problem / solution.
+####For batches of songs that need this treatment, see the [moggFlattenReadme](otherTools/moggFlattenReadme.md) file.
+
 * Counting Crows - A Long December
+
