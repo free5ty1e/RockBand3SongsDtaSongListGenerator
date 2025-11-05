@@ -151,6 +151,14 @@ def extract_disabled_songs():
                 # Extract song ID directly after (
                 song_id = normalized[1:].strip()  # Remove the opening (
         
+        elif line_stripped.startswith('; (') and line_stripped != '; (' and "'" not in line_stripped:
+            # Single semicolon direct format: ; (song_id (song ID directly after parenthesis)
+            song_start = True
+            normalized = normalize_comment_line(line_stripped)
+            if normalized.startswith('(') and not normalized.startswith("('"):
+                # Extract song ID directly after (
+                song_id = normalized[1:].strip()  # Remove the opening (
+        
         if song_start and song_id:
             in_disabled_song = True
             disabled_song_lines = [line]  # Start collecting lines

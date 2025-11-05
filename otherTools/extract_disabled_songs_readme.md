@@ -289,6 +289,7 @@ cp songs.dta.backup songs.dta## 🔬 Technical Details
 
 1. **Single semicolon - separate lines:** `; (` followed by song ID on next line
 2. **Single semicolon - Cursor format:** `; ('song_id'` on same line  
+3. **Single semicolon - direct format:** `; (song_id` (song ID directly after parenthesis)
 3. **Double semicolon - separate lines:** `;; (` followed by song ID on next line
 4. **Double semicolon - Cursor format:** `;; ('song_id'` on same line
 5. **Double semicolon - direct format:** `;; (song_id` (song ID directly after parenthesis)
