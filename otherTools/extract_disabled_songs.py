@@ -101,35 +101,26 @@ def extract_disabled_songs():
         line = lines[i].rstrip('\n\r')
         
         # Check if we're starting a commented-out song definition
-        # Handle both formats: ;; ( and ;; ('song_id'
+        # Handle multiple formats
         line_stripped = line.strip()
         song_start = False
         song_id = ""
         
-        # DEBUG: Print first few lines to see what we're processing
-        if i < 5:
-            print(f"DEBUG Line {i+1}: {repr(line_stripped)}")
-        
         if line_stripped == '; (' or line_stripped == ';; (':
-            print(f"DEBUG: Found original format at line {i+1}: {repr(line_stripped)}")
-            # Original format: ;; ( followed by song ID on next line
+            # Original format: ; ( or ;; ( followed by song ID on next line
             song_start = True
             # Look ahead for song ID
             if i + 1 < len(lines):
                 next_line = lines[i + 1].strip()
                 song_id_line = normalize_comment_line(next_line)
-                print(f"DEBUG: Next line normalized: {repr(song_id_line)}")
                 if song_id_line.startswith("'") and song_id_line.endswith("'"):
                     song_id = song_id_line.replace("'", "").strip()
-                    print(f"DEBUG: Extracted song_id: '{song_id}'")
         
         elif line_stripped.startswith('; (') and "'" in line_stripped:
-            print(f"DEBUG: Found single semicolon Cursor format at line {i+1}: {repr(line_stripped)}")
             # Single semicolon Cursor format: ; ('song_id' on the same line
             song_start = True
             # Extract song ID from current line
             normalized = normalize_comment_line(line_stripped)
-            print(f"DEBUG: Normalized: {repr(normalized)}")
             # Try different extraction methods
             if normalized.startswith("('") and "'" in normalized:
                 # Find the content between (' and ')
@@ -137,15 +128,12 @@ def extract_disabled_songs():
                 end = normalized.find("'", start)
                 if end > start:
                     song_id = normalized[start:end]
-                    print(f"DEBUG: Extracted song_id: '{song_id}'")
         
         elif line_stripped.startswith(';; (') and "'" in line_stripped:
-            print(f"DEBUG: Found double semicolon Cursor format at line {i+1}: {repr(line_stripped)}")
             # Double semicolon Cursor format: ;; ('song_id' on the same line
             song_start = True
             # Extract song ID from current line
             normalized = normalize_comment_line(line_stripped)
-            print(f"DEBUG: Normalized: {repr(normalized)}")
             # Try different extraction methods
             if normalized.startswith("('") and "'" in normalized:
                 # Find the content between (' and ')
@@ -153,10 +141,16 @@ def extract_disabled_songs():
                 end = normalized.find("'", start)
                 if end > start:
                     song_id = normalized[start:end]
-                    print(f"DEBUG: Extracted song_id: '{song_id}'")
+        
+        elif line_stripped.startswith(';; (') and line_stripped != ';; (' and "'" not in line_stripped:
+            # Double semicolon direct format: ;; (song_id (song ID directly after parenthesis)
+            song_start = True
+            normalized = normalize_comment_line(line_stripped)
+            if normalized.startswith('(') and not normalized.startswith("('"):
+                # Extract song ID directly after (
+                song_id = normalized[1:].strip()  # Remove the opening (
         
         if song_start and song_id:
-            print(f"DEBUG: Starting song collection for '{song_id}'")
             in_disabled_song = True
             disabled_song_lines = [line]  # Start collecting lines
             disabled_count += 1
@@ -169,7 +163,6 @@ def extract_disabled_songs():
             # Check if we're ending a commented-out song definition
             line_stripped = line.strip()
             if line_stripped == '; )' or line_stripped == ';; )':
-                print(f"DEBUG: Found end of song at line {i+1}: {repr(line_stripped)}")
                 # Parse metadata before logging
                 song_name, artist, album = parse_song_metadata(disabled_song_lines)
                 print(f"Found commented-out song: '{song_name}' by {artist} (Album: {album}) [{song_id}]")
@@ -181,8 +174,6 @@ def extract_disabled_songs():
             clean_lines.append(line)
         
         i += 1
-    
-    print(f"\nDEBUG: Total songs found: {disabled_count}")
     
     # Write the disabled songs to the file (append if it exists, create if it doesn't)
     if disabled_count > 0:
