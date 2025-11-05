@@ -7,6 +7,7 @@ and create a clean songs.dta with only active songs.
 import os
 import sys
 import re
+from datetime import datetime
 
 def normalize_comment_line(line):
     """Normalize comment lines by removing semicolon prefix and returning content"""
@@ -180,16 +181,18 @@ def extract_disabled_songs():
         print(f"\nWriting {disabled_count} disabled songs to {disabled_file}...")
         
         file_exists = os.path.exists(disabled_file)
+        timestamp = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %Z")
         
         with open(disabled_file, 'a', encoding='utf-8') as f:
             if not file_exists:
                 # Write header for new file
                 f.write("; This file contains song definitions that were commented out\n")
                 f.write("; from songs.dta to reduce memory usage on PS3\n")
+                f.write(f"; Created: {timestamp}\n")
                 f.write(f"; Total disabled songs: {disabled_count}\n\n")
             else:
                 # Add separator for appended content
-                f.write(f"\n; --- Additional disabled songs added ({disabled_count} songs) ---\n\n")
+                f.write(f"\n; --- Additional disabled songs added ({disabled_count} songs) - {timestamp} ---\n\n")
             
             for song_lines in disabled_songs:
                 for line in song_lines:
