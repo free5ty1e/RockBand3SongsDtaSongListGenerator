@@ -94,3 +94,10 @@ If song loading hangs endlessly on the text screen where it shows a quote or tip
 
 
 
+
+
+## Issue: RB3 XBOX CON file won't convert in Nautilus PS3 Converter tool
+1. Try opening with Onyx and then exporting back out again: PS3 tab, Create XBOX 360 CON File button.
+2. If that fails with something like "ERROR: MIDI Compiler: (HARM1): Vocal note at [49:4.300] extends beyond phrase"
+   a. Fix with [fixVocalOverhangErrorInRb3XboxCon.py](otherTools/fixVocalOverhangErrorInRb3XboxCon.py) tool in [otherTools](otherTools/) folder, then try step 1 again.
+
