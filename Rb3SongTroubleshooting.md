@@ -4,6 +4,19 @@
 ## Official RB3 Deluxe troubleshooting guide: https://rb3pc.milohax.org/customs_troubleshooting
 Start here first.  
 
+## Toolsets
+* Onyx - https://github.com/mtolly/onyxite-customs/releases
+* Nautilus - https://github.com/trojannemo/Nautilus 
+
+
+## Converting Score Hero customs to RB3 XBOX CON format
+1. Extract archive to song folder
+2. Open song.ini in Onyx
+3. Choose `RB` tab up top
+4. Click `Create Xbox 360 CON file` button
+5. ?
+6. Profit!
+
 
 ## Warning: Using the Nautilus PS3 Converter tool to Merge Songs with an existing `songs.dta` song list might result in unintended modifications to your song list.  Specifically:
 * If you have commented out songs by using semicolons, they may be uncommented by the merge process.
