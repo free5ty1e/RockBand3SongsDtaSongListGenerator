@@ -94,8 +94,8 @@ If song loading hangs endlessly on the text screen where it shows a quote or tip
 
 
 
-## Issue: Score Hero song conversion to RB3 XBOX CON format fails with "Vocal note at [xx:y:zzz] is outside any phrases
-1. In the case of Sia - The Greatest, the problem was a missing phrase start marker to match an orphaned phrase end marker:
+## Issue: Score Hero song conversion to RB3 XBOX CON format fails with "Vocal note at [xx:y:zzz] is outside any phrases"
+1. In the case of Sia - The Greatest, the problem was a missing phrase start marker to match an orphaned phrase end marker.  I uploaded the `notes.chart` file to Grok and asked it to analyze the vocal phrases:
    a. Edit `notes.chart` manually (Notepad):
    b. Find line `49412 = E "phrase_end"`
    c. Insert immediately after: `49428 = E "phrase_start"`
