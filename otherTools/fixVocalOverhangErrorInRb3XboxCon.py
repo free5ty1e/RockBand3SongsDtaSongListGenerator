@@ -6,14 +6,17 @@ Fixes the infamous Magma/Onyx error:
 "Vocal note at [XX:X.XXX] extends beyond phrase"
 
 Usage examples:
-    python fixVocalOverhangErrorInRb3XboxCon.py "MySong.con" "49:4.300"
-    python fixVocalOverhangErrorInRb3XboxCon.py "Pack.con" "123:2.750" "PART HARM2"
-    python fixVocalOverhangErrorInRb3XboxCon.py song.con "15:3.000" "HARM1"
+    python rb3_vocal_fix.py "MySong.con" "49:4.300"
+    python rb3_vocal_fix.py "Pack.con" "72:1.850" "PART HARM2" --onyx_path "C:\\Tools\\onyx.exe"
+    python rb3_vocal_fix.py song.con "15:3.000" "HARM3"
 
 Requirements:
     pip install mido tqdm
-    Onyx.exe must be in the same folder or in your PATH
-    (Download: https://github.com/mtolly/onyxite-customs/releases)
+    Extract the Onyx command-line ZIP to a folder (e.g., C:\\Program Files\\OnyxToolkit)
+    (Download: https://github.com/mtolly/onyxite-customs/releases → onyx-command-line-*.zip)
+
+Options:
+    --onyx_path: Full path to onyx.exe (default: C:\\Program Files\\OnyxToolkit\\onyx.exe)
 """
 
 import os
@@ -21,23 +24,26 @@ import sys
 import shutil
 import tempfile
 from pathlib import Path
+import argparse
 from tqdm import tqdm
 import mido
 
 # How much to shorten the offending note (5–15 ms is completely inaudible)
 SHORTEN_MS = 10
 
-def extract_con(con_path: Path, extract_dir: Path):
-    result = os.system(f'onyx extract "{con_path}" "{extract_dir}" >nul 2>&1')
+def extract_con(con_path: Path, extract_dir: Path, onyx_path: str):
+    cmd = f'"{onyx_path}" extract "{con_path}" "{extract_dir}" >nul 2>&1'
+    result = os.system(cmd)
     if result != 0:
-        raise RuntimeError("Onyx extraction failed. Is onyx.exe in PATH or same folder?")
+        raise RuntimeError(f"Onyx extraction failed. Command: {cmd}. Check onyx_path and DLLs.")
 
-def repack_con(work_dir: Path, output_con: Path):
-    result = os.system(f'onyx pack "{work_dir}" "{output_con}" --format rb3-xbox >nul 2>&1')
+def repack_con(work_dir: Path, output_con: Path, onyx_path: str):
+    cmd = f'"{onyx_path}" pack "{work_dir}" "{output_con}" --format rb3-xbox >nul 2>&1'
+    result = os.system(cmd)
     if result != 0:
-        raise RuntimeError("Onyx repacking failed")
+        raise RuntimeError(f"Onyx repacking failed. Command: {cmd}")
 
-def fix_vocal_overhang(con_path: Path, location: str, track_name: str = "PART HARM1"):
+def fix_vocal_overhang(con_path: Path, location: str, track_name: str = "PART HARM1", onyx_path: str = r"C:\Program Files\OnyxToolkit\onyx.exe"):
     con_path = Path(con_path).resolve()
     if not con_path.exists():
         print(f"ERROR: File not found: {con_path}")
@@ -53,7 +59,7 @@ def fix_vocal_overhang(con_path: Path, location: str, track_name: str = "PART HA
         extract_dir.mkdir()
 
         print(f"Extracting {con_path.name} ...")
-        extract_con(con_path, extract_dir)
+        extract_con(con_path, extract_dir, onyx_path)
 
         # Find song subfolders (e.g. aaaa0001, songs inside packs)
         song_folders = [p for p in extract_dir.iterdir() if p.is_dir()]
@@ -168,7 +174,7 @@ def fix_vocal_overhang(con_path: Path, location: str, track_name: str = "PART HA
         # Repack
         output_con = con_path.with_name(con_path.stem + "_FIXED.con")
         print("Repacking into new CON...")
-        repack_con(extract_dir, output_con)
+        repack_con(extract_dir, output_con, onyx_path)
         print(f"\nSUCCESS! Fixed file saved as:\n   {output_con}\n")
         print("You can now convert this new CON with Nautilus PS3 Converter.")
 
@@ -178,13 +184,13 @@ if __name__ == "__main__":
         print(__doc__)
         sys.exit(0)
 
-    if len(sys.argv) < 3 or len(sys.argv) > 4:
-        print("Error: Wrong number of arguments!")
-        print("Run without arguments or with -h for help.")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="Fix RB3 vocal overhang errors")
+    parser.add_argument("con_file", help="Path to the .con file")
+    parser.add_argument("location", help="Error location, e.g., '49:4.300'")
+    parser.add_argument("track_name", nargs="?", default="PART HARM1", help="Track name (default: PART HARM1)")
+    parser.add_argument("--onyx_path", default=r"C:\Program Files\OnyxToolkit\onyx.exe", help="Full path to onyx.exe")
 
-    con_file = sys.argv[1]
-    location = sys.argv[2]
-    track = sys.argv[3] if len(sys.argv) == 4 else "PART HARM1"
+    args = parser.parse_args()
 
-    fix_vocal_overhang(con_file, location, track)
+    fix_vocal_overhang(args.con_file, args.location, args.track_name, args.onyx_path)
+    
