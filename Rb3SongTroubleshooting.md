@@ -95,8 +95,11 @@ If song loading hangs endlessly on the text screen where it shows a quote or tip
 
 
 ## Issue: Score Hero song conversion to RB3 XBOX CON format fails with "Vocal note at [xx:y:zzz] is outside any phrases
-1. 
-
+1. In the case of Sia - The Greatest, the problem was a missing phrase start marker to match an orphaned phrase end marker:
+   a. Edit `notes.chart` manually (Notepad):
+   b. Find line `49412 = E "phrase_end"`
+   c. Insert immediately after: `49428 = E "phrase_start"`
+   d. Save and try conversion again.
 
 
 ## Issue: RB3 XBOX CON file won't convert in Nautilus PS3 Converter tool
