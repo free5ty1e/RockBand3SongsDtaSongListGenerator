@@ -6,9 +6,9 @@ Fixes the infamous Magma/Onyx error:
 "Vocal note at [XX:X.XXX] extends beyond phrase"
 
 Usage examples:
-    python rb3_vocal_fix.py "MySong.con" "49:4.300"
-    python rb3_vocal_fix.py "Pack.con" "72:1.850" "PART HARM2" --onyx_path "C:\\Tools\\onyx.exe"
-    python rb3_vocal_fix.py song.con "15:3.000" "HARM3"
+    python fixVocalOverhangErrorInRb3XboxCon.py "MySong.con" "49:4.300"
+    python fixVocalOverhangErrorInRb3XboxCon.py "Pack.con" "72:1.850" "PART HARM2" --onyx_path "C:\\Tools\\onyx.exe"
+    python fixVocalOverhangErrorInRb3XboxCon.py song.con "15:3.000" "HARM3"
 
 Requirements:
     pip install mido tqdm
