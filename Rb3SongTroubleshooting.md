@@ -119,4 +119,36 @@ If song loading hangs endlessly on the text screen where it shows a quote or tip
 1. Try opening with Onyx and then exporting back out again: PS3 tab, Create XBOX 360 CON File button.
 2. If that fails with something like "ERROR: MIDI Compiler: (HARM1): Vocal note at [49:4.300] extends beyond phrase"
    a. Fix with [fixVocalOverhangErrorInRb3XboxCon.py](otherTools/fixVocalOverhangErrorInRb3XboxCon.py) tool in [otherTools](otherTools/) folder, then try step 1 again.
+3. If that CON conversion to PS3 format fails with `There was an error processing the songs.dta file` then you might also need to fix up the `songs.dta` in that CON package and re-package it back up with CON Creator.
+   a. For the example of Sia - Cheap Thrills (RB4 DLC), I had to replace the songs.dta contents with a stripped-down version with only the minimally required tags.  This fixed it, something that was there was causing the issue.  Below is the minimal `songs.dta` entry I used to fix this:
+
+```
+(cheapthrills
+   (name "Cheap Thrills")
+   (artist "Sia") 
+   (master 1)
+   (song
+      (name 'songs/cheapthrills/cheapthrills')
+      (tracks
+         ((drum (0 1))
+          (bass (2 3))
+          (guitar (4 5))
+          (vocals (6 7))))
+      (pans (-1.0 1.0 -1.0 1.0 -1.0 1.0 -1.0 1.0 -1.0 1.0))
+      (vols (0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0))
+      (cores (-1 -1 -1 -1 1 1 -1 -1 -1 -1))
+      (vocal_parts 3)
+      (midi_file 'songs/cheapthrills/cheapthrills.mid'))
+   (song_length 219998)
+   (preview 37000 67000)
+   (rank
+      (drum 189)
+      (bass 139) 
+      (guitar 115)
+      (vocals 318))
+   (genre pop)
+   (vocal_gender female)
+   (version 0)
+   (format 4))
+```
 
