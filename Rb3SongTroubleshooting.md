@@ -152,3 +152,5 @@ If song loading hangs endlessly on the text screen where it shows a quote or tip
    (format 4))
 ```
 
+NOTE: I also then had to extract the original `songs.dta` entry and replace the above in the main `songs.dta` file in order to actually get the song to show up in the PS3 RB3 song list!  
+
