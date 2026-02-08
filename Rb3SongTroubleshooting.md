@@ -10,12 +10,14 @@ Start here first.
 
 
 ## Converting Score Hero customs to RB3 XBOX CON format
+
 1. Extract archive to song folder
-2. Open song.ini in Onyx
-3. Choose `RB` tab up top
-4. Click `Create Xbox 360 CON file` button
-5. ?
-6. Profit!
+2. Open Onyx Batch Converter
+3. Open song.ini
+4. Choose `RB` tab up top
+5. Click `Create Xbox 360 CON file` button
+6. ?
+7. Profit!
 
 
 ## Warning: Using the Nautilus PS3 Converter tool to Merge Songs with an existing `songs.dta` song list might result in unintended modifications to your song list.  Specifically:
@@ -153,4 +155,5 @@ If song loading hangs endlessly on the text screen where it shows a quote or tip
 ```
 
 NOTE: I also then had to extract the original `songs.dta` entry and replace the above in the main `songs.dta` file in order to actually get the song to show up in the PS3 RB3 song list!  
+
 
