@@ -12,7 +12,7 @@ Start here first.
 ## Converting Score Hero customs to RB3 XBOX CON format
 
 1. Extract archive to song folder
-2. Open Onyx Batch Converter
+2. Open Onyx - Batch Recompile
 3. Open song.ini
 4. Choose `RB` tab up top
 5. Click `Create Xbox 360 CON file` button
@@ -155,5 +155,6 @@ If song loading hangs endlessly on the text screen where it shows a quote or tip
 ```
 
 NOTE: I also then had to extract the original `songs.dta` entry and replace the above in the main `songs.dta` file in order to actually get the song to show up in the PS3 RB3 song list!  
+
 
 
