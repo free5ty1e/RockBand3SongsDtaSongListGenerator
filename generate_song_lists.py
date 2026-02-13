@@ -111,9 +111,38 @@ def _find_unescaped_quote(s: str, start: int) -> int:
 
 
 def _unescape_dta_string(s: str) -> str:
-    # Basic unescape for common sequences in DTA strings
-    return s.encode('utf-8', 'backslashreplace').decode('unicode_escape')
+    if not s:
+        return s
+    # Handle Rock Band's common \q → " escaping
+    s = s.replace(r'\q', '"')
+    # Standard DTA unescape
+    try:
+        return s.encode('utf-8', 'backslashreplace').decode('unicode_escape')
+    except Exception:
+        return s
 
+def clean_for_comparison(s: str) -> str:
+    """Clean artist or song name for reliable matching."""
+    if not s:
+        return ""
+    s = _unescape_dta_string(s)
+    s = ' '.join(s.strip().split())
+    # Remove quotes, apostrophes, periods for better matching across versions
+    s = re.sub(r'["\'.,]', '', s)
+    return s.lower()
+
+def clean_display(s: str) -> str:
+    """Unescape for human-readable display (preserves original case)."""
+    if not s:
+        return s
+    # Convert \q back to "
+    s = s.replace(r'\q', '"')
+    # Standard DTA unescape
+    try:
+        s = s.encode('utf-8', 'backslashreplace').decode('unicode_escape')
+    except Exception:
+        pass
+    return s.strip()
 
 def extract_string_field(entry_text: str, key: str) -> Optional[str]:
     # Extract only from DIRECT CHILDREN of the entry root: (key ...)
@@ -271,7 +300,10 @@ def parse_entries_for_artist_name(entries: List[str]) -> Tuple[List[Tuple[str, s
         except Exception:
             length_ms_val = None
         if name and artist:
-            results.append((artist, name, album, year_val, length_ms_val))
+            clean_artist = clean_display(artist)
+            clean_name = clean_display(name)
+            clean_album = clean_display(album) if album else None
+            results.append((clean_artist, clean_name, clean_album, year_val, length_ms_val))
             stats['completed_pairs'] += 1
         else:
             if not artist:
@@ -290,6 +322,146 @@ def _format_mm_ss(length_ms: Optional[int]) -> str:
     seconds = total_seconds % 60
     return f"{minutes}:{seconds:02d}"
 
+def split_artist_song(line: str) -> Tuple[str, str]:
+    """Split line into artist_part and song_part on the top-level " - "."""
+    # Find the final (year / length) block – it's always the last "(" in the line
+    last_open = line.rfind(" (")
+    if last_open != -1:
+        # Confirm it looks like a year/length block
+        if last_open + 2 < len(line) and (line[last_open + 2].isdigit() or line[last_open + 2] in "?/"):
+            split_pos = last_open
+        else:
+            split_pos = len(line)
+    else:
+        split_pos = len(line)
+
+    # Now find the LAST " - " before that block
+    i = line.rfind(" - ", 0, split_pos)
+    if i != -1:
+        artist_part = line[:i].strip()
+        song_part = line[i + 3:].strip()
+        return artist_part, song_part
+
+    # Fallback to old behaviour if nothing else works
+    dash_idx = line.find(" - ")
+    if dash_idx != -1:
+        return line[:dash_idx].strip(), line[dash_idx + 3:].strip()
+    return line.strip(), ""
+
+def parse_existing_artist_file(file_path: str) -> Tuple[Set[Tuple[str, str]], Dict[str, int]]:
+    """
+    Parse the existing SongListSortedByArtist.txt file to extract:
+    - Set of (artist, song_name) tuples that exist
+    - Dictionary of previous "new songs" counts by artist from the header
+    
+    Returns: (existing_songs_set, previous_new_counts_dict)
+    """
+    existing_songs: Set[Tuple[str, str]] = set()
+    previous_new_counts: Dict[str, int] = {}
+    
+    if not os.path.isfile(file_path):
+        logging.info("No existing SongListSortedByArtist.txt file found - treating all songs as new")
+        return existing_songs, previous_new_counts
+    
+    def normalize(s: str) -> str:
+        """Normalize string for comparison: strip, lowercase, normalize whitespace"""
+        return ' '.join(s.strip().lower().split())
+    
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+            
+        # Parse header for previous "new songs" counts
+        in_new_songs_section = False
+        in_header = True
+        songs_parsed = 0
+        songs_failed = 0
+        
+        for line_num, line in enumerate(lines, 1):
+            original_line = line
+            line = line.strip()
+            if not line:
+                continue
+            
+            # Look for "New song counts added by artist" section
+            if "New song counts added by artist" in line.lower():
+                in_new_songs_section = True
+                continue
+            
+            # If we hit the totals section, we're done with new songs header parsing
+            if line.startswith("Total songs:") or line.startswith("Generated on:"):
+                in_new_songs_section = False
+                if line.startswith("Total songs:"):
+                    in_header = False  # We're past the header now
+                continue
+            
+            # Parse lines like "* Linkin Park: 117 New Songs"
+            if in_new_songs_section and line.startswith("*"):
+                # Extract artist and count: "* Linkin Park: 117 New Songs"
+                match = re.match(r'\*\s*(.+?):\s*(\d+)\s*New Songs?', line)
+                if match:
+                    artist_raw = match.group(1).strip()
+                    count = int(match.group(2))
+                    # Clean the artist name from the old header
+                    artist_clean = clean_display(artist_raw)
+                    previous_new_counts[artist_clean] = count
+                continue
+            
+            # Skip header lines - we're looking for song data now
+            if in_header:
+                continue
+
+            artist_part, song_part = split_artist_song(line)
+            if not artist_part or not song_part:
+                songs_failed += 1
+                continue
+
+            # Robust artist extraction (handles \q escaping, mojibake, nested parens like Hamilton)
+            if '(' in artist_part and artist_part.endswith(')'):
+                last_close = artist_part.rfind(')')
+                depth = 1
+                i = last_close - 1
+                while i >= 0:
+                    if artist_part[i] == ')':
+                        depth += 1
+                    elif artist_part[i] == '(':
+                        depth -= 1
+                        if depth == 0:
+                            break
+                    i -= 1
+                raw_artist = artist_part[:i].strip() if i > 0 else artist_part.strip()
+            else:
+                raw_artist = artist_part.strip()
+
+            # Song extraction
+            last_open_song = song_part.rfind(" (")
+            if last_open_song != -1 and song_part.endswith(')'):
+                raw_song = song_part[:last_open_song].strip()
+            else:
+                raw_song = song_part.strip()
+
+            # Full cleaning - identical to current run
+            norm_artist = clean_for_comparison(raw_artist)
+            norm_song   = clean_for_comparison(raw_song)
+
+            if norm_artist and norm_song:
+                existing_songs.add((norm_artist, norm_song))
+                songs_parsed += 1
+            else:
+                songs_failed += 1
+    
+        logging.info(f"Parsed {songs_parsed} existing songs from {file_path}, {songs_failed} lines failed to parse")
+        logging.info(f"Unique existing songs in set: {len(existing_songs)}")
+        if songs_parsed == 0 and songs_failed > 0:
+            logging.warning(f"Warning: Could not parse any existing songs! This may cause all songs to appear as 'new'.")
+        elif songs_parsed != len(existing_songs):
+            logging.info(f"Note: Parsed {songs_parsed} lines but {len(existing_songs)} unique songs (duplicates removed)")
+    
+    except Exception as e:
+        logging.warning(f"Could not parse existing file {file_path}: {e}")
+    
+    return existing_songs, previous_new_counts
+
 
 def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]], cwd: str) -> Dict[str, int]:
     # Get current time in Eastern Time
@@ -298,6 +470,151 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
     
     header_timestamp = f"Generated on: {timestamp}\n\n"
 
+    artist_path = os.path.join(cwd, 'SongListSortedByArtist.txt')
+    name_path = os.path.join(cwd, 'SongListSortedBySongName.txt')
+    artist_clean_path = os.path.join(cwd, 'SongListSortedByArtistClean.txt')
+    name_clean_path = os.path.join(cwd, 'SongListSortedBySongNameClean.txt')
+
+    # Parse existing file to find new songs
+    existing_songs, previous_new_counts = parse_existing_artist_file(artist_path)
+
+    
+    # Build normalized helper for comparisons
+    def normalize(s: str) -> str:
+        """Normalize string for comparison: strip, lowercase, normalize whitespace"""
+        return ' '.join(s.strip().lower().split())
+
+    # Build normalized (artist, song) sets for comparison
+    current_songs = set(
+        (clean_for_comparison(artist), clean_for_comparison(name))
+        for artist, name, _, _, _ in pairs
+    )
+
+    logging.info(
+        f"Comparison: {len(current_songs)} current songs, "
+        f"{len(existing_songs)} existing songs"
+    )
+
+    # Truly new songs = present now but not in the previous artist file
+    new_songs = current_songs - existing_songs
+    logging.info(f"New songs detected this run: {len(new_songs)}")
+    if len(new_songs) > 0 and len(new_songs) < 20:
+        # Log first few new songs for debugging
+        logging.debug(f"Sample new songs: {list(new_songs)[:5]}")
+        
+    # Removed songs = present in previous file but not now
+    removed_songs = existing_songs - current_songs
+    logging.info(f"Removed songs detected this run: {len(removed_songs)}")
+    if len(removed_songs) > 0 and len(removed_songs) < 20:
+        # Log first few removed songs for debugging
+        logging.debug(f"Sample removed songs: {list(removed_songs)[:5]}")
+
+    if len(existing_songs) == 0 and os.path.isfile(artist_path):
+        logging.warning("No existing songs were parsed! This may indicate a parsing problem.")
+
+    # Count new songs by artist (using ORIGINAL display names from this run)
+    new_songs_by_artist: Dict[str, int] = {}
+    # Map normalized artist -> display name seen in this run
+    norm_to_display: Dict[str, str] = {}
+    for artist, name, _, _, _ in pairs:
+        n_artist = clean_for_comparison(artist)   # Match current_songs cleaning
+        n_name   = clean_for_comparison(name)
+        if (n_artist, n_name) not in new_songs:
+            continue
+        if n_artist not in norm_to_display:
+            norm_to_display[n_artist] = artist
+        display_artist = norm_to_display[n_artist]
+        new_songs_by_artist[display_artist] = new_songs_by_artist.get(display_artist, 0) + 1
+
+    # Count removed songs by artist - robust nested parenthesis handling
+    removed_songs_by_artist: Dict[str, int] = {}
+    if removed_songs and os.path.isfile(artist_path):
+        try:
+            with open(artist_path, 'r', encoding='utf-8') as f:
+                lines = f.readlines()
+
+            in_header = True
+            for line in lines:
+                line = line.strip()
+                if not line:
+                    continue
+                if line.startswith("Total songs:") or line.startswith("Generated on:"):
+                    in_header = False
+                    continue
+                if in_header:
+                    continue
+
+                dash_idx = line.find(" - ")
+                if dash_idx == -1:
+                    continue
+
+                artist_part, song_part = split_artist_song(line)
+                if not artist_part or not song_part:
+                    songs_failed += 1
+                    continue
+
+
+                # Robust artist extraction that handles nested parentheses (e.g. Hamilton)
+                if '(' in artist_part and artist_part.endswith(')'):
+                    last_close = artist_part.rfind(')')
+                    depth = 1
+                    i = last_close - 1
+                    while i >= 0:
+                        if artist_part[i] == ')':
+                            depth += 1
+                        elif artist_part[i] == '(':
+                            depth -= 1
+                            if depth == 0:
+                                break
+                        i -= 1
+                    raw_artist = artist_part[:i].strip() if i > 0 else artist_part.strip()
+                else:
+                    raw_artist = artist_part.strip()
+
+                # Song extraction
+                last_open_song = song_part.rfind(" (")
+                if last_open_song != -1 and song_part.endswith(')'):
+                    raw_song = song_part[:last_open_song].strip()
+                else:
+                    raw_song = song_part.strip()
+
+                display_artist = clean_display(raw_artist)
+                n_artist = clean_for_comparison(raw_artist)
+                n_name   = clean_for_comparison(raw_song)
+
+                if (n_artist, n_name) in removed_songs:
+                    removed_songs_by_artist[display_artist] = removed_songs_by_artist.get(display_artist, 0) + 1
+
+        except Exception as e:
+            logging.warning(f"Could not parse existing file for removed songs: {e}")
+
+    # Build header sections - only update if there are changes
+    new_songs_header = ""
+    removed_songs_header = ""
+    
+    # If we have new songs, replace the new songs section with THIS run's counts only
+    if new_songs_by_artist:
+        new_songs_header = "New song counts added by artist:\n"
+        sorted_new = sorted(new_songs_by_artist.items(), key=lambda x: (-x[1], x[0]))
+        for artist, count in sorted_new:
+            new_songs_header += f"* {artist}: {count} New Song{'s' if count != 1 else ''}\n"
+        new_songs_header += "\n"
+    elif previous_new_counts:
+        # No new songs this run, but we had previous counts - preserve them
+        new_songs_header = "New song counts added by artist:\n"
+        sorted_prev = sorted(previous_new_counts.items(), key=lambda x: (-x[1], x[0]))
+        for artist, count in sorted_prev:
+            new_songs_header += f"* {artist}: {count} New Song{'s' if count != 1 else ''}\n"
+        new_songs_header += "\n"
+    
+    # If we have removed songs, add the removed songs section
+    if removed_songs_by_artist:
+        removed_songs_header = "Artists with Songs Removed This Update (unwanted or duplicates):\n"
+        sorted_removed = sorted(removed_songs_by_artist.items(), key=lambda x: (-x[1], x[0]))
+        for artist, count in sorted_removed:
+            removed_songs_header += f"* {artist}: {count} Song{'s' if count != 1 else ''} Removed\n"
+        removed_songs_header += "\n"
+ 
     # Calculate totals for full lists
     total_songs = len(pairs)
     unique_artists = set(artist for artist, _, _, _, _ in pairs if artist and artist != '(unknown artist)')
@@ -305,17 +622,12 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
     unique_albums = set(album for _, _, album, _, _ in pairs if album and album != '(unknown album)')
     total_albums = len(unique_albums)
     
-    header_full = header_timestamp + f"Total songs: {total_songs}\nTotal albums: {total_albums}\nTotal artists: {total_artists}\n\n"
+    header_full = header_timestamp + new_songs_header + removed_songs_header + f"Total songs: {total_songs}\nTotal albums: {total_albums}\nTotal artists: {total_artists}\n\n"
 
     # Sort explicitly by artist, then album (if present), then name for artist list
     artist_sorted = sorted(pairs, key=lambda x: (x[0].lower(), (x[2] or '').lower(), x[1].lower()))
     # Sort by name, then artist for name list
     name_sorted = sorted(pairs, key=lambda x: (x[1].lower(), x[0].lower()))
-
-    artist_path = os.path.join(cwd, 'SongListSortedByArtist.txt')
-    name_path = os.path.join(cwd, 'SongListSortedBySongName.txt')
-    artist_clean_path = os.path.join(cwd, 'SongListSortedByArtistClean.txt')
-    name_clean_path = os.path.join(cwd, 'SongListSortedBySongNameClean.txt')
 
     def _format_mm_ss(length_ms: Optional[int]) -> str:
         if length_ms is None or length_ms < 0:
@@ -338,10 +650,12 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
 
     artist_lines: List[str] = []
     for artist, name, album, year_val, length_ms_val in artist_sorted:
+        clean_artist = clean_display(artist)
+        clean_name = clean_display(name)
         album_disp = album if album else '(unknown album)'
         year_disp = str(year_val) if year_val is not None else '?'
         length_disp = _format_mm_ss(length_ms_val)
-        artist_lines.append(f"{artist} ({album_disp}) - {name} ({year_disp} / {length_disp})")
+        artist_lines.append(f"{clean_artist} ({album_disp}) - {clean_name} ({year_disp} / {length_disp})")
 
     with open(artist_path, 'w', encoding='utf-8') as fa:
         fa.write(header_full)  # Use full totals with timestamp
@@ -372,7 +686,7 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
     clean_unique_albums_artist = set(album for _, _, album, _, _ in artist_clean_pairs if album and album != '(unknown album)')
     clean_total_albums_artist = len(clean_unique_albums_artist)
     clean_total_songs_artist = len(artist_clean_pairs)
-    header_clean_artist = header_timestamp + f"Total songs: {clean_total_songs_artist}\nTotal albums: {clean_total_albums_artist}\nTotal artists: {clean_total_artists_artist}\n\n"
+    header_clean_artist = header_timestamp + new_songs_header + removed_songs_header + f"Total songs: {clean_total_songs_artist}\nTotal albums: {clean_total_albums_artist}\nTotal artists: {clean_total_artists_artist}\n\n"
 
     with open(artist_clean_path, 'w', encoding='utf-8') as fa_clean:
         fa_clean.write(header_clean_artist)  # Use clean totals with timestamp
@@ -381,10 +695,12 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
 
     name_lines: List[str] = []
     for artist, name, album, year_val, length_ms_val in name_sorted:
+        clean_artist = clean_display(artist)
+        clean_name = clean_display(name)
         album_disp = album if album else '(unknown album)'
         year_disp = str(year_val) if year_val is not None else '?'
         length_disp = _format_mm_ss(length_ms_val)
-        name_lines.append(f"{name} by {artist} on {album_disp} ({year_disp} / {length_disp})")
+        name_lines.append(f"{clean_name} by {clean_artist} on {album_disp} ({year_disp} / {length_disp})")
 
     with open(name_path, 'w', encoding='utf-8') as fn:
         fn.write(header_full)  # Use full totals with timestamp
@@ -415,7 +731,7 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
     clean_unique_albums_name = set(album for _, _, album, _, _ in name_clean_pairs if album and album != '(unknown album)')
     clean_total_albums_name = len(clean_unique_albums_name)
     clean_total_songs_name = len(name_clean_pairs)
-    header_clean_name = header_timestamp + f"Total songs: {clean_total_songs_name}\nTotal albums: {clean_total_albums_name}\nTotal artists: {clean_total_artists_name}\n\n"
+    header_clean_name = header_timestamp + new_songs_header + removed_songs_header + f"Total songs: {clean_total_songs_name}\nTotal albums: {clean_total_albums_name}\nTotal artists: {clean_total_artists_name}\n\n"
 
     with open(name_clean_path, 'w', encoding='utf-8') as fn_clean:
         fn_clean.write(header_clean_name)  # Use clean totals with timestamp
@@ -472,12 +788,24 @@ def main(argv: Optional[List[str]] = None) -> int:
     # Augment outputs with partials using placeholders so lists remain comprehensive
     placeholder_pairs: List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]] = []
     for a, n, _, album, year_val, length_ms_val in partials:
-        artist_val = a if a else '(unknown artist)'
-        name_val = n if n else '(unknown title)'
-        album_val = album if album else None
+        artist_val = clean_display(a) if a else '(unknown artist)'
+        name_val = clean_display(n) if n else '(unknown title)'
+        album_val = clean_display(album) if album else None
         placeholder_pairs.append((artist_val, name_val, album_val, year_val, length_ms_val))
 
     all_pairs = pairs + placeholder_pairs
+
+    # Deduplicate based on normalized (artist, song)
+    seen = set()
+    unique_pairs: List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]] = []
+    for p in all_pairs:
+        n_artist = clean_for_comparison(p[0])
+        n_name = clean_for_comparison(p[1])
+        key = (n_artist, n_name)
+        if key not in seen:
+            seen.add(key)
+            unique_pairs.append(p)
+    all_pairs = unique_pairs
 
     out_stats = write_outputs(all_pairs, os.getcwd())
 
