@@ -15,6 +15,7 @@ I run [Rock Band 3 Deluxe](https://rb3dx.milohax.org/) on a PS3 at parties and m
   - `SongListSortedBySongNameClean.txt` — same as song-name list, with profanity-filtered lines removed
 - Summary at the end: entries parsed, extracted pairs, missing counts, lines written, clean-file stats, and per-term profanity counts
 - Logs partial/malformed entries (with song identifier) to help diagnose parsing issues
+- Optional support for multiple input `songs.dta` files; merged outputs include source filename metadata (e.g., `(songs.usb1.dta)`)
 
 ## Requirements
 
@@ -26,6 +27,12 @@ I run [Rock Band 3 Deluxe](https://rb3dx.milohax.org/) on a PS3 at parties and m
 python3 generate_song_lists.py /path/to/songs.dta
 ```
 
+### Multiple Input Files
+For multiple input files (merged lists with source filename metadata):
+```bash
+python3 generate_song_lists.py /path/to/songs.dta /path/to/songs.USB1.dta /path/to/songs.USB2.dta
+```
+
 Notes:
 - Input may be a standard `songs.dta` or a text export (e.g., `songs.dta.txt`).
 - The script writes outputs into the current working directory.
@@ -33,11 +40,11 @@ Notes:
 ## Output format
 
 - `SongListSortedByArtist.txt`
-  - Line format: `artist (album) - name (year_released / mm:ss)`
+  - Line format: `artist (album) - name (year_released / mm:ss) (source.dta)`
   - Sorted by artist → album → name
 
 - `SongListSortedBySongName.txt`
-  - Line format: `name by artist on album (year_released / mm:ss)`
+  - Line format: `name by artist on album (year_released / mm:ss) (source.dta)`
   - Sorted by name → artist
 
 Placeholders when data is missing:
@@ -84,28 +91,28 @@ The script prints:
 
 `SongListSortedByArtist.txt`:
 ```
-Foreigner (Agent Provocateur) - I Want to Know What Love Is (1984 / 5:16)
-Foreigner (Double Vision) - Blue Morning, Blue Day (1978 / ?:??)
-Foreigner (Double Vision) - Double Vision (1978 / 4:00)
-Foreigner (Double Vision) - Hot Blooded (1978 / 4:45)
-Foreigner (Foreigner) - Feels Like the First Time (1977 / ?:??)
-Foreigner (Foreigner) - Headknocker (1977 / ?:??)
-Foster the People (Torches) - Don't Stop (Color on the Walls) (2011 / 2:58)
-Foster the People (Torches) - Helena Beat (2011 / 4:33)
-Foster the People (Torches) - Pumped Up Kicks (2011 / 3:57)
-Fountains of Wayne (Welcome Interstate Managers) - Stacy's Mom (2003 / 3:21)
-Frank Sinatra (It Might as Well Be Swing) - Fly Me to the Moon (In Other Words) (1964 / 2:37)
-Frank Sinatra (My Way) - My Way (1969 / 4:49)
+Foreigner (Agent Provocateur) - I Want to Know What Love Is (1984 / 5:16) (songs.dta)
+Foreigner (Double Vision) - Blue Morning, Blue Day (1978 / ?:??) (songs.dta)
+Foreigner (Double Vision) - Double Vision (1978 / 4:00) (songs.dta)
+Foreigner (Double Vision) - Hot Blooded (1978 / 4:45) (songs.dta)
+Foreigner (Foreigner) - Feels Like the First Time (1977 / ?:??) (songs.dta)
+Foreigner (Foreigner) - Headknocker (1977 / ?:??) (songs.dta)
+Foster the People (Torches) - Don't Stop (Color on the Walls) (2011 / 2:58) (songs.USB1.dta)
+Foster the People (Torches) - Helena Beat (2011 / 4:33) (songs.USB1.dta)
+Foster the People (Torches) - Pumped Up Kicks (2011 / 3:57) (songs.USB1.dta)
+Fountains of Wayne (Welcome Interstate Managers) - Stacy's Mom (2003 / 3:21) (songs.dta)
+Frank Sinatra (It Might as Well Be Swing) - Fly Me to the Moon (In Other Words) (1964 / 2:37) (songs.dta)
+Frank Sinatra (My Way) - My Way (1969 / 4:49) (songs.dta)
 ```
 
 `SongListSortedBySongName.txt`
 ```
-29 Fingers by The Konks on (unknown album) (? / ?:??)
-3's & 7's by Queens of the Stone Age on (unknown album) (? / ?:??)
-3rd Stone from the Sun by The Jimi Hendrix Experience on Are You Experienced (1967 / 6:50)
-5 Minutes Alone by Pantera on Far Beyond Driven (1994 / 5:58)
-7 Things by Miley Cyrus on Breakout (2008 / 3:33)
-867-5309/Jenny by Tommy Tutone on Tutone-Ality (1981 / 3:48)
+29 Fingers by The Konks on (unknown album) (? / ?:??) (songs.dta)
+3's & 7's by Queens of the Stone Age on (unknown album) (? / ?:??) (songs.dta)
+3rd Stone from the Sun by The Jimi Hendrix Experience on Are You Experienced (1967 / 6:50) (songs.dta)
+5 Minutes Alone by Pantera on Far Beyond Driven (1994 / 5:58) (songs.USB1.dta)
+7 Things by Miley Cyrus on Breakout (2008 / 3:33) (songs.dta)
+867-5309/Jenny by Tommy Tutone on Tutone-Ality (1981 / 3:48) (songs.dta)
 ```
 
 

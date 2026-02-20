@@ -487,7 +487,7 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
     # Build normalized (artist, song) sets for comparison
     current_songs = set(
         (clean_for_comparison(artist), clean_for_comparison(name))
-        for artist, name, _, _, _ in pairs
+        for artist, name, _, _, _, _ in pairs
     )
 
     logging.info(
@@ -516,7 +516,7 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
     new_songs_by_artist: Dict[str, int] = {}
     # Map normalized artist -> display name seen in this run
     norm_to_display: Dict[str, str] = {}
-    for artist, name, _, _, _ in pairs:
+    for artist, name, _, _, _, _ in pairs:
         n_artist = clean_for_comparison(artist)   # Match current_songs cleaning
         n_name   = clean_for_comparison(name)
         if (n_artist, n_name) not in new_songs:
@@ -617,17 +617,28 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
  
     # Calculate totals for full lists
     total_songs = len(pairs)
-    unique_artists = set(artist for artist, _, _, _, _ in pairs if artist and artist != '(unknown artist)')
+    unique_artists = set(artist for artist, _, _, _, _, _ in pairs if artist and artist != '(unknown artist)')
     total_artists = len(unique_artists)
-    unique_albums = set(album for _, _, album, _, _ in pairs if album and album != '(unknown album)')
+    unique_albums = set(album for _, _, album, _, _, _ in pairs if album and album != '(unknown album)')
     total_albums = len(unique_albums)
     
-    header_full = header_timestamp + new_songs_header + removed_songs_header + f"Total songs: {total_songs}\nTotal albums: {total_albums}\nTotal artists: {total_artists}\n\n"
+    source_counts: Dict[str, int] = {}
+    for p in pairs:
+        source_file = p[5]
+        source_counts[source_file] = source_counts.get(source_file, 0) + 1
+    
+    source_header = f"Source file counts:\n"
+    for source_file, count in source_counts.items():
+        source_header += f"* {source_file}: {count} Song{'s' if count != 1 else ''}\n"
+    source_header += "\n"
+
+    header_full = header_timestamp + new_songs_header + removed_songs_header + source_header + f"Total songs: {total_songs}\nTotal albums: {total_albums}\nTotal artists: {total_artists}\n\n"
 
     # Sort explicitly by artist, then album (if present), then name for artist list
-    artist_sorted = sorted(pairs, key=lambda x: (x[0].lower(), (x[2] or '').lower(), x[1].lower()))
+    artist_sorted = sorted(pairs, key=lambda p: (clean_for_comparison(p[0]), clean_for_comparison(p[2] or ''), clean_for_comparison(p[1]), p[5]))
+    
     # Sort by name, then artist for name list
-    name_sorted = sorted(pairs, key=lambda x: (x[1].lower(), x[0].lower()))
+    name_sorted = sorted(pairs, key=lambda p: (clean_for_comparison(p[1]), clean_for_comparison(p[0]), p[5]))
 
     def _format_mm_ss(length_ms: Optional[int]) -> str:
         if length_ms is None or length_ms < 0:
@@ -649,13 +660,13 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
         return matched
 
     artist_lines: List[str] = []
-    for artist, name, album, year_val, length_ms_val in artist_sorted:
+    for artist, name, album, year_val, length_ms_val, source_file in artist_sorted:
         clean_artist = clean_display(artist)
         clean_name = clean_display(name)
         album_disp = album if album else '(unknown album)'
         year_disp = str(year_val) if year_val is not None else '?'
         length_disp = _format_mm_ss(length_ms_val)
-        artist_lines.append(f"{clean_artist} ({album_disp}) - {clean_name} ({year_disp} / {length_disp})")
+        artist_lines.append(f"{clean_artist} ({album_disp}) - {clean_name} ({year_disp} / {length_disp}) ({source_file})")
 
     with open(artist_path, 'w', encoding='utf-8') as fa:
         fa.write(header_full)  # Use full totals with timestamp
@@ -681,9 +692,9 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
 
     # Calculate clean totals from artist_clean_lines
     artist_clean_pairs = [artist_sorted[i] for i, line in enumerate(artist_lines) if _matched_curses(line) == set()]  # Unfiltered tuples
-    clean_unique_artists_artist = set(artist for artist, _, _, _, _ in artist_clean_pairs if artist and artist != '(unknown artist)')
+    clean_unique_artists_artist = set(artist for artist, _, _, _, _, _ in artist_clean_pairs if artist and artist != '(unknown artist)')
     clean_total_artists_artist = len(clean_unique_artists_artist)
-    clean_unique_albums_artist = set(album for _, _, album, _, _ in artist_clean_pairs if album and album != '(unknown album)')
+    clean_unique_albums_artist = set(album for _, _, album, _, _, _ in artist_clean_pairs if album and album != '(unknown album)')
     clean_total_albums_artist = len(clean_unique_albums_artist)
     clean_total_songs_artist = len(artist_clean_pairs)
     header_clean_artist = header_timestamp + new_songs_header + removed_songs_header + f"Total songs: {clean_total_songs_artist}\nTotal albums: {clean_total_albums_artist}\nTotal artists: {clean_total_artists_artist}\n\n"
@@ -694,13 +705,13 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
             fa_clean.write(line + "\n")
 
     name_lines: List[str] = []
-    for artist, name, album, year_val, length_ms_val in name_sorted:
+    for artist, name, album, year_val, length_ms_val, source_file in name_sorted:
         clean_artist = clean_display(artist)
         clean_name = clean_display(name)
         album_disp = album if album else '(unknown album)'
         year_disp = str(year_val) if year_val is not None else '?'
         length_disp = _format_mm_ss(length_ms_val)
-        name_lines.append(f"{clean_name} by {clean_artist} on {album_disp} ({year_disp} / {length_disp})")
+        name_lines.append(f"{clean_name} by {clean_artist} on {album_disp} ({year_disp} / {length_disp}) ({source_file})")
 
     with open(name_path, 'w', encoding='utf-8') as fn:
         fn.write(header_full)  # Use full totals with timestamp
@@ -726,9 +737,9 @@ def write_outputs(pairs: List[Tuple[str, str, Optional[str], Optional[int], Opti
 
     # Calculate clean totals from name_clean_lines
     name_clean_pairs = [name_sorted[i] for i, line in enumerate(name_lines) if _matched_curses(line) == set()]  # Unfiltered tuples
-    clean_unique_artists_name = set(artist for artist, _, _, _, _ in name_clean_pairs if artist and artist != '(unknown artist)')
+    clean_unique_artists_name = set(artist for artist, _, _, _, _, _ in name_clean_pairs if artist and artist != '(unknown artist)')
     clean_total_artists_name = len(clean_unique_artists_name)
-    clean_unique_albums_name = set(album for _, _, album, _, _ in name_clean_pairs if album and album != '(unknown album)')
+    clean_unique_albums_name = set(album for _, _, album, _, _, _ in name_clean_pairs if album and album != '(unknown album)')
     clean_total_albums_name = len(clean_unique_albums_name)
     clean_total_songs_name = len(name_clean_pairs)
     header_clean_name = header_timestamp + new_songs_header + removed_songs_header + f"Total songs: {clean_total_songs_name}\nTotal albums: {clean_total_albums_name}\nTotal artists: {clean_total_artists_name}\n\n"
@@ -754,25 +765,40 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description='Generate song lists from a Rock Band .DTA songs file.'
     )
-    parser.add_argument('input', help='Path to songs.dta.txt (or any .DTA-format file)')
+    parser.add_argument('inputs', nargs='+', help='Path(s) to songs.dta files')
     args = parser.parse_args(argv)
-
-    input_path = args.input
-    if not os.path.isfile(input_path):
-        print(f"Error: file not found: {input_path}", file=sys.stderr)
-        return 1
-
-    try:
-        text = read_file_text(input_path)
-    except Exception as e:
-        print(f"Error reading file: {e}", file=sys.stderr)
-        return 1
+    input_paths = args.inputs
 
     # Basic logger setup
     logging.basicConfig(level=logging.INFO, format='[%(levelname)s] %(message)s')
 
-    entries = split_top_level_entries(text)
-    pairs, stats, partials = parse_entries_for_artist_name(entries)
+    pairs = []
+    partials = []
+    stats = {'total_entries': 0, 'completed_pairs': 0, 'missing_artist': 0, 'missing_name': 0}
+
+    for dta_path in input_paths:
+        dta_text = read_file_text(dta_path)
+        logging.info(f"Loaded {len(dta_text)} characters from {dta_path}")
+
+        entries = split_top_level_entries(dta_text)
+        logging.info(f"Split into {len(entries)} top-level entries from {dta_path}")
+
+        file_pairs, file_stats, file_partials = parse_entries_for_artist_name(entries)   # ← corrected order
+
+        source_file = os.path.basename(dta_path)
+
+        # Add source_file to both completed pairs and partials
+        file_pairs = [list(item) + [source_file] for item in file_pairs]
+        file_partials = [list(item) + [source_file] for item in file_partials]
+
+        pairs += file_pairs
+        partials += file_partials
+
+        # Aggregate stats
+        for k, v in file_stats.items():
+            stats[k] = stats.get(k, 0) + v
+
+        logging.info(f"Added {len(file_pairs)} completed pairs and {len(file_partials)} partial pairs from {source_file}")
 
     if not pairs:
         logging.warning('No (artist, name) pairs found. Outputs may be empty.')
@@ -786,12 +812,12 @@ def main(argv: Optional[List[str]] = None) -> int:
             )
 
     # Augment outputs with partials using placeholders so lists remain comprehensive
-    placeholder_pairs: List[Tuple[str, str, Optional[str], Optional[int], Optional[int]]] = []
-    for a, n, _, album, year_val, length_ms_val in partials:
-        artist_val = clean_display(a) if a else '(unknown artist)'
-        name_val = clean_display(n) if n else '(unknown title)'
-        album_val = clean_display(album) if album else None
-        placeholder_pairs.append((artist_val, name_val, album_val, year_val, length_ms_val))
+    placeholder_pairs: List[Tuple[str, str, Optional[str], Optional[int], Optional[int], str]] = []
+    for a, n, s, album, year_val, length_ms_val, source_file in partials:
+        artist_val = a if a else '(unknown artist)'
+        name_val = n if n else '(unknown title)'
+        album_val = album if album else None
+        placeholder_pairs.append((artist_val, name_val, album_val, year_val, length_ms_val, source_file))
 
     all_pairs = pairs + placeholder_pairs
 
