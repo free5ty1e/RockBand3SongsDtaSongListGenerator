@@ -118,5 +118,9 @@ Frank Sinatra (My Way) - My Way (1969 / 4:49) (songs.dta)
 
 
 
+## Rock Band 4 Support
+
+To build song lists for Rock Band 4 and user custom PKGs, please refer to the specific toolset in the `RB4/` directory. See the [RB4 README](./RB4/README.md) for its specific setup and pipeline documentation.
+
 # Other Tools
 See the other tools folder for README files for each specific related tool / toolset

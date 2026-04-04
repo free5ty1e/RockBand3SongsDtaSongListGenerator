@@ -1,0 +1,36 @@
+{
+  "name": "RockBand Song List Generator",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "mounts": [
+    "source=${localWorkspaceFolder}/pkgs,target=/pkgs,type=bind,consistency=cached"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.pylint",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-json"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/bin/python3",
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Song List Preview",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "echo '✅ Dev container ready. Onyx: '$(onyx | head -1)' | Node: '$(node --version)' | Python: '$(python3 --version)",
+  "remoteUser": "vscode"
+}
