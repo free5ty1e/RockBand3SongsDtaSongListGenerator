@@ -38,3 +38,7 @@ These rules apply to any AI agent (Antigravity, Gemini, Copilot, etc.) working i
 10. **PKG scanner must be recursive** — the Samba share has subfolders. Use `find "$PKG_DIR" -name "*.pkg"`.
 
 11. **Non-song PKGs must be skipped gracefully.** If `onyx metadata` returns no artist/title fields, emit a warning to stderr and continue — never crash the scan.
+
+## Git Behavior
+
+12. **Never commit directly to git.** Only stage/unstage files. Write a commit message for the user to execute. The user handles all git write operations (commit, push, etc.).

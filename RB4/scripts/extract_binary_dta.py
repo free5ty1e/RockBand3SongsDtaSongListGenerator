@@ -35,22 +35,54 @@ def _strip_binary_prefix(s: str) -> str:
     """Strip leading garbage prefix from title (e.g., GHoliday -> Holiday)."""
     if not s or len(s) < 2:
         return s
+    # Handle G prefix (single uppercase followed by title, e.g., GHoliday -> Holiday)
+    if len(s) >= 3 and s[0].isupper() and s[1].isupper() and s[2].isupper():
+        return s[1:]
     for i in range(len(s)):
         if i + 1 < len(s) and s[i].isupper() and s[i+1].islower():
             return s[i:] if i > 0 else s
     return s
 
 
+def _is_garbage_string(s: str) -> bool:
+    """Check if string is binary garbage that should be skipped."""
+    if not s or len(s) < 2:
+        return True
+    # Starts with special characters (binary garbage indicator)
+    if s[0] in '@*`#%$&^~[]{}|<>?/\\~' or (len(s) > 0 and ord(s[0]) < 32):
+        return True
+    # Contains null bytes or control chars
+    if any(ord(c) < 32 and c not in '\t\n' for c in s):
+        return True
+    # All uppercase short strings are usually garbage
+    if s.isupper() and len(s) <= 4:
+        return True
+    # Strings with hex-like patterns at start
+    if len(s) >= 2 and all(c in 'ABCDEF0123456789' for c in s[:2]) and s[0] in 'ABCDEF':
+        return True
+    # Short uppercase prefix + lowercase rest (like "GBasket", not standalone words)
+    # Must be short (3-10 chars) and have clear prefix boundary
+    if len(s) >= 3 and len(s) <= 12 and s[0].isupper() and s[1].isupper() and s[2].islower():
+        return True
+    return False
+
+
 def is_valid_title(s: str) -> bool:
     """Check if string is likely a valid title (not binary garbage)."""
-    if not s or len(s) < 3:
+    if not s or len(s) < 2:
         return False
-    if s[0].islower():
+    if _is_garbage_string(s):
         return False
+    # Starts with lowercase is OK for actual song names (like "alive")
+    if s[0].islower() and len(s) >= 3:
+        return True
+    # All uppercase prefix like GTitle is garbage
     if len(s) >= 3 and s[0].isupper() and s[1:].isupper():
         return False
+    # Multi-word is almost always valid
     if ' ' in s:
         return True
+    # Single-word starting with uppercase, must be long enough
     if s[0].isupper() and s[0].isalpha() and len(s) >= 4:
         return True
     return False
@@ -128,8 +160,17 @@ def parse_songdta(filepath: str, default_source="Custom") -> dict:
         i = start
         while i < len(items):
             s = items[i]
+            # Skip garbage strings
+            if _is_garbage_string(s):
+                i += 1
+                continue
             if i + 1 < len(items):
                 next_s = items[i + 1]
+                # Skip garbage in next_s too
+                if _is_garbage_string(next_s):
+                    merged.append(s)
+                    i += 1
+                    continue
                 # Merge short split parts (like Mot + rhead = Motörhead)
                 # Both must be short AND second must start with lowercase
                 if len(s) <= 5 and len(next_s) <= 5 and next_s[0].islower():
@@ -157,20 +198,58 @@ def parse_songdta(filepath: str, default_source="Custom") -> dict:
     else:
         between = strings[:5] if genre_idx > 0 else strings[:5]
 
-    # First, merge split strings in the entire between list
-    merged_between = merge_split_strings(between, 0)
+    # First, filter out garbage and merge split strings in the entire between list
+    filtered_between = [s for s in between if not _is_garbage_string(s)]
+    merged_between = merge_split_strings(filtered_between, 0)
 
     title, artist, album = None, None, None
 
-    for i in range(min(5, len(merged_between))):
+    # Find all valid title candidates
+    title_candidates = []
+    for i in range(min(6, len(merged_between))):
         candidate = merged_between[i]
         if is_valid_title(candidate):
-            title = _strip_binary_prefix(candidate)
-            if i + 1 < len(merged_between):
-                artist = merged_between[i + 1]
-            if i + 2 < len(merged_between):
-                album = merged_between[i + 2]
-            break
+            title_candidates.append((i, candidate))
+
+    if title_candidates:
+        # Check if artist is in position BEFORE title (typical RB2 format: artist, title)
+        # Or AFTER title (typical RB4 format: title, artist)
+        first_title_idx = title_candidates[0][0]
+        last_title_idx = title_candidates[-1][0]
+        
+        # If first title is at index 1 or higher, likely has artist before it
+        if first_title_idx > 0:
+            best_idx, best_title = title_candidates[0]
+        else:
+            # Use last title
+            best_idx, best_title = title_candidates[-1]
+        
+        title = _strip_binary_prefix(best_title)
+        
+        # Artist can be before OR after the title
+        artist = None
+        artist_idx = -1
+        # First check positions after title
+        for j in range(best_idx + 1, min(best_idx + 3, len(merged_between))):
+            if is_valid_title(merged_between[j]):
+                artist = merged_between[j]
+                artist_idx = j
+                break
+        # If no artist after, check before title (some songs have artist before title)
+        if not artist and best_idx > 0:
+            for j in range(best_idx - 1, max(-1, best_idx - 3), -1):
+                if is_valid_title(merged_between[j]):
+                    artist = merged_between[j]
+                    artist_idx = j
+                    break
+        
+        # Album is after artist (or after title if no artist found)
+        album = None
+        search_start = (artist_idx + 1) if artist_idx >= 0 else best_idx + 1
+        for k in range(search_start, min(search_start + 3, len(merged_between))):
+            if is_valid_title(merged_between[k]):
+                album = merged_between[k]
+                break
 
     if not title and len(between) >= 1:
         title = _strip_binary_prefix(between[0])
