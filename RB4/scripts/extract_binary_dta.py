@@ -45,14 +45,30 @@ def is_valid_title(s: str) -> bool:
     """Check if string is likely a valid title (not binary garbage)."""
     if not s or len(s) < 3:
         return False
-    # Garbage: starts with lowercase, or with symbol then lowercase
-    if s[0].islower() or (not s[0].isalpha() and len(s) > 0 and len(s) < 4):
+    # Garbage: starts with lowercase (like "sGD\"", "^GShe")
+    if s[0].islower():
+        return False
+    # Garbage: single uppercase letter prefix (like "HF.O.D.", "GBasket", "GHoliday")
+    if len(s) >= 3 and s[0].isupper() and s[1:].isupper():
         return False
     # Multi-word is almost always valid
     if ' ' in s:
         return True
-    # Single-word: must start with uppercase and have mixed case OR be longer
-    if s[0].isupper() and (any(c.islower() for c in s) or len(s) >= 5):
+    # Single-word: must start with uppercase letter (A-Z) and be long enough
+    if s[0].isupper() and s[0].isalpha() and len(s) >= 4:
+        return True
+    return False
+    # Garbage: starts with lowercase (like "sGD\"", "^GShe")
+    if s[0].islower():
+        return False
+    # Garbage: short (2-4 chars) all-uppercase (like "GCh", "GFt")
+    if len(s) <= 4 and s.isupper():
+        return False
+    # Multi-word is almost always valid title
+    if ' ' in s:
+        return True
+    # Single-word: must start with uppercase letter
+    if s[0].isupper():
         return True
     return False
 
@@ -117,16 +133,35 @@ def parse_songdta(filepath: str, default_source="Custom") -> dict:
     else:
         between = strings[:5] if genre_idx > 0 else strings[:5]
 
-    # Check if position 0 is valid title, otherwise use position 1
-    if between and is_valid_title(between[0]):
+    # Find valid title - iterate through positions to find first valid title
+    # Then artist is next position, album is after that
+    title = None
+    artist = None
+    album = None
+    
+    for i in range(min(4, len(between))):
+        candidate = between[i]
+        if is_valid_title(candidate):
+            title = _strip_binary_prefix(candidate)
+            # Artist is next valid position after title
+            for j in range(i + 1, min(i + 3, len(between))):
+                if is_valid_title(between[j]):
+                    artist = between[j]
+                    # Album is after artist
+                    for k in range(j + 1, min(j + 3, len(between))):
+                        if is_valid_title(between[k]):
+                            album = between[k]
+                            break
+                    break
+            break
+    
+    # Fallback if no valid title found
+    if not title and len(between) >= 1:
         title = _strip_binary_prefix(between[0])
-        artist = between[1] if len(between) > 1 else None
-        album = between[2] if len(between) > 2 else None
-    else:
-        # Position 0 is garbage, use 1, 2, 3
-        title = _strip_binary_prefix(between[1]) if len(between) > 1 else None
-        artist = between[2] if len(between) > 2 else None
-        album = between[3] if len(between) > 3 else None
+    if not artist and len(between) >= 2:
+        artist = between[1]
+    if not album and len(between) >= 3:
+        album = between[2]
 
     if not title:
         title = "Unknown Title"
