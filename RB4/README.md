@@ -9,42 +9,41 @@ This tool supplements the baseline with your custom songs, dropping duplicates (
 
 ## Binary Structure (.songdta_ps4)
 
-The `.songdta_ps4` files contain compiled song metadata in a binary format. Through analysis, we've discovered the following structure:
+The `.songdta_ps4` files contain compiled song metadata using a fixed binary structure documented in LibForge's 010 Editor template (`LibForge/010/songdta.bt`).
 
-```
-[source_code][garbage_prefix][Title][Artist][Album][Genre][Difficulty][song_id]
-```
+### Field Offsets
 
-### Key Patterns
+| Field | Offset | Description |
+|-------|--------|-------------|
+| `songdta_type` | 0 | File type identifier |
+| `song_id` | 4 | Unique song ID |
+| `version` | 8 | Version number |
+| `game_origin` | 10 | Source code (rb2, greenday, etc.) |
+| `preview_start` | 28 | Preview start position (seconds) |
+| `preview_end` | 32 | Preview end position (seconds) |
+| `name` | 36 | Song title |
+| `artist` | 292 | Artist name |
+| `album_name` | 548 | Album name |
+| `album_year` | 808 | Year added to RB |
+| `original_year` | 812 | Original release year |
+| `genre` | 816 | Genre tag |
+| `guitar` | 884 | Guitar difficulty |
+| `bass` | 888 | Bass difficulty |
+| `vocals` | 892 | Vocals difficulty |
+| `drums` | 896 | Drums difficulty |
+| `shortname` | 945 | Song folder name |
 
-1. **Source Code**: Located first, contains identifiers like:
-   - `greenday` - Rock Band Green Day export
-   - `rb4_dlc` - Rock Band 4 DLC
-   - `rb1`, `rb2`, `rb3` - Rock Band 1/2/3
-   - `rbn1`, `rbn2` - Rock Band Network
+### Duration Extraction
 
-2. **Garbage Prefixes**: Binary length bytes that appear before the title, typically:
-   - Single uppercase letter: `G`, `H`, `J` (e.g., `GHoliday`)
-   - Multiple: `JH`, `JHB` (e.g., `JHBrain Stew`)
-   - Lowercase + uppercase: `sGD"` (garbage, not real title)
-
-3. **Genre Tags**: Known genre strings used as anchors:
-   - `rock`, `metal`, `punk`, `pop`, `country`, `rb`, `soul`, etc.
-
-4. **Metadata Position**: Strings between source code and genre are always:
-   - Position 0: Title (may have garbage prefix)
-   - Position 1: Artist
-   - Position 2: Album
+The `song_length` field at offset 880 contains garbage data. Duration is calculated by finding the minimum float value in range 60-500 seconds across the entire file.
 
 ## Two-Step Workflow
 
-**1. Scan custom PKG files**
-Run the shell script to recursively scan a folder full of `.pkg` files:
+**1. Extract binary metadata**
+Run the Python script to extract from all `.songdta_ps4` files:
 ```bash
-bash RB4/scripts/scan_rb4_pkgs.sh --dir /path/to/pkgs --out RB4/rb4_custom_songs.json
+python3 RB4/scripts/extract_binary_dta.py <songs_dir> --source <source> RB4/rb4_custom_songs.json
 ```
-
-This uses `PkgTool.Core` (.NET 8) to unpack fPKGs and extracts metadata from binary blobs.
 
 **2. Generate Text Lists**
 Run the Node.js generator to combine baseline with custom JSON:
@@ -58,36 +57,75 @@ Generates 4 text files in `RB4/output/`:
 - `SongListSortedByArtistClean.txt` (profanity filtered)
 - `SongListSortedBySongNameClean.txt` (profanity filtered)
 
-## Extraction Algorithm
+## Output Format
 
-The `extract_binary_dta.py` parser works as follows:
+Each line contains:
+```
+Artist (Album) - Title (Year / Duration) - Source [ShortName]🎸🎤🥁
+```
 
-1. Extract all printable ASCII strings from binary
-2. Find source code position using regex (`^rb\d(_dlc)?$|^rbn\d?$|^greenday$...`)
-3. Find genre position using known genre list
-4. Take strings between source and genre
-5. Filter garbage (short strings, uppercase-only, lowercase+uppercase pattern)
-6. Assign by position: title, artist, album
-7. Strip leading garbage prefix from title
+Where:
+- `Artist` - Band name
+- `Album` - Album name  
+- `Title` - Song title
+- `Year` - Release year
+- `Duration` - Length in MM:SS format
+- `Source` - Song source (Rock Band 2, custom, etc.)
+- `ShortName` - Internal song folder name (for reference)
+- `🎸🎤🥁` - Instrument icons (guitar, vocals, drums, keys)
+
+## Extraction Details
+
+The `extract_binary_dta.py` parser uses exact field offsets:
+
+1. Read fixed offsets for known fields (title at 36, artist at 292, etc.)
+2. Calculate duration from minimum float in reasonable range
+3. Map `game_origin` to friendly source names
+4. Generate instrument emoji from difficulty values > 0
+5. Return complete JSON with all metadata fields
 
 ## Setup & Dependencies
 
 Runs in **Devcontainer** (Ubuntu 24.04) with:
-- .NET 8 Runtime - for PkgTool.Core
 - Python 3 - for extract_binary_dta.py
 - Node.js 22 - for generator
-- PkgTool.Core - at `/usr/local/bin/PkgTool.Core`
+- PkgTool.Core - for extracting PKG files (if needed)
 
-## Known Limitations
+## Output Fields
 
-- Some edge cases with garbage prefixes not fully filtered
-- Album extraction not always accurate
-- Duration extraction not working for all songs
+The parser extracts all available fields:
 
-## Troubleshooting
+```json
+{
+  "artist": "Motörhead",
+  "title": "Ace of Spades '08",
+  "album": "Ace of Spades '08",
+  "year": 1980,
+  "durationMs": 255000,
+  "source": "Rock Band 2",
+  "songId": 251,
+  "shortName": "aceofspades",
+  "gameOrigin": "rb2",
+  "albumYear": 2008,
+  "originalYear": 1980,
+  "genre": "metal",
+  "previewStart": 16720.92,
+  "previewEnd": 46720.83,
+  "difficulty": {
+    "guitar": 388.0,
+    "bass": 471.0,
+    "vocals": 255.0,
+    "drums": 429.0,
+    "band": 453.0,
+    "keys": 0.0
+  },
+  "instruments": "🎸🎸🎤🥁",
+  "instrumentList": ["guitar", "bass", "vocals", "drums"]
+}
+```
 
-If you see junk in output:
-1. Check `RB4/rb4_custom_songs.json`
-2. Inspect raw extraction in `RB4/working_dir/`
-3. Examine binary directly: `strings song.songdta_ps4`
-4. Refine heuristics in `extract_binary_dta.py`
+## References
+
+- LibForge: https://github.com/mtolly/LibForge
+- 010 Editor Template: `LibForge/010/songdta.bt`
+- Rock Band Wiki: https://rockband.fandom.com

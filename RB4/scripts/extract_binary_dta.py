@@ -1,26 +1,14 @@
 #!/usr/bin/env python3
 """
 extract_binary_dta.py — Extract song metadata from Rock Band 4 binary .songdta_ps4 files.
-Uses dynamic structural detection based on known markers (source code, genre).
+Uses exact field offsets from LibForge's 010 Editor template.
 """
 
 import sys
-import re
 import json
 import os
 import argparse
 import struct
-
-_GENRE_TAGS = {
-    "rock", "metal", "poprock", "pop", "country", "classicrock",
-    "alternativerock", "hardrock", "punk", "indie", "dance",
-    "electronic", "popdanceelectronic", "hiphoprap", "rb", "soul",
-    "blues", "jazz", "classical", "new wave", "grunge", "alternative",
-    "numetal", "prog", "latin", "world", "novelty", "emocore",
-    "fusion", "jpop", "jrock", "reggae"
-}
-
-_SOURCE_REGEX = re.compile(r'^rb\d(_dlc)?$|^rbn\d?$|^gdrb$|^tbrb$|^greenday$|^beatles$|^rb4_dlc$')
 
 _FRIENDLY_SOURCES = {
     'rb1': 'Rock Band 1', 'rb2': 'Rock Band 2', 'rb3': 'Rock Band 3',
@@ -30,252 +18,309 @@ _FRIENDLY_SOURCES = {
     'gdrb': 'Rock Band Green Day', 'tbrb': 'The Beatles: Rock Band',
 }
 
+_INSTRUMENT_EMOJI = {
+    'guitar': '🎸',
+    'bass': '🎸',
+    'drums': '🥁',
+    'vocals': '🎤',
+    'keys': '🎹',
+    'real_guitar': '🎸',
+    'real_keys': '🎹',
+}
 
-def _strip_binary_prefix(s: str) -> str:
-    """Strip leading garbage prefix from title (e.g., GHoliday -> Holiday)."""
-    if not s or len(s) < 2:
-        return s
-    # Handle G prefix (single uppercase followed by title, e.g., GHoliday -> Holiday)
-    if len(s) >= 3 and s[0].isupper() and s[1].isupper() and s[2].isupper():
-        return s[1:]
-    for i in range(len(s)):
-        if i + 1 < len(s) and s[i].isupper() and s[i+1].islower():
-            return s[i:] if i > 0 else s
-    return s
+# Field offsets from LibForge 010/songdta.bt template
+OFFSETS = {
+    'songdta_type': 0,
+    'song_id': 4,
+    'version': 8,
+    'game_origin': 10,
+    'preview_start': 28,
+    'preview_end': 32,
+    'name': 36,
+    'artist': 292,
+    'album_name': 548,
+    'album_track_number': 804,
+    'album_year': 808,
+    'original_year': 812,
+    'genre': 816,
+    'song_length': 880,
+    'guitar': 884,
+    'bass': 888,
+    'vocals': 892,
+    'drum': 896,
+    'band': 900,
+    'keys': 904,
+    'real_keys': 908,
+    'tutorial': 912,
+    'album_art': 913,
+    'cover': 914,
+    'vocal_gender': 915,
+    'anim_tempo': 916,
+    'has_markup': 932,
+    'vocal_parts': 936,
+    'solos': 940,
+    'fake': 944,
+    'shortname': 945,
+}
 
-
-def _is_garbage_string(s: str) -> bool:
-    """Check if string is binary garbage that should be skipped."""
-    if not s or len(s) < 2:
-        return True
-    # Starts with special characters (binary garbage indicator)
-    if s[0] in '@*`#%$&^~[]{}|<>?/\\~' or (len(s) > 0 and ord(s[0]) < 32):
-        return True
-    # Contains null bytes or control chars
-    if any(ord(c) < 32 and c not in '\t\n' for c in s):
-        return True
-    # All uppercase short strings are usually garbage
-    if s.isupper() and len(s) <= 4:
-        return True
-    # Strings with hex-like patterns at start
-    if len(s) >= 2 and all(c in 'ABCDEF0123456789' for c in s[:2]) and s[0] in 'ABCDEF':
-        return True
-    # Short uppercase prefix + lowercase rest (like "GBasket", not standalone words)
-    # Must be short (3-10 chars) and have clear prefix boundary
-    if len(s) >= 3 and len(s) <= 12 and s[0].isupper() and s[1].isupper() and s[2].islower():
-        return True
-    return False
-
-
-def is_valid_title(s: str) -> bool:
-    """Check if string is likely a valid title (not binary garbage)."""
-    if not s or len(s) < 2:
-        return False
-    if _is_garbage_string(s):
-        return False
-    # Starts with lowercase is OK for actual song names (like "alive")
-    if s[0].islower() and len(s) >= 3:
-        return True
-    # All uppercase prefix like GTitle is garbage
-    if len(s) >= 3 and s[0].isupper() and s[1:].isupper():
-        return False
-    # Multi-word is almost always valid
-    if ' ' in s:
-        return True
-    # Single-word starting with uppercase, must be long enough
-    if s[0].isupper() and s[0].isalpha() and len(s) >= 4:
-        return True
-    return False
+SIZES = {
+    'game_origin': 18,
+    'name': 256,
+    'artist': 256,
+    'album_name': 256,
+    'genre': 64,
+    'anim_tempo': 16,
+    'shortname': 256,
+}
 
 
-def is_valid_artist_or_album(s: str) -> bool:
-    """Check if string is likely a valid artist or album (not split garbage)."""
-    if not s or len(s) < 4:
-        return False
-    if s[0].islower():
-        return False
-    if s.isupper() and len(s) <= 5:
-        return False
-    if ' ' in s or len(s) >= 6:
-        return True
-    if s[0].isupper():
-        return True
-    return False
-
-
-def extract_year(data: bytes, genre: str) -> int:
-    """Find year as 4-byte LE integer immediately before genre string."""
+def _read_string(data: bytes, offset: int, max_size: int) -> str:
+    """Read a null-terminated UTF-8 string from binary data."""
     try:
-        genre_bytes = genre.encode('utf-8')
-        idx = data.find(genre_bytes)
-        if idx >= 4:
-            year_bytes = data[idx-4:idx]
-            year = struct.unpack('<I', year_bytes)[0]
-            if 1950 <= year <= 2026:
-                return year
-    except:
-        pass
+        if offset + max_size > len(data):
+            return ""
+        chunk = data[offset:offset + max_size]
+        return chunk.split(b'\x00')[0].decode('utf-8', errors='replace').strip()
+    except Exception:
+        return ""
+
+
+def _read_int(data: bytes, offset: int) -> int:
+    """Read a 4-byte little-endian integer."""
+    try:
+        if offset + 4 > len(data):
+            return 0
+        return struct.unpack('<I', data[offset:offset + 4])[0]
+    except Exception:
+        return 0
+
+
+def _read_short(data: bytes, offset: int) -> int:
+    """Read a 2-byte little-endian short."""
+    try:
+        if offset + 2 > len(data):
+            return 0
+        return struct.unpack('<h', data[offset:offset + 2])[0]
+    except Exception:
+        return 0
+
+
+def _read_float(data: bytes, offset: int) -> float:
+    """Read a 4-byte float."""
+    try:
+        if offset + 4 > len(data):
+            return 0.0
+        return struct.unpack('<f', data[offset:offset + 4])[0]
+    except Exception:
+        return 0.0
+
+
+def _read_byte(data: bytes, offset: int) -> int:
+    """Read a single byte."""
+    try:
+        if offset >= len(data):
+            return 0
+        return data[offset]
+    except Exception:
+        return 0
+
+
+def _calculate_duration_ms(data: bytes) -> int:
+    """Calculate duration from floats in the file. Find min float in range 60-500 as duration."""
+    floats_in_range = []
+    for i in range(0, len(data) - 4, 4):
+        try:
+            val = struct.unpack('<f', data[i:i+4])[0]
+            if 60.0 <= val <= 500.0:
+                floats_in_range.append(val)
+        except Exception:
+            pass
+    
+    if floats_in_range:
+        duration_seconds = min(floats_in_range)
+        return int(duration_seconds * 1000)
     return 0
 
 
-def extract_duration(data: bytes) -> int:
-    """Extract song duration from fixed offset 884 (float32 in seconds)."""
-    try:
-        if len(data) > 888:
-            duration = struct.unpack('<f', data[884:888])[0]
-            if 60.0 <= duration <= 900.0:
-                return int(duration * 1000)
-    except:
-        pass
-    return 0
-
-
-def parse_songdta(filepath: str, default_source="Custom") -> dict:
-    """Dynamic parser for .songdta_ps4 files using positional extraction."""
+def parse_songdta(filepath: str, default_source: str = "Custom") -> dict:
+    """Parse .songdta_ps4 file using exact field offsets."""
     with open(filepath, 'rb') as f:
         data = f.read()
 
-    raw = re.findall(b'[ -~]{2,}', data)
-    strings = [s.decode('utf-8', errors='replace').strip() for s in raw]
+    if len(data) < 100:
+        return _create_empty_result(filepath, default_source)
 
-    source = default_source
-    genre = None
-    source_idx = -1
-    genre_idx = -1
-
-    for i, s in enumerate(strings):
-        s_lower = s.lower()
-        if source_idx == -1 and _SOURCE_REGEX.match(s_lower):
-            source = s_lower
-            source_idx = i
-        elif genre_idx == -1 and s_lower in _GENRE_TAGS:
-            genre = s_lower
-            genre_idx = i
-
-    if source_idx == -1:
-        source = "Custom"
-
-    def merge_split_strings(items: list, start: int) -> list:
-        merged = []
-        i = start
-        while i < len(items):
-            s = items[i]
-            # Skip garbage strings
-            if _is_garbage_string(s):
-                i += 1
-                continue
-            if i + 1 < len(items):
-                next_s = items[i + 1]
-                # Skip garbage in next_s too
-                if _is_garbage_string(next_s):
-                    merged.append(s)
-                    i += 1
-                    continue
-                # Merge short split parts (like Mot + rhead = Motörhead)
-                # Both must be short AND second must start with lowercase
-                if len(s) <= 5 and len(next_s) <= 5 and next_s[0].islower():
-                    merged.append(s + next_s)
-                    i += 2
-                    continue
-                # Merge when first ends with lowercase and next starts with lowercase
-                if s[-1].islower() and next_s[0].islower():
-                    merged.append(s + next_s)
-                    i += 2
-                    continue
-                # Merge short uppercase prefix with rest (like 'Mot' + 'rhead' = 'Motrhead')
-                if len(s) <= 4 and s[0].isupper() and next_s and next_s[0].islower():
-                    merged.append(s + next_s)
-                    i += 2
-                    continue
-            merged.append(s)
-            i += 1
-        return merged
-
-    if source_idx >= 0 and genre_idx > source_idx:
-        between = strings[source_idx + 1:genre_idx]
-    elif source_idx >= 0:
-        between = strings[source_idx + 1:]
-    else:
-        between = strings[:5] if genre_idx > 0 else strings[:5]
-
-    # First, filter out garbage and merge split strings in the entire between list
-    filtered_between = [s for s in between if not _is_garbage_string(s)]
-    merged_between = merge_split_strings(filtered_between, 0)
-
-    title, artist, album = None, None, None
-
-    # Find all valid title candidates
-    title_candidates = []
-    for i in range(min(6, len(merged_between))):
-        candidate = merged_between[i]
-        if is_valid_title(candidate):
-            title_candidates.append((i, candidate))
-
-    if title_candidates:
-        # Check if artist is in position BEFORE title (typical RB2 format: artist, title)
-        # Or AFTER title (typical RB4 format: title, artist)
-        first_title_idx = title_candidates[0][0]
-        last_title_idx = title_candidates[-1][0]
-        
-        # If first title is at index 1 or higher, likely has artist before it
-        if first_title_idx > 0:
-            best_idx, best_title = title_candidates[0]
-        else:
-            # Use last title
-            best_idx, best_title = title_candidates[-1]
-        
-        title = _strip_binary_prefix(best_title)
-        
-        # Artist can be before OR after the title
-        artist = None
-        artist_idx = -1
-        # First check positions after title
-        for j in range(best_idx + 1, min(best_idx + 3, len(merged_between))):
-            if is_valid_title(merged_between[j]):
-                artist = merged_between[j]
-                artist_idx = j
-                break
-        # If no artist after, check before title (some songs have artist before title)
-        if not artist and best_idx > 0:
-            for j in range(best_idx - 1, max(-1, best_idx - 3), -1):
-                if is_valid_title(merged_between[j]):
-                    artist = merged_between[j]
-                    artist_idx = j
-                    break
-        
-        # Album is after artist (or after title if no artist found)
-        album = None
-        search_start = (artist_idx + 1) if artist_idx >= 0 else best_idx + 1
-        for k in range(search_start, min(search_start + 3, len(merged_between))):
-            if is_valid_title(merged_between[k]):
-                album = merged_between[k]
-                break
-
-    if not title and len(between) >= 1:
-        title = _strip_binary_prefix(between[0])
-    if not artist and len(between) >= 2:
-        artist = between[1]
-    if not album and len(between) >= 3:
-        album = between[2]
-
-    if not title:
-        title = "Unknown Title"
-    if not artist:
-        artist = "Unknown Artist"
-
-    year = extract_year(data, genre) if genre else 0
-    duration_ms = extract_duration(data)
-    final_source = _FRIENDLY_SOURCES.get(source.lower(), source.title())
-
+    # === EXTRACT ALL FIELDS ===
+    
+    # Basic identification
+    songdta_type = _read_int(data, OFFSETS['songdta_type'])
+    song_id = _read_int(data, OFFSETS['song_id'])
+    version = _read_short(data, OFFSETS['version'])
+    game_origin = _read_string(data, OFFSETS['game_origin'], SIZES['game_origin'])
+    shortname = _read_string(data, OFFSETS['shortname'], SIZES['shortname'])
+    
+    # Preview times
+    preview_start = _read_float(data, OFFSETS['preview_start'])
+    preview_end = _read_float(data, OFFSETS['preview_end'])
+    
+    # Core metadata
+    name = _read_string(data, OFFSETS['name'], SIZES['name'])
+    artist = _read_string(data, OFFSETS['artist'], SIZES['artist'])
+    album_name = _read_string(data, OFFSETS['album_name'], SIZES['album_name'])
+    album_track_number = _read_short(data, OFFSETS['album_track_number'])
+    album_year = _read_int(data, OFFSETS['album_year'])
+    original_year = _read_int(data, OFFSETS['original_year'])
+    genre = _read_string(data, OFFSETS['genre'], SIZES['genre'])
+    
+    # Song length (attempt to calculate, fallback to float at guitar offset)
+    duration_ms = _calculate_duration_ms(data)
+    if duration_ms == 0:
+        duration_float = _read_float(data, OFFSETS['guitar'])
+        if 60.0 <= duration_float <= 500.0:
+            duration_ms = int(duration_float * 1000)
+    
+    # Difficulty ratings (as floats)
+    guitar = _read_float(data, OFFSETS['guitar'])
+    bass = _read_float(data, OFFSETS['bass'])
+    vocals = _read_float(data, OFFSETS['vocals'])
+    drum = _read_float(data, OFFSETS['drum'])
+    band = _read_float(data, OFFSETS['band'])
+    keys = _read_float(data, OFFSETS['keys'])
+    real_keys = _read_float(data, OFFSETS['real_keys'])
+    
+    # Additional metadata
+    tutorial = _read_byte(data, OFFSETS['tutorial'])
+    album_art = _read_byte(data, OFFSETS['album_art'])
+    cover = _read_byte(data, OFFSETS['cover'])
+    vocal_gender = _read_byte(data, OFFSETS['vocal_gender'])
+    anim_tempo = _read_string(data, OFFSETS['anim_tempo'], 16)
+    has_markup = _read_byte(data, OFFSETS['has_markup'])
+    vocal_parts = _read_byte(data, OFFSETS['vocal_parts'])
+    fake = _read_byte(data, OFFSETS['fake'])
+    
+    # === DERIVE ADDITIONAL FIELDS ===
+    
+    # Year: prefer original year, fallback to album year
+    year = original_year if original_year > 0 else album_year
+    
+    # Source: map game_origin to friendly name
+    source = _FRIENDLY_SOURCES.get(game_origin.lower(), default_source)
+    
+    # Instruments: based on difficulty values > 0
+    instruments = []
+    if guitar > 0:
+        instruments.append("guitar")
+    if bass > 0:
+        instruments.append("bass")
+    if vocals > 0:
+        instruments.append("vocals")
+    if drum > 0:
+        instruments.append("drums")
+    if keys > 0:
+        instruments.append("keys")
+    if real_keys > 0:
+        instruments.append("real_keys")
+    
+    # Instruments emoji string
+    instruments_str = ''.join(_INSTRUMENT_EMOJI.get(i, '') for i in instruments)
+    
+    # Vocal gender text
+    vocal_gender_str = "Male" if vocal_gender == 1 else "Female" if vocal_gender == 2 else "Unknown"
+    
     return {
+        # Core metadata
         "artist": artist,
-        "title": title,
-        "album": album,
+        "title": name,
+        "album": album_name,
         "year": year,
         "durationMs": duration_ms,
-        "source": final_source,
+        "source": source,
+        
+        # Identification
+        "songId": song_id,
+        "shortName": shortname,
+        "gameOrigin": game_origin,
+        
+        # Album details
+        "albumYear": album_year,
+        "originalYear": original_year,
+        "albumTrackNumber": album_track_number,
+        
+        # Genre and classification
+        "genre": genre,
+        
+        # Preview info
+        "previewStart": preview_start,
+        "previewEnd": preview_end,
+        
+        # Difficulty ratings
+        "difficulty": {
+            "guitar": guitar,
+            "bass": bass,
+            "vocals": vocals,
+            "drums": drum,
+            "band": band,
+            "keys": keys,
+            "realKeys": real_keys,
+        },
+        
+        # Instrument icons
+        "instruments": instruments_str,
+        "instrumentList": instruments,
+        
+        # Additional metadata
+        "tutorial": tutorial,
+        "albumArt": album_art,
+        "cover": cover,
+        "vocalGender": vocal_gender_str,
+        "animTempo": anim_tempo,
+        "hasMarkup": has_markup,
+        "vocalParts": vocal_parts,
+        "fake": fake,
+        
+        # Technical
+        "songdtaType": songdta_type,
+        "version": version,
+        
+        # Debug
         "_debug_file": os.path.basename(filepath),
-        "parse_mode": "dynamic"
+        "parse_mode": "exact_offsets"
+    }
+
+
+def _create_empty_result(filepath: str, default_source: str) -> dict:
+    """Create an empty result for invalid files."""
+    return {
+        "artist": "Unknown",
+        "title": os.path.basename(filepath).replace('.songdta_ps4', ''),
+        "album": "",
+        "year": 0,
+        "durationMs": 0,
+        "source": default_source,
+        "songId": 0,
+        "shortName": "",
+        "gameOrigin": "",
+        "albumYear": 0,
+        "originalYear": 0,
+        "albumTrackNumber": 0,
+        "genre": "",
+        "previewStart": 0.0,
+        "previewEnd": 0.0,
+        "difficulty": {},
+        "instruments": "",
+        "instrumentList": [],
+        "tutorial": 0,
+        "albumArt": 0,
+        "cover": 0,
+        "vocalGender": "Unknown",
+        "animTempo": "",
+        "hasMarkup": 0,
+        "vocalParts": 0,
+        "fake": 0,
+        "songdtaType": 0,
+        "version": 0,
+        "_debug_file": os.path.basename(filepath),
+        "parse_mode": "exact_offsets"
     }
 
 
@@ -299,7 +344,8 @@ def main():
 
     for filepath in files:
         try:
-            results.append(parse_songdta(filepath, args.source))
+            result = parse_songdta(filepath, args.source)
+            results.append(result)
         except Exception as e:
             print(f"ERROR parsing {filepath}: {e}", file=sys.stderr)
 

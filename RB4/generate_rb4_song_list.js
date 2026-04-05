@@ -160,7 +160,9 @@ function formatArtistLine(song) {
   const album   = song.album  || '(unknown album)';
   const year    = song.year   != null ? song.year : '?';
   const dur     = msToMmSs(song.durationMs);
-  return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source}`;
+  const shortName = song.shortName || '';
+  const instruments = song.instruments || '';
+  return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source} [${shortName}]${instruments}`;
 }
 
 // ── Format a song as a name-sorted line ──────────────────────────────────────
@@ -168,7 +170,9 @@ function formatNameLine(song) {
   const album   = song.album  || '(unknown album)';
   const year    = song.year   != null ? song.year : '?';
   const dur     = msToMmSs(song.durationMs);
-  return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source}`;
+  const shortName = song.shortName || '';
+  const instruments = song.instruments || '';
+  return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source} [${shortName}]${instruments}`;
 }
 
 // ── Build stats header ────────────────────────────────────────────────────────
