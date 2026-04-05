@@ -35,6 +35,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && node --version \
     && npm --version
 
+# ── Prettier (for markdown formatting) ───────────────────────────────────────
+RUN npm install -g prettier
+
 # ── .NET 8 Runtime (needed by LibOrbisPkg/PkgTool) ───────────────────────────
 # We install the slim runtime (not SDK) since we ship a pre-built binary.
 # libssl1.1 is also required by the LibOrbisPkg .NET 8 self-contained binary.
