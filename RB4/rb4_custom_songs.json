@@ -1,0 +1,3472 @@
+[
+  {
+    "artist": "Disney",
+    "title": "The Black Pearl",
+    "album": "Pirates of the Caribbean: Curse of the Black Pearl",
+    "year": 2003,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "blackpearlpirates.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Franz Ferdinand",
+    "title": "Twilight Omens",
+    "album": "Tonight: Franz Ferdinand",
+    "year": 2008,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "o881002332.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "The History of Everything",
+    "album": "Hits from Yesterday & the Day Beforerock",
+    "year": 2011,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "dnpg_thoe.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Dr. Dre Ft. Eminem & Skylar Grey",
+    "title": "Need A Doctor",
+    "album": "Detoxhiphoprap",
+    "year": 2011,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "ineedadoctordr.dreftv3.5.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "0rG",
+    "title": "LxAugc_plus",
+    "album": "GIn The End",
+    "year": 0,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "intheend_tc_byaldoenv.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "The Monster (ft. Rihanna)",
+    "album": "The Marshall Mathers LP2",
+    "year": 2013,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "themonster.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "Nothing Left At All (EP Version)",
+    "album": "Everybody Else Is Doing It, So Why Can't We?",
+    "year": 1993,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "nlaatc.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "Analyse",
+    "album": "Wake up and Smell the Coffee",
+    "year": 2001,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "analysetcbyaenv.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Nonpoint",
+    "title": "Said It",
+    "album": "Nonpointrock",
+    "year": 2012,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "npisaidit.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "ugc_plus",
+    "title": "Jayssitenovelty",
+    "album": "h?GMom's Spaghetti (ft. Eminem)",
+    "year": 2012,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "momsspaghetti_wip_v1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "How to Save a Lifepoprock",
+    "title": "The Fray",
+    "album": "The Fray",
+    "year": 2005,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "overmyhead.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "Stan (feat. Dido)",
+    "album": "The Marshall Mathers LP",
+    "year": 2000,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "bp_stanv3.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem (Alex Rudinger's Drum Cover)",
+    "title": "Say What You Say",
+    "album": "prog",
+    "year": 2015,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "saywhatyousay.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "Gonna Walk",
+    "album": "Grinning Streakalternative",
+    "year": 2013,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "mufa_gonnawalk.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Franz Ferdinand",
+    "title": "This Fire",
+    "album": "Franz Ferdinandalternative",
+    "year": 2004,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "franzferdinandthisfire.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "You Could Have It So Much Betterindierock",
+    "title": "Franz Ferdinand",
+    "album": "Franz Ferdinand",
+    "year": 0,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "franzferdinandwalkv3.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberriesalternative",
+    "title": "Dreams(Live From The Feile Festival-1994)",
+    "album": "]C",
+    "year": 1994,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "dreamslive1994.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Mariah Carey",
+    "title": "All I Want for Christmas Is You",
+    "album": "Merry Christmas",
+    "year": 1994,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "fugg_aiwfciy.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem Feat. Panjabi MC",
+    "title": "Lose Yourself",
+    "album": "The Singleshiphoprap",
+    "year": 2002,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "loseyourselfv1v1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Disney",
+    "title": "The Black Pearl",
+    "album": "Pirates of the Caribbean: Curse of the Black Pearlnovelty",
+    "year": 2003,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "o62028132_theblackpearl_di.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Death Of Slim Shadyhiphoprap",
+    "title": "Eminem",
+    "album": "Eminem",
+    "year": 2024,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "evil.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Linkin Park / Slipknot / Eminem",
+    "title": "Till The End",
+    "album": "Linkin Park / Slipknot / Eminem (Mashup)",
+    "year": 2021,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "tilltheend.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "Without Me",
+    "album": "The Eminem Show",
+    "year": 2002,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "withoutme.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Franz Ferdinand",
+    "title": "Bullet",
+    "album": "+G",
+    "year": 0,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "ff_bullet_v1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "Give It Back To You",
+    "album": "Grinning Streak",
+    "year": 2013,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "mufa_giveitbacktoyou.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Donny Osmond",
+    "title": "Make a Man Out of You",
+    "album": "Mulan: An Original Walt Disney Records Soundtrackpoprock",
+    "year": 1998,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "dpmakeaman.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Something Elsealternative",
+    "title": "The Cranberries",
+    "album": "The Cranberries",
+    "year": 2017,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "whytcbyaldoenv.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Gordonrock",
+    "title": "Barenaked Ladies",
+    "album": "Barenaked Ladies",
+    "year": 1992,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "bnlmilliondollarsv4.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "h?G",
+    "title": "A;ugc_plus",
+    "album": "GJane",
+    "year": 1994,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "bnljanev2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Disney",
+    "title": "Belle",
+    "album": ";G",
+    "year": 1991,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "bellebab.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "Call and Answer",
+    "album": "Stuntrock",
+    "year": 2017,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "barenakedcallanswerv1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "Animal Instinct",
+    "album": "Bury The Hatchetalternative",
+    "year": 1999,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "animalinstinct_rb3byaldoen.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "GHe's A Pirate",
+    "title": "RG!ugc_plus",
+    "album": "Disney",
+    "year": 2003,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "hesapiratepirates.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "HUNTR/X",
+    "title": "Golden",
+    "album": "K-Pop Demon Hunters (Soundtrack From The Netflix Film)",
+    "year": 2025,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "huntrxgolden.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "No Need To Argue",
+    "album": "No Need To Arguerock",
+    "year": 1994,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "noneedtoargue.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Counting Crows",
+    "title": "Anna Begins",
+    "album": "August and Everything Afteralternative",
+    "year": 1993,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "countingcrowsannabegins.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Akon Feat. Eminem",
+    "title": "Smack That",
+    "album": "Konvictedhiphoprap",
+    "year": 2006,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "smackthat.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Counting Crows",
+    "title": "Einstein on the Beach (For an Eggman)",
+    "album": "OG",
+    "year": 1994,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "einsteinonthebeach.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Bruno Mars, Lady Gaga",
+    "title": "Die With A Smile",
+    "album": "Singlepoprock",
+    "year": 2024,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "o499399192_diewithasmile_b.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "RGDuckTales",
+    "title": "Uiugc_plus",
+    "album": "Disneypoprock",
+    "year": 1987,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "ducktales1987.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "GBerzerk",
+    "title": "( G",
+    "album": "Eminem",
+    "year": 2013,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "berzerk_v4.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Disc One: All Their Greatest Hits (1991-2001)",
+    "title": "Barenaked Ladies",
+    "album": "alternative",
+    "year": 2001,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "bnlitsonlymev1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "Won't Back Down (ft. Pink)",
+    "album": "Recovery",
+    "year": 2010,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "wontbackdowntruce.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Everlife",
+    "title": "Look Thru My Eyes",
+    "album": "Disney Mania 4",
+    "year": 2006,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "everlife_lookthroughmyeyes.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "O.A.R.",
+    "title": "Shattered (Turn the Car Around)",
+    "album": "All Sides",
+    "year": 2008,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "mufa_oarshattered.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "All Over Now",
+    "album": "In The Endalternative",
+    "year": 2019,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "allovernowaldoenv.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Dr. Dre",
+    "title": "Forgot About Dre (featuring Eminem)",
+    "album": "2001",
+    "year": 1999,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "forgotaboutdre.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "Best Damn Friend",
+    "album": "Grinning Streak",
+    "year": 2013,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "mufa_bestdamnfriend.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eve 6",
+    "title": "Leech",
+    "album": "Eve 6punk",
+    "year": 1998,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "leecheve6.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "GMr. Jones",
+    "title": "Eugc_plus",
+    "album": "Counting Crows",
+    "year": 1993,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "mrjones_pv1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "Crack a Bottle (Feat. Dr. Dre and 50 Cent)",
+    "album": "Relapse",
+    "year": 2009,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "crackabottleeminem.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Rumi & Jinu",
+    "title": "Free",
+    "album": "K-Pop Demon Hunters (Soundtrack From The Netflix Film)",
+    "year": 2025,
+    "durationMs": 149000,
+    "source": "Custom",
+    "_debug_file": "dingo_freev1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "Raisins",
+    "album": "Snacktime!",
+    "year": 2008,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "raisins_st_v3.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Outkast",
+    "title": "Ms. Jackson",
+    "album": "Stankoniahiphoprap",
+    "year": 2000,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "msjacksonkris.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberriesrock",
+    "title": "Promises",
+    "album": "0C",
+    "year": 1999,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "promisesbyaenvmx.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "HThis Is Me",
+    "title": "Fjugc_plus",
+    "album": "Keala Settle",
+    "year": 2017,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "tgs_thisisme.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Drake, Kanye West, Lil Wayne & Eminemhiphoprap",
+    "title": "Forever",
+    "album": "ZC",
+    "year": 2009,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "foreverdraketruce.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "Things",
+    "album": "Snacktime!",
+    "year": 2008,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "st_things_v1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Franz Ferdinand",
+    "title": "No You Girls",
+    "album": "Tonight: Franz Ferdinandindierock",
+    "year": 0,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "noyougirls_v1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Miehen Teen (I'll Make A Man Out Of You)",
+    "title": "Teist",
+    "album": "Santeri Kinnunen",
+    "year": 0,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "mulan_teistateen_v15.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "Legacy",
+    "album": "The Marshall Mathers LP2",
+    "year": 2013,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "legacy.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Franz Ferdinand",
+    "title": "Michael",
+    "album": "Franz Ferdinand",
+    "year": 0,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "o121342090_michael_franzfe.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Salem ileserock",
+    "title": "Mad At Disney",
+    "album": "PCGMad At Disney",
+    "year": 2020,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "o527074020.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "Salvation",
+    "album": "To The Faithful Departedalternative",
+    "year": 1996,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "o328732308_salvation_thecr.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Counting Crows",
+    "title": "Round Here",
+    "album": "August and Everything After",
+    "year": 1993,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "countingcrowsroundhere.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Keane",
+    "title": "Somewhere Only We Know",
+    "album": "Hopes and Fearsalternative",
+    "year": 2004,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "somewhereonlyweknow.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "George Bruns & Xavier Atencio",
+    "title": "Bear Band Serenade",
+    "album": "Walt Disney World Official Albumcountry",
+    "year": 1971,
+    "durationMs": 409000,
+    "source": "Custom",
+    "_debug_file": "5bearrugs.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "Empty",
+    "album": "No Need To Arguealternative",
+    "year": 1994,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "tcemptyaenv.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Loren Allred",
+    "title": "Never Enough",
+    "album": "rG",
+    "year": 2017,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "ef_gs_neverenough.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Disney",
+    "title": "Fog Bound",
+    "album": "Pirates of the Caribbean: Curse of the Black Pearlnovelty",
+    "year": 2003,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "fogboundpirates.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Franz Ferdinand",
+    "title": "Your Villain",
+    "album": "You Could Have It So Much Betterrock",
+    "year": 2005,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "imyourvillainmgm_f.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "`jGUnder the Sea",
+    "title": "J5ugc_plus",
+    "album": "Samuel E. Wright",
+    "year": 0,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "undertheseav2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Marshall Mathers LP 2",
+    "title": "Eminem",
+    "album": "hiphoprap",
+    "year": 2013,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "rapgodeminem.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "ugc_plus",
+    "title": "Fallen Down",
+    "album": "h?GFallen Down",
+    "year": 0,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "o578024228.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "Till I Collapse (ft. Nate Dogg)",
+    "album": "The Eminem Showhiphoprap",
+    "year": 2002,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "tillicollapsetruce.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "Put Me Down",
+    "album": "Everybody Else Is Doing It, So Why Can't We?",
+    "year": 1993,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "putmedowntc.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "Joe",
+    "album": "To The Faithful Departed",
+    "year": 1996,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "joe_tcbyaenv.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Franz Ferdinand",
+    "title": "Ulysses",
+    "album": "Tonight: Franz Ferdinandindierock",
+    "year": 0,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "ffulyssesv2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Nonpoint",
+    "title": "Bullet With a Name",
+    "album": "To the Pain",
+    "year": 2005,
+    "durationMs": 247000,
+    "source": "Rock Band 2",
+    "_debug_file": "ugc_5004173.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Franz Ferdinand",
+    "title": "The Fallen",
+    "album": "You Could Have It So Much Betteralternative",
+    "year": 2005,
+    "durationMs": 267000,
+    "source": "Custom",
+    "_debug_file": "ud_thefallen.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "The Real Slim Shady",
+    "album": "The Marshall Mathers LP",
+    "year": 2000,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "sheepqueen_realslimshady.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Cruel Intentions (Music from the Original Motion Picture Soundtrack)",
+    "title": "Counting Crows",
+    "album": "poprock",
+    "year": 1999,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "o338008886_colorblind_coun.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Franz Ferdinand",
+    "title": "Evil Eye",
+    "album": "Right Thoughts, Right Words, Right Action",
+    "year": 0,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "evileye_v1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "HnGOdds Are",
+    "album": "Grinning Streak",
+    "year": 2013,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "mufa_oddsare.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "Stan (feat. Dido) (Radio Mix)",
+    "album": "The Marshall Mathers LP",
+    "year": 2000,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "bp_stancleanv2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "KG",
+    "title": "Y[ugc_plus",
+    "album": "GHey Girl",
+    "year": 2003,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "mufa_oarheygirl.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Franz Ferdinand",
+    "title": "Darts of Pleasure",
+    "album": "Franz Ferdinand",
+    "year": 0,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "franzferdinanddartsv2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Beach Boys",
+    "title": "Disney Girls (1957)",
+    "album": "Surf's Upclassicrock",
+    "year": 1971,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "disneygirls_bb.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Alabama Shakes",
+    "title": "Hold On",
+    "album": "Boys & Girlssouthernrock",
+    "year": 0,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "holdon_v1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Disney Afternoon Studio Chorus",
+    "title": "Chip 'N' Dale's Rescue Rangers Theme Song",
+    "album": "The Disney Afternoon Songbook (Music from Hit TV Shows)",
+    "year": 2008,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "disney_cndrrts.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Linkin Park / Slipknot / Eminem",
+    "title": "Until I Bleed (Mashup)",
+    "album": "Linkin Park / Slipknot / Eminem (Mashup)",
+    "year": 2021,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "untilibleed.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "Just My Imagination",
+    "album": "Bury The Hatchet",
+    "year": 1999,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "aenvjustmyimagination.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "Venom",
+    "album": "Venom (Music From The Motion Picture)",
+    "year": 2018,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "eminem_venom.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Greatest Showman Ensemble",
+    "title": "The Greatest Show",
+    "album": "The Greatest Showman: Original Motion Picture Soundtrackpopdanceelectronic",
+    "year": 2017,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "tgse_thegreatestshowv2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "The Icicle Melts",
+    "album": "No Need To Arguealternative",
+    "year": 1994,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "iciclemeltsv03.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Nonpoint",
+    "title": "Miracle",
+    "album": "Miraclerock",
+    "year": 2010,
+    "durationMs": 267000,
+    "source": "Custom",
+    "_debug_file": "ugc_5006199.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "GA Million Dreams",
+    "title": "Fugc_plus",
+    "album": "P!nk",
+    "year": 2018,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "p!nk_amd.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Fleetwood Mac",
+    "title": "Silver Springs",
+    "album": "Rumours",
+    "year": 1977,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "silverspringstruce.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Nonpoint",
+    "title": "Crazy",
+    "album": "Miraclerock",
+    "year": 2010,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "ugc_5006197.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "}GLove and Memories",
+    "title": "Sugc_plus",
+    "album": "O.A.R.",
+    "year": 2005,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "loveandmemoriescat.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Kid Rock",
+    "title": "Fuck Off",
+    "album": "Devil Without a Cause",
+    "year": 1998,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "fckoff_full.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Gary Hoey & George Wilkins",
+    "title": "California Screamin'",
+    "album": "Disneyland Resort Official Albumrock",
+    "year": 2001,
+    "durationMs": 333000,
+    "source": "Custom",
+    "_debug_file": "gh&gw_cs.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "Animal Instinct",
+    "album": "Bury the Hatchetrock",
+    "year": 1999,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "animal.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "Mockingbird",
+    "album": "Encore",
+    "year": 2004,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "o848294908_mockingbird_emi.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Judy Kuhn",
+    "title": "Just Around the Riverbend",
+    "album": "Pocahontas: An Original Walt Disney Records Soundtracknovelty",
+    "year": 1995,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "riverbend_mort42.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Counting Crows",
+    "title": "Long December",
+    "album": "Recovering the Satellitesalternative",
+    "year": 1996,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "longdecember_v1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "Love The Way You Lie (featuring Rihanna)",
+    "album": "Recoveryhiphoprap",
+    "year": 2010,
+    "durationMs": 267000,
+    "source": "Custom",
+    "_debug_file": "lovetheway.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "The Old Apartment",
+    "album": "Born on a Pirate Shipalternative",
+    "year": 1996,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "theoldapartment_v1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Disney",
+    "title": "He's A Pirate",
+    "album": "Pirates of the Caribbean: Curse of the Black Pearlnovelty",
+    "year": 2003,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "o547622208_hesapirate_disn.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "Lose Yourself",
+    "album": "Music from and Inspired by the Motion Picture 8 Milehiphoprap",
+    "year": 2002,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "loseyourself.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "`jGDreaming My Dreams",
+    "title": "N]ugc_plus",
+    "album": "The Cranberries",
+    "year": 1994,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "thecranberriesdreamingmydr.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Randy Newman",
+    "title": "You've Got a Friend in Me",
+    "album": "Toy Story: An Original Walt Disney Records Soundtrackpoprock",
+    "year": 1996,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "friendinme_randy.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Disney",
+    "title": "Something There",
+    "album": "Beauty And The Beastnovelty",
+    "year": 1991,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "somethingtheremrmet.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "B5",
+    "title": "Who's Afraid of the Big Bad Wolf",
+    "album": "Disneymania 4",
+    "year": 2006,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "b5-waotbbw.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Rex Allen",
+    "title": "HnGThere's a Great Big Beautiful Tomorrow",
+    "album": "Walt Disney World Official Album",
+    "year": 0,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "carouselofprogress.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Sherman Brothers Songbooknovelty",
+    "title": "Disney Chorus",
+    "album": "Disney Chorus",
+    "year": 2009,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "heffalumps.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "One Little Slip",
+    "album": "Chicken Little (Original Version)",
+    "year": 2005,
+    "durationMs": 267000,
+    "source": "Custom",
+    "_debug_file": "bnl_onelittleslip.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "When You're Gone",
+    "album": "To the Faithful Departedpoprock",
+    "year": 1997,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "tc_when_youre_gone_aenv.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "Zombie",
+    "album": "`jG",
+    "year": 1994,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "tc_zombie_byaenv.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem",
+    "title": "Godzilla",
+    "album": "Music To Be Murdered Byhiphoprap",
+    "year": 2020,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "godzillaprov3.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "It's All Been Done",
+    "album": "Stuntalternative",
+    "year": 1998,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "itsallbeendone.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Eminem ft. Juice WRLD",
+    "title": "Godzilla",
+    "album": "Music to Be Murdered Byhiphoprap",
+    "year": 2020,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "godzilla.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "A Tribe Called Quest",
+    "title": "Scenario (feat. Busta Rhymes, Charlie Brown & Dinco D)",
+    "album": "The Low End Theory",
+    "year": 1991,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "sheepq_atcq_scen.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Maroon",
+    "title": "Barenaked Ladies",
+    "album": "zGPinch Me",
+    "year": 2000,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "bnlpinchmev2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "Get In Line",
+    "album": "King of the Hill (Soundtrack)",
+    "year": 1999,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "bnl_getinlinev1.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Disney",
+    "title": "Beauty And The Beast",
+    "album": "Beauty And The Beast",
+    "year": 1991,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "beautyatbeastmrmet.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Barenaked Ladies",
+    "title": "Testing 1, 2, 3",
+    "album": "Everything To Everyone",
+    "year": 2003,
+    "durationMs": 176000,
+    "source": "Custom",
+    "_debug_file": "mufa_testing123.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Nonpoint",
+    "title": "Alive and Kicking",
+    "album": "To the Pain",
+    "year": 2005,
+    "durationMs": 247000,
+    "source": "Rock Band 2",
+    "_debug_file": "ugc_5004569.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Linkin Park/Slipknot/Eminem",
+    "title": "Damage",
+    "album": "Linkin Park/Slipknot/Eminem (Mashup)",
+    "year": 2022,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "damage.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "GIllusion",
+    "title": "Jugc_plus",
+    "album": "The Cranberries",
+    "year": 2019,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "illusionbyaldoenvmx.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "alternative",
+    "title": "Dreamsthe cranberries",
+    "album": "]C",
+    "year": 1992,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "dreamscoverbyaenv.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "Uncertain",
+    "album": "EPalternative",
+    "year": 1991,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "uncertaintc.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Cranberries",
+    "title": "Them",
+    "album": "Everybody Else Is Doing It, So Why Can't We?",
+    "year": 1993,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "tcthemrb3.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Roger Miller",
+    "title": "Oo-De-Lally",
+    "album": "Walt Disney's Robin Hoodrock",
+    "year": 1973,
+    "durationMs": 139000,
+    "source": "Custom",
+    "_debug_file": "gollywhataday.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "HUNTR/X",
+    "title": "Golden",
+    "album": "K-Pop Demon Hunters (Soundtrack From The Netflix Film)",
+    "year": 2025,
+    "durationMs": 0,
+    "source": "Custom",
+    "_debug_file": "o774935701_golden_huntrx.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Franz Ferdinand",
+    "title": "The Dark of the Matin",
+    "album": "Franz Ferdinand",
+    "year": 0,
+    "durationMs": 221000,
+    "source": "Custom",
+    "_debug_file": "franzmatineev4.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Murder City",
+    "album": "21st Century Breakdown",
+    "year": 2009,
+    "durationMs": 196000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "murdercity.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Longview",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 221000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "longview.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Brain Stew/Jaded",
+    "album": "Insomniac",
+    "year": 1995,
+    "durationMs": 325000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "brainstewjaded.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Basket Case",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 271000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "basketcase.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Holiday",
+    "album": "American Idiot",
+    "year": 2004,
+    "durationMs": 191000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "holiday.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Pulling Teeth",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 162000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "pullingteeth.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Dookie",
+    "title": "Green Day",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 255000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "fod.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Chump",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 303000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "chump.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "American Eulogy",
+    "album": "21st Century Breakdown",
+    "year": 2009,
+    "durationMs": 217000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "americaneulogy.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Give Me Novacaine/She's a Rebel",
+    "album": "American Idiot",
+    "year": 2004,
+    "durationMs": 260000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "novacaineshesarebel.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "See the Light",
+    "album": "21st Century Breakdown",
+    "year": 2009,
+    "durationMs": 190000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "seethelight.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Dookie",
+    "title": "Green Day",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 250000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "she.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "FftFGSassafras Roots",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 210000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "sassafrasroots.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Last Night on Earth",
+    "album": "21st Century Breakdown",
+    "year": 2009,
+    "durationMs": 112000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "lastnightonearth.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Minority",
+    "album": "Warning",
+    "year": 2000,
+    "durationMs": 221000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "minority.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Good Riddance (Time of Your Life)",
+    "album": "Nimrod",
+    "year": 1997,
+    "durationMs": 305000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "goodriddance.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Hitchin' a Ride",
+    "album": "Nimrod",
+    "year": 1997,
+    "durationMs": 289000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "hitchinaride.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Letterbomb",
+    "album": "American Idiot",
+    "year": 2004,
+    "durationMs": 305000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "letterbomb.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Dookie",
+    "title": "Green Day",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 272000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "welcometoparadise.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Wake Me Up When September Ends",
+    "album": "American Idiot",
+    "year": 2004,
+    "durationMs": 160000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "wakemeup.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Homecoming",
+    "album": "American Idiot",
+    "year": 2004,
+    "durationMs": 300000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "homecoming.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Song of the Century",
+    "album": "21st Century Breakdown",
+    "year": 2009,
+    "durationMs": 0,
+    "source": "Rock Band Green Day",
+    "_debug_file": "songofthecentury.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Nice Guys Finish Last",
+    "album": "Nimrod",
+    "year": 1997,
+    "durationMs": 219000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "niceguys.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Before the Lobotomy",
+    "album": "21st Century Breakdown",
+    "year": 2009,
+    "durationMs": 204000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "lobotomy.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Having a Blast",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 253000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "havingablast.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Extraordinary Girl",
+    "album": "American Idiot",
+    "year": 2004,
+    "durationMs": 144000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "extraordinarygirl.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "American Idiot",
+    "title": "Green Day",
+    "album": "American Idiot",
+    "year": 2004,
+    "durationMs": 186000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "whatsername.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Warning",
+    "album": "Warning",
+    "year": 2000,
+    "durationMs": 131000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "warning.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Emenius Sleepus",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 250000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "emeniussleepus.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Century Breakdown",
+    "album": "21st Century Breakdown",
+    "year": 2009,
+    "durationMs": 325000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "21stcenturybreakdown.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "American Idiot",
+    "album": "American Idiot",
+    "year": 2004,
+    "durationMs": 235000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "americanidiot.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "In the End",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 270000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "intheend.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Boulevard of Broken Dreams",
+    "album": "American Idiot",
+    "year": 2004,
+    "durationMs": 193000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "boulevardof.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Coming Clean",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 255000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "comingclean.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Restless Heart Syndrome",
+    "album": "21st Century Breakdown",
+    "year": 2009,
+    "durationMs": 197000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "restlessheart.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Jesus of Suburbia",
+    "album": "American Idiot",
+    "year": 2004,
+    "durationMs": 298000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "jesusofsuburbia.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Horseshoes and Handgrenades",
+    "album": "21st Century Breakdown",
+    "year": 2009,
+    "durationMs": 247000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "horseshoes.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Peacemaker",
+    "album": "21st Century Breakdown",
+    "year": 2009,
+    "durationMs": 210000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "peacemaker.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Burnout",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 249000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "burnout.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Viva la Gloria? (Little Girl)",
+    "album": "21st Century Breakdown",
+    "year": 2009,
+    "durationMs": 145000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "littlegirl.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "The Static Age",
+    "album": "21st Century Breakdown",
+    "year": 2009,
+    "durationMs": 247000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "thestaticage.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "HiI5HAre We the Waiting/St. Jimmy",
+    "album": "American Idiot",
+    "year": 2004,
+    "durationMs": 328000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "arewethewaitingstjimmy.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "Geek Stink Breath",
+    "album": "Insomniac",
+    "year": 1995,
+    "durationMs": 245000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "geekstink.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Green Day",
+    "title": "When I Come Around",
+    "album": "Dookie",
+    "year": 1994,
+    "durationMs": 160000,
+    "source": "Rock Band Green Day",
+    "_debug_file": "whenicomearound.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Alanis Morissette",
+    "title": "You Oughta Know",
+    "album": "Jagged Little Pill",
+    "year": 1995,
+    "durationMs": 237000,
+    "source": "Rock Band 2",
+    "_debug_file": "yououghtaknow.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Lush",
+    "title": "De-Luxe",
+    "album": "Gala",
+    "year": 1990,
+    "durationMs": 264000,
+    "source": "Rock Band 2",
+    "_debug_file": "deluxe.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Bob Dylan",
+    "title": "Tangled Up in Blue",
+    "album": "Blood on the Tracks",
+    "year": 1975,
+    "durationMs": 278000,
+    "source": "Rock Band 2",
+    "_debug_file": "tangledupinblue.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Donnas",
+    "title": "New Kid in School",
+    "album": "Bitchin'",
+    "year": 2007,
+    "durationMs": 153000,
+    "source": "Rock Band 2",
+    "_debug_file": "newkidinschool.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Mastodon",
+    "title": "Colony of Birchmen",
+    "album": "Blood Mountain",
+    "year": 2006,
+    "durationMs": 448000,
+    "source": "Rock Band 2",
+    "_debug_file": "colonyofbirchmen.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "AFI",
+    "title": "Girl's Not Grey",
+    "album": "Sing the Sorrow",
+    "year": 2003,
+    "durationMs": 269000,
+    "source": "Rock Band 2",
+    "_debug_file": "girlsnotgrey.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Joan Jett",
+    "title": "Bad Reputation",
+    "album": "Joan Jett",
+    "year": 1980,
+    "durationMs": 228000,
+    "source": "Rock Band 2",
+    "_debug_file": "badreputation.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Beck",
+    "title": "Pro",
+    "album": "Guero",
+    "year": 2005,
+    "durationMs": 193000,
+    "source": "Rock Band 2",
+    "_debug_file": "epro.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Elvis Costello",
+    "title": "Pump It Up",
+    "album": "This Year's Model",
+    "year": 1978,
+    "durationMs": 232000,
+    "source": "Rock Band 2",
+    "_debug_file": "pumpitup.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "GVisions",
+    "title": "MchqG@2",
+    "album": "Mch",
+    "year": 2007,
+    "durationMs": 500000,
+    "source": "Rock Band 2",
+    "_debug_file": "visions.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Pearl Jam",
+    "title": "Alive",
+    "album": "Ten",
+    "year": 1991,
+    "durationMs": 287000,
+    "source": "Rock Band 2",
+    "_debug_file": "alive.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Avenged Sevenfold",
+    "title": "Almost Easy",
+    "album": "Avenged Sevenfold",
+    "year": 2007,
+    "durationMs": 396000,
+    "source": "Rock Band 2",
+    "_debug_file": "almosteasy.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "`A",
+    "title": "Welcome to the Neighborhood",
+    "album": "@@",
+    "year": 2008,
+    "durationMs": 246000,
+    "source": "Rock Band 2",
+    "_debug_file": "welcometothe.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Go-Go's",
+    "title": "We Got the Beat",
+    "album": "Beauty and the Beat",
+    "year": 1981,
+    "durationMs": 132000,
+    "source": "Rock Band 2",
+    "_debug_file": "wegotthebeat.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Rush",
+    "title": "The Trees (Vault Edition)",
+    "album": "Hemispheres",
+    "year": 1978,
+    "durationMs": 375000,
+    "source": "Rock Band 2",
+    "_debug_file": "thetrees.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Smashing Pumpkins",
+    "title": "Today",
+    "album": "Siamese Dream",
+    "year": 1993,
+    "durationMs": 108000,
+    "source": "Rock Band 2",
+    "_debug_file": "today.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Billy Idol",
+    "title": "White Wedding (Part 1)",
+    "album": "Billy Idol",
+    "year": 1982,
+    "durationMs": 189000,
+    "source": "Rock Band 2",
+    "_debug_file": "whitewedding.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Offspring",
+    "title": "Come Out and Play (Keep 'Em Separated)",
+    "album": "Smash",
+    "year": 1994,
+    "durationMs": 318000,
+    "source": "Rock Band 2",
+    "_debug_file": "comeoutandplay.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Who",
+    "title": "Pinball Wizard",
+    "album": "Tommy",
+    "year": 1969,
+    "durationMs": 327000,
+    "source": "Rock Band 2",
+    "_debug_file": "pinballwizard.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Talking Heads",
+    "title": "Psycho Killer",
+    "album": "Talking Heads: 77",
+    "year": 0,
+    "durationMs": 197000,
+    "source": "Rock Band 2",
+    "_debug_file": "psychokiller.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Fleetwood Mac",
+    "title": "Go Your Own Way",
+    "album": "Rumours",
+    "year": 1977,
+    "durationMs": 241000,
+    "source": "Rock Band 2",
+    "_debug_file": "goyourownway.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Blondie",
+    "title": "One Way or Another",
+    "album": "Parallel Lines",
+    "year": 1978,
+    "durationMs": 273000,
+    "source": "Rock Band 2",
+    "_debug_file": "onewayoranother.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Muffs",
+    "title": "Kids in America",
+    "album": "Clueless: Original Motion Picture Soundtrack",
+    "year": 1995,
+    "durationMs": 205000,
+    "source": "Rock Band 2",
+    "_debug_file": "kidsinamerica.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Jimmy Eat World",
+    "title": "The Middle",
+    "album": "Bleed American",
+    "year": 2001,
+    "durationMs": 291000,
+    "source": "Rock Band 2",
+    "_debug_file": "themiddle.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "GThat's What You Get",
+    "title": "Js",
+    "album": "Paramore",
+    "year": 2007,
+    "durationMs": 136000,
+    "source": "Rock Band 2",
+    "_debug_file": "thatswhatyouget.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Grateful Dead",
+    "title": "Alabama Getaway",
+    "album": "Go to Heaven",
+    "year": 1980,
+    "durationMs": 362000,
+    "source": "Rock Band 2",
+    "_debug_file": "alabamagetaway.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Survivor",
+    "title": "Eye of the Tiger",
+    "album": "Eye of the Tiger",
+    "year": 1982,
+    "durationMs": 100000,
+    "source": "Rock Band 2",
+    "_debug_file": "eyeofthetiger.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Mighty Mighty Bosstones",
+    "title": "Where'd You Go?",
+    "album": "Bosstones Rock Band Re-Recordsreggaeska",
+    "year": 0,
+    "durationMs": 314000,
+    "source": "Rock Band 2",
+    "_debug_file": "wheredyougo.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Kansas",
+    "title": "Carry On Wayward Son",
+    "album": "Leftoverture",
+    "year": 1976,
+    "durationMs": 379000,
+    "source": "Rock Band 2",
+    "_debug_file": "carryonwaywardson.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Speck",
+    "title": "Conventional Lover",
+    "album": "Working as Intended",
+    "year": 2007,
+    "durationMs": 219000,
+    "source": "Rock Band 2",
+    "_debug_file": "conventionallover.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Bang Camaro",
+    "title": "Night Lies",
+    "album": "Bang Camaro II",
+    "year": 2008,
+    "durationMs": 353000,
+    "source": "Rock Band 2",
+    "_debug_file": "nightlies.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Sonic Youth",
+    "title": "Teen Age Riot",
+    "album": "Daydream Nation",
+    "year": 1988,
+    "durationMs": 370000,
+    "source": "Rock Band 2",
+    "_debug_file": "teenageriot.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Norman Greenbaum",
+    "title": "Spirit in the Sky",
+    "album": "Spirit in the Sky",
+    "year": 1969,
+    "durationMs": 201000,
+    "source": "Rock Band 2",
+    "_debug_file": "spiritinthesky.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Turn On the Bright Lightsindierock",
+    "title": "Interpol",
+    "album": "zCxC",
+    "year": 0,
+    "durationMs": 250000,
+    "source": "Rock Band 2",
+    "_debug_file": "pda.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "1?",
+    "title": "Supreme Girl",
+    "album": "%?",
+    "year": 2006,
+    "durationMs": 300000,
+    "source": "Rock Band 2",
+    "_debug_file": "supremegirl.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Guns N' Roses",
+    "title": "Shackler's Revenge",
+    "album": "Chinese Democracy",
+    "year": 2008,
+    "durationMs": 405000,
+    "source": "Rock Band 2",
+    "_debug_file": "shacklersrevenge.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Megadeth",
+    "title": "Peace Sells",
+    "album": "Peace Sells... but Who's Buying?",
+    "year": 1985,
+    "durationMs": 457000,
+    "source": "Rock Band 2",
+    "_debug_file": "peacesells.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Ratt",
+    "title": "Round and Round",
+    "album": "Out of the Cellar",
+    "year": 1984,
+    "durationMs": 348000,
+    "source": "Rock Band 2",
+    "_debug_file": "roundandround.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Guess Who",
+    "title": "American Woman",
+    "album": "American Woman",
+    "year": 1970,
+    "durationMs": 165000,
+    "source": "Rock Band 2",
+    "_debug_file": "americanwoman.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Anarchy Club",
+    "title": "Get Clean",
+    "album": "The Art of War",
+    "year": 2009,
+    "durationMs": 440000,
+    "source": "Rock Band 2",
+    "_debug_file": "getclean.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Nirvana",
+    "title": "Drain You",
+    "album": "Nevermind",
+    "year": 1991,
+    "durationMs": 148000,
+    "source": "Rock Band 2",
+    "_debug_file": "drainyou.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Rise Against",
+    "title": "Give It All",
+    "album": "Siren Song of the Counter Culture",
+    "year": 2004,
+    "durationMs": 309000,
+    "source": "Rock Band 2",
+    "_debug_file": "giveitall.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Soundgarden",
+    "title": "Spoonman",
+    "album": "Superunknown",
+    "year": 1994,
+    "durationMs": 392000,
+    "source": "Rock Band 3 DLC",
+    "_debug_file": "spoonman2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Lit",
+    "title": "My Own Worst Enemy",
+    "album": "A Place in the Sun",
+    "year": 1999,
+    "durationMs": 124000,
+    "source": "Rock Band 2",
+    "_debug_file": "myownworstenemy.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Alice In Chains",
+    "title": "Man in the Box",
+    "album": "Facelift",
+    "year": 1991,
+    "durationMs": 181000,
+    "source": "Rock Band 2",
+    "_debug_file": "maninthebox.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Squeeze",
+    "title": "GnGCool for Cats",
+    "album": "Cool for Catsnew_wave",
+    "year": 0,
+    "durationMs": 116000,
+    "source": "Rock Band 2",
+    "_debug_file": "coolforcats.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Main Drag",
+    "title": "Jagged Gorgeous Winter",
+    "album": "Yours As Fast As Mineindierock",
+    "year": 0,
+    "durationMs": 223000,
+    "source": "Rock Band 2",
+    "_debug_file": "ajaggedgorgeouswinter.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Tenacious D",
+    "title": "Master Exploder",
+    "album": "The Pick Of Destiny",
+    "year": 2006,
+    "durationMs": 414000,
+    "source": "Rock Band 2",
+    "_debug_file": "masterexploder.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Aqualung",
+    "title": "Jethro Tull",
+    "album": "Jethro Tull",
+    "year": 1971,
+    "durationMs": 296000,
+    "source": "Rock Band 2",
+    "_debug_file": "aqualung.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Disturbed",
+    "title": "Down with the Sickness",
+    "album": "The Sickness",
+    "year": 2000,
+    "durationMs": 305000,
+    "source": "Rock Band 2",
+    "_debug_file": "downwiththesickness.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Red Hot Chili Peppers",
+    "title": "Give It Away",
+    "album": "Blood Sugar Sex Magik",
+    "year": 1991,
+    "durationMs": 230000,
+    "source": "Rock Band 3 DLC",
+    "_debug_file": "giveitaway2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Jane's Addiction",
+    "title": "DjGMountain Song",
+    "album": "Nothing's Shocking",
+    "year": 1988,
+    "durationMs": 177000,
+    "source": "Rock Band 2",
+    "_debug_file": "mountainsong.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "A City Dressed in Dynamite",
+    "title": "That Handsome Devil",
+    "album": "A City Dressed in Dynamite",
+    "year": 2008,
+    "durationMs": 331000,
+    "source": "Rock Band 2",
+    "_debug_file": "robtheprezodent.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Silversun Pickups",
+    "title": "Lazy Eye",
+    "album": "Carnavasindierock",
+    "year": 0,
+    "durationMs": 366000,
+    "source": "Rock Band 2",
+    "_debug_file": "lazyeye.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Dream Theater",
+    "title": "Panic Attack",
+    "album": "Octavarium",
+    "year": 2005,
+    "durationMs": 491000,
+    "source": "Rock Band 2",
+    "_debug_file": "panicattack.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Bikini Kill",
+    "title": "Rebel Girl",
+    "album": "Bikini Kill: The Singles",
+    "year": 1993,
+    "durationMs": 140000,
+    "source": "Rock Band 2",
+    "_debug_file": "rebelgirl.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Foo Fighters",
+    "title": "Everlong",
+    "album": "The Colour and the Shape",
+    "year": 1997,
+    "durationMs": 322000,
+    "source": "Rock Band 2",
+    "_debug_file": "everlong.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Bad Company",
+    "title": "Shooting Star",
+    "album": "Straight Shooter",
+    "year": 1975,
+    "durationMs": 255000,
+    "source": "Rock Band 2",
+    "_debug_file": "shootingstar.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Cheap Trick",
+    "title": "Hello There",
+    "album": "Hello There",
+    "year": 1977,
+    "durationMs": 157000,
+    "source": "Rock Band 2",
+    "_debug_file": "hellothere.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Panic at the Disco",
+    "title": "Nine in the Afternoon",
+    "album": "Pretty. Odd.",
+    "year": 2008,
+    "durationMs": 173000,
+    "source": "Rock Band 2",
+    "_debug_file": "nineintheafternoon.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Presidents of the United States of America",
+    "title": "Lump",
+    "album": "The Presidents of the United States of America",
+    "year": 1995,
+    "durationMs": 161000,
+    "source": "Rock Band 2",
+    "_debug_file": "lump.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Duran Duran",
+    "title": "Hungry Like the Wolf",
+    "album": "Rio",
+    "year": 1982,
+    "durationMs": 112000,
+    "source": "Rock Band 2",
+    "_debug_file": "hungrylikethewolf.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "L7",
+    "title": "Pretend We're Dead",
+    "album": "Bricks Are Heavy",
+    "year": 1992,
+    "durationMs": 120000,
+    "source": "Rock Band 2",
+    "_debug_file": "pretendweredead.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Allman Brothers Band",
+    "title": "Ramblin' Man",
+    "album": "Brothers and Sisterssouthernrock",
+    "year": 0,
+    "durationMs": 422000,
+    "source": "Rock Band 2",
+    "_debug_file": "ramblinman.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Social Distortion",
+    "title": "Was Wrong",
+    "album": "Greatest Hits",
+    "year": 1996,
+    "durationMs": 169000,
+    "source": "Rock Band 2",
+    "_debug_file": "iwaswrong.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Modest Mouse",
+    "title": "Float On",
+    "album": "Good News for People Who Love Bad Newsindierock",
+    "year": 0,
+    "durationMs": 104000,
+    "source": "Rock Band 2",
+    "_debug_file": "floaton.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Breaking Wheel",
+    "title": "Shoulder to the Plow",
+    "album": "Breaking Wheel",
+    "year": 2008,
+    "durationMs": 431000,
+    "source": "Rock Band 2",
+    "_debug_file": "shouldertotheplow.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Testament",
+    "title": "Souls of Black",
+    "album": "Souls of Black",
+    "year": 1990,
+    "durationMs": 465000,
+    "source": "Rock Band 2",
+    "_debug_file": "soulsofblack.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Replacements",
+    "title": "Alex Chilton",
+    "album": "Pleased To Meet Me",
+    "year": 1987,
+    "durationMs": 282000,
+    "source": "Rock Band 2",
+    "_debug_file": "alexchilton.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Hybrid Theory",
+    "title": "Linkin Park",
+    "album": "Hybrid Theory",
+    "year": 2000,
+    "durationMs": 128000,
+    "source": "Rock Band 2",
+    "_debug_file": "onestepcloser.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Dinosaur Jr.",
+    "title": "Feel the Pain",
+    "album": "Without a Sound",
+    "year": 1994,
+    "durationMs": 210000,
+    "source": "Rock Band 2",
+    "_debug_file": "feelthepain.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Bon Jovi",
+    "title": "Livin' on a Prayer",
+    "album": "Greatest Hits",
+    "year": 1986,
+    "durationMs": 260000,
+    "source": "Rock Band 3 DLC",
+    "_debug_file": "livinonaprayer2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Steve Miller Band",
+    "title": "Rock'n Me",
+    "album": "Fly Like an Eagle",
+    "year": 1976,
+    "durationMs": 383000,
+    "source": "Rock Band 2",
+    "_debug_file": "rocknme.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Motrhead",
+    "title": "Ace of Spades '08",
+    "album": "Ace of Spades '08",
+    "year": 1980,
+    "durationMs": 388000,
+    "source": "Rock Band 2",
+    "_debug_file": "aceofspades.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Judas Priest",
+    "title": "Painkiller",
+    "album": "Painkiller",
+    "year": 1990,
+    "durationMs": 505000,
+    "source": "Rock Band 2",
+    "_debug_file": "painkiller.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Devo",
+    "title": "Uncontrollable Urge",
+    "album": "Devo Rock Band Re-Recordsnew_wave",
+    "year": 0,
+    "durationMs": 340000,
+    "source": "Rock Band 2",
+    "_debug_file": "uncontrollableurge.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Steely Dan",
+    "title": "Bodhisattva",
+    "album": "Countdown to Ecstasy",
+    "year": 1973,
+    "durationMs": 474000,
+    "source": "Rock Band 2",
+    "_debug_file": "bodhisattva.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Rage Against the Machine",
+    "title": "Testify",
+    "album": "The Battle of Los Angeles",
+    "year": 1999,
+    "durationMs": 335000,
+    "source": "Rock Band 2",
+    "_debug_file": "testify.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Check Your Head",
+    "title": "Beastie Boys",
+    "album": "Check Your Head",
+    "year": 1992,
+    "durationMs": 144000,
+    "source": "Rock Band 2",
+    "_debug_file": "sowhatchawant.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Lacuna Coil",
+    "title": "Our Truth",
+    "album": "Karmacode",
+    "year": 2006,
+    "durationMs": 185000,
+    "source": "Rock Band 2",
+    "_debug_file": "ourtruth.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "System of a Down",
+    "title": "Chop Suey",
+    "album": "Toxicity",
+    "year": 2001,
+    "durationMs": 401000,
+    "source": "Rock Band 2",
+    "_debug_file": "chopsuey.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "John Denver",
+    "title": "Take Me Home, Country Roads",
+    "album": "Poems, Prayers & Promises",
+    "year": 1971,
+    "durationMs": 223000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "takemehomecountry.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "!l",
+    "title": "Juice",
+    "album": "Lizzo",
+    "year": 2019,
+    "durationMs": 201000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "juice.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Maroon 5",
+    "title": "Maps",
+    "album": null,
+    "year": 2014,
+    "durationMs": 173000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "maps2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Carrie Underwood",
+    "title": "Church Bells",
+    "album": "Storyteller",
+    "year": 2015,
+    "durationMs": 245000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "churchbells.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Blame It On Whitmanbait.",
+    "title": "Pack of Smokes",
+    "album": "XB",
+    "year": 2023,
+    "durationMs": 270000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "packofsmokes.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "XB",
+    "title": "Until I Found You",
+    "album": "@",
+    "year": 2021,
+    "durationMs": 180000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "untilifoundyou.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Elton John",
+    "title": "Goodbye Yellow Brick RoadrP",
+    "album": "Goodbye Yellow Brick Road",
+    "year": 1973,
+    "durationMs": 230000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "goodbyeyellowbrickroad.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "0_",
+    "title": "The Fall",
+    "album": "flipturnxk",
+    "year": 0,
+    "durationMs": 270000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "thefall.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Karate Kid: The Original Motion Picture Soundtrack",
+    "title": "Joe \"Bean\" Esposito",
+    "album": "Joe \"Bean\" Esposito",
+    "year": 1984,
+    "durationMs": 240000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "yourethebest.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "VX",
+    "title": "Miles and Miles",
+    "album": "VX",
+    "year": 0,
+    "durationMs": 225000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "milesandmiles.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Lighthouse and the Whaler",
+    "title": "Future Blind",
+    "album": "Future Blind",
+    "year": 0,
+    "durationMs": 170000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "futureblind.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "[",
+    "title": "The Summoning",
+    "album": "![",
+    "year": 2023,
+    "durationMs": 260000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "thesummoning.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "vtvt",
+    "title": "Little Wild",
+    "album": "Anna Graceman & Ryan Cornvt",
+    "year": 0,
+    "durationMs": 144000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "alittlewild.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "kMkM",
+    "title": "NobodykM",
+    "album": "kMkM",
+    "year": 2023,
+    "durationMs": 460000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "nobody.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "@,",
+    "title": "Born in the Heat",
+    "album": "`,",
+    "year": 2023,
+    "durationMs": 260000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "bornintheheat.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Linkin Park",
+    "title": "More the Victim",
+    "album": "Meteora20",
+    "year": 2023,
+    "durationMs": 200000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "morethevictim.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Dirty Honey",
+    "title": "Heartbreaker 2.0",
+    "album": "Heartbreaker 2.0",
+    "year": 2023,
+    "durationMs": 265000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "heartbreaker2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Jy",
+    "title": "White Trash Millionaire",
+    "album": "Jy",
+    "year": 0,
+    "durationMs": 219000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "whitetrashmillionaire.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "|3p3",
+    "title": "Homesick",
+    "album": "HUNNY",
+    "year": 0,
+    "durationMs": 170000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "homesick.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Paramore",
+    "title": "This Is Why",
+    "album": "This Is Why",
+    "year": 2023,
+    "durationMs": 275000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "thisiswhy.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "TOWNS",
+    "title": "Season 5 (Break My Fall)",
+    "album": "things you might feel sometimes",
+    "year": 2022,
+    "durationMs": 245000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "season5.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "M|",
+    "title": "It's Alright",
+    "album": "@L|",
+    "year": 2022,
+    "durationMs": 225000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "itsalright.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "U",
+    "title": "Big Rig",
+    "album": "U",
+    "year": 2023,
+    "durationMs": 275000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "bigrig.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "@|",
+    "title": "Six Feet Under",
+    "album": "|z",
+    "year": 2023,
+    "durationMs": 260000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "sixfeetunder.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "@ml",
+    "title": "Thank You",
+    "album": "`f",
+    "year": 1999,
+    "durationMs": 180000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "thankyou.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "(!",
+    "title": "Back to Better",
+    "album": "The Bouncing Souls",
+    "year": 2023,
+    "durationMs": 240000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "backtobetter.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "u",
+    "title": "Goo Goo Mucku",
+    "album": "The Crampsu",
+    "year": 1981,
+    "durationMs": 155000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "googoomuck.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": ">X",
+    "title": "Burn",
+    "album": ">X",
+    "year": 2023,
+    "durationMs": 270000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "burn2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Ps",
+    "title": "Delete Myself",
+    "album": "Fake Namespt",
+    "year": 2023,
+    "durationMs": 200000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "deletemyself2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "H.",
+    "title": "FzFtGLove U Madly",
+    "album": "Violet Saturn",
+    "year": 2023,
+    "durationMs": 145000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "loveumadly.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": ",a3",
+    "title": "Call Me Crazy",
+    "album": "/a3",
+    "year": 0,
+    "durationMs": 180000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "callmecrazy.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "\\fGCannonball",
+    "title": "9Y",
+    "album": "5>",
+    "year": 2018,
+    "durationMs": 375000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "cannonball.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Militarie Gun",
+    "title": "` ks",
+    "album": ",ksp!ks",
+    "year": 2022,
+    "durationMs": 260000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "letmebenormal.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "2q",
+    "title": "Voices In My Head",
+    "album": "2q",
+    "year": 2022,
+    "durationMs": 180000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "voicesinmyhead.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "`-",
+    "title": "Sickness",
+    "album": "@,",
+    "year": 2020,
+    "durationMs": 155000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "sickness.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Solence",
+    "title": "Rain Down",
+    "album": "Hope is a Cult",
+    "year": 2023,
+    "durationMs": 300000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "raindown.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "z\"z\"",
+    "title": "Crossfirez\"",
+    "album": "z\"z\"",
+    "year": 1989,
+    "durationMs": 345000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "crossfire.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "I Prevail",
+    "title": "Bad Things",
+    "album": "True Power",
+    "year": 2022,
+    "durationMs": 260000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "badthings.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "x~",
+    "title": "Grade 2",
+    "album": "Grade 2",
+    "year": 2023,
+    "durationMs": 255000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "brassic.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "`ec",
+    "title": "The Gang's All Herel",
+    "album": "gf",
+    "year": 0,
+    "durationMs": 345000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "thegangsallhere.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Ratboys",
+    "title": "Black Earth, WI",
+    "album": "X2",
+    "year": 0,
+    "durationMs": 250000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "blackearth.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Heaven's Basement",
+    "title": "Welcome Home",
+    "album": "Filthy Empire",
+    "year": 2013,
+    "durationMs": 275000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "welcomehome3.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "}]",
+    "title": "Baker Street",
+    "album": "}]",
+    "year": 1978,
+    "durationMs": 245000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "bakerstreet.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Body Thief",
+    "title": "Makeshift Vehicles",
+    "album": "|tD",
+    "year": 0,
+    "durationMs": 345000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "makeshiftvehicles.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Ripe",
+    "title": "Settling",
+    "album": "Bright Blues",
+    "year": 2023,
+    "durationMs": 240000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "settling.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "-L9",
+    "title": "Heartbreak of the Century",
+    "album": "-L9",
+    "year": 2023,
+    "durationMs": 285000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "heartbreakofthecentury.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "@,",
+    "title": "Rescued",
+    "album": ",",
+    "year": 2023,
+    "durationMs": 240000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "rescued.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "{i",
+    "title": "Peace That Starts the War",
+    "album": "{i",
+    "year": 2022,
+    "durationMs": 340000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "peacethatstartsawar.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "*Ag*A",
+    "title": "Addison Rae",
+    "album": "+A",
+    "year": 2022,
+    "durationMs": 195000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "addisonrae.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "qZqZ",
+    "title": "Send Me on My WayqZ",
+    "album": "qZqZ",
+    "year": 1994,
+    "durationMs": 340000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "sendmeonmyway.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "@mi",
+    "title": "Locked & Loaded",
+    "album": "`lili",
+    "year": 2018,
+    "durationMs": 210000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "lockedandloaded.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "@hhn",
+    "title": "EvGRiptideohn",
+    "album": "XB",
+    "year": 2022,
+    "durationMs": 200000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "riptide2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Of Monsters and Men",
+    "title": "Mountain Sound",
+    "album": "|tuC",
+    "year": 0,
+    "durationMs": 225000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "mountainsound.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "RG",
+    "title": "Girls Make Me Wanna Die",
+    "album": "RG",
+    "year": 2023,
+    "durationMs": 250000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "girlsmakemewannadie.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "L.E.S.",
+    "title": "The Revel",
+    "album": "indierock",
+    "year": 0,
+    "durationMs": 240000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "les.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "GLove Is Not a Weapon",
+    "title": "LjaG&M",
+    "album": "Welshly Arms",
+    "year": 0,
+    "durationMs": 170000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "loveisnotaweapon.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "[t",
+    "title": "Medicine",
+    "album": "@\\t",
+    "year": 0,
+    "durationMs": 330000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "medicine.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "covet",
+    "title": "Glovespell",
+    "album": "catharsis",
+    "year": 2023,
+    "durationMs": 345000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "lovespell.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "{l",
+    "title": "Mary on a Cross",
+    "album": "|l",
+    "year": 2019,
+    "durationMs": 200000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "maryonacross.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Spell",
+    "title": "Ultraviolet",
+    "album": "Tragic Magic",
+    "year": 2022,
+    "durationMs": 275000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "ultraviolet.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "KV",
+    "title": "Poison Pill",
+    "album": "KV",
+    "year": 0,
+    "durationMs": 245000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "poisonpill.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Catch Your Breath",
+    "title": "Dial Tone",
+    "album": "Dial Tone",
+    "year": 2022,
+    "durationMs": 165000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "dialtone.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "|",
+    "title": "All That She Wants",
+    "album": "@wlN",
+    "year": 1993,
+    "durationMs": 135000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "allthatshewants.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "GPANIC",
+    "title": "$G",
+    "album": ":G",
+    "year": 2023,
+    "durationMs": 145000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "panic2.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "H}pC",
+    "title": "Oh!",
+    "album": "pC",
+    "year": 2022,
+    "durationMs": 185000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "oh.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "The Calling",
+    "title": "Wherever You Will Go",
+    "album": "Camino Palmero",
+    "year": 2001,
+    "durationMs": 223000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "whereveryouwillgo.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "200 Stab Wounds",
+    "title": "Masters of Morbidity",
+    "album": "Masters of Morbidity",
+    "year": 2022,
+    "durationMs": 400000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "mastersofmorbidity.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": ":g",
+    "title": "Mind Rider",
+    "album": ":g",
+    "year": 2023,
+    "durationMs": 350000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "mindrider.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "X}",
+    "title": "Our Love Will Still Be There",
+    "album": "D}",
+    "year": 1966,
+    "durationMs": 180000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "ourlovewillstillbethere.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "xd",
+    "title": "Bath Countyxd",
+    "album": "Wednesday",
+    "year": 0,
+    "durationMs": 165000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "bathcounty.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "W)",
+    "title": "Through the Noise",
+    "album": "W)",
+    "year": 2023,
+    "durationMs": 375000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "throughthenoise.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Naked Gypsy Queens",
+    "title": "Down to the Devil",
+    "album": "C,",
+    "year": 0,
+    "durationMs": 275000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "downtothedevil.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "I Fight Dragons",
+    "title": "VpGShe's Got Sorcery",
+    "album": "Side Quests: B-Sides and Rarities",
+    "year": 2021,
+    "durationMs": 280000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "shesgotsorcery.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "`\\",
+    "title": "All I Really Wanna Do",
+    "album": "@W",
+    "year": 0,
+    "durationMs": 170000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "allireallywannado.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Dreamgirl",
+    "title": "Sometimes",
+    "album": "Sometimes",
+    "year": 2021,
+    "durationMs": 170000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "sometimes.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "I LOVE YOU, ROBOT SUPERSTAR!",
+    "title": "Friday Pilots Club",
+    "album": "Friday Pilots Club",
+    "year": 2022,
+    "durationMs": 240000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "idwbs.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "@\\",
+    "title": "Believe",
+    "album": "\\",
+    "year": 2007,
+    "durationMs": 245000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "believe.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "8,\"",
+    "title": "Shapeshifter",
+    "album": "The Brevet",
+    "year": 2020,
+    "durationMs": 215000,
+    "source": "Rock Band 4 DLC",
+    "_debug_file": "shapeshifter.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Black Sabbath",
+    "title": "Paranoid",
+    "album": "Paranoid",
+    "year": 1970,
+    "durationMs": 310000,
+    "source": "Rock Band 1",
+    "_debug_file": "paranoid.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Miley Cyrus",
+    "title": "Party in the U.S.A.",
+    "album": "The Time of Our Lives",
+    "year": 2009,
+    "durationMs": 209000,
+    "source": "Rock Band 1 DLC",
+    "_debug_file": "parrtyintheusa.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Various Artists",
+    "title": "Rock Band Network Megamix 01",
+    "album": "Rock Band Network Megamixesother",
+    "year": 0,
+    "durationMs": 354000,
+    "source": "Rock Band 1 DLC",
+    "_debug_file": "rbnmegamix01.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "AC/DC",
+    "title": "Let There Be Rock",
+    "album": "Let There Be Rock",
+    "year": 1977,
+    "durationMs": 357000,
+    "source": "Rock Band 2",
+    "_debug_file": "letthereberock.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Iron Maiden",
+    "title": "Run to the Hills",
+    "album": "Iron Maiden",
+    "year": 1982,
+    "durationMs": 450000,
+    "source": "Rock Band 1",
+    "_debug_file": "runtothehills.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Metallica",
+    "title": "Enter Sandman",
+    "album": "Metallica",
+    "year": 1991,
+    "durationMs": 375000,
+    "source": "Rock Band 1",
+    "_debug_file": "entersandman.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Journey",
+    "title": "Any Way You Want It",
+    "album": "Departure",
+    "year": 1980,
+    "durationMs": 344000,
+    "source": "Rock Band 2",
+    "_debug_file": "anywayyouwantit.songdta_ps4",
+    "parse_mode": "dynamic"
+  },
+  {
+    "artist": "Metallica",
+    "title": "Battery",
+    "album": "Master of Puppets",
+    "year": 1986,
+    "durationMs": 483000,
+    "source": "Rock Band 2",
+    "_debug_file": "battery.songdta_ps4",
+    "parse_mode": "dynamic"
+  }
+]

@@ -45,29 +45,27 @@ def is_valid_title(s: str) -> bool:
     """Check if string is likely a valid title (not binary garbage)."""
     if not s or len(s) < 3:
         return False
-    # Garbage: starts with lowercase (like "sGD\"", "^GShe")
     if s[0].islower():
         return False
-    # Garbage: single uppercase letter prefix (like "HF.O.D.", "GBasket", "GHoliday")
     if len(s) >= 3 and s[0].isupper() and s[1:].isupper():
         return False
-    # Multi-word is almost always valid
     if ' ' in s:
         return True
-    # Single-word: must start with uppercase letter (A-Z) and be long enough
     if s[0].isupper() and s[0].isalpha() and len(s) >= 4:
         return True
     return False
-    # Garbage: starts with lowercase (like "sGD\"", "^GShe")
+
+
+def is_valid_artist_or_album(s: str) -> bool:
+    """Check if string is likely a valid artist or album (not split garbage)."""
+    if not s or len(s) < 4:
+        return False
     if s[0].islower():
         return False
-    # Garbage: short (2-4 chars) all-uppercase (like "GCh", "GFt")
-    if len(s) <= 4 and s.isupper():
+    if s.isupper() and len(s) <= 5:
         return False
-    # Multi-word is almost always valid title
-    if ' ' in s:
+    if ' ' in s or len(s) >= 6:
         return True
-    # Single-word: must start with uppercase letter
     if s[0].isupper():
         return True
     return False
@@ -89,16 +87,15 @@ def extract_year(data: bytes, genre: str) -> int:
 
 
 def extract_duration(data: bytes) -> int:
-    """Find float32 between 60.0 and 900.0 seconds, return ms."""
-    matches = []
-    for i in range(0, len(data) - 4, 4):
-        try:
-            val = struct.unpack('<f', data[i:i+4])[0]
-            if 60.0 <= val <= 900.0:
-                matches.append(int(val * 1000))
-        except:
-            pass
-    return max(matches) if matches else 0
+    """Extract song duration from fixed offset 884 (float32 in seconds)."""
+    try:
+        if len(data) > 888:
+            duration = struct.unpack('<f', data[884:888])[0]
+            if 60.0 <= duration <= 900.0:
+                return int(duration * 1000)
+    except:
+        pass
+    return 0
 
 
 def parse_songdta(filepath: str, default_source="Custom") -> dict:
@@ -126,6 +123,33 @@ def parse_songdta(filepath: str, default_source="Custom") -> dict:
     if source_idx == -1:
         source = "Custom"
 
+    def merge_split_strings(items: list, start: int) -> list:
+        merged = []
+        i = start
+        while i < len(items):
+            s = items[i]
+            if i + 1 < len(items):
+                next_s = items[i + 1]
+                # Merge short split parts (like Mot + rhead = Motörhead)
+                # Both must be short AND second must start with lowercase
+                if len(s) <= 5 and len(next_s) <= 5 and next_s[0].islower():
+                    merged.append(s + next_s)
+                    i += 2
+                    continue
+                # Merge when first ends with lowercase and next starts with lowercase
+                if s[-1].islower() and next_s[0].islower():
+                    merged.append(s + next_s)
+                    i += 2
+                    continue
+                # Merge short uppercase prefix with rest (like 'Mot' + 'rhead' = 'Motrhead')
+                if len(s) <= 4 and s[0].isupper() and next_s and next_s[0].islower():
+                    merged.append(s + next_s)
+                    i += 2
+                    continue
+            merged.append(s)
+            i += 1
+        return merged
+
     if source_idx >= 0 and genre_idx > source_idx:
         between = strings[source_idx + 1:genre_idx]
     elif source_idx >= 0:
@@ -133,29 +157,21 @@ def parse_songdta(filepath: str, default_source="Custom") -> dict:
     else:
         between = strings[:5] if genre_idx > 0 else strings[:5]
 
-    # Find valid title - iterate through positions to find first valid title
-    # Then artist is next position, album is after that
-    title = None
-    artist = None
-    album = None
-    
-    for i in range(min(4, len(between))):
-        candidate = between[i]
+    # First, merge split strings in the entire between list
+    merged_between = merge_split_strings(between, 0)
+
+    title, artist, album = None, None, None
+
+    for i in range(min(5, len(merged_between))):
+        candidate = merged_between[i]
         if is_valid_title(candidate):
             title = _strip_binary_prefix(candidate)
-            # Artist is next valid position after title
-            for j in range(i + 1, min(i + 3, len(between))):
-                if is_valid_title(between[j]):
-                    artist = between[j]
-                    # Album is after artist
-                    for k in range(j + 1, min(j + 3, len(between))):
-                        if is_valid_title(between[k]):
-                            album = between[k]
-                            break
-                    break
+            if i + 1 < len(merged_between):
+                artist = merged_between[i + 1]
+            if i + 2 < len(merged_between):
+                album = merged_between[i + 2]
             break
-    
-    # Fallback if no valid title found
+
     if not title and len(between) >= 1:
         title = _strip_binary_prefix(between[0])
     if not artist and len(between) >= 2:
