@@ -1,148 +1,107 @@
 #!/usr/bin/env bash
 # =============================================================================
-# scan_rb4_pkgs.sh — Recursively scan a directory for RB4 song .pkg files
-#                    and output a JSON array of song metadata via Onyx CLI.
-#
-# Usage:
-#   ./scan_rb4_pkgs.sh [OPTIONS]
-#
-# Options:
-#   --dir  <path>   Directory to scan for .pkg files (default: /pkgs)
-#   --out  <file>   Output JSON file path (default: ./rb4_custom_songs.json)
-#   --onyx <path>   Path to onyx binary (default: onyx, assumed on $PATH)
-#   -v, --verbose   Print each PKG being processed
-#   -h, --help      Show this help
-#
-# Notes:
-#   - Scans RECURSIVELY through subdirectories (handles Samba share layouts)
-#   - Skips .pkg files that are not song packages (game discs, patches, etc.)
-#     by checking if Onyx metadata output contains an 'artist' or 'title' field
-#   - Writes a valid JSON array even if 0 songs are found
-#   - Any Onyx errors are written to stderr; the scan continues regardless
+# scan_rb4_pkgs.sh — Recursively scan a directory for RB4 song .pkg files,
+#                    extract them using PkgTool, and parse their binary DTA to JSON.
 # =============================================================================
 
 set -euo pipefail
 
-# ── Defaults ──────────────────────────────────────────────────────────────────
 PKG_DIR="/pkgs"
-OUT_FILE="./rb4_custom_songs.json"
-ONYX_BIN="onyx"
-VERBOSE=false
+OUT_FILE="rb4_custom_songs.json"
+PKG_TOOL="/usr/local/bin/PkgTool.Core"
 
-# ── Argument parsing ──────────────────────────────────────────────────────────
+# Export for PkgTool compatibility in some containers
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --dir)   PKG_DIR="$2"; shift 2 ;;
         --out)   OUT_FILE="$2"; shift 2 ;;
-        --onyx)  ONYX_BIN="$2"; shift 2 ;;
-        -v|--verbose) VERBOSE=true; shift ;;
-        -h|--help)
-            sed -n '/^# Usage:/,/^# ===*/p' "$0" | sed 's/^# \?//'
-            exit 0
-            ;;
+        -v|--verbose) shift ;;
+        -h|--help) exit 0 ;;
         *) echo "Unknown option: $1" >&2; exit 1 ;;
     esac
 done
 
-# ── Validate ──────────────────────────────────────────────────────────────────
-if [[ ! -d "$PKG_DIR" ]]; then
-    echo "ERROR: PKG directory not found: $PKG_DIR" >&2
-    echo "  Hint: mount your Samba share first, or set --dir to the correct path" >&2
-    exit 1
-fi
+echo "▶ Scanning for .pkg files in: $PKG_DIR"
 
-if ! command -v "$ONYX_BIN" &>/dev/null; then
-    echo "ERROR: onyx not found on PATH. Install it or pass --onyx /path/to/onyx" >&2
-    exit 1
-fi
-
-# ── Scan ──────────────────────────────────────────────────────────────────────
-echo "▶ Scanning for .pkg files in: $PKG_DIR" >&2
-echo "  (This may take a while for large Samba shares)" >&2
-
-TMP_DIR=$(mktemp -d)
+WORKING_DIR="RB4/working_dir"
+mkdir -p "$WORKING_DIR"
+TMP_DIR=$(mktemp -d -p "$WORKING_DIR" tmp_XXXXXX)
+# Cleanup tmp dir on exit
 trap 'rm -rf "$TMP_DIR"' EXIT
 
 SONG_COUNT=0
-SKIP_COUNT=0
-FAIL_COUNT=0
 INDEX=0
 
-# Find all .pkg files recursively, sorted for deterministic output
+# Find all PKG files
 mapfile -d $'\0' PKG_FILES < <(find "$PKG_DIR" -type f -iname "*.pkg" -print0 | sort -z)
-
 TOTAL="${#PKG_FILES[@]}"
-echo "  Found $TOTAL .pkg file(s) to inspect" >&2
+echo "  Found $TOTAL .pkg file(s) to process"
 
 for PKG_FILE in "${PKG_FILES[@]}"; do
     INDEX=$((INDEX + 1))
     PKG_BASENAME=$(basename "$PKG_FILE")
+    
+    echo "  [$INDEX/$TOTAL] Processing: $PKG_BASENAME"
+    
+    EXTRACT_DIR="$TMP_DIR/extracted_$INDEX"
+    mkdir -p "$EXTRACT_DIR"
+    
+    # Run PkgTool to extract (zero passcode works for standard fPKGs)
+    # Using pkg_makegp4 instead of pkg_extract to ensure multi-partition/songs folders are unpacked
+    if "$PKG_TOOL" pkg_makegp4 --passcode 00000000000000000000000000000000 "$PKG_FILE" "$EXTRACT_DIR" > /dev/null 2>&1; then
+        
+        # Extract the Source Title from PARAM.SFO (if available)
+        # NOTE: This is ONLY used as fallback when binary doesn't contain source metadata
+        SFO_FILE=$(find "$EXTRACT_DIR" -name "param.sfo" | head -n 1)
+        PKG_SOURCE=""  # Empty means "auto-detect from binary"
+        if [ -n "$SFO_FILE" ]; then
+            SFO_TITLE=$("$PKG_TOOL" sfo_listentries "$SFO_FILE" | grep "TITLE :" | cut -d ':' -f 2- | sed 's/^ *//')
+            if [ -n "$SFO_TITLE" ]; then
+                # Store SFO title for reference, but don't override binary source
+                PKG_SOURCE="$SFO_TITLE"
+            fi
+        fi
 
-    $VERBOSE && echo "  [$INDEX/$TOTAL] Checking: $PKG_FILE" >&2
-
-    # Run onyx metadata; capture output and exit code separately
-    METADATA_JSON=""
-    if METADATA_JSON=$(xvfb-run -a "$ONYX_BIN" metadata "$PKG_FILE" --json 2>/tmp/onyx_err_$$.txt); then
-        : # success
-    else
-        ONYX_ERR=$(cat /tmp/onyx_err_$$.txt 2>/dev/null || true)
-        echo "  ⚠  Onyx failed on: $PKG_BASENAME" >&2
-        [[ -n "$ONYX_ERR" ]] && echo "     $ONYX_ERR" >&2
-        FAIL_COUNT=$((FAIL_COUNT + 1))
-        continue
-    fi
-
-    # Determine if this looks like a song PKG by checking for artist or title fields.
-    # Onyx returns an empty object or different structure for game/patch PKGs.
-    HAS_SONG_DATA=false
-    if echo "$METADATA_JSON" | jq -e '
-        (type == "array" and length > 0 and (.[0] | has("artist") or has("title") or has("name") or has("song_name"))) or
-        (type == "object" and (has("artist") or has("title") or has("name") or has("song_name")))
-    ' &>/dev/null; then
-        HAS_SONG_DATA=true
-    fi
-
-    if ! $HAS_SONG_DATA; then
-        $VERBOSE && echo "     ↷ Skipping (no song metadata): $PKG_BASENAME" >&2
-        SKIP_COUNT=$((SKIP_COUNT + 1))
-        continue
-    fi
-
-    # Add source_pkg field to each song object in the output
-    ANNOTATED=$(echo "$METADATA_JSON" | jq --arg pkg "$PKG_BASENAME" --arg fullpath "$PKG_FILE" '
-        if type == "array" then
-            map(. + {"source_pkg": $pkg, "source_pkg_path": $fullpath})
+        # Find if any song DTAs exist before running Python
+        if find "$EXTRACT_DIR" -name "*.songdta_ps4" | grep -q .; then
+            # Run the Python scraper - WITHOUT --source override so binary source is used
+            SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+            PYTHON_OUT="$TMP_DIR/songs_$(printf '%06d' $INDEX).json"
+            
+            # Only pass --source if explicitly provided (empty string means auto)
+            if [ -n "$PKG_SOURCE" ]; then
+                python3 "$SCRIPT_DIR/extract_binary_dta.py" "$EXTRACT_DIR" "$PYTHON_OUT" --source "$PKG_SOURCE"
+            else
+                python3 "$SCRIPT_DIR/extract_binary_dta.py" "$EXTRACT_DIR" "$PYTHON_OUT"
+            fi
+            
+            if [ -f "$PYTHON_OUT" ]; then
+                COUNT=$(jq 'length' "$PYTHON_OUT")
+                SONG_COUNT=$((SONG_COUNT + COUNT))
+                echo "  ✓ Extracted $COUNT song(s) [Source: $PKG_SOURCE]"
+            fi
         else
-            [. + {"source_pkg": $pkg, "source_pkg_path": $fullpath}]
-        end
-    ')
-
-    # Write each song to a temp file (one file per PKG for easy concatenation)
-    echo "$ANNOTATED" > "$TMP_DIR/songs_$(printf '%06d' $INDEX).json"
-
-    SONG_PKG_COUNT=$(echo "$ANNOTATED" | jq 'length')
-    SONG_COUNT=$((SONG_COUNT + SONG_PKG_COUNT))
-    echo "  ✓  $PKG_BASENAME → $SONG_PKG_COUNT song(s)" >&2
+            echo "  ⚠ No .songdta_ps4 files found in $PKG_BASENAME"
+        fi
+    else
+        echo "  ⚠ Failed to unpack: $PKG_BASENAME"
+    fi
+    
+    # CRITICAL: Delete extraction dir immediately to save disk space
+    rm -rf "$EXTRACT_DIR"
 done
 
-# ── Combine all temp JSON files into a single array ───────────────────────────
-SONG_FILES=("$TMP_DIR"/songs_*.json)
-
-if [[ ${#SONG_FILES[@]} -eq 0 ]] || [[ ! -f "${SONG_FILES[0]}" ]]; then
-    echo "[]" > "$OUT_FILE"
+# Combine all partial JSON files into the final output
+if ls "$TMP_DIR"/songs_*.json >/dev/null 2>&1; then
+    jq -s 'add' "$TMP_DIR"/songs_*.json > "$OUT_FILE"
 else
-    jq -s 'add // []' "${SONG_FILES[@]}" > "$OUT_FILE"
+    echo "[]" > "$OUT_FILE"
 fi
 
-# ── Summary ───────────────────────────────────────────────────────────────────
-rm -f /tmp/onyx_err_$$.txt
-echo "" >&2
-echo "═══════════════════════════════════════════════" >&2
-echo " Scan complete" >&2
-echo "   PKGs scanned  : $TOTAL" >&2
-echo "   Song PKGs     : $((TOTAL - SKIP_COUNT - FAIL_COUNT))" >&2
-echo "   Songs found   : $SONG_COUNT" >&2
-echo "   Non-song PKGs : $SKIP_COUNT (skipped)" >&2
-echo "   Onyx failures : $FAIL_COUNT (see warnings above)" >&2
-echo "   Output        : $OUT_FILE" >&2
-echo "═══════════════════════════════════════════════" >&2
+echo "═══════════════════════════════════════════════"
+echo " Scan complete"
+echo "   Songs found   : $SONG_COUNT"
+echo "   Output        : $OUT_FILE"
+echo "═══════════════════════════════════════════════"

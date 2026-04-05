@@ -3,7 +3,6 @@ FROM --platform=linux/amd64 ubuntu:24.04
 ARG DEBIAN_FRONTEND=noninteractive
 
 # ── System packages ───────────────────────────────────────────────────────────
-# System packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     ca-certificates \
@@ -18,12 +17,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     p7zip-full \
     libgl1 \
     libglu1-mesa \
-    libx11-6 \
-    libfontconfig1 \
     libfreetype6 \
     xvfb \
     alsa-utils \
     libpulse0 \
+    build-essential \
+    cmake \
+    libmbedtls-dev \
+    uthash-dev \
+    bsdmainutils \
     && rm -rf /var/lib/apt/lists/*
 
 # ── Node.js 22 (NodeSource) ───────────────────────────────────────────────────
@@ -33,12 +35,21 @@ RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && node --version \
     && npm --version
 
-# ── Onyx CLI (mtolly/onyx — Linux x86_64 binary) ─────────────────────────────
-# The Onyx project ships pre-built Linux binaries as GitHub release assets.
-# We fetch the latest release via the GitHub API and download the linux binary.
-#
-# If the download URL changes between releases, update ONYX_TAG below to pin
-# a specific version (e.g. "20251011"). Set to "latest" to always pull newest.
+# ── .NET 8 Runtime (needed by LibOrbisPkg/PkgTool) ───────────────────────────
+# We install the slim runtime (not SDK) since we ship a pre-built binary.
+# libssl1.1 is also required by the LibOrbisPkg .NET 8 self-contained binary.
+RUN apt-get update && apt-get install -y --no-install-recommends dotnet-runtime-8.0 \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN wget -q http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb \
+    -O /tmp/libssl.deb \
+    && dpkg -i /tmp/libssl.deb \
+    && rm /tmp/libssl.deb
+
+# ── Onyx CLI (mtolly/onyx — Linux x86_64 AppImage) ───────────────────────────
+# Version 20251011 — the last tested release. Onyx is used for DTA conversion
+# utilities (bin-to-dta, etc.) on files that need it.
+# We run Onyx under `xvfb-run -a` to satisfy its GUI/audio dependency headlessly.
 ARG ONYX_TAG=20251011
 
 RUN set -ex; \
@@ -53,22 +64,27 @@ RUN set -ex; \
     && ldconfig \
     && rm -rf /tmp/onyx.AppImage /tmp/onyx-extracted
 
-# ── Smoke test ───────────────────────────────────────────────────────────────
-# Prints version to confirm Onyx is on PATH. If this fails during `docker build`
-# it means the binary URL or asset name changed — update ONYX_TAG / URL above.
-RUN onyx 2>&1 | grep "Onyx Music Game Toolkit" || echo "⚠️  Onyx version check failed — binary may need URL update (see Dockerfile comments)"
+# ── LibOrbisPkg PkgTool (maxton/LibOrbisPkg — Linux x64 self-contained) ───────
+# PkgTool is used to extract/decrypt PS4 fPKG files without needing real RSA keys.
+# The standard zero-filled 32-char passcode (00000...0) unlocks user fPKGs.
+# Note: requires libssl1.1 (installed above) and DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1.
+ARG PKGTOOL_VERSION=0.2.231
+RUN wget -q "https://github.com/maxton/LibOrbisPkg/releases/download/v0.2/PkgTool.Core-linux-x64-${PKGTOOL_VERSION}.zip" \
+    -O /tmp/pkgtool.zip \
+    && unzip -q /tmp/pkgtool.zip -d /tmp/pkgtool \
+    && cp /tmp/pkgtool/PkgTool.Core /usr/local/bin/ \
+    && chmod +x /usr/local/bin/PkgTool.Core \
+    && rm -rf /tmp/pkgtool.zip /tmp/pkgtool
 
-# Install native x64 opencode CLI (v1.3.13)
-RUN curl -fsSL -o /tmp/opencode.tar.gz https://github.com/anomalyco/opencode/releases/download/v1.3.13/opencode-linux-x64.tar.gz \
-    && tar -xzf /tmp/opencode.tar.gz -C /usr/local/bin \
-    && chmod +x /usr/local/bin/opencode \
-    && rm /tmp/opencode.tar.gz
+# ── Smoke tests ───────────────────────────────────────────────────────────────
+RUN onyx 2>&1 | grep "Onyx Music Game Toolkit" || echo "⚠️  Onyx version check failed — binary may need URL update (see Dockerfile comments)"
+RUN DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core version 2>&1 | grep -i "pkgtool\|0\." || echo "⚠️  PkgTool version check failed"
 
 # ── Non-root user (vscode convention) ────────────────────────────────────────
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-# Fix for Ubuntu 24.04: rename/modify the existing 'ubuntu' user if UID 1000 is taken
+# Fix for Ubuntu 24.04: the default 'ubuntu' user also has UID 1000 — remove it
 RUN if getent passwd $USER_UID > /dev/null; then \
     userdel -r ubuntu || true; \
     fi \

@@ -6,10 +6,10 @@
 // Onyx-scan JSON file (rb4_custom_songs.json), de-duplicates, applies a
 // profanity filter, and writes 4 output text files matching the RB3 pattern:
 //
-//   RB4SongListSortedByArtist.txt
-//   RB4SongListSortedBySongName.txt
-//   RB4SongListSortedByArtistClean.txt
-//   RB4SongListSortedBySongNameClean.txt
+//   SongListSortedByArtist.txt
+//   SongListSortedBySongName.txt
+//   SongListSortedByArtistClean.txt
+//   SongListSortedBySongNameClean.txt
 //
 // Usage:
 //   node generate_rb4_song_list.js [OPTIONS]
@@ -18,6 +18,7 @@
 //   --baseline <file>  Path to rb4songlistWithRivals.txt  (default: ./rb4songlistWithRivals.txt)
 //   --custom   <file>  Path to rb4_custom_songs.json      (optional)
 //   --outdir   <dir>   Output directory                   (default: ./output)
+//   --timezone <tz>    Timezone (e.g. America/New_York)   (default: system)
 //   -v, --verbose      Print each song as it is processed
 //   -h, --help         Show this help
 // =============================================================================
@@ -148,7 +149,7 @@ function parseOnyxSong(obj, sourceOverride) {
 
   const durationMs = getNum('duration_ms', 'length_ms', 'song_length', 'length', 'duration');
 
-  const source = sourceOverride || get('source_pkg') || 'Custom';
+  const source = sourceOverride || get('source', 'source_pkg') || 'Custom';
 
   if (!artist || !title) return null; // skip non-song PKGs
   return { artist, album: album || null, title, year: isNaN(year) ? null : year, durationMs, source };
@@ -221,6 +222,7 @@ function main(argv) {
   let baselineFile = path.join(__dirname, 'rb4songlistWithRivals.txt');
   let customFile   = null;
   let outDir       = path.join(__dirname, 'output');
+  let timezone     = process.env.TZ || Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
   let verbose      = false;
 
   for (let i = 2; i < argv.length; i++) {
@@ -228,11 +230,12 @@ function main(argv) {
       case '--baseline': baselineFile = argv[++i]; break;
       case '--custom':   customFile   = argv[++i]; break;
       case '--outdir':   outDir       = argv[++i]; break;
+      case '--timezone': timezone     = argv[++i]; break;
       case '-v':
       case '--verbose':  verbose = true; break;
       case '-h':
       case '--help':
-        console.log('Usage: node generate_rb4_song_list.js [--baseline file] [--custom file] [--outdir dir] [-v]');
+        console.log('Usage: node generate_rb4_song_list.js [--baseline file] [--custom file] [--outdir dir] [--timezone tz] [-v]');
         process.exit(0);
         break;
       default:
@@ -324,12 +327,23 @@ function main(argv) {
   });
 
   // ── Output ────────────────────────────────────────────────────────────────
-  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+  if (!fs.existsSync(outDir)) {
+    fs.mkdirSync(outDir, { recursive: true });
+  } else {
+    // Delete existing SongList*.txt files to ensure clean output (per user request)
+    // Delete existing SongList*.txt and RB4SongList*.txt files to ensure clean output (per user request)
+    const existing = fs.readdirSync(outDir).filter(f => (f.startsWith('SongList') || f.startsWith('RB4SongList')) && f.endsWith('.txt'));
+    for (const f of existing) {
+      fs.unlinkSync(path.join(outDir, f));
+    }
+  }
 
   const now       = new Date();
   const timestamp = now.toLocaleString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-    hour: 'numeric', minute: '2-digit', second: '2-digit', timeZoneName: 'short'
+    hour: 'numeric', minute: '2-digit', second: '2-digit', 
+    timeZoneName: 'short',
+    timeZone: timezone
   });
 
   const header = buildHeader(allSongs, timestamp);
@@ -339,15 +353,15 @@ function main(argv) {
 
   writePair(
     artistLines, artistSorted, header,
-    path.join(outDir, 'RB4SongListSortedByArtist.txt'),
-    path.join(outDir, 'RB4SongListSortedByArtistClean.txt'),
+    path.join(outDir, 'SongListSortedByArtist.txt'),
+    path.join(outDir, 'SongListSortedByArtistClean.txt'),
     'artist', verbose
   );
 
   writePair(
     nameLines, nameSorted, header,
-    path.join(outDir, 'RB4SongListSortedBySongName.txt'),
-    path.join(outDir, 'RB4SongListSortedBySongNameClean.txt'),
+    path.join(outDir, 'SongListSortedBySongName.txt'),
+    path.join(outDir, 'SongListSortedBySongNameClean.txt'),
     'name', verbose
   );
 

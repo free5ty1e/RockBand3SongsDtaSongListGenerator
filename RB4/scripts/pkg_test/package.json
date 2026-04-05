@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "ps4-pkg-info": "^1.0.1"
+  }
+}

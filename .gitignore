@@ -9,3 +9,5 @@ songs.dta.backup
 bak/
 
 .ai_memory/
+RB4/scripts/pkg_test/node_modules
+RB4/working_dir/
