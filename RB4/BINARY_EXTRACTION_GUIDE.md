@@ -8,43 +8,44 @@ This document describes how to extract song metadata from Rock Band 4 `.songdta_
 
 Based on `LibForge/010/songdta.bt` template:
 
-| Field | Offset | Size | Type | Description |
-|-------|--------|------|------|-------------|
-| `songdta_type` | 0 | 4 | uint | File type identifier |
-| `song_id` | 4 | 4 | uint | Unique song ID |
-| `version` | 8 | 2 | short | Version number |
-| `game_origin` | 10 | 18 | string | Source code (rb2, greenday, etc.) |
-| `preview_start` | 28 | 4 | float | Preview start position (seconds from song start) |
-| `preview_end` | 32 | 4 | float | Preview end position (seconds from song start) |
-| `name` | 36 | 256 | string | Song title |
-| `artist` | 292 | 256 | string | Artist name |
-| `album_name` | 548 | 256 | string | Album name |
-| `album_track_number` | 804 | 2 | short | Track number on album |
-| `album_year` | 808 | 4 | uint | Year added to RB |
-| `original_year` | 812 | 4 | uint | Original release year |
-| `genre` | 816 | 64 | string | Genre tag |
-| `song_length` | 880 | 4 | float | Song length (variable, use min float method instead) |
-| `guitar` | 884 | 4 | float | Guitar difficulty |
-| `bass` | 888 | 4 | float | Bass difficulty |
-| `vocals` | 892 | 4 | float | Vocals difficulty |
-| `drums` | 896 | 4 | float | Drums difficulty |
-| `band` | 900 | 4 | float | Band difficulty |
-| `keys` | 904 | 4 | float | Keys difficulty |
-| `real_keys` | 908 | 4 | float | Real Keys difficulty |
-| `tutorial` | 912 | 1 | byte | Tutorial flag |
-| `album_art` | 913 | 1 | byte | Album art flag |
-| `cover` | 914 | 1 | byte | Cover version flag |
-| `vocal_gender` | 915 | 1 | byte | Vocal gender (1=Male, 2=Female) |
-| `anim_tempo` | 916 | 16 | string | Animation tempo |
-| `has_markup` | 932 | 1 | byte | Has markup flag |
-| `vocal_parts` | 936 | 1 | byte | Number of vocal parts |
-| `solos` | 940 | 4 | struct | Solo flags |
-| `fake` | 944 | 1 | byte | Fake vocal flag |
-| `shortname` | 945 | 256 | string | Song folder name |
+| Field                | Offset | Size | Type   | Description                                          |
+| -------------------- | ------ | ---- | ------ | ---------------------------------------------------- |
+| `songdta_type`       | 0      | 4    | uint   | File type identifier                                 |
+| `song_id`            | 4      | 4    | uint   | Unique song ID                                       |
+| `version`            | 8      | 2    | short  | Version number                                       |
+| `game_origin`        | 10     | 18   | string | Source code (rb2, greenday, etc.)                    |
+| `preview_start`      | 28     | 4    | float  | Preview start position (seconds from song start)     |
+| `preview_end`        | 32     | 4    | float  | Preview end position (seconds from song start)       |
+| `name`               | 36     | 256  | string | Song title                                           |
+| `artist`             | 292    | 256  | string | Artist name                                          |
+| `album_name`         | 548    | 256  | string | Album name                                           |
+| `album_track_number` | 804    | 2    | short  | Track number on album                                |
+| `album_year`         | 808    | 4    | uint   | Year added to RB                                     |
+| `original_year`      | 812    | 4    | uint   | Original release year                                |
+| `genre`              | 816    | 64   | string | Genre tag                                            |
+| `song_length`        | 880    | 4    | float  | Song length (variable, use min float method instead) |
+| `guitar`             | 884    | 4    | float  | Guitar difficulty                                    |
+| `bass`               | 888    | 4    | float  | Bass difficulty                                      |
+| `vocals`             | 892    | 4    | float  | Vocals difficulty                                    |
+| `drums`              | 896    | 4    | float  | Drums difficulty                                     |
+| `band`               | 900    | 4    | float  | Band difficulty                                      |
+| `keys`               | 904    | 4    | float  | Keys difficulty                                      |
+| `real_keys`          | 908    | 4    | float  | Real Keys difficulty                                 |
+| `tutorial`           | 912    | 1    | byte   | Tutorial flag                                        |
+| `album_art`          | 913    | 1    | byte   | Album art flag                                       |
+| `cover`              | 914    | 1    | byte   | Cover version flag                                   |
+| `vocal_gender`       | 915    | 1    | byte   | Vocal gender (1=Male, 2=Female)                      |
+| `anim_tempo`         | 916    | 16   | string | Animation tempo                                      |
+| `has_markup`         | 932    | 1    | byte   | Has markup flag                                      |
+| `vocal_parts`        | 936    | 1    | byte   | Number of vocal parts                                |
+| `solos`              | 940    | 4    | struct | Solo flags                                           |
+| `fake`               | 944    | 1    | byte   | Fake vocal flag                                      |
+| `shortname`          | 945    | 256  | string | Song folder name                                     |
 
 ## String Fields
 
 All string fields are null-terminated UTF-8. To read:
+
 ```python
 def _read_string(data, offset, max_size):
     chunk = data[offset:offset + max_size]
@@ -69,26 +70,26 @@ def _calculate_duration_ms(data):
 
 ## Source Mapping
 
-| Binary Code | Friendly Name |
-|-------------|---------------|
-| `rb1` | Rock Band 1 |
-| `rb2` | Rock Band 2 |
-| `rb3` | Rock Band 3 |
-| `rb4_dlc` | Rock Band 4 DLC |
-| `greenday` | Rock Band Green Day |
-| `rbn1` | Rock Band Network 1 |
-| `rbn2` | Rock Band Network 2 |
-| `beatles` | The Beatles: Rock Band |
+| Binary Code | Friendly Name          |
+| ----------- | ---------------------- |
+| `rb1`       | Rock Band 1            |
+| `rb2`       | Rock Band 2            |
+| `rb3`       | Rock Band 3            |
+| `rb4_dlc`   | Rock Band 4 DLC        |
+| `greenday`  | Rock Band Green Day    |
+| `rbn1`      | Rock Band Network 1    |
+| `rbn2`      | Rock Band Network 2    |
+| `beatles`   | The Beatles: Rock Band |
 
 ## Instrument Emoji
 
 | Instrument | Emoji |
-|------------|-------|
-| Guitar | 🎸 |
-| Bass | 🎸 |
-| Drums | 🥁 |
-| Vocals | 🎤 |
-| Keys | 🎹 |
+| ---------- | ----- |
+| Guitar     | 🎸    |
+| Bass       | 🎸    |
+| Drums      | 🥁    |
+| Vocals     | 🎤    |
+| Keys       | 🎹    |
 
 ## Output Fields
 
