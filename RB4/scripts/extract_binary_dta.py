@@ -20,7 +20,6 @@ _GENRE_TAGS = {
     "fusion", "jpop", "jrock", "reggae"
 }
 
-# Valid source codes that appear in the binary
 _SOURCE_REGEX = re.compile(r'^rb\d(_dlc)?$|^rbn\d?$|^gdrb$|^tbrb$|^greenday$|^beatles$|^rb4_dlc$')
 
 _FRIENDLY_SOURCES = {
@@ -30,37 +29,33 @@ _FRIENDLY_SOURCES = {
     'greenday': 'Rock Band Green Day', 'beatles': 'The Beatles: Rock Band',
     'gdrb': 'Rock Band Green Day', 'tbrb': 'The Beatles: Rock Band',
 }
+
+
 def _strip_binary_prefix(s: str) -> str:
-    """Remove leading binary garbage prefix from title strings.
-    
-    Binary format: [length][garbage][Title]
-    Garbage prefixes are uppercase single letters (G, J, H, etc.)
-    Real title starts at first uppercase letter followed by lowercase.
-    
-    Examples:
-      - "GHoliday" -> "Holiday" 
-      - "JHBrain Stew/Jaded" -> "Brain Stew/Jaded" 
-      - "GExtraordinary Girl" -> "Extraordinary Girl"
-    """
+    """Strip leading garbage prefix from title (e.g., GHoliday -> Holiday)."""
     if not s or len(s) < 2:
         return s
-    
-    # Find first uppercase letter followed by lowercase (the real title start)
     for i in range(len(s)):
         if i + 1 < len(s) and s[i].isupper() and s[i+1].islower():
-            if i > 0:
-                return s[i:]
-            return s
-    
+            return s[i:] if i > 0 else s
     return s
 
-def _needs_prefix_strip(s: str) -> bool:
-    """Check if string looks like it has a garbage prefix (e.g., 'sGD"', 'GBasket Case')."""
+
+def is_valid_title(s: str) -> bool:
+    """Check if string is likely a valid title (not binary garbage)."""
     if not s or len(s) < 3:
         return False
-    if re.match(r'^[a-z]{2,}[A-Z]', s):
+    # Garbage: starts with lowercase, or with symbol then lowercase
+    if s[0].islower() or (not s[0].isalpha() and len(s) > 0 and len(s) < 4):
+        return False
+    # Multi-word is almost always valid
+    if ' ' in s:
+        return True
+    # Single-word: must start with uppercase and have mixed case OR be longer
+    if s[0].isupper() and (any(c.islower() for c in s) or len(s) >= 5):
         return True
     return False
+
 
 def extract_year(data: bytes, genre: str) -> int:
     """Find year as 4-byte LE integer immediately before genre string."""
@@ -76,6 +71,7 @@ def extract_year(data: bytes, genre: str) -> int:
         pass
     return 0
 
+
 def extract_duration(data: bytes) -> int:
     """Find float32 between 60.0 and 900.0 seconds, return ms."""
     matches = []
@@ -90,24 +86,13 @@ def extract_duration(data: bytes) -> int:
 
 
 def parse_songdta(filepath: str, default_source="Custom") -> dict:
-    """
-    Dynamic parser for .songdta_ps4 files.
-    
-    Binary structure: [source_code][garbage][Title][Artist][Album][Genre][Difficulty][SongID]
-    
-    The KEY pattern is POSITION: strings between source and genre are always
-    Title, Artist, Album in that order. This is more reliable than case detection.
-    
-    Garbage strings (binary length prefixes) typically appear before the real data.
-    """
+    """Dynamic parser for .songdta_ps4 files using positional extraction."""
     with open(filepath, 'rb') as f:
         data = f.read()
 
-    # Extract all printable ASCII strings
     raw = re.findall(b'[ -~]{2,}', data)
     strings = [s.decode('utf-8', errors='replace').strip() for s in raw]
 
-    # Find source code position (first valid source regex match)
     source = default_source
     genre = None
     source_idx = -1
@@ -122,11 +107,9 @@ def parse_songdta(filepath: str, default_source="Custom") -> dict:
             genre = s_lower
             genre_idx = i
 
-    # If no source found, default to Custom
     if source_idx == -1:
         source = "Custom"
 
-    # Get strings between source and genre
     if source_idx >= 0 and genre_idx > source_idx:
         between = strings[source_idx + 1:genre_idx]
     elif source_idx >= 0:
@@ -134,46 +117,16 @@ def parse_songdta(filepath: str, default_source="Custom") -> dict:
     else:
         between = strings[:5] if genre_idx > 0 else strings[:5]
 
-    # The structure is always: [title_with_garbage][artist][album]
-    # First string is title (may have garbage prefix), second is artist, third is album
-    # But there may be garbage at the start, so filter and take position 0, 1, 2
-    
-    # Filter out obvious garbage (but keep position-aware)
-    def is_garbage(s):
-        if not s or len(s) < 2:
-            return True
-        if not any(c.isalpha() for c in s):
-            return True
-        if len(s) <= 4 and s.isupper():
-            return True
-        if len(s) >= 3 and s[0].islower() and s[1].isupper():
-            return True
-        letters = sum(1 for c in s if c.isalpha())
-        if len(s) > 3 and letters / len(s) < 0.4:
-            return True
-        return False
-    
-    # Filter but track original position - take first 3 valid strings
-    candidates = []
-    for s in between:
-        if is_garbage(s):
-            continue
-        # Extra check: title should have space OR be a known pattern (contains "of", "the", etc)
-        # Short strings (6 chars or less) without spaces are likely garbage
-        if len(s) <= 6 and ' ' not in s:
-            continue
-        candidates.append(s)
-        if len(candidates) >= 3:
-            break
-    
-    # Assign by position: first candidate = title, second = artist, third = album
-    title = candidates[0] if len(candidates) > 0 else None
-    artist = candidates[1] if len(candidates) > 1 else None
-    album = candidates[2] if len(candidates) > 2 else None
-
-    # Clean up title (strip any leading garbage prefix)
-    if title:
-        title = _strip_binary_prefix(title)
+    # Check if position 0 is valid title, otherwise use position 1
+    if between and is_valid_title(between[0]):
+        title = _strip_binary_prefix(between[0])
+        artist = between[1] if len(between) > 1 else None
+        album = between[2] if len(between) > 2 else None
+    else:
+        # Position 0 is garbage, use 1, 2, 3
+        title = _strip_binary_prefix(between[1]) if len(between) > 1 else None
+        artist = between[2] if len(between) > 2 else None
+        album = between[3] if len(between) > 3 else None
 
     if not title:
         title = "Unknown Title"
@@ -195,6 +148,7 @@ def parse_songdta(filepath: str, default_source="Custom") -> dict:
         "parse_mode": "dynamic"
     }
 
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('input', nargs='+', help='Input directories or files')
@@ -203,7 +157,6 @@ def main():
     args = parser.parse_args()
 
     results = []
-    
     files = []
     for path in args.input:
         if os.path.isdir(path):
@@ -222,6 +175,7 @@ def main():
 
     with open(args.output, 'w') as f:
         json.dump(results, f, indent=2)
+
 
 if __name__ == '__main__':
     main()
