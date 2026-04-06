@@ -98,10 +98,29 @@ def get_pkg_source(pkg_path):
         return "unexportable"
     return "unknown"
 
-def run_cmd(cmd, check=True, capture=True, show_output=False):
-    """Run command and return output. Use show_output=True for realtime feedback."""
+def run_cmd(cmd, check=True, capture=True, show_output=False, indent="\t\t"):
+    """Run command and return output. Use show_output=True for realtime feedback with indent."""
+    import subprocess
+    import threading
+    
     if show_output:
-        return subprocess.run(cmd, shell=True).returncode
+        process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+        
+        def stream_output(stream):
+            for line in stream:
+                print(f"{indent}{line.rstrip()}")
+                sys.stdout.flush()
+        
+        thread = threading.Thread(target=stream_output, args=(process.stdout,))
+        thread.start()
+        
+        process.wait()
+        thread.join()
+        
+        if check and process.returncode != 0:
+            raise RuntimeError(f"Command failed: {cmd}")
+        return ""
+    
     result = subprocess.run(cmd, shell=True, capture_output=capture, text=True)
     if check and result.returncode != 0:
         print(f"ERROR: {cmd}")
@@ -113,7 +132,7 @@ def run_cmd(cmd, check=True, capture=True, show_output=False):
 def extract_songdta_from_pkg(pkg_path, source_name, temp_dir):
     """Extract only .songdta_ps4 files from a PKG using two-step extraction."""
     pkg_name = os.path.basename(pkg_path)
-    print(f"[1/4] Extracting: {pkg_name}")
+    print(f"\t\t[1/4] Extracting: {pkg_name}")
     sys.stdout.flush()
     
     basename = pkg_name.replace('.pkg', '')
@@ -125,18 +144,18 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir):
     
     try:
         # Step 1: Extract inner PFS image
-        print(f"  [2/4] Extracting PFS image...")
+        print(f"\t\t[2/4] Extracting PFS image...")
         sys.stdout.flush()
-        run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pkg_extractinnerpfs "{pkg_path}" {pfs_file}', show_output=True)
+        run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pkg_extractinnerpfs "{pkg_path}" {pfs_file}', show_output=True, indent="\t\t")
         
         # Step 2: Extract PFS contents
-        print(f"  [3/4] Extracting song data from PFS...")
+        print(f"\t\t[3/4] Extracting song data from PFS...")
         sys.stdout.flush()
         try:
-            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True)
+            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t")
         except RuntimeError:
-            print("    First attempt failed, retrying...")
-            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True)
+            print("\t\tFirst attempt failed, retrying...")
+            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t")
         
         # Find all .songdta_ps4 files
         songdta_files = []
@@ -146,13 +165,13 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir):
                     songdta_files.append(os.path.join(root, f))
         
         if not songdta_files:
-            print(f"    No songdta files found!")
+            print(f"\t\tNo songdta files found!")
             return []
         
         # Extract metadata using Python script
         temp_output = os.path.join(temp_dir, f'metadata_{basename}.json')
         files_arg = ' '.join(f'"{f}"' for f in songdta_files)
-        run_cmd(f'cd /workspace && python3 RB4/scripts/extract_binary_dta.py {files_arg} {temp_output}', show_output=True)
+        run_cmd(f'cd /workspace && python3 RB4/scripts/extract_binary_dta.py {files_arg} {temp_output}', show_output=True, indent="\t\t")
         
         # Load and tag with source
         with open(temp_output) as f:
@@ -161,15 +180,15 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir):
         for song in songs:
             song['source'] = source_name
         
-        print(f"    Extracted {len(songs)} songs")
+        print(f"\t\tExtracted {len(songs)} songs")
         return songs
         
     finally:
         # Clean up to free disk space
-        print(f"  [4/4] Cleaning up extraction files...")
+        print(f"\t\t[4/4] Cleaning up extraction files...")
         sys.stdout.flush()
         shutil.rmtree(work_dir, ignore_errors=True)
-        print(f"  ✓ Done: {pkg_name}")
+        print(f"\t✓ Done: {pkg_name}")
 
 def main():
     parser = argparse.ArgumentParser(
@@ -260,22 +279,28 @@ Examples:
     print(f"Processing {len(pkg_files)} new PKGs...")
     
     all_songs = []
+    total_pkgs = len(pkg_files)
     
-    for pkg_path in sorted(pkg_files):
+    for idx, pkg_path in enumerate(sorted(pkg_files), 1):
         source = get_pkg_source(pkg_path)
+        pkg_name = os.path.basename(pkg_path)
+        print(f"[{idx}/{total_pkgs}] Processing: {pkg_name}")
+        sys.stdout.flush()
         
         try:
             songs = extract_songdta_from_pkg(pkg_path, source, args.temp_dir)
             all_songs.extend(songs)
             
             # Mark as processed
-            processed.add(os.path.basename(pkg_path))
+            processed.add(pkg_name)
             save_processed_pkgs(processed)
             
-            print(f"  Running total: {len(all_songs)} songs")
+            pct = int(idx / total_pkgs * 100)
+            print(f"Progress: {pct}% ({idx}/{total_pkgs} PKGs) | Total songs: {len(all_songs)}")
+            sys.stdout.flush()
             
         except Exception as e:
-            print(f"  ERROR processing {os.path.basename(pkg_path)}: {e}")
+            print(f"ERROR processing {pkg_name}: {e}")
             continue
     
     print(f"\nExtracted {len(all_songs)} songs from {len(pkg_files)} PKGs")

@@ -364,21 +364,21 @@ def main():
         else:
             files.append(path)
 
-    print(f"Found {len(files)} .songdta_ps4 files to process...")
+    print(f"\tFound {len(files)} .songdta_ps4 files to process...")
     
     for i, filepath in enumerate(files):
-        print(f"[{i+1}/{len(files)}] Processing {os.path.basename(filepath)}...")
+        print(f"\t[{i+1}/{len(files)}] Processing {os.path.basename(filepath)}...")
         try:
             result = parse_songdta(filepath, args.source)
             results.append(result)
         except Exception as e:
-            print(f"ERROR parsing {filepath}: {e}", file=sys.stderr)
+            print(f"\tERROR parsing {filepath}: {e}", file=sys.stderr)
 
-    print(f"Done. Extracted {len(results)} songs.")
-    print(f"Writing to {args.output}...")
+    print(f"\tDone. Extracted {len(results)} songs.")
+    print(f"\tWriting to {args.output}...")
     with open(args.output, 'w') as f:
         json.dump(results, f, indent=2)
-    print("Done!")
+    print("\tDone!")
 
 
 if __name__ == '__main__':

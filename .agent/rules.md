@@ -43,4 +43,4 @@ These rules apply to any AI agent (Antigravity, Gemini, Copilot, etc.) working i
 
 ## Git Behavior
 
-12. **Never commit directly to git.** Only stage/unstage files. Write a commit message for the user to execute. The user handles all git write operations (commit, push, etc.).
+12. **Never commit directly to git.** Only stage/unstage files. Write a commit message for the user to execute in your response. The user handles all git write operations (commit, push, etc.).
