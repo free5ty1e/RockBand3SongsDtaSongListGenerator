@@ -9,6 +9,7 @@
   "mounts": [
     "source=${localWorkspaceFolder}/pkgs,target=/pkgs,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/.ai_working/opencode_data,target=/home/vscode/.local/share/opencode,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/.ai_working/opencode_data/state,target=/home/vscode/.local/state,type=bind,consistency=cached",
     "source=/etc/localtime,target=/etc/localtime,type=bind,readonly=true",
     "source=/etc/timezone,target=/etc/timezone,type=bind,readonly=true"
   ],
@@ -34,6 +35,6 @@
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "echo '✅ Dev container ready. Onyx: '$(onyx | head -1)' | Node: '$(node --version)' | Python: '$(python3 --version)' && bash .devcontainer/mount_rb4_dlc.sh && (sudo chown -R vscode:vscode /home/vscode/.local 2>/dev/null || chown -R vscode:vscode /home/vscode/.local 2>/dev/null || true)",
+  "postCreateCommand": "echo '✅ Dev container ready. Onyx: '$(onyx | head -1)' | Node: '$(node --version)' | Python: '$(python3 --version)' && bash .devcontainer/mount_rb4_dlc.sh && (mkdir -p /home/vscode/.local/state /home/vscode/.local/share /home/vscode/.local/config && sudo chown -R vscode:vscode /home/vscode/.local 2>/dev/null || chown -R vscode:vscode /home/vscode/.local 2>/dev/null || true)",
   "remoteUser": "vscode"
 }

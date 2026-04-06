@@ -13,5 +13,5 @@ if [ -z "$SESSION_ID" ]; then
     exec opencode /workspace
 else
     echo "Resuming session: $SESSION_ID"
-    exec opencode attach "$SESSION_ID"
+    exec opencode run /workspace --session "$SESSION_ID"
 fi
