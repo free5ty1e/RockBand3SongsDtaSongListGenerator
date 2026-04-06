@@ -1,0 +1,52 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Opencode: Resume Last Session",
+      "type": "shell",
+      "command": "bash ${workspaceFolder}/.devcontainer/launch_opencode.sh",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "group": "none"
+    },
+    {
+      "label": "Opencode: Launch Fresh",
+      "type": "shell",
+      "command": "opencode /workspace",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "none"
+    },
+    {
+      "label": "RB4: Scan PKGs (test set)",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir ${workspaceFolder}/pkgs_test --no-incremental",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "none"
+    },
+    {
+      "label": "RB4: Scan PKGs (full set)",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir /mnt/rb4dlc",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "none"
+    }
+  ]
+}
