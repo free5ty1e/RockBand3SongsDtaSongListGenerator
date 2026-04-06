@@ -147,12 +147,15 @@ function parseOnyxSong(obj, sourceOverride) {
   const yearRaw = get('year', 'Year', 'year_released', 'release_year');
   const year    = yearRaw ? parseInt(yearRaw, 10) : null;
 
-  const durationMs = getNum('duration_ms', 'length_ms', 'song_length', 'length', 'duration');
+  const durationMs = getNum('duration_ms', 'durationMs', 'length_ms', 'song_length', 'length', 'duration');
 
   const source = sourceOverride || get('source', 'source_pkg') || 'Custom';
 
+  const shortName = get('shortName', 'shortname') || '';
+  const instruments = get('instruments', 'instrumentEmoji') || '';
+
   if (!artist || !title) return null; // skip non-song PKGs
-  return { artist, album: album || null, title, year: isNaN(year) ? null : year, durationMs, source };
+  return { artist, album: album || null, title, year: isNaN(year) ? null : year, durationMs, source, shortName, instruments };
 }
 
 // ── Format a song as an output line (artist-sorted style) ────────────────────
@@ -161,7 +164,17 @@ function formatArtistLine(song) {
   const year    = song.year   != null ? song.year : '?';
   const dur     = msToMmSs(song.durationMs);
   const shortName = song.shortName || '';
-  const instruments = song.instruments || '';
+  let instruments = song.instruments || '';
+  
+  // For baseline (official) songs, default to full band + vocals
+  // Emoji order: 🎸=guitar, 🎸=bass, 🥁=drums, 🎤=vocals
+  // Check for harmony (vocalParts > 1 means multiple vocal tracks)
+  if (song.vocalParts && song.vocalParts > 1) {
+    instruments = '🎸🎸🥁🎤🎤';  // Multiple vocal mics for harmony
+  } else if (!instruments && song.source === 'RB4') {
+    instruments = '🎸🎸🥁🎤';  // guitar, bass, drums, vocals
+  }
+  
   return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source} [${shortName}]${instruments}`;
 }
 
@@ -171,7 +184,15 @@ function formatNameLine(song) {
   const year    = song.year   != null ? song.year : '?';
   const dur     = msToMmSs(song.durationMs);
   const shortName = song.shortName || '';
-  const instruments = song.instruments || '';
+  let instruments = song.instruments || '';
+  
+  // For baseline (official) songs, default to full band + vocals
+  if (song.vocalParts && song.vocalParts > 1) {
+    instruments = '🎸🎸🥁🎤🎤';
+  } else if (!instruments && song.source === 'RB4') {
+    instruments = '🎸🎸🥁🎤';
+  }
+  
   return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source} [${shortName}]${instruments}`;
 }
 

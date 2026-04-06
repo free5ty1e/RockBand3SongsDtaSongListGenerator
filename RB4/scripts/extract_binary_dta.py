@@ -172,12 +172,34 @@ def parse_songdta(filepath: str, default_source: str = "Custom") -> dict:
     original_year = _read_int(data, OFFSETS['original_year'])
     genre = _read_string(data, OFFSETS['genre'], SIZES['genre'])
     
-    # Song length (attempt to calculate, fallback to float at guitar offset)
+    # Song length - try multiple methods
     duration_ms = _calculate_duration_ms(data)
+    
+    # Fallback 1: try uint32 at offset 880 as milliseconds
+    if duration_ms == 0:
+        try:
+            val = struct.unpack('<I', data[880:884])[0]
+            if 60000 <= val <= 600000:  # 1-10 minutes in ms
+                duration_ms = val
+        except:
+            pass
+    
+    # Fallback 2: try float at guitar offset (could be duration in seconds)
     if duration_ms == 0:
         duration_float = _read_float(data, OFFSETS['guitar'])
         if 60.0 <= duration_float <= 500.0:
             duration_ms = int(duration_float * 1000)
+    
+    # Fallback 3: scan entire file for float in reasonable range (for truncated WIP files)
+    if duration_ms == 0:
+        for i in range(len(data) - 4):
+            try:
+                val = struct.unpack('<f', data[i:i+4])[0]
+                if 30.0 <= val <= 600.0:  # 30 seconds to 10 minutes
+                    duration_ms = int(val * 1000)
+                    break
+            except:
+                pass
     
     # Difficulty ratings (as floats)
     guitar = _read_float(data, OFFSETS['guitar'])
@@ -342,15 +364,21 @@ def main():
         else:
             files.append(path)
 
-    for filepath in files:
+    print(f"Found {len(files)} .songdta_ps4 files to process...")
+    
+    for i, filepath in enumerate(files):
+        print(f"[{i+1}/{len(files)}] Processing {os.path.basename(filepath)}...")
         try:
             result = parse_songdta(filepath, args.source)
             results.append(result)
         except Exception as e:
             print(f"ERROR parsing {filepath}: {e}", file=sys.stderr)
 
+    print(f"Done. Extracted {len(results)} songs.")
+    print(f"Writing to {args.output}...")
     with open(args.output, 'w') as f:
         json.dump(results, f, indent=2)
+    print("Done!")
 
 
 if __name__ == '__main__':
