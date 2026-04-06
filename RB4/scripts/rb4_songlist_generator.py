@@ -27,6 +27,46 @@ DEFAULT_TEMP_DIR = "/workspace/rb4_temp"
 DEFAULT_OUTPUT_JSON = "/workspace/RB4/rb4_custom_songs.json"
 DEFAULT_SONGLIST_DIR = "/workspace/RB4/output"
 PROCESSED_PKGS_FILE = "/workspace/RB4/processed_pkgs.json"
+UPDATE_HISTORY_FILE = "/workspace/RB4/update_history.json"
+
+def load_processed_pkgs():
+    """Load list of already-processed PKGs."""
+    if os.path.exists(PROCESSED_PKGS_FILE):
+        with open(PROCESSED_PKGS_FILE) as f:
+            return set(json.load(f))
+    return set()
+
+def save_processed_pkgs(processed):
+    """Save list of processed PKGs."""
+    with open(PROCESSED_PKGS_FILE, 'w') as f:
+        json.dump(sorted(processed), f, indent=2)
+
+def load_update_history():
+    """Load update history."""
+    if os.path.exists(UPDATE_HISTORY_FILE):
+        with open(UPDATE_HISTORY_FILE) as f:
+            return json.load(f)
+    return []
+
+def save_update_history(history):
+    """Save update history."""
+    with open(UPDATE_HISTORY_FILE, 'w') as f:
+        json.dump(history, f, indent=2)
+
+def record_update(new_songs, total_songs_count):
+    """Record this update in history."""
+    history = load_update_history()
+    from datetime import datetime
+    entry = {
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "newSongs": new_songs,
+        "totalSongs": total_songs_count
+    }
+    history.append(entry)
+    # Keep last 10 updates
+    if len(history) > 10:
+        history = history[-10:]
+    save_update_history(history)
 
 # Package source mapping
 def get_pkg_source(pkg_path):
@@ -57,18 +97,6 @@ def run_cmd(cmd, check=True, capture=True):
         print(f"stderr: {result.stderr}")
         raise RuntimeError(f"Command failed: {cmd}")
     return result.stdout if capture else ""
-
-def load_processed_pkgs():
-    """Load list of already-processed PKGs."""
-    if os.path.exists(PROCESSED_PKGS_FILE):
-        with open(PROCESSED_PKGS_FILE) as f:
-            return set(json.load(f))
-    return set()
-
-def save_processed_pkgs(processed):
-    """Save list of processed PKGs."""
-    with open(PROCESSED_PKGS_FILE, 'w') as f:
-        json.dump(sorted(processed), f, indent=2)
 
 def extract_songdta_from_pkg(pkg_path, source_name, temp_dir):
     """Extract only .songdta_ps4 files from a PKG using two-step extraction."""
@@ -239,6 +267,20 @@ Examples:
     if garbage > 0:
         print(f"Filtered out {garbage} garbage entries")
     
+    # Record update for incremental history
+    if args.incremental:
+        # Track which songs are new in this run
+        existing_set = set()
+        if os.path.exists(args.output_json):
+            with open(args.output_json) as f:
+                existing = json.load(f)
+                existing_set = {(s['artist'], s['title']) for s in existing}
+        
+        new_only = [s for s in valid_songs if (s['artist'], s['title']) not in existing_set]
+        if new_only:
+            record_update(new_only, len(valid_songs))
+            print(f"Recorded {len(new_only)} new songs in update history")
+
     # Write JSON
     with open(args.output_json, 'w') as f:
         json.dump(valid_songs, f, indent=2)

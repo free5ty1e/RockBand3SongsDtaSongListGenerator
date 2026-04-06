@@ -9,26 +9,26 @@ This tool supplements the baseline with your custom songs, dropping duplicates (
 
 ## Quick Start
 
-Run the full extraction pipeline from a network share:
+Run the full extraction pipeline:
 
 ```bash
-python3 RB4/scripts/rb4_extract_songs.py --pkg-dir /path/to/your/pkgs --temp-dir /tmp/rb4_extract
+python3 RB4/scripts/rb4_songlist_generator.py --pkg-dir /path/to/your/pkgs --temp-dir /tmp/rb4_extract
 ```
 
 Or use default paths (local `/workspace/pkgs` directory):
 
 ```bash
-python3 RB4/scripts/rb4_extract_songs.py
+python3 RB4/scripts/rb4_songlist_generator.py
 ```
 
 ## Full Pipeline (End-to-End)
 
 ### One-Command Extraction
 
-The `rb4_extract_songs.py` script handles everything:
+The `rb4_songlist_generator.py` script handles everything:
 
 ```bash
-python3 RB4/scripts/rb4_extract_songs.py \
+python3 RB4/scripts/rb4_songlist_generator.py \
   --pkg-dir /path/to/pkgs \
   --temp-dir /tmp/rb4_extract \
   --output-json RB4/rb4_custom_songs.json \
@@ -54,7 +54,7 @@ Mount a network share and extract from SMB:
 ```bash
 # Option 1: Mount network share locally first
 sudo mount -t cifs //192.168.100.135/incoming/temp/Rb4Dlc /mnt/rb4dlc -o guest
-python3 RB4/scripts/rb4_extract_songs.py --pkg-dir /mnt/rb4dlc --temp-dir /tmp/rb4
+python3 RB4/scripts/rb4_songlist_generator.py --pkg-dir /mnt/rb4dlc --temp-dir /tmp/rb4
 
 # Option 2: Use smbclient to list files (read-only operations)
 smbclient //192.168.100.135/incoming/temp/Rb4Dlc -N -c "ls"

@@ -169,9 +169,10 @@ function formatArtistLine(song) {
   // For baseline (official) songs, default to full band + vocals
   // Emoji order: 🎸=guitar, 🎸=bass, 🥁=drums, 🎤=vocals
   // Check for harmony (vocalParts > 1 means multiple vocal tracks)
+  const isBaseline = ['RB4', 'Rivals'].includes(song.source);
   if (song.vocalParts && song.vocalParts > 1) {
     instruments = '🎸🎸🥁🎤🎤';  // Multiple vocal mics for harmony
-  } else if (!instruments && song.source === 'RB4') {
+  } else if (!instruments && isBaseline) {
     instruments = '🎸🎸🥁🎤';  // guitar, bass, drums, vocals
   }
   
@@ -187,9 +188,11 @@ function formatNameLine(song) {
   let instruments = song.instruments || '';
   
   // For baseline (official) songs, default to full band + vocals
+  // RB4, Rivals, and other official content have all instruments
+  const isBaseline = ['RB4', 'Rivals'].includes(song.source);
   if (song.vocalParts && song.vocalParts > 1) {
     instruments = '🎸🎸🥁🎤🎤';
-  } else if (!instruments && song.source === 'RB4') {
+  } else if (!instruments && isBaseline) {
     instruments = '🎸🎸🥁🎤';
   }
   
@@ -215,21 +218,65 @@ function buildHeader(songs, timestamp) {
     .map(([src, n]) => `  ${src}: ${n}`)
     .join('\n');
   header += `\nBreakdown by source:\n${sourceBreakdown}\n\n`;
-  
-  // Append processed PKGs list
-  const processedFile = path.join(__dirname, 'processed_pkgs.json');
-  if (fs.existsSync(processedFile)) {
-    const processed = JSON.parse(fs.readFileSync(processedFile, 'utf8'));
-    if (processed && processed.length > 0) {
-      header += `---\nProcessed PKGs (incremental mode):\n`;
-      for (const pkg of processed) {
-        header += `  ${pkg}\n`;
+
+  // Check for incremental update - show new artists added this run
+  const updateHistoryFile = path.join(__dirname, 'update_history.json');
+  if (fs.existsSync(updateHistoryFile)) {
+    const history = JSON.parse(fs.readFileSync(updateHistoryFile, 'utf8'));
+    if (history && history.length > 0) {
+      // Most recent update first
+      const latest = history[history.length - 1];
+      if (latest.newSongs && latest.newSongs.length > 0) {
+        const totalNew = latest.newSongs.length;
+        header += `---\nNew in this update (${latest.timestamp}): ${totalNew} song${totalNew > 1 ? 's' : ''}\n`;
+        const artistCounts = {};
+        for (const s of latest.newSongs) {
+          const artist = s.artist || 'Unknown';
+          artistCounts[artist] = (artistCounts[artist] || 0) + 1;
+        }
+        const sorted = Object.entries(artistCounts)
+          .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+          .slice(0, 20); // Top 20 artists
+        for (const [artist, count] of sorted) {
+          header += `  ${artist}: ${count} song${count > 1 ? 's' : ''}\n`;
+        }
+        if (Object.keys(artistCounts).length > 20) {
+          header += `  ... and ${Object.keys(artistCounts).length - 20} more artists\n`;
+        }
+        header += `\n`;
       }
-      header += `\n`;
+      
+      // Previous updates (history)
+      if (history.length > 1) {
+        header += `---\nUpdate history:\n`;
+        for (let i = history.length - 2; i >= 0; i--) {
+          const h = history[i];
+          const songCount = h.newSongs ? h.newSongs.length : 0;
+          header += `  ${h.timestamp}: +${songCount} songs\n`;
+        }
+        header += `\n`;
+      }
     }
   }
-  
+
   return header;
+}
+
+// ── Append processed PKGs to bottom of output files ─────────────────────────
+function appendProcessedPKGs(outputPath) {
+  const processedFile = path.join(__dirname, 'processed_pkgs.json');
+  if (!fs.existsSync(processedFile)) return;
+  
+  const processed = JSON.parse(fs.readFileSync(processedFile, 'utf8'));
+  if (!processed || processed.length === 0) return;
+  
+  let append = `\n---\nProcessed PKGs:\n`;
+  for (const pkg of processed) {
+    append += `  ${pkg}\n`;
+  }
+  
+  const existing = fs.readFileSync(outputPath, 'utf8');
+  fs.writeFileSync(outputPath, existing + append + '\n', 'utf8');
 }
 
 // ── Write a pair of files (full + clean) ─────────────────────────────────────
@@ -237,6 +284,9 @@ function writePair(lines, songs, headerFull, outFull, outClean, sortLabel, verbo
   // Full file
   fs.writeFileSync(outFull, headerFull + lines.join('\n') + '\n', 'utf8');
   if (verbose) console.log(`  Wrote ${lines.length} lines → ${outFull}`);
+
+  // Append processed PKGs to bottom of full file
+  appendProcessedPKGs(outFull);
 
   // Clean file: filter out curse-word lines
   const cleanLines   = lines.filter(l => !matchesCurse(l));
