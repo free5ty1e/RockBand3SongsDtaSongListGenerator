@@ -13,7 +13,7 @@
       "runOptions": {
         "runOn": "folderOpen"
       },
-      "group": "none"
+      "group": "opencode"
     },
     {
       "label": "Opencode: Launch Fresh",
@@ -24,10 +24,10 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "none"
+      "group": "opencode"
     },
     {
-      "label": "RB4: Scan PKGs (test set)",
+      "label": "RB4: Scan PKGs (test set, fresh)",
       "type": "shell",
       "command": "python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir ${workspaceFolder}/pkgs_test --no-incremental",
       "problemMatcher": [],
@@ -35,10 +35,43 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "none"
+      "group": "rb4-test"
     },
     {
-      "label": "RB4: Scan PKGs (full set)",
+      "label": "RB4: Scan PKGs (test set, incremental)",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir ${workspaceFolder}/pkgs_test",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4-test"
+    },
+    {
+      "label": "RB4: Scan PKGs (local /pkgs folder, fresh)",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir ${workspaceFolder}/pkgs --no-incremental",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4-local"
+    },
+    {
+      "label": "RB4: Scan PKGs (local /pkgs folder, incremental)",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir ${workspaceFolder}/pkgs",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4-local"
+    },
+    {
+      "label": "RB4: Scan PKGs (network share, incremental)",
       "type": "shell",
       "command": "python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir /mnt/rb4dlc",
       "problemMatcher": [],
@@ -46,7 +79,73 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "none"
+      "group": "rb4-network"
+    },
+    {
+      "label": "RB4: Scan PKGs (network share, fresh)",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir /mnt/rb4dlc --no-incremental",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4-network"
+    },
+    {
+      "label": "RB4: Scan PKGs (custom path)",
+      "type": "shell",
+      "command": "bash -c 'read -p \"Enter PKG directory path: \" PKG_DIR && python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir \"$PKG_DIR\"'",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4-custom"
+    },
+    {
+      "label": "RB4: Scan PKGs (custom path, fresh)",
+      "type": "shell",
+      "command": "bash -c 'read -p \"Enter PKG directory path: \" PKG_DIR && python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir \"$PKG_DIR\" --no-incremental'",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4-custom"
+    },
+    {
+      "label": "RB4: Show Mount Status",
+      "type": "shell",
+      "command": "bash ${workspaceFolder}/.devcontainer/mount_rb4_dlc.sh",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4"
+    },
+    {
+      "label": "RB4: Configure Network Share (help)",
+      "type": "shell",
+      "command": "echo \"=== To enable automatic network share mounting ===\" && echo \"\" && echo \"1. Open Docker Desktop\" && echo \"2. Go to Settings → Resources → File Sharing\" && echo \"3. Add your PKG folder (e.g., /Volumes/incoming/temp)\" && echo \"4. Rebuild the devcontainer\" && echo \"\" && echo \"Alternatively, create .devcontainer/rb4_dlc_config.sh with:\" && echo \"  SMB_SHARE=\\\"//your-server/your-share\\\"\" && echo \"  MOUNT_POINT=\\\"/your/custom/path\\\"\"",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4"
+    },
+    {
+      "label": "RB4: List available PKG locations",
+      "type": "shell",
+      "command": "echo \"=== Available PKG locations ===\" && echo \"pkgs_test: $(ls ${workspaceFolder}/pkgs_test/*.pkg 2>/dev/null | wc -l) files\" && echo \"pkgs: $(ls ${workspaceFolder}/pkgs/*.pkg 2>/dev/null | wc -l) files\" && echo \"/mnt/rb4dlc: $(ls /mnt/rb4dlc/*.pkg 2>/dev/null | wc -l) files\"",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4"
     }
   ]
 }
