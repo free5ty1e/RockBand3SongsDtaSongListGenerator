@@ -1,20 +1,41 @@
 #!/usr/bin/env python3
 """
 SMB Package Finder - uses smbclient to list/access PKG files without kernel mount
+
+Reads config from .devcontainer/rb4_dlc_config.sh if available
 """
 import subprocess
 import os
 import tempfile
 import shutil
 
+# Load config from rb4_dlc_config.sh if it exists
 SMB_SERVER = os.environ.get('SMB_SERVER', '192.168.100.135')
-# Use just "incoming" - we'll cd to temp/Rb4Dlc in the command
-SMB_SHARE = os.environ.get('SMB_SHARE', 'incoming')
+SMB_SHARE = os.environ.get('SMB_SHARE', 'incoming/temp/Rb4Dlc')
+
+# Try to read from config file
+config_path = '/workspace/.devcontainer/rb4_dlc_config.sh'
+if os.path.exists(config_path):
+    with open(config_path) as f:
+        for line in f:
+            line = line.strip()
+            if line.startswith('SMB_SERVER='):
+                SMB_SERVER = line.split('=')[1].strip('"')
+            elif line.startswith('SMB_SHARE='):
+                SMB_SHARE = line.split('=')[1].strip('"')
 
 def list_pkgs():
     """List PKG files from SMB share"""
-    # Navigate through incoming -> temp/Rb4Dlc
-    cmd = f'smbclient //{SMB_SERVER}/{SMB_SHARE} -N -c "cd temp/Rb4Dlc; ls"'
+    # Parse SMB_SHARE - could be just "incoming" or "incoming/temp/Rb4Dlc"
+    share_parts = SMB_SHARE.split('/')
+    base_share = share_parts[0]  # e.g., "incoming"
+    sub_path = '/'.join(share_parts[1:]) if len(share_parts) > 1 else ''  # e.g., "temp/Rb4Dlc"
+    
+    if sub_path:
+        cmd = f'smbclient //{SMB_SERVER}/{base_share} -N -c "cd {sub_path}; ls"'
+    else:
+        cmd = f'smbclient //{SMB_SERVER}/{base_share} -N -c "ls"'
+    
     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
     
     pkgs = []
@@ -39,7 +60,16 @@ def list_pkgs():
 
 def get_pkg_file(pkg_name, dest_dir):
     """Copy a single PKG file from SMB share"""
-    cmd = f'smbclient //{SMB_SERVER}/{SMB_SHARE} -N -c "cd temp/Rb4Dlc; get {pkg_name} {dest_dir}/{pkg_name}"'
+    # Parse SMB_SHARE - could be just "incoming" or "incoming/temp/Rb4Dlc"
+    share_parts = SMB_SHARE.split('/')
+    base_share = share_parts[0]  # e.g., "incoming"
+    sub_path = '/'.join(share_parts[1:]) if len(share_parts) > 1 else ''  # e.g., "temp/Rb4Dlc"
+    
+    if sub_path:
+        cmd = f'smbclient //{SMB_SERVER}/{base_share} -N -c "cd {sub_path}; get {pkg_name} {dest_dir}/{pkg_name}"'
+    else:
+        cmd = f'smbclient //{SMB_SERVER}/{base_share} -N -c "get {pkg_name} {dest_dir}/{pkg_name}"'
+    
     return subprocess.run(cmd, shell=True).returncode == 0
 
 if __name__ == '__main__':

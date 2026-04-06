@@ -115,6 +115,17 @@
       "group": "rb4-network"
     },
     {
+      "label": "RB4: Scan PKGs (SMB custom server)",
+      "type": "shell",
+      "command": "bash -c 'read -p \"Enter SMB server IP: \" SMB_SERVER && read -p \"Enter SMB share (e.g., incoming/temp/Rb4Dlc): \" SMB_SHARE && export SMB_SERVER && export SMB_SHARE && python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --smb'",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4-network"
+    },
+    {
       "label": "RB4: Scan PKGs (custom path)",
       "type": "shell",
       "command": "bash -c 'read -p \"Enter PKG directory path: \" PKG_DIR && python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir \"$PKG_DIR\"'",
