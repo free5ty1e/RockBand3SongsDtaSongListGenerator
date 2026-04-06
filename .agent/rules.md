@@ -11,11 +11,13 @@ These rules apply to any AI agent (Antigravity, Gemini, Copilot, etc.) working i
    - `.ai_memory/<task-name>/chat_transcript.md` — full history of actual messages, code blocks, and logs
    - `.agent/rules.md` — this file
 
-2. **Mirror any internal artifacts to their respective .ai_memory subfolder immediately** after creating them. If you create a plan in your app-data directory, copy it to the descriptive subfolder in `.ai_memory/` in the same turn.
+2. **Session state is stored in `.ai_working/`** - This folder contains working files that persist across devcontainer rebuilds (backed up to ensure continuity). ALWAYS check this folder first when resuming work.
 
-3. **Update the tasks.md file in the current subfolder in real time.** Mark items `[/]` (in-progress) when starting, `[x]` (done) when complete. Do not batch-update at the end.
+3. **Mirror any internal artifacts to their respective .ai_memory subfolder immediately** after creating them. If you create a plan in your app-data directory, copy it to the descriptive subfolder in `.ai_memory/` in the same turn.
 
-4. **Do not delete or overwrite docs in `.ai_memory/` or `.agent/` without user approval.** I will manage cleanup as desired.
+4. **Update the tasks.md file in the current subfolder in real time.** Mark items `[/]` (in-progress) when starting, `[x]` (done) when complete. Do not batch-update at the end.
+
+5. **Do not delete or overwrite docs in `.ai_memory/` or `.agent/` without user approval.** I will manage cleanup as desired.
 
 ## Code Conventions
 

@@ -21,6 +21,12 @@ import argparse
 import shutil
 import re
 
+# Force unbuffered output for real-time feedback - handle non-TTY case
+if hasattr(sys.stdout, 'fileno') and sys.stdout.fileno() >= 0:
+    sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', buffering=1)
+if hasattr(sys.stderr, 'fileno') and sys.stderr.fileno() >= 0:
+    sys.stderr = os.fdopen(sys.stderr.fileno(), 'w', buffering=1)
+
 # Default paths
 DEFAULT_PKG_DIR = "/workspace/pkgs"
 DEFAULT_TEMP_DIR = "/workspace/rb4_temp"
@@ -92,8 +98,10 @@ def get_pkg_source(pkg_path):
         return "unexportable"
     return "unknown"
 
-def run_cmd(cmd, check=True, capture=True):
-    """Run command and return output."""
+def run_cmd(cmd, check=True, capture=True, show_output=False):
+    """Run command and return output. Use show_output=True for realtime feedback."""
+    if show_output:
+        return subprocess.run(cmd, shell=True).returncode
     result = subprocess.run(cmd, shell=True, capture_output=capture, text=True)
     if check and result.returncode != 0:
         print(f"ERROR: {cmd}")
@@ -104,9 +112,11 @@ def run_cmd(cmd, check=True, capture=True):
 
 def extract_songdta_from_pkg(pkg_path, source_name, temp_dir):
     """Extract only .songdta_ps4 files from a PKG using two-step extraction."""
-    print(f"  Extracting: {os.path.basename(pkg_path)}")
+    pkg_name = os.path.basename(pkg_path)
+    print(f"[1/4] Extracting: {pkg_name}")
+    sys.stdout.flush()
     
-    basename = os.path.basename(pkg_path).replace('.pkg', '')
+    basename = pkg_name.replace('.pkg', '')
     work_dir = os.path.join(temp_dir, 'pfs_extract_' + basename)
     pfs_file = os.path.join(work_dir, "inner.pfs")
     pfs_extract_dir = os.path.join(work_dir, "pfs_contents")
@@ -115,15 +125,18 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir):
     
     try:
         # Step 1: Extract inner PFS image
-        run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pkg_extractinnerpfs "{pkg_path}" {pfs_file}')
+        print(f"  [2/4] Extracting PFS image...")
+        sys.stdout.flush()
+        run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pkg_extractinnerpfs "{pkg_path}" {pfs_file}', show_output=True)
         
         # Step 2: Extract PFS contents
+        print(f"  [3/4] Extracting song data from PFS...")
+        sys.stdout.flush()
         try:
-            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}')
+            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True)
         except RuntimeError:
-            # Retry once on failure
             print("    First attempt failed, retrying...")
-            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}')
+            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True)
         
         # Find all .songdta_ps4 files
         songdta_files = []
@@ -139,7 +152,7 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir):
         # Extract metadata using Python script
         temp_output = os.path.join(temp_dir, f'metadata_{basename}.json')
         files_arg = ' '.join(f'"{f}"' for f in songdta_files)
-        run_cmd(f'cd /workspace && python3 RB4/scripts/extract_binary_dta.py {files_arg} {temp_output}')
+        run_cmd(f'cd /workspace && python3 RB4/scripts/extract_binary_dta.py {files_arg} {temp_output}', show_output=True)
         
         # Load and tag with source
         with open(temp_output) as f:
@@ -153,7 +166,10 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir):
         
     finally:
         # Clean up to free disk space
+        print(f"  [4/4] Cleaning up extraction files...")
+        sys.stdout.flush()
         shutil.rmtree(work_dir, ignore_errors=True)
+        print(f"  ✓ Done: {pkg_name}")
 
 def main():
     parser = argparse.ArgumentParser(
@@ -199,12 +215,9 @@ Examples:
     # Reset if --no-incremental (fresh run)
     if not args.incremental:
         print("Full rebuild mode - clearing previous state...")
-        if os.path.exists(PROCESSED_PKGS_FILE):
-            os.remove(PROCESSED_PKGS_FILE)
-        if os.path.exists(UPDATE_HISTORY_FILE):
-            os.remove(UPDATE_HISTORY_FILE)
-        if os.path.exists(args.output_json):
-            os.remove(args.output_json)
+        for f in [PROCESSED_PKGS_FILE, UPDATE_HISTORY_FILE, args.output_json]:
+            if os.path.exists(f):
+                os.remove(f)
         # Clear output directory BEFORE generating
         if os.path.exists(args.songlist_dir):
             for f in os.listdir(args.songlist_dir):
