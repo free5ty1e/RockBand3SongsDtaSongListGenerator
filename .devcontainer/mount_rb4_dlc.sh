@@ -21,19 +21,24 @@ SMB_SHARE="${SMB_SHARE:-//incoming/temp/Rb4Dlc}"
 MOUNT_POINT="${MOUNT_POINT:-/mnt/rb4dlc}"
 SMB_USER="${SMB_USER:-${USERNAME}}"
 
-# Try to create mount point (may fail if doesn't exist)
+# 1. First check if bind mount already worked (from devcontainer.json)
+if [ -d "$MOUNT_POINT" ] && [ "$(ls -A "$MOUNT_POINT" 2>/dev/null)" ]; then
+    echo "✅ RB4 DLC already mounted at $MOUNT_POINT (via bind mount)"
+    exit 0
+fi
+
+# 2. Try to create mount point (may fail if doesn't exist)
 mkdir -p "$MOUNT_POINT" 2>/dev/null || true
 
-# Check if already mounted
+# 3. Check if already mounted via some other means
 if mountpoint -q "$MOUNT_POINT" 2>/dev/null; then
     echo "✅ RB4 DLC already mounted at $MOUNT_POINT"
     exit 0
 fi
 
-# Try to mount SMB share
+# 4. Try various common mount approaches (for systems with SMB access)
 echo "Attempting to mount SMB share: $SMB_SHARE"
 
-# Try various common mount approaches
 if mount -t cifs "$SMB_SHARE" "$MOUNT_POINT" -o guest,vers=3.0 2>/dev/null; then
     echo "✅ RB4 DLC mounted at $MOUNT_POINT (guest)"
 elif mount -t cifs "$SMB_SHARE" "$MOUNT_POINT" -o guest,vers=2.0 2>/dev/null; then
@@ -41,23 +46,27 @@ elif mount -t cifs "$SMB_SHARE" "$MOUNT_POINT" -o guest,vers=2.0 2>/dev/null; th
 elif mount -t smbfs "$SMB_SHARE" "$MOUNT_POINT" -o guest 2>/dev/null; then
     echo "✅ RB4 DLC mounted at $MOUNT_POINT (smbfs)"
 else
-    # Check for local alternatives
+    # 5. Check for local alternatives on this system
     if [ -d "/Volumes/incoming/temp/Rb4Dlc" ]; then
-        # macOS: try to bind mount
+        # macOS host path (if accessible)
         mount --bind "/Volumes/incoming/temp/Rb4Dlc" "$MOUNT_POINT" 2>/dev/null && \
             echo "✅ RB4 DLC bound from /Volumes/incoming/temp/Rb4Dlc" || \
             echo "⚠️ Could not bind mount /Volumes/incoming/temp/Rb4Dlc"
     elif [ -d "$HOME/RB4Dlc" ]; then
+        # Local folder in home directory
         mount --bind "$HOME/RB4Dlc" "$MOUNT_POINT" 2>/dev/null && \
             echo "✅ RB4 DLC bound from $HOME/RB4Dlc" || \
             echo "⚠️ Could not bind mount $HOME/RB4Dlc"
+    elif [ -d "/workspace/pkgs" ]; then
+        # Use local pkgs folder as fallback
+        echo "⚠️ Using local /workspace/pkgs as fallback (no network share found)"
     else
         echo "⚠️ RB4 DLC share not available at $SMB_SHARE"
         echo "   Expected locations:"
+        echo "     - Bind mount: $MOUNT_POINT (configure in Docker Desktop)"
         echo "     - SMB: $SMB_SHARE"
         echo "     - macOS: /Volumes/incoming/temp/Rb4Dlc"
         echo "     - Local: $HOME/RB4Dlc"
-        echo "   You can manually mount with: mount -t cifs $SMB_SHARE $MOUNT_POINT -o guest"
     fi
 fi
 
@@ -71,8 +80,8 @@ else
     else
         echo "⚠️ $MOUNT_POINT is empty - no PKG files found"
     fi
-    echo "   You can manually mount your SMB share with:"
-    echo "   mount -t cifs //server/share /mnt/rb4dlc -o guest"
-    echo "   Or copy PKG files to /workspace/pkgs/"
+    echo "   To configure Docker Desktop file sharing:"
+    echo "   Docker Desktop → Settings → Resources → File Sharing"
+    echo "   Add the folder containing your RB4 DLC PKGs"
     # Don't exit with error - this is expected on systems without the share
 fi
