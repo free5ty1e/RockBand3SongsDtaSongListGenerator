@@ -11,3 +11,7 @@ bak/
 .ai_memory/
 RB4/scripts/pkg_test/node_modules
 RB4/working_dir/
+RB4/output/
+RB4/processed_pkgs.json
+RB4/rb4_custom_songs.json
+RB4/update_history.json

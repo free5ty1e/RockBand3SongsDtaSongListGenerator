@@ -219,12 +219,11 @@ function buildHeader(songs, timestamp) {
     .join('\n');
   header += `\nBreakdown by source:\n${sourceBreakdown}\n\n`;
 
-  // Check for incremental update - show new artists added this run
+  // Check for current update (from JSON file) and show in header
   const updateHistoryFile = path.join(__dirname, 'update_history.json');
   if (fs.existsSync(updateHistoryFile)) {
     const history = JSON.parse(fs.readFileSync(updateHistoryFile, 'utf8'));
     if (history && history.length > 0) {
-      // Most recent update first
       const latest = history[history.length - 1];
       if (latest.newSongs && latest.newSongs.length > 0) {
         const totalNew = latest.newSongs.length;
@@ -236,23 +235,12 @@ function buildHeader(songs, timestamp) {
         }
         const sorted = Object.entries(artistCounts)
           .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-          .slice(0, 20); // Top 20 artists
+          .slice(0, 20);
         for (const [artist, count] of sorted) {
           header += `  ${artist}: ${count} song${count > 1 ? 's' : ''}\n`;
         }
         if (Object.keys(artistCounts).length > 20) {
           header += `  ... and ${Object.keys(artistCounts).length - 20} more artists\n`;
-        }
-        header += `\n`;
-      }
-      
-      // Previous updates (history)
-      if (history.length > 1) {
-        header += `---\nUpdate history:\n`;
-        for (let i = history.length - 2; i >= 0; i--) {
-          const h = history[i];
-          const songCount = h.newSongs ? h.newSongs.length : 0;
-          header += `  ${h.timestamp}: +${songCount} songs\n`;
         }
         header += `\n`;
       }
@@ -262,31 +250,135 @@ function buildHeader(songs, timestamp) {
   return header;
 }
 
-// ── Append processed PKGs to bottom of output files ─────────────────────────
-function appendProcessedPKGs(outputPath) {
-  const processedFile = path.join(__dirname, 'processed_pkgs.json');
-  if (!fs.existsSync(processedFile)) return;
+// ── Extract update history from existing song list file (for incremental runs) ──
+function loadUpdateHistoryFromSongList(songListPath) {
+  if (!fs.existsSync(songListPath)) return [];
   
-  const processed = JSON.parse(fs.readFileSync(processedFile, 'utf8'));
-  if (!processed || processed.length === 0) return;
+  const content = fs.readFileSync(songListPath, 'utf8');
   
-  let append = `\n---\nProcessed PKGs:\n`;
-  for (const pkg of processed) {
-    append += `  ${pkg}\n`;
+  // Find "Update History:" section
+  const historyMatch = content.match(/---\nUpdate History:\n([\s\S]*?)(?:---|\nProcessed PKGs:)/);
+  if (!historyMatch) return [];
+  
+  const historySection = historyMatch[1];
+  const updates = [];
+  
+  // Parse each update block: "=== timestamp: +X songs ==="
+  const updateRegex = /=== (\d{4}-\d{2}-\d{2} \d{2}:\d{2}): \+(\d+) songs ===/g;
+  let match;
+  while ((match = updateRegex.exec(historySection)) !== null) {
+    const timestamp = match[1];
+    const songCount = parseInt(match[2]);
+    
+    // Extract artist list for this update
+    const blockStart = match.index;
+    const nextBlock = historySection.indexOf('===', blockStart + 1);
+    const blockEnd = nextBlock === -1 ? historySection.length : nextBlock;
+    const block = historySection.substring(blockStart, blockEnd);
+    
+    // Parse artists from this block
+    const artists = [];
+    const artistRegex = /^\s{2}([^:]+): (\d+) song/g;
+    let artistMatch;
+    while ((artistMatch = artistRegex.exec(block)) !== null) {
+      artists.push({ artist: artistMatch[1], title: `song ${artistMatch[2]}` }); // Simplified
+    }
+    
+    updates.push({
+      timestamp: timestamp,
+      newSongs: artists,
+      totalSongs: songCount
+    });
   }
   
-  const existing = fs.readFileSync(outputPath, 'utf8');
-  fs.writeFileSync(outputPath, existing + append + '\n', 'utf8');
+  return updates;
+}
+
+// ── Append update history and processed PKGs to bottom of output files ─────
+function appendProcessedPKGs(outputPath, processedPkgs) {
+  // Try to load history from existing song list, fallback to JSON file
+  let history = [];
+  const songListPath = path.join(__dirname, 'output', 'SongListSortedBySongName.txt');
+  if (fs.existsSync(songListPath)) {
+    history = loadUpdateHistoryFromSongList(songListPath);
+  }
+  
+  // Also check JSON file for any new updates since last generation
+  const updateHistoryFile = path.join(__dirname, 'update_history.json');
+  if (fs.existsSync(updateHistoryFile)) {
+    const jsonHistory = JSON.parse(fs.readFileSync(updateHistoryFile, 'utf8'));
+    // Merge: add any JSON entries that are not in the song list yet
+    if (jsonHistory && jsonHistory.length > 0) {
+      const existingTimestamps = new Set(history.map(h => h.timestamp));
+      for (const entry of jsonHistory) {
+        if (!existingTimestamps.has(entry.timestamp)) {
+          history.push(entry); // Add to end (will be sorted newest-first below)
+        }
+      }
+    }
+  }
+  
+  // Sort by timestamp descending (newest first)
+  history.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+  
+  // Use CLI processed PKGs if provided, otherwise check song list
+  if (!processedPkgs || processedPkgs.length === 0) {
+    if (fs.existsSync(songListPath)) {
+      const content = fs.readFileSync(songListPath, 'utf8');
+      const pkgMatch = content.match(/---\nProcessed PKGs:\n([\s\S]*)$/);
+      if (pkgMatch) {
+        processedPkgs = pkgMatch[1].split('\n').filter(l => l.trim().startsWith('UP8802'));
+      }
+    }
+  }
+  
+  let append = '';
+  
+  // Append all update history entries (newest first, oldest bottom)
+  if (history.length > 0) {
+    append += `---\nUpdate History:\n`;
+    for (const h of history) {
+      const totalNew = h.newSongs ? h.newSongs.length : 0;
+      append += `\n=== ${h.timestamp}: +${totalNew} songs ===\n`;
+      
+      if (h.newSongs && h.newSongs.length > 0) {
+        const artistCounts = {};
+        for (const s of h.newSongs) {
+          const artist = s.artist || 'Unknown';
+          artistCounts[artist] = (artistCounts[artist] || 0) + 1;
+        }
+        const sorted = Object.entries(artistCounts)
+          .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+        for (const [artist, count] of sorted) {
+          append += `  ${artist}: ${count} song${count > 1 ? 's' : ''}\n`;
+        }
+      }
+    }
+    append += `\n`;
+  }
+  
+  // Append processed PKGs
+  if (processedPkgs.length > 0) {
+    append += `---\nProcessed PKGs:\n`;
+    for (const pkg of processedPkgs) {
+      if (pkg.trim()) append += `  ${pkg.trim()}\n`;
+    }
+  }
+  
+  if (append) {
+    const existing = fs.readFileSync(outputPath, 'utf8');
+    fs.writeFileSync(outputPath, existing + append + '\n', 'utf8');
+  }
 }
 
 // ── Write a pair of files (full + clean) ─────────────────────────────────────
-function writePair(lines, songs, headerFull, outFull, outClean, sortLabel, verbose) {
+function writePair(lines, songs, headerFull, outFull, outClean, sortLabel, verbose, processedPkgs) {
   // Full file
   fs.writeFileSync(outFull, headerFull + lines.join('\n') + '\n', 'utf8');
   if (verbose) console.log(`  Wrote ${lines.length} lines → ${outFull}`);
 
   // Append processed PKGs to bottom of full file
-  appendProcessedPKGs(outFull);
+  appendProcessedPKGs(outFull, processedPkgs);
 
   // Clean file: filter out curse-word lines
   const cleanLines   = lines.filter(l => !matchesCurse(l));
@@ -313,6 +405,7 @@ function main(argv) {
   let outDir       = path.join(__dirname, 'output');
   let timezone     = process.env.TZ || Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
   let verbose      = false;
+  let processedArg = null;
 
   for (let i = 2; i < argv.length; i++) {
     switch (argv[i]) {
@@ -320,16 +413,24 @@ function main(argv) {
       case '--custom':   customFile   = argv[++i]; break;
       case '--outdir':   outDir       = argv[++i]; break;
       case '--timezone': timezone     = argv[++i]; break;
+      case '--processed': processedArg = argv[++i]; break;
       case '-v':
       case '--verbose':  verbose = true; break;
       case '-h':
       case '--help':
-        console.log('Usage: node generate_rb4_song_list.js [--baseline file] [--custom file] [--outdir dir] [--timezone tz] [-v]');
+        console.log('Usage: node generate_rb4_song_list.js [--baseline file] [--custom file] [--outdir dir] [--timezone tz] [--processed file] [-v]');
         process.exit(0);
         break;
       default:
         console.error(`Unknown option: ${argv[i]}`); process.exit(1);
     }
+  }
+
+  // Load processed PKGs from argument or file
+  let processed = [];
+  if (processedArg && fs.existsSync(processedArg)) {
+    const data = JSON.parse(fs.readFileSync(processedArg, 'utf8'));
+    processed = Array.isArray(data) ? data : [];
   }
 
   // ── Load baseline songs ──────────────────────────────────────────────────
@@ -444,14 +545,14 @@ function main(argv) {
     artistLines, artistSorted, header,
     path.join(outDir, 'SongListSortedByArtist.txt'),
     path.join(outDir, 'SongListSortedByArtistClean.txt'),
-    'artist', verbose
+    'artist', verbose, processed
   );
 
   writePair(
     nameLines, nameSorted, header,
     path.join(outDir, 'SongListSortedBySongName.txt'),
     path.join(outDir, 'SongListSortedBySongNameClean.txt'),
-    'name', verbose
+    'name', verbose, processed
   );
 
   console.log('\n✅ Done. Output files:');

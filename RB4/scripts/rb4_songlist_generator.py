@@ -57,10 +57,14 @@ def record_update(new_songs, total_songs_count):
     """Record this update in history."""
     history = load_update_history()
     from datetime import datetime
+    import os
+    # Respect TZ environment variable for local timezone
+    tz = os.environ.get('TZ', 'UTC')
     entry = {
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "newSongs": new_songs,
-        "totalSongs": total_songs_count
+        "totalSongs": total_songs_count,
+        "timezone": tz
     }
     history.append(entry)
     # Keep last 10 updates
@@ -192,6 +196,20 @@ Examples:
     # Create temp directory
     os.makedirs(args.temp_dir, exist_ok=True)
     
+    # Reset if --no-incremental (fresh run)
+    if not args.incremental:
+        print("Full rebuild mode - clearing previous state...")
+        if os.path.exists(PROCESSED_PKGS_FILE):
+            os.remove(PROCESSED_PKGS_FILE)
+        if os.path.exists(UPDATE_HISTORY_FILE):
+            os.remove(UPDATE_HISTORY_FILE)
+        if os.path.exists(args.output_json):
+            os.remove(args.output_json)
+        # Clear output directory BEFORE generating
+        if os.path.exists(args.songlist_dir):
+            for f in os.listdir(args.songlist_dir):
+                os.remove(os.path.join(args.songlist_dir, f))
+    
     # Find all PKG files
     if not os.path.isdir(args.pkg_dir):
         print(f"ERROR: PKG directory not found: {args.pkg_dir}")
@@ -222,7 +240,7 @@ Examples:
     if not pkg_files:
         print("No new PKGs to process.")
         print("\nGenerating song lists from existing data...")
-        run_cmd(f'cd /workspace/RB4 && node generate_rb4_song_list.js --baseline {args.baseline} --custom {args.output_json}')
+        run_cmd(f'cd /workspace/RB4 && node generate_rb4_song_list.js --baseline {args.baseline} --custom {args.output_json} --processed {PROCESSED_PKGS_FILE}')
         print("✅ Done!")
         sys.exit(0)
     
@@ -267,19 +285,22 @@ Examples:
     if garbage > 0:
         print(f"Filtered out {garbage} garbage entries")
     
-    # Record update for incremental history
-    if args.incremental:
-        # Track which songs are new in this run
-        existing_set = set()
-        if os.path.exists(args.output_json):
-            with open(args.output_json) as f:
-                existing = json.load(f)
-                existing_set = {(s['artist'], s['title']) for s in existing}
-        
-        new_only = [s for s in valid_songs if (s['artist'], s['title']) not in existing_set]
-        if new_only:
-            record_update(new_only, len(valid_songs))
-            print(f"Recorded {len(new_only)} new songs in update history")
+    # Record update for history (always, to show in output)
+    # Track which songs are new in this run
+    existing_set = set()
+    if os.path.exists(args.output_json):
+        with open(args.output_json) as f:
+            existing = json.load(f)
+            existing_set = {(s['artist'], s['title']) for s in existing}
+    
+    new_only = [s for s in valid_songs if (s['artist'], s['title']) not in existing_set]
+    if new_only:
+        record_update(new_only, len(valid_songs))
+        print(f"Recorded {len(new_only)} new songs in update history")
+    elif len(all_songs) > 0:
+        # Even if no truly new songs, record this run (for --no-incremental)
+        record_update(valid_songs, len(valid_songs))
+        print(f"Recorded {len(valid_songs)} songs in update history (full rebuild)")
 
     # Write JSON
     with open(args.output_json, 'w') as f:
@@ -293,7 +314,7 @@ Examples:
     
     # Generate song lists
     print(f"\nGenerating song lists...")
-    run_cmd(f'cd /workspace/RB4 && node generate_rb4_song_list.js --baseline {args.baseline} --custom {args.output_json}')
+    run_cmd(f'cd /workspace/RB4 && node generate_rb4_song_list.js --baseline {args.baseline} --custom {args.output_json} --processed {PROCESSED_PKGS_FILE}')
     
     print("\n✅ Pipeline complete!")
     print(f"Processed PKGs saved to: {PROCESSED_PKGS_FILE}")
