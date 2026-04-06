@@ -51,13 +51,24 @@ python3 RB4/scripts/rb4_songlist_generator.py \
 
 The devcontainer automatically attempts to mount your RB4 DLC share on startup. The mount script (`mount_rb4_dlc.sh`) runs in `postCreateCommand` and:
 
-1. **First** checks for custom config (`.devcontainer/rb4_dlc_config.sh` - gitignored)
-2. Then tries SMB mount (cifs, smbfs, various SMB versions)
-3. Falls back to macOS bind mount (`/Volumes/incoming/temp/Rb4Dlc`)
+1. **First** checks if a bind mount already exists (from devcontainer.json)
+2. Then checks for custom config (`.devcontainer/rb4_dlc_config.sh` - gitignored)
+3. Then tries SMB mount (cifs, smbfs, various SMB versions)
 4. Falls back to local `$HOME/RB4Dlc`
 5. **Fails gracefully** with helpful message if nothing works
 
-### Custom Mount Location
+### Option 1: Docker Desktop File Sharing (Recommended)
+
+This enables automatic bind mounting when the container starts:
+
+1. Open Docker Desktop → Settings → Resources → File Sharing
+2. Add the folder containing your PKGs (e.g., `/Volumes/incoming/temp`)
+3. Rebuild the devcontainer
+4. The bind mount at `/mnt/rb4dlc` will work automatically
+
+This is the easiest option - once configured, no further action needed.
+
+### Option 2: Custom SMB Server
 
 Create a gitignored config file at `.devcontainer/rb4_dlc_config.sh`:
 
@@ -69,7 +80,7 @@ MOUNT_POINT="/mnt/your-custom-path"
 
 This allows each user to specify their own mount location without modifying the repo.
 
-### Manual Mount
+### Option 3: Manual Mount
 
 If auto-mount fails, you can manually mount:
 
@@ -77,6 +88,16 @@ If auto-mount fails, you can manually mount:
 sudo mount -t cifs //192.168.100.135/incoming/temp/Rb4Dlc /mnt/rb4dlc -o guest
 python3 RB4/scripts/rb4_songlist_generator.py --pkg-dir /mnt/rb4dlc
 ```
+
+### Checking Mount Status
+
+Run `RB4: Show Mount Status` task or:
+
+```bash
+bash .devcontainer/mount_rb4_dlc.sh
+```
+
+This will tell you what's mounted and what configuration options are available.
 
 ## VS Code Tasks
 
