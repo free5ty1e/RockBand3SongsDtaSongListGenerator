@@ -225,6 +225,8 @@ Examples:
                         help='Disable incremental mode - re-process all PKGs')
     parser.add_argument('-v', '--verbose', action='store_true',
                         help='Verbose output')
+    parser.add_argument('--smb', action='store_true',
+                        help='PKGs are on SMB share (use smbclient to access)')
     
     args = parser.parse_args()
     
@@ -243,11 +245,24 @@ Examples:
                 os.remove(os.path.join(args.songlist_dir, f))
     
     # Find all PKG files
-    if not os.path.isdir(args.pkg_dir):
-        print(f"ERROR: PKG directory not found: {args.pkg_dir}")
-        sys.exit(1)
-    
-    pkg_files = [os.path.join(args.pkg_dir, f) for f in os.listdir(args.pkg_dir) if f.endswith('.pkg')]
+    if args.smb:
+        # Use smbclient to list PKGs from SMB share
+        print("Accessing PKGs via SMB...")
+        sys.path.insert(0, '/workspace/RB4/scripts')
+        from smb_pkg_finder import list_pkgs as smb_list_pkgs
+        pkg_names = smb_list_pkgs()
+        pkg_files = pkg_names  # Store just names, we'll fetch one at a time
+    else:
+        # Local directory - filter out macOS hidden files (starting with ._)
+        if not os.path.isdir(args.pkg_dir):
+            print(f"ERROR: PKG directory not found: {args.pkg_dir}")
+            sys.exit(1)
+        
+        pkg_files = [
+            os.path.join(args.pkg_dir, f) 
+            for f in os.listdir(args.pkg_dir) 
+            if f.endswith('.pkg') and not f.startswith('._')
+        ]
     
     if not pkg_files:
         print(f"No .pkg files found in {args.pkg_dir}")
@@ -284,12 +299,35 @@ Examples:
     for idx, pkg_path in enumerate(sorted(pkg_files), 1):
         source = get_pkg_source(pkg_path)
         pkg_name = os.path.basename(pkg_path)
+        
+        # For SMB mode: fetch one file at a time
+        if args.smb:
+            print(f"[{idx}/{total_pkgs}] Fetching: {pkg_name}")
+            sys.stdout.flush()
+            
+            # Fetch from SMB to temp dir
+            sys.path.insert(0, '/workspace/RB4/scripts')
+            from smb_pkg_finder import get_pkg_file
+            success = get_pkg_file(pkg_name, args.temp_dir)
+            
+            if not success:
+                print(f"  ERROR: Failed to fetch {pkg_name} from SMB")
+                continue
+            
+            # Use the fetched file
+            pkg_path = os.path.join(args.temp_dir, pkg_name)
+        
         print(f"[{idx}/{total_pkgs}] Processing: {pkg_name}")
         sys.stdout.flush()
         
         try:
             songs = extract_songdta_from_pkg(pkg_path, source, args.temp_dir)
             all_songs.extend(songs)
+            
+            # For SMB mode: clean up immediately after processing to free space
+            if args.smb and os.path.exists(pkg_path):
+                os.remove(pkg_path)
+                print(f"\tCleaned up {pkg_name} to free space")
             
             # Mark as processed
             processed.add(pkg_name)

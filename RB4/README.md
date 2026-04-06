@@ -47,57 +47,44 @@ python3 RB4/scripts/rb4_songlist_generator.py \
 | `--incremental`    | enabled                         | Skip already-processed PKGs (saves time on re-runs)         |
 | `--no-incremental` | -                               | Disable incremental mode - re-process all PKGs              |
 
-## Network Share / SMB Mount
+## Network Share / SMB Access
 
-The devcontainer automatically attempts to mount your RB4 DLC share on startup. The mount script (`mount_rb4_dlc.sh`) runs in `postCreateCommand` and:
+The container cannot directly mount SMB shares (no kernel CAP_SYS_ADMIN), but can access them via `smbclient`.
 
-1. **First** checks if a bind mount already exists (from devcontainer.json)
-2. Then checks for custom config (`.devcontainer/rb4_dlc_config.sh` - gitignored)
-3. Then tries SMB mount (cifs, smbfs, various SMB versions)
-4. Falls back to local `$HOME/RB4Dlc`
-5. **Fails gracefully** with helpful message if nothing works
+### Recommended: SMB Mode (smbclient)
 
-### Option 1: Docker Desktop File Sharing (Recommended)
+Use the `--smb` flag to access PKGs directly via smbclient:
 
-This enables automatic bind mounting when the container starts:
+```bash
+python3 RB4/scripts/rb4_songlist_generator.py --smb
+```
+
+Or use the VS Code task: `RB4: Scan PKGs (SMB share via smbclient)`
+
+This:
+
+- Lists PKGs from SMB share
+- Downloads one at a time to temp directory
+- Processes and extracts songs
+- Deletes PKG immediately after processing (to free space)
+- Repeats for next file
+
+### Alternative: Local PKG Folder
+
+Copy your PKGs to `/workspace/pkgs/` or use `pkgs_test/` for testing:
+
+```bash
+python3 RB4/scripts/rb4_songlist_generator.py --pkg-dir /workspace/pkgs
+```
+
+### Docker Desktop File Sharing
+
+If you configure Docker Desktop to share your PKG folder:
 
 1. Open Docker Desktop → Settings → Resources → File Sharing
-2. Add the folder containing your PKGs (e.g., `/Volumes/incoming/temp`)
-3. Rebuild the devcontainer
-4. The bind mount at `/mnt/rb4dlc` will work automatically
-
-This is the easiest option - once configured, no further action needed.
-
-### Option 2: Custom SMB Server
-
-Create a gitignored config file at `.devcontainer/rb4_dlc_config.sh`:
-
-```bash
-# .devcontainer/rb4_dlc_config.sh
-SMB_SHARE="//192.168.1.100/YourShareName"
-MOUNT_POINT="/mnt/your-custom-path"
-```
-
-This allows each user to specify their own mount location without modifying the repo.
-
-### Option 3: Manual Mount
-
-If auto-mount fails, you can manually mount:
-
-```bash
-sudo mount -t cifs //192.168.100.135/incoming/temp/Rb4Dlc /mnt/rb4dlc -o guest
-python3 RB4/scripts/rb4_songlist_generator.py --pkg-dir /mnt/rb4dlc
-```
-
-### Checking Mount Status
-
-Run `RB4: Show Mount Status` task or:
-
-```bash
-bash .devcontainer/mount_rb4_dlc.sh
-```
-
-This will tell you what's mounted and what configuration options are available.
+2. Add your PKG folder (e.g., `/Volumes/incoming/temp`)
+3. Rebuild the container
+4. Then use normal `--pkg-dir /mnt/rb4dlc` mode
 
 ## VS Code Tasks
 
@@ -112,19 +99,39 @@ The project includes pre-configured VS Code tasks for common operations. Press `
 
 ### RB4 Scanning Tasks
 
-| Task                                               | Description                                   |
-| -------------------------------------------------- | --------------------------------------------- |
-| `RB4: Scan PKGs (test set, fresh)`                 | Scan `pkgs_test/` folder, fresh run           |
-| `RB4: Scan PKGs (test set, incremental)`           | Scan `pkgs_test/` folder, skip processed PKGs |
-| `RB4: Scan PKGs (local /pkgs folder, fresh)`       | Scan `/workspace/pkgs`, fresh run             |
-| `RB4: Scan PKGs (local /pkgs folder, incremental)` | Scan `/workspace/pkgs`, skip processed PKGs   |
-| `RB4: Scan PKGs (network share, fresh)`            | Scan `/mnt/rb4dlc`, fresh run                 |
-| `RB4: Scan PKGs (network share, incremental)`      | Scan `/mnt/rb4dlc`, skip processed PKGs       |
-| `RB4: Scan PKGs (custom path)`                     | Prompt for directory, incremental mode        |
-| `RB4: Scan PKGs (custom path, fresh)`              | Prompt for directory, fresh run               |
-| `RB4: Show Mount Status`                           | Display current mount configuration           |
-| `RB4: Configure Network Share (help)`              | Show instructions for Docker Desktop setup    |
-| `RB4: List available PKG locations`                | Show PKG counts in all locations              |
+| Task                                               | Description                                     |
+| -------------------------------------------------- | ----------------------------------------------- |
+| `RB4: Scan PKGs (test set, fresh)`                 | Scan `pkgs_test/` folder, fresh run             |
+| `RB4: Scan PKGs (test set, incremental)`           | Scan `pkgs_test/` folder, skip processed PKGs   |
+| `RB4: Scan PKGs (local /pkgs folder, fresh)`       | Scan `/workspace/pkgs`, fresh run               |
+| `RB4: Scan PKGs (local /pkgs folder, incremental)` | Scan `/workspace/pkgs`, skip processed PKGs     |
+| `RB4: Scan PKGs (network share, fresh)`            | Scan `/mnt/rb4dlc`, fresh run                   |
+| `RB4: Scan PKGs (network share, incremental)`      | Scan `/mnt/rb4dlc`, skip processed PKGs         |
+| `RB4: Scan PKGs (SMB share via smbclient)`         | Scan SMB share directly, fetch 1 file at a time |
+| `RB4: Scan PKGs (SMB share, fresh)`                | Scan SMB share directly, fresh run              |
+| `RB4: Scan PKGs (custom path)`                     | Prompt for directory, incremental mode          |
+| `RB4: Scan PKGs (custom path, fresh)`              | Prompt for directory, fresh run                 |
+| `RB4: Show Mount Status`                           | Display current mount configuration             |
+| `RB4: Configure Network Share (help)`              | Show instructions for Docker Desktop setup      |
+| `RB4: List available PKG locations`                | Show PKG counts in all locations                |
+
+### SMB Mode (No Kernel Mount Required)
+
+When the container can't mount SMB shares directly (no CAP_SYS_ADMIN), use `--smb` flag:
+
+```bash
+python3 RB4/scripts/rb4_songlist_generator.py --smb
+```
+
+This uses `smbclient` to:
+
+1. List PKG files from the network share
+2. Download one at a time to temp directory
+3. Process and extract songs
+4. **Immediately delete the PKG to free space**
+5. Repeat for next file
+
+This is slower but works without kernel-level SMB mount.
 
 ### Quick Start with Tasks
 

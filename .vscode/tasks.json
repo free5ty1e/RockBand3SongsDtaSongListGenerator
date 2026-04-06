@@ -93,6 +93,28 @@
       "group": "rb4-network"
     },
     {
+      "label": "RB4: Scan PKGs (SMB share via smbclient)",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --smb",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4-network"
+    },
+    {
+      "label": "RB4: Scan PKGs (SMB share, fresh)",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --smb --no-incremental",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4-network"
+    },
+    {
       "label": "RB4: Scan PKGs (custom path)",
       "type": "shell",
       "command": "bash -c 'read -p \"Enter PKG directory path: \" PKG_DIR && python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir \"$PKG_DIR\"'",
