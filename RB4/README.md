@@ -7,65 +7,65 @@ This folder contains a pipeline for scanning PS4 (fPKG) Rock Band 4 custom song 
 The standard `rb4songlistWithRivals.txt` file serves as the baseline database of all default RB4 songs + Rivals expansion tracks.
 This tool supplements the baseline with your custom songs, dropping duplicates (custom files take precedence).
 
-## Binary Structure (.songdta_ps4)
+## Quick Start
 
-The `.songdta_ps4` files contain compiled song metadata using a fixed binary structure documented in LibForge's 010 Editor template (`LibForge/010/songdta.bt`).
-
-### Field Offsets
-
-| Field           | Offset | Description                       |
-| --------------- | ------ | --------------------------------- |
-| `songdta_type`  | 0      | File type identifier              |
-| `song_id`       | 4      | Unique song ID                    |
-| `version`       | 8      | Version number                    |
-| `game_origin`   | 10     | Source code (rb2, greenday, etc.) |
-| `preview_start` | 28     | Preview start position (seconds)  |
-| `preview_end`   | 32     | Preview end position (seconds)    |
-| `name`          | 36     | Song title                        |
-| `artist`        | 292    | Artist name                       |
-| `album_name`    | 548    | Album name                        |
-| `album_year`    | 808    | Year added to RB                  |
-| `original_year` | 812    | Original release year             |
-| `genre`         | 816    | Genre tag                         |
-| `guitar`        | 884    | Guitar difficulty                 |
-| `bass`          | 888    | Bass difficulty                   |
-| `vocals`        | 892    | Vocals difficulty                 |
-| `drums`         | 896    | Drums difficulty                  |
-| `shortname`     | 945    | Song folder name                  |
-
-### Duration Extraction
-
-The `song_length` field at offset 880 contains garbage data. Duration is calculated by finding the minimum float value in range 60-500 seconds across the entire file.
-
-## Two-Step Workflow
-
-**1. Extract binary metadata**
-Run the Python script to extract from all `.songdta_ps4` files:
+Run the full extraction pipeline from a network share:
 
 ```bash
-python3 RB4/scripts/extract_binary_dta.py <songs_dir> --source <source> RB4/rb4_custom_songs.json
+python3 RB4/scripts/rb4_extract_songs.py --pkg-dir /path/to/your/pkgs --temp-dir /tmp/rb4_extract
 ```
 
-**2. Generate Text Lists**
-Run the Node.js generator to combine baseline with custom JSON:
+Or use default paths (local `/workspace/pkgs` directory):
 
 ```bash
-node RB4/generate_rb4_song_list.js --baseline RB4/rb4songlistWithRivals.txt --custom RB4/rb4_custom_songs.json
+python3 RB4/scripts/rb4_extract_songs.py
 ```
 
-Generates 4 text files in `RB4/output/`:
+## Full Pipeline (End-to-End)
 
-- `SongListSortedByArtist.txt`
-- `SongListSortedBySongName.txt`
-- `SongListSortedByArtistClean.txt` (profanity filtered)
-- `SongListSortedBySongNameClean.txt` (profanity filtered)
+### One-Command Extraction
+
+The `rb4_extract_songs.py` script handles everything:
+
+```bash
+python3 RB4/scripts/rb4_extract_songs.py \
+  --pkg-dir /path/to/pkgs \
+  --temp-dir /tmp/rb4_extract \
+  --output-json RB4/rb4_custom_songs.json \
+  --songlist-dir RB4/output
+```
+
+### Options
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `--pkg-dir` | `/workspace/pkg` | Directory containing PKG files (local or network mount) |
+| `--temp-dir` | `/workspace/rb4_temp` | Temporary directory for extraction (cleaned after each PKG) |
+| `--output-json` | `RB4/rb4_custom_songs.json` | Output JSON file with extracted metadata |
+| `--songlist-dir` | `RB4/output` | Output directory for generated song lists |
+| `--baseline` | `RB4/rb4songlistWithRivals.txt` | Baseline song list file |
+| `--incremental` | enabled | Skip already-processed PKGs (saves time on re-runs) |
+| `--no-incremental` | - | Disable incremental mode - re-process all PKGs |
+
+### Network Share Example
+
+Mount a network share and extract from SMB:
+
+```bash
+# Option 1: Mount network share locally first
+sudo mount -t cifs //192.168.100.135/incoming/temp/Rb4Dlc /mnt/rb4dlc -o guest
+python3 RB4/scripts/rb4_extract_songs.py --pkg-dir /mnt/rb4dlc --temp-dir /tmp/rb4
+
+# Option 2: Use smbclient to list files (read-only operations)
+smbclient //192.168.100.135/incoming/temp/Rb4Dlc -N -c "ls"
+```
 
 ## Output Format
 
-Each line contains:
+Each line in the generated song lists contains:
 
 ```
-Artist (Album) - Title (Year / Duration) - Source [ShortName]🎸🎤🥁
+Artist (Album) - Title (Year / Duration) - Source [ShortName]🎸🎸🎤🥁
 ```
 
 Where:
@@ -75,63 +75,82 @@ Where:
 - `Title` - Song title
 - `Year` - Release year
 - `Duration` - Length in MM:SS format
-- `Source` - Song source (Rock Band 2, custom, etc.)
-- `ShortName` - Internal song folder name (for reference)
-- `🎸🎤🥁` - Instrument icons (guitar, vocals, drums, keys)
+- `Source` - Song source (RB4, Rivals, custom, greenday, rb2, etc.)
+- `ShortName` - Internal song folder name (for identification)
+- `🎸🎸🎤🥁` - Instrument icons (guitar, bass, drums, vocals)
 
-## Extraction Details
+## Generated Files
 
-The `extract_binary_dta.py` parser uses exact field offsets:
+The pipeline generates 4 text files in `RB4/output/`:
 
-1. Read fixed offsets for known fields (title at 36, artist at 292, etc.)
-2. Calculate duration from minimum float in reasonable range
-3. Map `game_origin` to friendly source names
-4. Generate instrument emoji from difficulty values > 0
-5. Return complete JSON with all metadata fields
+- `SongListSortedByArtist.txt` - Sorted by artist name
+- `SongListSortedBySongName.txt` - Sorted by song title
+- `SongListSortedByArtistClean.txt` - Profanity filtered (artist sort)
+- `SongListSortedBySongNameClean.txt` - Profanity filtered (song sort)
 
-## Setup & Dependencies
+## Binary Structure (.songdta_ps4)
 
-Runs in **Devcontainer** (Ubuntu 24.04) with:
+The `.songdta_ps4` files contain compiled song metadata using a fixed binary structure documented in LibForge's 010 Editor template.
 
-- Python 3 - for extract_binary_dta.py
-- Node.js 22 - for generator
-- PkgTool.Core - for extracting PKG files (if needed)
+### Field Offsets
 
-## Output Fields
+| Field | Offset | Description |
+| ----- | ------ | ----------- |
+| `songdta_type` | 0 | File type identifier |
+| `song_id` | 4 | Unique song ID |
+| `version` | 8 | Version number |
+| `game_origin` | 10 | Source code (rb2, greenday, etc.) |
+| `preview_start` | 28 | Preview start position (seconds) |
+| `preview_end` | 32 | Preview end position (seconds) |
+| `name` | 36 | Song title |
+| `artist` | 292 | Artist name |
+| `album_name` | 548 | Album name |
+| `album_year` | 808 | Year added to RB |
+| `original_year` | 812 | Original release year |
+| `genre` | 816 | Genre tag |
+| `guitar` | 884 | Guitar difficulty |
+| `bass` | 888 | Bass difficulty |
+| `vocals` | 892 | Vocals difficulty |
+| `drums` | 896 | Drums difficulty |
+| `shortname` | 945 | Song folder name |
 
-The parser extracts all available fields:
+### Duration Extraction
 
-```json
-{
-  "artist": "Motörhead",
-  "title": "Ace of Spades '08",
-  "album": "Ace of Spades '08",
-  "year": 1980,
-  "durationMs": 255000,
-  "source": "Rock Band 2",
-  "songId": 251,
-  "shortName": "aceofspades",
-  "gameOrigin": "rb2",
-  "albumYear": 2008,
-  "originalYear": 1980,
-  "genre": "metal",
-  "previewStart": 16720.92,
-  "previewEnd": 46720.83,
-  "difficulty": {
-    "guitar": 388.0,
-    "bass": 471.0,
-    "vocals": 255.0,
-    "drums": 429.0,
-    "band": 453.0,
-    "keys": 0.0
-  },
-  "instruments": "🎸🎸🎤🥁",
-  "instrumentList": ["guitar", "bass", "vocals", "drums"]
-}
+The `song_length` field at offset 880 contains garbage in some files. Duration is calculated by finding the minimum float value in range 60-500 seconds across the entire file, with fallbacks for truncated WIP files.
+
+## Incremental Mode
+
+The pipeline tracks which PKGs have been processed in `processed_pkgs.json`. On subsequent runs:
+
+- Already-processed PKGs are automatically skipped
+- Only new PKGs are extracted
+- Existing song data is preserved and merged
+
+To force a full re-extraction:
+
+```bash
+python3 RB4/scripts/rb4_extract_songs.py --no-incremental
 ```
+
+## Architecture
+
+- `rb4_extract_songs.py` - Main orchestration script (end-to-end pipeline)
+- `extract_binary_dta.py` - Binary parser for .songdta_ps4 files
+- `generate_rb4_song_list.js` - JSON to text list converter
+- `rb4songlistWithRivals.txt` - Baseline RB4 + Rivals songs
+
+## Dependencies
+
+Runs in the Devcontainer (Ubuntu 24.04) with:
+
+- Python 3 - for extraction scripts
+- Node.js 22 - for generator
+- .NET 8 Runtime - for PkgTool
+- smbclient - for network share access (optional)
+- PkgTool.Core - for PKG/PFS extraction
 
 ## References
 
-- LibForge: https://github.com/mtolly/LibForge
-- 010 Editor Template: `LibForge/010/songdta.bt`
-- Rock Band Wiki: https://rockband.fandom.com
+- LibForge (mtolly/LibForge) - https://github.com/mtolly/LibForge
+- Rock Band Wiki - https://rockband.fandom.com
+- Onyx (mtolly/onyx) - https://github.com/mtolly/onyx

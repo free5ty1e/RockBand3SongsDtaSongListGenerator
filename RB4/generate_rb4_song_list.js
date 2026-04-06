@@ -215,6 +215,20 @@ function buildHeader(songs, timestamp) {
     .map(([src, n]) => `  ${src}: ${n}`)
     .join('\n');
   header += `\nBreakdown by source:\n${sourceBreakdown}\n\n`;
+  
+  // Append processed PKGs list
+  const processedFile = path.join(__dirname, 'processed_pkgs.json');
+  if (fs.existsSync(processedFile)) {
+    const processed = JSON.parse(fs.readFileSync(processedFile, 'utf8'));
+    if (processed && processed.length > 0) {
+      header += `---\nProcessed PKGs (incremental mode):\n`;
+      for (const pkg of processed) {
+        header += `  ${pkg}\n`;
+      }
+      header += `\n`;
+    }
+  }
+  
   return header;
 }
 

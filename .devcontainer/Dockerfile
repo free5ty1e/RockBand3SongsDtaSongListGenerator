@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libmbedtls-dev \
     uthash-dev \
     bsdmainutils \
+    smbclient \
     && rm -rf /var/lib/apt/lists/*
 
 # ── Node.js 22 (NodeSource) ───────────────────────────────────────────────────
