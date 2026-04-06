@@ -1,11 +1,22 @@
 #!/usr/bin/env bash
 # =============================================================================
 # mount_rb4_dlc.sh — Mount RB4 DLC SMB share with graceful fallback
+# 
+# Custom Configuration:
+#   Create a gitignored file at .devcontainer/rb4_dlc_config.sh with:
+#     SMB_SHARE="//your-server/your-share"
+#     MOUNT_POINT="/your/custom/mount/point"
+#   This will be sourced first, allowing custom paths per system.
 # =============================================================================
 
 set +e  # Don't exit on error
 
-# Default paths to check (can be overridden via arguments)
+# Load custom config if it exists (gitignored per .gitignore)
+if [ -f "$(dirname "$0")/rb4_dlc_config.sh" ]; then
+    source "$(dirname "$0")/rb4_dlc_config.sh"
+fi
+
+# Default paths to check (can be overridden via arguments or config file)
 SMB_SHARE="${SMB_SHARE:-//incoming/temp/Rb4Dlc}"
 MOUNT_POINT="${MOUNT_POINT:-/mnt/rb4dlc}"
 SMB_USER="${SMB_USER:-${USERNAME}}"

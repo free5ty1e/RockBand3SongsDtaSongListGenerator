@@ -10,6 +10,7 @@ bak/
 
 .ai_memory/
 .ai_working/
+.devcontainer/rb4_dlc_config.sh
 RB4/scripts/pkg_test/node_modules
 RB4/working_dir/
 RB4/output/

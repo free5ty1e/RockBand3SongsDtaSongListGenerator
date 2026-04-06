@@ -28,12 +28,15 @@ python3 generate_song_lists.py /path/to/songs.dta
 ```
 
 ### Multiple Input Files
+
 For multiple input files (merged lists with source filename metadata):
+
 ```bash
 python3 generate_song_lists.py /path/to/songs.dta /path/to/songs.USB1.dta /path/to/songs.USB2.dta
 ```
 
 Notes:
+
 - Input may be a standard `songs.dta` or a text export (e.g., `songs.dta.txt`).
 - The script writes outputs into the current working directory.
 
@@ -48,6 +51,7 @@ Notes:
   - Sorted by name → artist
 
 Placeholders when data is missing:
+
 - Album: `(unknown album)`
 - Year: `?`
 - Length: `?:??` (length is interpreted as milliseconds in the DTA and converted to mm:ss)
@@ -55,10 +59,12 @@ Placeholders when data is missing:
 ## Clean outputs and profanity filtering
 
 Two additional files exclude lines containing configured profanity (case-insensitive):
+
 - `SongListSortedByArtistClean.txt`
 - `SongListSortedBySongNameClean.txt`
 
 The filter uses a combined approach:
+
 - Simple substrings (e.g., `shit`, `bitch`, `asshole`, `bastard`, `damn`, etc.)
 - Regexes with word boundaries for risky matches (e.g., `\bdick\b`, `\bcock\b`)
 
@@ -67,13 +73,14 @@ Every filtered line is logged with the specific matching terms. The summary incl
 ### Customizing the word list
 
 Edit the lists near the top of `generate_song_lists.py`:
+
 - `CURSE_WORDS`: simple case-insensitive substrings
 - `CURSE_REGEX_PATTERNS`: regex patterns (compiled with `re.IGNORECASE`)
-
 
 ## Console logging and summary
 
 The script prints:
+
 - Warnings if no (artist, name) pairs were found
 - Partial entries with missing fields in the form: `id=<identifier> | artist=<...> | name=<...> | album=<...> | year=<...> | length=<...>`
 - Final summary with counts for total parsed, extracted pairs, skipped entries, lines written for each file, and clean-file filtering stats (including per-term counts)
@@ -90,6 +97,7 @@ The script prints:
 ## Example outputs
 
 `SongListSortedByArtist.txt`:
+
 ```
 Foreigner (Agent Provocateur) - I Want to Know What Love Is (1984 / 5:16) (songs.dta)
 Foreigner (Double Vision) - Blue Morning, Blue Day (1978 / ?:??) (songs.dta)
@@ -106,6 +114,7 @@ Frank Sinatra (My Way) - My Way (1969 / 4:49) (songs.dta)
 ```
 
 `SongListSortedBySongName.txt`
+
 ```
 29 Fingers by The Konks on (unknown album) (? / ?:??) (songs.dta)
 3's & 7's by Queens of the Stone Age on (unknown album) (? / ?:??) (songs.dta)
@@ -115,12 +124,10 @@ Frank Sinatra (My Way) - My Way (1969 / 4:49) (songs.dta)
 867-5309/Jenny by Tommy Tutone on Tutone-Ality (1981 / 3:48) (songs.dta)
 ```
 
-
-
-
 ## Rock Band 4 Support
 
 To build song lists for Rock Band 4 and user custom PKGs, please refer to the specific toolset in the `RB4/` directory. See the [RB4 README](./RB4/README.md) for its specific setup and pipeline documentation.
 
 # Other Tools
+
 See the other tools folder for README files for each specific related tool / toolset

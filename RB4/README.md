@@ -37,27 +37,45 @@ python3 RB4/scripts/rb4_songlist_generator.py \
 
 ### Options
 
-| Option | Default | Description |
-|--------|---------|-------------|
-| `--pkg-dir` | `/workspace/pkg` | Directory containing PKG files (local or network mount) |
-| `--temp-dir` | `/workspace/rb4_temp` | Temporary directory for extraction (cleaned after each PKG) |
-| `--output-json` | `RB4/rb4_custom_songs.json` | Output JSON file with extracted metadata |
-| `--songlist-dir` | `RB4/output` | Output directory for generated song lists |
-| `--baseline` | `RB4/rb4songlistWithRivals.txt` | Baseline song list file |
-| `--incremental` | enabled | Skip already-processed PKGs (saves time on re-runs) |
-| `--no-incremental` | - | Disable incremental mode - re-process all PKGs |
+| Option             | Default                         | Description                                                 |
+| ------------------ | ------------------------------- | ----------------------------------------------------------- |
+| `--pkg-dir`        | `/workspace/pkg`                | Directory containing PKG files (local or network mount)     |
+| `--temp-dir`       | `/workspace/rb4_temp`           | Temporary directory for extraction (cleaned after each PKG) |
+| `--output-json`    | `RB4/rb4_custom_songs.json`     | Output JSON file with extracted metadata                    |
+| `--songlist-dir`   | `RB4/output`                    | Output directory for generated song lists                   |
+| `--baseline`       | `RB4/rb4songlistWithRivals.txt` | Baseline song list file                                     |
+| `--incremental`    | enabled                         | Skip already-processed PKGs (saves time on re-runs)         |
+| `--no-incremental` | -                               | Disable incremental mode - re-process all PKGs              |
 
-### Network Share Example
+## Network Share / SMB Mount
 
-Mount a network share and extract from SMB:
+The devcontainer automatically attempts to mount your RB4 DLC share on startup. The mount script (`mount_rb4_dlc.sh`) runs in `postCreateCommand` and:
+
+1. **First** checks for custom config (`.devcontainer/rb4_dlc_config.sh` - gitignored)
+2. Then tries SMB mount (cifs, smbfs, various SMB versions)
+3. Falls back to macOS bind mount (`/Volumes/incoming/temp/Rb4Dlc`)
+4. Falls back to local `$HOME/RB4Dlc`
+5. **Fails gracefully** with helpful message if nothing works
+
+### Custom Mount Location
+
+Create a gitignored config file at `.devcontainer/rb4_dlc_config.sh`:
 
 ```bash
-# Option 1: Mount network share locally first
-sudo mount -t cifs //192.168.100.135/incoming/temp/Rb4Dlc /mnt/rb4dlc -o guest
-python3 RB4/scripts/rb4_songlist_generator.py --pkg-dir /mnt/rb4dlc --temp-dir /tmp/rb4
+# .devcontainer/rb4_dlc_config.sh
+SMB_SHARE="//192.168.1.100/YourShareName"
+MOUNT_POINT="/mnt/your-custom-path"
+```
 
-# Option 2: Use smbclient to list files (read-only operations)
-smbclient //192.168.100.135/incoming/temp/Rb4Dlc -N -c "ls"
+This allows each user to specify their own mount location without modifying the repo.
+
+### Manual Mount
+
+If auto-mount fails, you can manually mount:
+
+```bash
+sudo mount -t cifs //192.168.100.135/incoming/temp/Rb4Dlc /mnt/rb4dlc -o guest
+python3 RB4/scripts/rb4_songlist_generator.py --pkg-dir /mnt/rb4dlc
 ```
 
 ## Output Format
@@ -94,25 +112,25 @@ The `.songdta_ps4` files contain compiled song metadata using a fixed binary str
 
 ### Field Offsets
 
-| Field | Offset | Description |
-| ----- | ------ | ----------- |
-| `songdta_type` | 0 | File type identifier |
-| `song_id` | 4 | Unique song ID |
-| `version` | 8 | Version number |
-| `game_origin` | 10 | Source code (rb2, greenday, etc.) |
-| `preview_start` | 28 | Preview start position (seconds) |
-| `preview_end` | 32 | Preview end position (seconds) |
-| `name` | 36 | Song title |
-| `artist` | 292 | Artist name |
-| `album_name` | 548 | Album name |
-| `album_year` | 808 | Year added to RB |
-| `original_year` | 812 | Original release year |
-| `genre` | 816 | Genre tag |
-| `guitar` | 884 | Guitar difficulty |
-| `bass` | 888 | Bass difficulty |
-| `vocals` | 892 | Vocals difficulty |
-| `drums` | 896 | Drums difficulty |
-| `shortname` | 945 | Song folder name |
+| Field           | Offset | Description                       |
+| --------------- | ------ | --------------------------------- |
+| `songdta_type`  | 0      | File type identifier              |
+| `song_id`       | 4      | Unique song ID                    |
+| `version`       | 8      | Version number                    |
+| `game_origin`   | 10     | Source code (rb2, greenday, etc.) |
+| `preview_start` | 28     | Preview start position (seconds)  |
+| `preview_end`   | 32     | Preview end position (seconds)    |
+| `name`          | 36     | Song title                        |
+| `artist`        | 292    | Artist name                       |
+| `album_name`    | 548    | Album name                        |
+| `album_year`    | 808    | Year added to RB                  |
+| `original_year` | 812    | Original release year             |
+| `genre`         | 816    | Genre tag                         |
+| `guitar`        | 884    | Guitar difficulty                 |
+| `bass`          | 888    | Bass difficulty                   |
+| `vocals`        | 892    | Vocals difficulty                 |
+| `drums`         | 896    | Drums difficulty                  |
+| `shortname`     | 945    | Song folder name                  |
 
 ### Duration Extraction
 
