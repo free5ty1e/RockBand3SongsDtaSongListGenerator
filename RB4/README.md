@@ -78,6 +78,39 @@ sudo mount -t cifs //192.168.100.135/incoming/temp/Rb4Dlc /mnt/rb4dlc -o guest
 python3 RB4/scripts/rb4_songlist_generator.py --pkg-dir /mnt/rb4dlc
 ```
 
+## VS Code Tasks
+
+The project includes pre-configured VS Code tasks for common operations. Press `Ctrl+Shift+P` → "Tasks: Run Task" to access them.
+
+### Opencode Tasks
+
+| Task                            | Description                                             |
+| ------------------------------- | ------------------------------------------------------- |
+| `Opencode: Resume Last Session` | Resume your previous session (auto-runs on folder open) |
+| `Opencode: Launch Fresh`        | Start a new opencode session                            |
+
+### RB4 Scanning Tasks
+
+| Task                                               | Description                                   |
+| -------------------------------------------------- | --------------------------------------------- |
+| `RB4: Scan PKGs (test set, fresh)`                 | Scan `pkgs_test/` folder, fresh run           |
+| `RB4: Scan PKGs (test set, incremental)`           | Scan `pkgs_test/` folder, skip processed PKGs |
+| `RB4: Scan PKGs (local /pkgs folder, fresh)`       | Scan `/workspace/pkgs`, fresh run             |
+| `RB4: Scan PKGs (local /pkgs folder, incremental)` | Scan `/workspace/pkgs`, skip processed PKGs   |
+| `RB4: Scan PKGs (network share, fresh)`            | Scan `/mnt/rb4dlc`, fresh run                 |
+| `RB4: Scan PKGs (network share, incremental)`      | Scan `/mnt/rb4dlc`, skip processed PKGs       |
+| `RB4: Scan PKGs (custom path)`                     | Prompt for directory, incremental mode        |
+| `RB4: Scan PKGs (custom path, fresh)`              | Prompt for directory, fresh run               |
+| `RB4: Show Mount Status`                           | Display current mount configuration           |
+| `RB4: Configure Network Share (help)`              | Show instructions for Docker Desktop setup    |
+| `RB4: List available PKG locations`                | Show PKG counts in all locations              |
+
+### Quick Start with Tasks
+
+1. **Resume session**: Opens automatically when folder loads
+2. **Test scan**: Run `RB4: Scan PKGs (test set, fresh)`
+3. **Full scan**: After configuring Docker Desktop file sharing, run `RB4: Scan PKGs (network share, fresh)`
+
 ## Output Format
 
 Each line in the generated song lists contains:
