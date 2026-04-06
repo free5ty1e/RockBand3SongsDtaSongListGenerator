@@ -15,12 +15,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     cifs-utils \
     git \
     p7zip-full \
+    # ── Critical dependencies for Onyx & OpenCode (do not remove) ──────────────
     libgl1 \
     libglu1-mesa \
+    libx11-6 \
+    libfontconfig1 \
     libfreetype6 \
     xvfb \
     alsa-utils \
     libpulse0 \
+    # ──────────────────────────────────────────────────────────────────────────
     build-essential \
     cmake \
     libmbedtls-dev \
@@ -80,9 +84,17 @@ RUN wget -q "https://github.com/maxton/LibOrbisPkg/releases/download/v0.2/PkgToo
     && chmod +x /usr/local/bin/PkgTool.Core \
     && rm -rf /tmp/pkgtool.zip /tmp/pkgtool
 
+# ── OpenCode CLI (anomalyco/opencode — Linux x64) ─────────────────────────────
+# OpenCode is used for various Rock Band modding and exploration tasks via CLI.
+RUN curl -fsSL -o /tmp/opencode.tar.gz https://github.com/anomalyco/opencode/releases/download/v1.3.13/opencode-linux-x64.tar.gz \
+    && tar -xzf /tmp/opencode.tar.gz -C /usr/local/bin \
+    && chmod +x /usr/local/bin/opencode \
+    && rm /tmp/opencode.tar.gz
+
 # ── Smoke tests ───────────────────────────────────────────────────────────────
-RUN onyx 2>&1 | grep "Onyx Music Game Toolkit" || echo "⚠️  Onyx version check failed — binary may need URL update (see Dockerfile comments)"
+RUN onyx 2>&1 | grep "Onyx Music Game Toolkit" || echo "⚠️  Onyx version check failed"
 RUN DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core version 2>&1 | grep -i "pkgtool\|0\." || echo "⚠️  PkgTool version check failed"
+RUN opencode --version 2>&1 | grep -i "opencode" || echo "⚠️  OpenCode version check failed"
 
 # ── Non-root user (vscode convention) ────────────────────────────────────────
 ARG USERNAME=vscode
