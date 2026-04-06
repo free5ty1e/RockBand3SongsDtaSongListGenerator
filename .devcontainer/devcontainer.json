@@ -33,6 +33,6 @@
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "echo '✅ Dev container ready. Onyx: '$(onyx | head -1)' | Node: '$(node --version)' | Python: '$(python3 --version)",
+  "postCreateCommand": "echo '✅ Dev container ready. Onyx: '$(onyx | head -1)' | Node: '$(node --version)' | Python: '$(python3 --version)' && (if [ -d /Volumes/incoming/temp/Rb4Dlc ]; then echo '✅ RB4 DLC share found at /Volumes/incoming/temp/Rb4Dlc'; elif [ -d /mnt/rb4dlc ]; then echo '✅ RB4 DLC share found at /mnt/rb4dlc'; else echo '⚠️ RB4 DLC share not mounted - run: mkdir -p /mnt/rb4dlc && mount_smb_share'; fi)",
   "remoteUser": "vscode"
 }
