@@ -46,6 +46,9 @@ python3 RB4/scripts/rb4_songlist_generator.py \
 | `--baseline`       | `RB4/rb4songlistWithRivals.txt` | Baseline song list file                                     |
 | `--incremental`    | enabled                         | Skip already-processed PKGs (saves time on re-runs)         |
 | `--no-incremental` | -                               | Disable incremental mode - re-process all PKGs              |
+| `--smb`            | -                               | Access PKGs via SMB share using smbclient                   |
+| `--log`            | `temp_dir/rb4_extract_<ts>.log` | Log file path (default: auto-generated with timestamp)       |
+| `-v`, `--verbose`  | -                               | Verbose output                                              |
 
 ## Network Share / SMB Access
 
@@ -166,8 +169,14 @@ This is much faster than re-extracting from PKGs (which involves SMB download + 
 
 Each line in the generated song lists contains:
 
+**Artist-sorted:**
 ```
-Artist (Album) - Title (Year / Duration) - Source [ShortName]🎸🎸🎤🥁
+Artist (Album) - Title (Year / Duration) - Source [ShortName] 🎸🎤🥁
+```
+
+**Name-sorted:**
+```
+Title by Artist on Album (Year / Duration) - Source [ShortName] 🎸🎤🥁
 ```
 
 Where:
@@ -179,7 +188,32 @@ Where:
 - `Duration` - Length in MM:SS format
 - `Source` - Song source (RB4, Rivals, custom, greenday, rb2, etc.)
 - `ShortName` - Internal song folder name (for identification)
-- `🎸🎸🎤🥁` - Instrument icons (guitar, bass, drums, vocals)
+- `🎸🎤🥁🎹` - Instrument icons (guitar, bass, drums, vocals, keys)
+
+## Song List Generator Options
+
+The `generate_rb4_song_list.js` script can also be run standalone:
+
+```bash
+cd /workspace/RB4 && node generate_rb4_song_list.js \
+  --baseline <file> \
+  --custom <file> \
+  --outdir <dir> \
+  --processed <file> \
+  --allow-duplicates \
+  --verbose
+```
+
+| Option                 | Default                         | Description                                            |
+| ---------------------- | ------------------------------- | ------------------------------------------------------ |
+| `--baseline`           | `rb4songlistWithRivals.txt`     | Baseline RB4/Rivals song list file                     |
+| `--custom`             | -                               | Custom songs JSON file                                |
+| `--outdir`             | `output/`                       | Output directory for generated lists                  |
+| `--processed`          | -                               | Processed PKGs JSON file                              |
+| `--timezone`           | system                          | Timezone for timestamps                               |
+| `--allow-duplicates`  | disabled                        | Allow duplicate songs (for debugging)                 |
+| `-v`, `--verbose`     | disabled                        | Verbose output                                        |
+| `-h`, `--help`        | -                               | Show help                                             |
 
 ## Generated Files
 
