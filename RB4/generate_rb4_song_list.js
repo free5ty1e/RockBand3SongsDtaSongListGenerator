@@ -228,7 +228,7 @@ function formatNameLine(song) {
 }
 
 // ── Build stats header ────────────────────────────────────────────────────────
-function buildHeader(songs, timestamp) {
+function buildHeader(songs, timestamp, duplicatesCount = 0) {
   const counts = {};
   for (const s of songs) {
     counts[s.source] = (counts[s.source] || 0) + 1;
@@ -246,13 +246,11 @@ function buildHeader(songs, timestamp) {
   header += `  🎹 = Keys/Pro Keys\n\n`;
   header += `Use these to filter songs: e.g. search for " 🎹" to find songs with keyboard parts.\n\n`;
   
-  // Line format examples
-  header += `Line format (Artist-sorted): Artist (Album) - Title (Year / Duration) - Source [ShortName] 🎸🎤🥁\n`;
-  header += `  Example: Queen (A Night at the Opera) - Bohemian Rhapsody (1975 / 5:55) - Rock Band 1 DLC [bohemianrhapsody] 🎸 🎸 🎤 🥁\n\n`;
-  header += `Line format (Name-sorted): Title by Artist on Album (Year / Duration) - Source [ShortName] 🎸🎤🥁\n`;
-  header += `  Example: Bohemian Rhapsody by Queen on A Night at the Opera (1975 / 5:55) - Rock Band 1 DLC [bohemianrhapsody] 🎸 🎸 🎤 🥁\n\n`;
-  
-  header += `Total songs: ${songs.length}\n`;
+  header += `Total songs: ${songs.length + duplicatesCount}\n`;
+  if (duplicatesCount > 0) {
+    header += `Duplicate songs: ${duplicatesCount}\n`;
+  }
+  header += `Total unique songs: ${songs.length}\n`;
   header += `Total artists: ${artists.size}\n`;
   header += `Total albums: ${albums.size}\n`;
 
@@ -261,6 +259,12 @@ function buildHeader(songs, timestamp) {
     .map(([src, n]) => `  ${src}: ${n}`)
     .join('\n');
   header += `\nBreakdown by source:\n${sourceBreakdown}\n\n`;
+
+  // Line format examples - placed here just before song list entries
+  header += `Line format (Artist-sorted): Artist (Album) - Title (Year / Duration) - Source [ShortName] 🎸🎤🥁\n`;
+  header += `  Example: Queen (A Night at the Opera) - Bohemian Rhapsody (1975 / 5:55) - Rock Band 1 DLC [bohemianrhapsody] 🎸 🎸 🎤 🥁\n\n`;
+  header += `Line format (Name-sorted): Title by Artist on Album (Year / Duration) - Source [ShortName] 🎸🎤🥁\n`;
+  header += `  Example: Bohemian Rhapsody by Queen on A Night at the Opera (1975 / 5:55) - Rock Band 1 DLC [bohemianrhapsody] 🎸 🎸 🎤 🥁\n\n`;
 
   // Check for current update (from JSON file) and show in header
   const updateHistoryFile = path.join(__dirname, 'update_history.json');
@@ -545,9 +549,11 @@ function main(argv) {
 
   // De-duplicate songs (unless --allow-duplicates is set)
   let allSongs;
+  let duplicatesCount = 0;
   if (allowDuplicates) {
     console.log('Allowing duplicates (debug mode)');
     allSongs = [...customSongs, ...baselineUniq];
+    duplicatesCount = 0;
   } else {
     const seen = new Set();
     allSongs = [];
@@ -556,11 +562,14 @@ function main(argv) {
       if (!seen.has(key)) {
         seen.add(key);
         allSongs.push(song);
+      } else {
+        duplicatesCount++;
       }
     }
   }
 
   console.log(`Total unique songs: ${allSongs.length}`);
+  console.log(`Duplicates found: ${duplicatesCount}`);
 
   // ── Sort ─────────────────────────────────────────────────────────────────
   const artistSorted = [...allSongs].sort((a, b) => {
@@ -597,7 +606,7 @@ function main(argv) {
     timeZone: timezone
   });
 
-  const header = buildHeader(allSongs, timestamp);
+  const header = buildHeader(allSongs, timestamp, duplicatesCount);
 
   const artistLines = artistSorted.map(formatArtistLine);
   const nameLines   = nameSorted.map(formatNameLine);
