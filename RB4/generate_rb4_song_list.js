@@ -90,18 +90,18 @@ function parseBaselineLine(line) {
   if (!line) return null;
 
   // Find the LAST " - " separating song block from source label
-  // Source label has no parentheses, so the last " - " is the source separator
-  const srcMatch = line.match(/^(.*)\s-\s(\S+)\s*$/);
-  if (!srcMatch) return null;
-  let source = srcMatch[2].trim();
-  const rest = srcMatch[1].trim(); // "Artist (Album) - Song Title (Year / MM:SS)"
+  // Source label can have spaces (e.g. "Rock Band 4"), so split on last " - " and take last part
+  let dashIdx = line.lastIndexOf(' - ');
+  if (dashIdx === -1) return null;
+  const source = line.slice(dashIdx + 3).trim();
+  const rest = line.slice(0, dashIdx).trim(); // "Artist (Album) - Song Title (Year / MM:SS)"
 
   // Normalize source names
   const sourceMap = {
     'RB4': 'Rock Band 4',
     'Rivals': 'Rock Band 4 Rivals',
   };
-  source = sourceMap[source] || source;
+  const normalizedSource = sourceMap[source] || source;
 
   // Locate the year/duration block: " (YYYY / MM:SS)" at the end of rest
   const yearDurMatch = rest.match(/^(.*)\s\((\d{4}|\?)\s*\/\s*([\d:?]+)\)\s*$/);
@@ -112,10 +112,10 @@ function parseBaselineLine(line) {
   const durationMs = mmSsToMs(mmss);
 
   // Split on LAST " - " to get artist(Album) and song title
-  const lastDashIdx = artistAlbumDash.lastIndexOf(' - ');
-  if (lastDashIdx === -1) return null;
-  const artistAlbumPart = artistAlbumDash.slice(0, lastDashIdx).trim();
-  const title            = artistAlbumDash.slice(lastDashIdx + 3).trim();
+  let albumDashIdx = artistAlbumDash.lastIndexOf(' - ');
+  if (albumDashIdx === -1) return null;
+  const artistAlbumPart = artistAlbumDash.slice(0, albumDashIdx).trim();
+  const title            = artistAlbumDash.slice(albumDashIdx + 3).trim();
 
   // Extract album from the artistAlbumPart: last balanced set of parens = album
   let artist = artistAlbumPart;
@@ -127,7 +127,7 @@ function parseBaselineLine(line) {
   }
 
   if (!artist || !title) return null;
-  return { artist, album, title, year, durationMs, source };
+  return { artist, album, title, year, durationMs, source: normalizedSource };
 }
 
 // ── Parse Onyx JSON metadata (flexible field mapping) ────────────────────────
@@ -245,6 +245,12 @@ function buildHeader(songs, timestamp) {
   header += `  🎤 = Vocals/Harmony\n`;
   header += `  🎹 = Keys/Pro Keys\n\n`;
   header += `Use these to filter songs: e.g. search for " 🎹" to find songs with keyboard parts.\n\n`;
+  
+  // Line format examples
+  header += `Line format (Artist-sorted): Artist (Album) - Title (Year / Duration) - Source [ShortName] 🎸🎤🥁\n`;
+  header += `  Example: Queen (A Night at the Opera) - Bohemian Rhapsody (1975 / 5:55) - Rock Band 1 DLC [bohemianrhapsody] 🎸 🎸 🎤 🥁\n\n`;
+  header += `Line format (Name-sorted): Title by Artist on Album (Year / Duration) - Source [ShortName] 🎸🎤🥁\n`;
+  header += `  Example: Bohemian Rhapsody by Queen on A Night at the Opera (1975 / 5:55) - Rock Band 1 DLC [bohemianrhapsody] 🎸 🎸 🎤 🥁\n\n`;
   
   header += `Total songs: ${songs.length}\n`;
   header += `Total artists: ${artists.size}\n`;
@@ -443,6 +449,7 @@ function main(argv) {
   let timezone     = process.env.TZ || Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
   let verbose      = false;
   let processedArg = null;
+  let allowDuplicates = false;
 
   for (let i = 2; i < argv.length; i++) {
     switch (argv[i]) {
@@ -451,11 +458,22 @@ function main(argv) {
       case '--outdir':   outDir       = argv[++i]; break;
       case '--timezone': timezone     = argv[++i]; break;
       case '--processed': processedArg = argv[++i]; break;
+      case '--allow-duplicates': allowDuplicates = true; break;
       case '-v':
       case '--verbose':  verbose = true; break;
       case '-h':
       case '--help':
-        console.log('Usage: node generate_rb4_song_list.js [--baseline file] [--custom file] [--outdir dir] [--timezone tz] [--processed file] [-v]');
+        console.log('Usage: node generate_rb4_song_list.js [--baseline file] [--custom file] [--outdir dir] [--timezone tz] [--processed file] [--allow-duplicates] [-v]');
+        console.log('');
+        console.log('Options:');
+        console.log('  --baseline <file>      Path to baseline song list (default: ./rb4songlistWithRivals.txt)');
+        console.log('  --custom <file>        Path to custom songs JSON file');
+        console.log('  --outdir <dir>         Output directory (default: ./output)');
+        console.log('  --timezone <tz>        Timezone for timestamps');
+        console.log('  --processed <file>     Processed PKGs JSON file');
+        console.log('  --allow-duplicates    Allow duplicate songs (for debugging)');
+        console.log('  -v, --verbose          Verbose output');
+        console.log('  -h, --help             Show this help');
         process.exit(0);
         break;
       default:
@@ -525,14 +543,20 @@ function main(argv) {
     console.log(`De-duplicated: ${dedupedCount} baseline song(s) replaced by custom versions`);
   }
 
-  // Also de-duplicate within each source group using a seen set
-  const seen = new Set();
-  const allSongs = [];
-  for (const song of [...customSongs, ...baselineUniq]) {
-    const key = normalize(song.artist) + '|' + normalize(song.title);
-    if (!seen.has(key)) {
-      seen.add(key);
-      allSongs.push(song);
+  // De-duplicate songs (unless --allow-duplicates is set)
+  let allSongs;
+  if (allowDuplicates) {
+    console.log('Allowing duplicates (debug mode)');
+    allSongs = [...customSongs, ...baselineUniq];
+  } else {
+    const seen = new Set();
+    allSongs = [];
+    for (const song of [...customSongs, ...baselineUniq]) {
+      const key = normalize(song.artist) + '|' + normalize(song.title);
+      if (!seen.has(key)) {
+        seen.add(key);
+        allSongs.push(song);
+      }
     }
   }
 
