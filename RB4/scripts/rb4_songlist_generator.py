@@ -20,12 +20,8 @@ import subprocess
 import argparse
 import shutil
 import re
-
-# Force unbuffered output for real-time feedback - handle non-TTY case
-if hasattr(sys.stdout, 'fileno') and sys.stdout.fileno() >= 0:
-    sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', buffering=1)
-if hasattr(sys.stderr, 'fileno') and sys.stderr.fileno() >= 0:
-    sys.stderr = os.fdopen(sys.stderr.fileno(), 'w', buffering=1)
+from datetime import datetime
+import logging
 
 # Default paths
 DEFAULT_PKG_DIR = "/workspace/pkgs"
@@ -34,6 +30,17 @@ DEFAULT_OUTPUT_JSON = "/workspace/RB4/rb4_custom_songs.json"
 DEFAULT_SONGLIST_DIR = "/workspace/RB4/output"
 PROCESSED_PKGS_FILE = "/workspace/RB4/processed_pkgs.json"
 UPDATE_HISTORY_FILE = "/workspace/RB4/update_history.json"
+
+LOG_FILE = None  # Set in main()
+
+
+def log(msg):
+    """Log to both console and file."""
+    print(msg)
+    if LOG_FILE:
+        with open(LOG_FILE, 'a') as f:
+            f.write(msg + '\n')
+
 
 def load_processed_pkgs():
     """Load list of already-processed PKGs."""
@@ -178,7 +185,13 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir):
             songs = json.load(f)
         
         for song in songs:
-            song['source'] = source_name
+            binary_source = song.get('source', '')
+            use_pkg_source = (
+                source_name not in ('unknown', 'Custom') or 
+                binary_source in ('Custom', 'unknown', '')
+            )
+            if use_pkg_source:
+                song['source'] = source_name
         
         print(f"\t\tExtracted {len(songs)} songs")
         return songs
@@ -227,8 +240,19 @@ Examples:
                         help='Verbose output')
     parser.add_argument('--smb', action='store_true',
                         help='PKGs are on SMB share (use smbclient to access)')
+    parser.add_argument('--log', default=None,
+                        help='Log file path (default: temp_dir/metadata_<timestamp>.log)')
     
     args = parser.parse_args()
+    
+    global LOG_FILE
+    if args.log:
+        LOG_FILE = args.log
+    else:
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        LOG_FILE = os.path.join(args.temp_dir, f'rb4_extract_{ts}.log')
+    log(f"Logging to: {LOG_FILE}")
+    log(f"Started at {datetime.now().isoformat()}")
     
     # Create temp directory
     os.makedirs(args.temp_dir, exist_ok=True)

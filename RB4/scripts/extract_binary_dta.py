@@ -16,6 +16,9 @@ _FRIENDLY_SOURCES = {
     'rb4_dlc': 'Rock Band 4 DLC', 'rbn1': 'Rock Band Network 1', 'rbn2': 'Rock Band Network 2',
     'greenday': 'Rock Band Green Day', 'beatles': 'The Beatles: Rock Band',
     'gdrb': 'Rock Band Green Day', 'tbrb': 'The Beatles: Rock Band',
+    'ugc_plus': 'Custom', 'ugc': 'Custom', 'custom': 'Custom',
+    'legacy_rbn': 'Rock Band Network 1', 'rbn': 'Rock Band Network 1',
+    'lego': 'LEGO Rock Band', 'legorockband': 'LEGO Rock Band',
 }
 
 _INSTRUMENT_EMOJI = {

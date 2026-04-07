@@ -93,8 +93,15 @@ function parseBaselineLine(line) {
   // Source label has no parentheses, so the last " - " is the source separator
   const srcMatch = line.match(/^(.*)\s-\s(\S+)\s*$/);
   if (!srcMatch) return null;
-  const source = srcMatch[2].trim();
+  let source = srcMatch[2].trim();
   const rest = srcMatch[1].trim(); // "Artist (Album) - Song Title (Year / MM:SS)"
+
+  // Normalize source names
+  const sourceMap = {
+    'RB4': 'Rock Band 4',
+    'Rivals': 'Rock Band 4 Rivals',
+  };
+  source = sourceMap[source] || source;
 
   // Locate the year/duration block: " (YYYY / MM:SS)" at the end of rest
   const yearDurMatch = rest.match(/^(.*)\s\((\d{4}|\?)\s*\/\s*([\d:?]+)\)\s*$/);
@@ -149,7 +156,28 @@ function parseOnyxSong(obj, sourceOverride) {
 
   const durationMs = getNum('duration_ms', 'durationMs', 'length_ms', 'song_length', 'length', 'duration');
 
-  const source = sourceOverride || get('source', 'source_pkg') || 'Custom';
+  let source = sourceOverride || get('source', 'source_pkg') || 'Custom';
+  
+  // Normalize source names
+  const sourceMap = {
+    'RB4': 'Rock Band 4',
+    'Rivals': 'Rock Band 4 Rivals',
+    'rb4': 'Rock Band 4',
+    'rbn1': 'Rock Band Network 1',
+    'rbn2': 'Rock Band Network 2',
+    'rb1': 'Rock Band 1',
+    'rb2': 'Rock Band 2',
+    'rb3': 'Rock Band 3',
+    'rb1_dlc': 'Rock Band 1 DLC',
+    'rb2_dlc': 'Rock Band 2 DLC',
+    'rb3_dlc': 'Rock Band 3 DLC',
+    'rb4_dlc': 'Rock Band 4 DLC',
+    'greenday': 'Rock Band Green Day',
+    'gdrb': 'Rock Band Green Day',
+    'beatles': 'The Beatles: Rock Band',
+    'lego': 'LEGO Rock Band',
+  };
+  source = sourceMap[source] || source;
 
   const shortName = get('shortName', 'shortname') || '';
   const instruments = get('instruments', 'instrumentEmoji') || '';
@@ -169,14 +197,14 @@ function formatArtistLine(song) {
   // For baseline (official) songs, default to full band + vocals
   // Emoji order: 🎸=guitar, 🎸=bass, 🥁=drums, 🎤=vocals
   // Check for harmony (vocalParts > 1 means multiple vocal tracks)
-  const isBaseline = ['RB4', 'Rivals'].includes(song.source);
+  const isBaseline = ['Rock Band 4', 'Rock Band 4 Rivals'].includes(song.source);
   if (song.vocalParts && song.vocalParts > 1) {
-    instruments = '🎸🎸🥁🎤🎤';  // Multiple vocal mics for harmony
+    instruments = '🎸 🎸 🥁 🎤 🎤';  // Multiple vocal mics for harmony
   } else if (!instruments && isBaseline) {
-    instruments = '🎸🎸🥁🎤';  // guitar, bass, drums, vocals
+    instruments = '🎸 🎸 🥁 🎤';  // guitar, bass, drums, vocals
   }
   
-  return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source} [${shortName}]${instruments}`;
+  return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source} [${shortName}] ${instruments}`;
 }
 
 // ── Format a song as a name-sorted line ──────────────────────────────────────
@@ -189,14 +217,14 @@ function formatNameLine(song) {
   
   // For baseline (official) songs, default to full band + vocals
   // RB4, Rivals, and other official content have all instruments
-  const isBaseline = ['RB4', 'Rivals'].includes(song.source);
+  const isBaseline = ['Rock Band 4', 'Rock Band 4 Rivals'].includes(song.source);
   if (song.vocalParts && song.vocalParts > 1) {
-    instruments = '🎸🎸🥁🎤🎤';
+    instruments = '🎸 🎸 🥁 🎤 🎤';
   } else if (!instruments && isBaseline) {
-    instruments = '🎸🎸🥁🎤';
+    instruments = '🎸 🎸 🥁 🎤';
   }
   
-  return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source} [${shortName}]${instruments}`;
+  return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source} [${shortName}] ${instruments}`;
 }
 
 // ── Build stats header ────────────────────────────────────────────────────────
@@ -209,6 +237,15 @@ function buildHeader(songs, timestamp) {
   const albums  = new Set(songs.filter(s => s.album).map(s => normalize(s.album)));
 
   let header = `Generated on: ${timestamp}\n\n`;
+  
+  // Instrument legend first
+  header += `Instrument legend:\n`;
+  header += `  🎸 = Guitar/Bass/Pro Guitar\n`;
+  header += `  🥁 = Drums/Pro Drums\n`;
+  header += `  🎤 = Vocals/Harmony\n`;
+  header += `  🎹 = Keys/Pro Keys\n\n`;
+  header += `Use these to filter songs: e.g. search for " 🎹" to find songs with keyboard parts.\n\n`;
+  
   header += `Total songs: ${songs.length}\n`;
   header += `Total artists: ${artists.size}\n`;
   header += `Total albums: ${albums.size}\n`;

@@ -139,6 +139,29 @@ This is slower but works without kernel-level SMB mount.
 2. **Test scan**: Run `RB4: Scan PKGs (test set, fresh)`
 3. **Full scan**: After configuring Docker Desktop file sharing, run `RB4: Scan PKGs (network share, fresh)`
 
+## Debugging / Iterating on Existing Data
+
+When debugging issues (source detection, missing songs, etc.), you don't need to re-extract from PKGs each time. The extraction creates JSON metadata files in `/workspace/rb4_temp/metadata_*.json` that can be reprocessed directly:
+
+```bash
+# Re-process all metadata JSON files with fixed logic
+cd /workspace && python3 -c "
+import json, glob, os
+
+# Your re-processing logic here
+# Read from rb4_temp/metadata_*.json
+# Write to RB4/rb4_custom_songs.json
+"
+
+# Then regenerate song lists
+cd /workspace/RB4 && node generate_rb4_song_list.js \
+  --baseline /workspace/RB4/rb4songlistWithRivals.txt \
+  --custom /workspace/RB4/rb4_custom_songs.json \
+  --processed /workspace/RB4/processed_pkgs.json
+```
+
+This is much faster than re-extracting from PKGs (which involves SMB download + binary parsing for each file).
+
 ## Output Format
 
 Each line in the generated song lists contains:
