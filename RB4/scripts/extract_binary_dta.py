@@ -120,12 +120,105 @@ def _read_float(data: bytes, offset: int) -> float:
 
 def _read_byte(data: bytes, offset: int) -> int:
     """Read a single byte."""
-    try:
-        if offset >= len(data):
-            return 0
-        return data[offset]
-    except Exception:
+    if offset >= len(data):
         return 0
+    return data[offset]
+
+
+def _scan_for_strings(data: bytes, min_len: int = 3) -> dict:
+    """Scan binary data for embedded strings at known positions."""
+    result = {
+        'shortname': '',
+        'name': '',
+        'artist': '',
+        'album': '',
+        'genre': '',
+    }
+    
+    # Try to find strings using common patterns
+    # Look for null-terminated strings in typical ranges
+    
+    # Shortname is usually at offset 945, length 256
+    result['shortname'] = _read_string(data, 945, 256)
+    
+    # Name/title at offset 36, length 256
+    result['name'] = _read_string(data, 36, 256)
+    
+    # Artist at offset 292, length 256
+    result['artist'] = _read_string(data, 292, 256)
+    
+    # Album at offset 548, length 256
+    result['album'] = _read_string(data, 548, 256)
+    
+    # Genre at offset 816, length 64
+    result['genre'] = _read_string(data, 816, 64)
+    
+    return result
+
+
+def _try_alternative_parsing(filepath: str, data: bytes, default_source: str) -> dict:
+    """Try alternative parsing methods for corrupted/truncated binary data."""
+    result = {
+        'artist': '',
+        'title': '',
+        'album': '',
+        'year': 0,
+        'durationMs': 0,
+        'source': default_source,
+        'songId': 0,
+        'shortName': '',
+        'gameOrigin': '',
+        'albumYear': 0,
+        'originalYear': 0,
+        'albumTrackNumber': 0,
+        'genre': '',
+        'previewStart': 0.0,
+        'previewEnd': 0.0,
+        'difficulty': {'guitar': 0.0, 'bass': 0.0, 'vocals': 0.0, 'drums': 0.0, 'band': 0.0, 'keys': 0.0, 'realKeys': 0.0},
+        'instruments': '',
+        'instrumentList': [],
+        'tutorial': 0,
+        'albumArt': 0,
+        'cover': 0,
+        'vocalGender': 'Unknown',
+        'animTempo': '',
+        'hasMarkup': 0,
+        'vocalParts': 0,
+        'fake': 0,
+        'songdtaType': 0,
+        'version': 0,
+        '_debug_file': os.path.basename(filepath),
+        'parse_mode': 'alternative_scan'
+    }
+    
+    # Scan for strings using alternative method
+    scanned = _scan_for_strings(data)
+    
+    # Only use scanned strings if they look valid
+    if scanned['shortname'] and len(scanned['shortname']) >= 3:
+        result['shortName'] = scanned['shortname']
+        result['title'] = scanned['name'] or scanned['shortname']
+        result['artist'] = scanned['artist']
+        result['album'] = scanned['album']
+        result['genre'] = scanned['genre']
+    
+    # Try to find year in the data
+    for offset in [808, 812, 816]:
+        if offset + 4 <= len(data):
+            try:
+                year = struct.unpack('<I', data[offset:offset+4])[0]
+                if 1900 <= year <= 2030:
+                    result['year'] = year
+                    result['albumYear'] = year
+                    result['originalYear'] = year
+                    break
+            except:
+                pass
+    
+    # Try to find duration
+    result['durationMs'] = _calculate_duration_ms(data)
+    
+    return result
 
 
 def _calculate_duration_ms(data: bytes) -> int:
@@ -161,6 +254,18 @@ def parse_songdta(filepath: str, default_source: str = "Custom") -> dict:
     version = _read_short(data, OFFSETS['version'])
     game_origin = _read_string(data, OFFSETS['game_origin'], SIZES['game_origin'])
     shortname = _read_string(data, OFFSETS['shortname'], SIZES['shortname'])
+    
+    # Core metadata
+    name = _read_string(data, OFFSETS['name'], SIZES['name'])
+    artist = _read_string(data, OFFSETS['artist'], SIZES['artist'])
+    
+    # If basic fields are empty, try alternative parsing
+    if not name and not artist and not shortname:
+        # This might be a truncated file or different format - try alternative
+        alt_result = _try_alternative_parsing(filepath, data, default_source)
+        # Only use it if we got something useful
+        if alt_result.get('title') or alt_result.get('shortName'):
+            return alt_result
     
     # Preview times
     preview_start = _read_float(data, OFFSETS['preview_start'])
