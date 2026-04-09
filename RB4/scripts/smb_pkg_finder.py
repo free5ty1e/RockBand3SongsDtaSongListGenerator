@@ -41,7 +41,7 @@ def list_pkgs():
     pkgs = []
     for line in result.stdout.split('\n'):
         # Match lines like: "  UP8802-...-V0100.pkg      A 2853699584"
-        if 'UP8802-' in line and '.pkg' in line and not line.startswith('  ._'):
+        if (('UP8802-' in line or 'Rock.Band.4_' in line) and '.pkg' in line and not line.startswith('  ._')):
             parts = line.split()
             if parts:
                 pkgs.append(parts[0])
@@ -51,7 +51,7 @@ def list_pkgs():
         cmd2 = f'smbclient //{SMB_SERVER}/incoming/temp/Rb4Dlc -N -c "ls"'
         result2 = subprocess.run(cmd2, shell=True, capture_output=True, text=True)
         for line in result2.stdout.split('\n'):
-            if 'UP8802-' in line and '.pkg' in line and not line.startswith('  ._'):
+            if (('UP8802-' in line or 'Rock.Band.4_' in line) and '.pkg' in line and not line.startswith('  ._')):
                 parts = line.split()
                 if parts:
                     pkgs.append(parts[0])
@@ -70,7 +70,7 @@ def get_pkg_file(pkg_name, dest_dir):
     else:
         cmd = f'smbclient //{SMB_SERVER}/{base_share} -N -c "get {pkg_name} {dest_dir}/{pkg_name}"'
     
-    return subprocess.run(cmd, shell=True).returncode == 0
+    return subprocess.run(cmd, shell=True, timeout=3600).returncode == 0
 
 if __name__ == '__main__':
     print("=== SMB PKG Files ===")

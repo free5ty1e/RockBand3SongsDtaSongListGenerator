@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
     cifs-utils \
     git \
+    zsh \
     p7zip-full \
     # ── Critical dependencies for Onyx & OpenCode (do not remove) ──────────────
     libgl1 \
@@ -31,6 +32,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     uthash-dev \
     bsdmainutils \
     smbclient \
+    libicu-dev \
+    icu-devtools \
     && rm -rf /var/lib/apt/lists/*
 
 # ── Node.js 22 (NodeSource) ───────────────────────────────────────────────────
@@ -86,7 +89,7 @@ RUN wget -q "https://github.com/maxton/LibOrbisPkg/releases/download/v0.2/PkgToo
 
 # ── OpenCode CLI (anomalyco/opencode — Linux x64) ─────────────────────────────
 # OpenCode is used for various Rock Band modding and exploration tasks via CLI.
-RUN curl -fsSL -o /tmp/opencode.tar.gz https://github.com/anomalyco/opencode/releases/download/v1.3.13/opencode-linux-x64.tar.gz \
+RUN curl -fsSL -o /tmp/opencode.tar.gz https://github.com/anomalyco/opencode/releases/download/v1.4.0/opencode-linux-x64.tar.gz \
     && tar -xzf /tmp/opencode.tar.gz -C /usr/local/bin \
     && chmod +x /usr/local/bin/opencode \
     && rm /tmp/opencode.tar.gz
@@ -108,6 +111,8 @@ RUN if getent passwd $USER_UID > /dev/null; then \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
     && echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
+RUN usermod -s /usr/bin/zsh $USERNAME \
+    && sudo -u $USERNAME sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 USER $USERNAME
 WORKDIR /workspace
