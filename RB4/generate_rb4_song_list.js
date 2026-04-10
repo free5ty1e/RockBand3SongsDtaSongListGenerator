@@ -183,7 +183,8 @@ function parseOnyxSong(obj, sourceOverride) {
   const instruments = get('instruments', 'instrumentEmoji') || '';
 
   if (!artist || !title) return null; // skip non-song PKGs
-  return { artist, album: album || null, title, year: isNaN(year) ? null : year, durationMs, source, shortName, instruments };
+  const inferred = obj.inferred || obj.Inferred || false;
+  return { artist, album: album || null, title, year: isNaN(year) ? null : year, durationMs, source, shortName, instruments, inferred };
 }
 
 // ── Format a song as an output line (artist-sorted style) ────────────────────
@@ -204,7 +205,10 @@ function formatArtistLine(song) {
     instruments = '🎸 🎸 🥁 🎤';  // guitar, bass, drums, vocals
   }
   
-  return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source} [${shortName}] ${instruments}`;
+  // Add inference indicator for songs that used empty song fallback
+  const inferred = song.inferred ? ' 🔍' : '';
+  
+  return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source} [${shortName}]${inferred} ${instruments}`;
 }
 
 // ── Format a song as a name-sorted line ──────────────────────────────────────
@@ -224,7 +228,10 @@ function formatNameLine(song) {
     instruments = '🎸 🎸 🥁 🎤';
   }
   
-  return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source} [${shortName}] ${instruments}`;
+  // Add inference indicator for songs that used empty song fallback
+  const inferred = song.inferred ? ' 🔍' : '';
+  
+  return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source} [${shortName}]${inferred} ${instruments}`;
 }
 
 // ── Build stats header ────────────────────────────────────────────────────────

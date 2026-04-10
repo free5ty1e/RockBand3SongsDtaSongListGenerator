@@ -53,7 +53,7 @@ def load_empty_songs_baseline():
                 return {s['short_filename']: {'title': s.get('probable_title'), 'artist': s.get('probable_artist')} 
                         for s in data if 'short_filename' in s}
         except Exception as e:
-            print(f"Warning: Failed to load empty songs baseline: {e}")
+            log(f"Warning: Failed to load empty songs baseline: {e}")
     return {}
 
 def load_processed_pkgs():
@@ -154,9 +154,9 @@ def run_cmd(cmd, check=True, capture=True, show_output=False, indent="\t\t", tim
     
     result = subprocess.run(cmd, shell=True, capture_output=capture, text=True, timeout=timeout)
     if check and result.returncode != 0:
-        print(f"ERROR: {cmd}")
-        print(f"stdout: {result.stdout}")
-        print(f"stderr: {result.stderr}")
+        log(f"ERROR: {cmd}")
+        log(f"stdout: {result.stdout}")
+        log(f"stderr: {result.stderr}")
         raise RuntimeError(f"Command failed: {cmd}")
     return result.stdout if capture else ""
 
@@ -202,7 +202,7 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, empty_baseline=Non
         # Extract metadata using Python script
         temp_output = os.path.join(temp_dir, f'metadata_{basename}.json')
         files_arg = ' '.join(f'"{f}"' for f in songdta_files)
-        run_cmd(f'cd /workspace && python3 RB4/scripts/extract_binary_dta.py {files_arg} {temp_output}', show_output=True, indent="\t\t", timeout=300)
+        run_cmd(f'python3 /workspace/RB4/scripts/extract_binary_dta.py {files_arg} {temp_output}', show_output=True, indent="\t\t", timeout=300)
         
         # Load and tag with source
         with open(temp_output) as f:
@@ -226,6 +226,8 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, empty_baseline=Non
                             song['title'] = baseline_info.get('title') or current_title
                         if not current_artist or current_artist == 'Unknown':
                             song['artist'] = baseline_info.get('artist') or current_artist
+                        # Mark as inferred so we know it came from fallback
+                        song['inferred'] = True
     
         for song in songs:
             binary_source = song.get('source', '')
@@ -307,10 +309,12 @@ Examples:
         for f in [PROCESSED_PKGS_FILE, UPDATE_HISTORY_FILE, args.output_json]:
             if os.path.exists(f):
                 os.remove(f)
-        # Clear output directory BEFORE generating
+        # Clear output directory BEFORE generating (skip directories)
         if os.path.exists(args.songlist_dir):
             for f in os.listdir(args.songlist_dir):
-                os.remove(os.path.join(args.songlist_dir, f))
+                fpath = os.path.join(args.songlist_dir, f)
+                if os.path.isfile(fpath):
+                    os.remove(fpath)
     
     # Find all PKG files
     empty_baseline = load_empty_songs_baseline()

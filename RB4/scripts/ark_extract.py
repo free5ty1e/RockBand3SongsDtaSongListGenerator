@@ -59,9 +59,6 @@ def extract_ark(ark_path, output_dir):
                 out_path = os.path.join(output_dir, parent_dir, filename)
                 os.makedirs(os.path.dirname(out_path), exist_ok=True)
                 
-                # We don't know the block size here, but let's assume it's read from the header
-                # In the C# code: long blockSize = header.ReadUInt32LE(); at offset 0x24
-                # Let's re-read it.
                 f.seek(0x24)
                 block_size = read_uint32_le(f)
                 
@@ -69,14 +66,54 @@ def extract_ark(ark_path, output_dir):
                 with open(out_path, 'wb') as out:
                     out.write(f.read(size))
         
-        elif 1 <= version <= 10:
+        elif version == 257:
+            # Attempt to use a modified Old ark format for version 257
+            f.seek(8)
+            file_table_offset = read_uint32_le(f)
+            num_files = read_uint32_le(f)
+            # We don't know dir_table_offset and num_dirs for sure, so let's guess
+            dir_table_offset = 0
+            num_dirs = 0
+            
+            # Read files
+            for i in range(num_files):
+                # Guessing the file table entry size is 24 bytes
+                f.seek(file_table_offset + (24 * i))
+                # Try to read filename_offset, dir_id, block_offset, block, size
+                try:
+                    filename_offset = read_uint32_le(f)
+                    dir_id = struct.unpack('<H', f.read(2))[0]
+                    block_offset = struct.unpack('<H', f.read(2))[0]
+                    block = read_uint32_le(f)
+                    size = read_uint32_le(f)
+                    
+                    f.seek(filename_offset)
+                    filename = read_ascii_null_terminated(f)
+                    
+                    parent_dir = ""
+                    out_path = os.path.join(output_dir, parent_dir, filename)
+                    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+                    
+                    # Block size guess: 0x10000 (65536)
+                    block_size = 65536
+                    f.seek(block * block_size + block_offset)
+                    with open(out_path, 'wb') as out:
+                        out.write(f.read(size))
+                except:
+                    continue
+        
+        elif 1 <= version <= 16:
             # New ark format
+
+
             if version >= 6:
                 f.seek(20, 1) # skip 4+16
             
             if version > 2:
                 num_arks = read_int32_le(f)
+                print(f"Version: {version}, num_arks: {num_arks}")
                 num_arks2 = read_int32_le(f)
+                print(f"num_arks2: {num_arks2}")
                 # In a real scenario we'd need the other .ark files, but here we only have one?
                 # The C# code creates a MultiStream of all .ark files.
                 # For simplicity, if we only have one .ark file, we treat it as the only source.
@@ -193,4 +230,5 @@ def extract_ark(ark_path, output_dir):
                 num_files2 = read_uint32_le(f)
                 f.seek(4 * num_files2, 1)
 
-extract_ark("/workspace/rb4_temp/rb4_v1_extract/uroot/main_ps4_0.ark", "/workspace/rb4_temp/ark_extract")
+if __name__ == '__main__':
+    pass

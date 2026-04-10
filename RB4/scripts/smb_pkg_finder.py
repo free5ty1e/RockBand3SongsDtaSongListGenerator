@@ -66,9 +66,9 @@ def get_pkg_file(pkg_name, dest_dir):
     sub_path = '/'.join(share_parts[1:]) if len(share_parts) > 1 else ''  # e.g., "temp/Rb4Dlc"
     
     if sub_path:
-        cmd = f'smbclient //{SMB_SERVER}/{base_share} -N -c "cd {sub_path}; get {pkg_name} {dest_dir}/{pkg_name}"'
+        cmd = f'smbclient //{SMB_SERVER}/{base_share} -N -c "cd {sub_path}; get \\"{pkg_name}\\" \\"{dest_dir}/{pkg_name}\\""'
     else:
-        cmd = f'smbclient //{SMB_SERVER}/{base_share} -N -c "get {pkg_name} {dest_dir}/{pkg_name}"'
+        cmd = f'smbclient //{SMB_SERVER}/{base_share} -N -c "get \\"{pkg_name}\\" \\"{dest_dir}/{pkg_name}\\""'
     
     return subprocess.run(cmd, shell=True, timeout=3600).returncode == 0
 
