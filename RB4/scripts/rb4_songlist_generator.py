@@ -227,19 +227,19 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, empty_baseline=Non
         # Step 1: Extract inner PFS image
         log(f"\t\t[2/4] Extracting PFS image...")
         sys.stdout.flush()
-        run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pkg_extractinnerpfs "{pkg_path}" {pfs_file}', show_output=True, indent="\t\t", timeout=3600)
+        run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract PkgTool.Core pkg_extractinnerpfs "{pkg_path}" {pfs_file}', show_output=True, indent="\t\t", timeout=3600)
         
-        # Step 2: Extract PFS contents (single-threaded via taskset to avoid file lock errors)
+        # Step 2: Extract PFS contents - limit thread pool to avoid file lock errors
         log(f"\t\t[3/4] Extracting song data from PFS...")
         sys.stdout.flush()
         try:
-            run_cmd(f'taskset -c 0 DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
+            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
         except RuntimeError as e:
             if error_tracker:
                 error_tracker.add_error('pfs_extraction_failed', pkg_name, str(e))
             log(f"\t\tFirst attempt failed: {e}")
             log("\t\tRetrying...")
-            run_cmd(f'taskset -c 0 DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
+            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
         
         # Find all .songdta_ps4 files
         songdta_files = []
