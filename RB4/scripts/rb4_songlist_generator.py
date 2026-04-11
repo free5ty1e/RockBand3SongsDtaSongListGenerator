@@ -81,11 +81,15 @@ class ErrorTracker:
     def __init__(self):
         self.errors = {
             'pkg_download_failed': [],
+            'pfs_image_extract_failed': [],  # Step 1: extracting inner PFS image
+            'pfs_contents_extract_failed': [],  # Step 2: extracting PFS contents
             'pfs_extraction_failed': [],
             'songdta_parse_failed': [],
             'empty_song_fallback_used': [],
             'timeout_errors': [],
             'file_lock_errors': [],
+            'memory_map_error': [],  # .NET memory mapped file errors
+            'pkg_processing_failed': [],  # generic catch-all
         }
         self.warnings = {
             'no_songdta_found': [],
@@ -467,8 +471,17 @@ Examples:
             sys.stdout.flush()
             
         except Exception as e:
+            error_msg = str(e)
+            # Categorize the error based on what failed
+            if 'pkg_extractinnerpfs' in error_msg:
+                error_tracker.add_error('pfs_image_extract_failed', pkg_name, error_msg)
+            elif 'pfs_extract' in error_msg:
+                error_tracker.add_error('pfs_contents_extract_failed', pkg_name, error_msg)
+            elif 'UnauthorizedAccessException' in error_msg or 'MemoryMapped' in error_msg:
+                error_tracker.add_error('memory_map_error', pkg_name, error_msg)
+            else:
+                error_tracker.add_error('pkg_processing_failed', pkg_name, error_msg)
             log(f"ERROR processing {pkg_name}: {e}")
-            error_tracker.add_error('pkg_download_failed', pkg_name, str(e))
             continue
     
     log(f"\nExtracted {len(all_songs)} songs from {len(pkg_files)} PKGs")

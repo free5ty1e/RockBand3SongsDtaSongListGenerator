@@ -50,6 +50,42 @@ python3 RB4/scripts/rb4_songlist_generator.py \
 | `--log`            | `temp_dir/rb4_extract_<ts>.log` | Log file path (default: auto-generated with timestamp)       |
 | `-v`, `--verbose`  | -                               | Verbose output                                              |
 
+## Error Logging
+
+The pipeline tracks errors and warnings during execution:
+
+**Error types:**
+- `pfs_image_extract_failed` - Step 1: extracting inner PFS image from PKG
+- `pfs_contents_extract_failed` - Step 2: extracting PFS contents  
+- `memory_map_error` - .NET memory mapped file errors (often from large PKGs)
+- `pkg_processing_failed` - Generic catch-all for PKG failures
+- `songdta_parse_failed` - Failed to parse .songdta_ps4 metadata files
+
+**Warning types:**
+- `no_songdta_found` - PKG extracted but no .songdta_ps4 files found
+- `empty_metadata` - Song has empty/unparseable metadata
+- `unknown_source` - Could not determine song source
+
+**Output files:**
+- `/workspace/RB4/pipeline_errors.json` - Full error/warning report in JSON format
+- `/workspace/rb4_temp/rb4_extract_<timestamp>.log` - Detailed execution log
+
+Example error report:
+```json
+{
+  "errors": {
+    "memory_map_error": [{"pkg": "CREQ2604P15MISCS.pkg", "details": "...", "timestamp": "..."}]
+  },
+  "warnings": {}
+}
+```
+
+After each run, a summary is printed:
+```
+📊 Error Report: Errors: 1, Warnings: 0
+   Full report saved to: /workspace/RB4/pipeline_errors.json
+```
+
 ## Network Share / SMB Access
 
 The container cannot directly mount SMB shares (no kernel CAP_SYS_ADMIN), but can access them via `smbclient`.
