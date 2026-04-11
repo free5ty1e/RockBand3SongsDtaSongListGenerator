@@ -30,6 +30,7 @@ DEFAULT_OUTPUT_JSON = "/workspace/RB4/rb4_custom_songs.json"
 DEFAULT_SONGLIST_DIR = "/workspace/RB4/output"
 PROCESSED_PKGS_FILE = "/workspace/RB4/processed_pkgs.json"
 UPDATE_HISTORY_FILE = "/workspace/RB4/update_history.json"
+ERROR_LOG_FILE = "/workspace/RB4/pipeline_errors.json"
 
 LOG_FILE = None  # Set in main()
 
@@ -74,6 +75,51 @@ def load_update_history():
         with open(UPDATE_HISTORY_FILE) as f:
             return json.load(f)
     return []
+
+# Error tracking for pipeline failures
+class ErrorTracker:
+    def __init__(self):
+        self.errors = {
+            'pkg_download_failed': [],
+            'pfs_extraction_failed': [],
+            'songdta_parse_failed': [],
+            'empty_song_fallback_used': [],
+            'timeout_errors': [],
+            'file_lock_errors': [],
+        }
+        self.warnings = {
+            'no_songdta_found': [],
+            'empty_metadata': [],
+            'unknown_source': [],
+        }
+    
+    def add_error(self, error_type, pkg_name, details=''):
+        if error_type in self.errors:
+            self.errors[error_type].append({
+                'pkg': pkg_name,
+                'details': details,
+                'timestamp': datetime.now().isoformat()
+            })
+    
+    def add_warning(self, warning_type, pkg_name, details=''):
+        if warning_type in self.warnings:
+            self.warnings[warning_type].append({
+                'pkg': pkg_name,
+                'details': details,
+                'timestamp': datetime.now().isoformat()
+            })
+    
+    def save(self):
+        with open(ERROR_LOG_FILE, 'w') as f:
+            json.dump({
+                'errors': self.errors,
+                'warnings': self.warnings
+            }, f, indent=2)
+    
+    def summary(self):
+        total_errors = sum(len(v) for v in self.errors.values())
+        total_warnings = sum(len(v) for v in self.warnings.values())
+        return f"Errors: {total_errors}, Warnings: {total_warnings}"
 
 def save_update_history(history):
     """Save update history."""
@@ -160,7 +206,7 @@ def run_cmd(cmd, check=True, capture=True, show_output=False, indent="\t\t", tim
         raise RuntimeError(f"Command failed: {cmd}")
     return result.stdout if capture else ""
 
-def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, empty_baseline=None):
+def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, empty_baseline=None, error_tracker=None):
     """Extract only .songdta_ps4 files from a PKG using two-step extraction."""
     pkg_name = os.path.basename(pkg_path)
     log(f"\t\t[1/4] Extracting: {pkg_name}")
@@ -179,14 +225,17 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, empty_baseline=Non
         sys.stdout.flush()
         run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pkg_extractinnerpfs "{pkg_path}" {pfs_file}', show_output=True, indent="\t\t", timeout=3600)
         
-        # Step 2: Extract PFS contents
+        # Step 2: Extract PFS contents (single-threaded via taskset to avoid file lock errors)
         log(f"\t\t[3/4] Extracting song data from PFS...")
         sys.stdout.flush()
         try:
-            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
-        except RuntimeError:
-            log("\t\tFirst attempt failed, retrying...")
-            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
+            run_cmd(f'taskset -c 0 DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
+        except RuntimeError as e:
+            if error_tracker:
+                error_tracker.add_error('pfs_extraction_failed', pkg_name, str(e))
+            log(f"\t\tFirst attempt failed: {e}")
+            log("\t\tRetrying...")
+            run_cmd(f'taskset -c 0 DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
         
         # Find all .songdta_ps4 files
         songdta_files = []
@@ -290,6 +339,10 @@ Examples:
                         help='Log file path (default: temp_dir/metadata_<timestamp>.log)')
     
     args = parser.parse_args()
+    
+    # Initialize error tracker
+    error_tracker = ErrorTracker()
+    log("Error tracking enabled")
     
     # Create temp directory
     os.makedirs(args.temp_dir, exist_ok=True)
@@ -397,7 +450,7 @@ Examples:
         sys.stdout.flush()
         
         try:
-            songs = extract_songdta_from_pkg(pkg_path, source, args.temp_dir, empty_baseline)
+            songs = extract_songdta_from_pkg(pkg_path, source, args.temp_dir, empty_baseline, error_tracker)
             all_songs.extend(songs)
             
             # For SMB mode: clean up immediately after processing to free space
@@ -415,6 +468,7 @@ Examples:
             
         except Exception as e:
             log(f"ERROR processing {pkg_name}: {e}")
+            error_tracker.add_error('pkg_download_failed', pkg_name, str(e))
             continue
     
     log(f"\nExtracted {len(all_songs)} songs from {len(pkg_files)} PKGs")
@@ -476,6 +530,11 @@ Examples:
     # Generate song lists
     log(f"\nGenerating song lists...")
     run_cmd(f'cd /workspace/RB4 && node generate_rb4_song_list.js --baseline {args.baseline} --custom {args.output_json} --processed {PROCESSED_PKGS_FILE}')
+    
+    # Save error tracking report
+    error_tracker.save()
+    log(f"\n📊 Error Report: {error_tracker.summary()}")
+    log(f"   Full report saved to: {ERROR_LOG_FILE}")
     
     log("\n✅ Pipeline complete!")
     log(f"Processed PKGs saved to: {PROCESSED_PKGS_FILE}")
