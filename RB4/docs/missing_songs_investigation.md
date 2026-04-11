@@ -4,7 +4,35 @@
 
 - Total Target: 4,084 songs
 - Baseline Recovered (Starting Point): 3,778 songs
-- Gap to Fill: 306 songs
+- Gap to Fill: ~374 songs
+- Current Pipeline Result: 3,603 unique songs (from full run)
+- Missing: ~481 songs from target
+
+## Latest Findings
+
+### Pipeline Error Analysis (2026-04-11)
+
+Full pipeline run produced errors tracked in `pipeline_errors.json`:
+
+| Error Type | Count | Description |
+| :---------- | :---- | :-----------|
+| `pfs_image_extract_failed` | 1 | PKG: CREQ2604P15MISCS.pkg - fails at extracting inner PFS |
+| `pfs_contents_extract_failed` | 1 | Parallel extraction file lock errors on large PKGs |
+| `memory_map_error` | 1 | .NET MemoryMappedFile access denied (container capabilities) |
+
+### Root Causes Identified
+
+1. **Memory-mapped file access denied** - Container lacks `CAP_SYS_ADMIN` capability needed for .NET's MemoryMappedFile.CreateViewAccessor(). This affects large PKGs (>400MB).
+
+2. **Parallel extraction race conditions** - PkgTool.Core uses `Parallel.ForEach` for file extraction, causing file lock conflicts when multiple threads try to write `.mogg` files simultaneously.
+
+3. **Single-threaded fallback not available** - No `--no-parallel` flag in PkgTool to force sequential extraction.
+
+### Workarounds Attempted
+
+- `taskset -c 0` to limit CPU cores - Not effective, .NET uses thread pool not CPU affinity
+- Environment variables (`DOTNET_*`) - No effect on memory map behavior
+- File copying to different locations - Same error persists
 
 ## Findings
 
