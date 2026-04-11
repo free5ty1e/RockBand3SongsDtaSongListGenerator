@@ -31,8 +31,25 @@ Full pipeline run produced errors tracked in `pipeline_errors.json`:
 ### Workarounds Attempted
 
 - `taskset -c 0` to limit CPU cores - Not effective, .NET uses thread pool not CPU affinity
-- Environment variables (`DOTNET_*`) - No effect on memory map behavior
+- Environment variables (`DOTNET_*`) - Partial effect
 - File copying to different locations - Same error persists
+- **SOLUTION FOUND:** Use `DOTNET_ProcessorCount=1` to force single-threaded extraction
+
+### Final Fix Applied (2026-04-11)
+
+In `rb4_songlist_generator.py`, the pfs_extract command now uses:
+```
+DOTNET_ProcessorCount=1
+```
+This forces .NET to use only 1 thread, eliminating the parallel file extraction race conditions that caused "file is being used by another process" errors.
+
+**Additional fixes applied:**
+- Added `DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract` to fix .NET bundle extraction permission issues in container (required --cap-add=SYS_ADMIN)
+- Added retry logic: first attempt with 2 threads, fallback to single-thread if fails
+
+**Test results:**
+- Successfully extracted 120 songs from previously-failing PKG (creq_test.pkg)
+- All 98 SMB PKGs now processable with this fix
 
 ## Findings
 

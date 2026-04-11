@@ -229,17 +229,19 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, empty_baseline=Non
         sys.stdout.flush()
         run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract PkgTool.Core pkg_extractinnerpfs "{pkg_path}" {pfs_file}', show_output=True, indent="\t\t", timeout=3600)
         
-        # Step 2: Extract PFS contents - limit thread pool to avoid file lock errors
+        # Step 2: Extract PFS contents with limited parallelism to avoid file lock errors
+        # Using environment variables to limit thread pool size and avoid parallel extraction
         log(f"\t\t[3/4] Extracting song data from PFS...")
         sys.stdout.flush()
         try:
-            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
+            # Limit to 2 threads to reduce file lock conflicts
+            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 DOTNET_ProcessorCount=2 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
         except RuntimeError as e:
             if error_tracker:
                 error_tracker.add_error('pfs_extraction_failed', pkg_name, str(e))
             log(f"\t\tFirst attempt failed: {e}")
-            log("\t\tRetrying...")
-            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
+            log("\t\tRetrying with single thread...")
+            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 DOTNET_ProcessorCount=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
         
         # Find all .songdta_ps4 files
         songdta_files = []
