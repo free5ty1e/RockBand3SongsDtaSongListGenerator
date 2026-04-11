@@ -79,6 +79,8 @@ RUN set -ex; \
 # PkgTool is used to extract/decrypt PS4 fPKG files without needing real RSA keys.
 # The standard zero-filled 32-char passcode (00000...0) unlocks user fPKGs.
 # Note: requires libssl1.1 (installed above) and DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1.
+# IMPORTANT: Container needs --cap-add=SYS_ADMIN (set in devcontainer.json runArgs) for
+# .NET MemoryMappedFile access needed for extracting large PKGs.
 ARG PKGTOOL_VERSION=0.2.231
 RUN wget -q "https://github.com/maxton/LibOrbisPkg/releases/download/v0.2/PkgTool.Core-linux-x64-${PKGTOOL_VERSION}.zip" \
     -O /tmp/pkgtool.zip \
@@ -93,6 +95,12 @@ RUN curl -fsSL -o /tmp/opencode.tar.gz https://github.com/anomalyco/opencode/rel
     && tar -xzf /tmp/opencode.tar.gz -C /usr/local/bin \
     && chmod +x /usr/local/bin/opencode \
     && rm /tmp/opencode.tar.gz
+
+# ── LibForge (libopenmdf, song parsing) ───────────────────────────────────────
+RUN git clone --depth 1 https://github.com/mtolly/LibForge.git /workspace/LibForge
+
+# ── Nautilus (additional tooling) ─────────────────────────────────────────────
+RUN git clone --depth 1 https://github.com/trojannemo/Nautilus.git /workspace/Nautilus
 
 # ── Smoke tests ───────────────────────────────────────────────────────────────
 RUN onyx 2>&1 | grep "Onyx Music Game Toolkit" || echo "⚠️  Onyx version check failed"

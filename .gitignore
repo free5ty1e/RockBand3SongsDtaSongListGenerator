@@ -17,6 +17,10 @@ RB4/output/
 RB4/processed_pkgs.json
 RB4/rb4_custom_songs.json
 RB4/update_history.json
+RB4/pipeline_errors.json
+RB4/empty_songs.json
 rb4_temp/
 RB4/scripts/__pycache__/
+LibForge/
+Nautilus/
 tmp/

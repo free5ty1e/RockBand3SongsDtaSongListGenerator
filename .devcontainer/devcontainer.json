@@ -7,7 +7,11 @@
   },
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-"mounts": [
+  "runArgs": [
+    "--cap-add=SYS_ADMIN",
+    "--memory=8g"
+  ],
+  "mounts": [
     "source=${localWorkspaceFolder}/pkgs,target=/pkgs,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/.ai_working/opencode_data,target=/home/vscode/.local/share/opencode,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/.ai_working/opencode_data/state,target=/home/vscode/.local/state,type=bind,consistency=cached",
