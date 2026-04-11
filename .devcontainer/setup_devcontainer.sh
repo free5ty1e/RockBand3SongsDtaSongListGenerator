@@ -12,7 +12,7 @@ echo "=========================================="
 # 1. Show environment info
 echo ""
 echo "📋 Environment:"
-echo "   Onyx: $(onyx | head -1)"
+echo "   Onyx: $(xvfb-run -a onyx 2>&1 | tail -1)"
 echo "   Node: $(node --version)"
 echo "   Python: $(python3 --version)"
 
