@@ -250,8 +250,9 @@ function buildHeader(songs, timestamp, duplicatesCount = 0) {
   header += `  🎸 = Guitar/Bass/Pro Guitar\n`;
   header += `  🥁 = Drums/Pro Drums\n`;
   header += `  🎤 = Vocals/Harmony\n`;
-  header += `  🎹 = Keys/Pro Keys\n\n`;
-  header += `Use these to filter songs: e.g. search for " 🎹" to find songs with keyboard parts.\n\n`;
+  header += `  🎹 = Keys/Pro Keys\n`;
+  header += `  🔍 = Pro Guitar (6-string tier)\n\n`;
+  header += `Use these to filter songs: e.g. search for "🎹" to find songs with keyboard parts.\n\n`;
   
   header += `Total songs: ${songs.length + duplicatesCount}\n`;
   if (duplicatesCount > 0) {
@@ -269,9 +270,9 @@ function buildHeader(songs, timestamp, duplicatesCount = 0) {
 
   // Line format examples - placed here just before song list entries
   header += `Line format (Artist-sorted): Artist (Album) - Title (Year / Duration) - Source [ShortName] 🎸🎤🥁\n`;
-  header += `  Example: Queen (A Night at the Opera) - Bohemian Rhapsody (1975 / 5:55) - Rock Band 1 DLC [bohemianrhapsody] 🎸 🎸 🎤 🥁\n\n`;
+  header += `  Example: Queen (A Night at the Opera) - Bohemian Rhapsody (1975 / 5:55) - Rock Band 1 DLC [bohemianrhapsody] 🎸🎸🎤🥁\n\n`;
   header += `Line format (Name-sorted): Title by Artist on Album (Year / Duration) - Source [ShortName] 🎸🎤🥁\n`;
-  header += `  Example: Bohemian Rhapsody by Queen on A Night at the Opera (1975 / 5:55) - Rock Band 1 DLC [bohemianrhapsody] 🎸 🎸 🎤 🥁\n\n`;
+  header += `  Example: Bohemian Rhapsody by Queen on A Night at the Opera (1975 / 5:55) - Rock Band 1 DLC [bohemianrhapsody] 🎸🎸🎤🥁\n\n`;
 
   // Check for current update (from JSON file) and show in header
   const updateHistoryFile = path.join(__dirname, 'update_history.json');
