@@ -181,17 +181,6 @@
       "group": "build"
     },
     {
-      "label": "RB4: Reprocess Cached Data (fresh)",
-      "type": "shell",
-      "command": "cd ${workspaceFolder}/RB4 && node generate_rb4_song_list.js --custom ${workspaceFolder}/RB4/rb4_custom_songs.json --processed ${workspaceFolder}/RB4/processed_pkgs.json --no-incremental",
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always",
-        "panel": "new"
-      },
-      "group": "test"
-    },
-        {
       "label": "RB4: Reprocess Cached Data",
       "type": "shell",
       "command": "cd ${workspaceFolder}/RB4 && node generate_rb4_song_list.js --custom ${workspaceFolder}/RB4/rb4_custom_songs.json --processed ${workspaceFolder}/RB4/processed_pkgs.json",
