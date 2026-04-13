@@ -458,7 +458,16 @@ function main(argv) {
   let baselineFile = path.join(__dirname, 'rb4songlistWithRivals.txt');
   let customFile   = null;
   let outDir       = path.join(__dirname, 'output');
-  let timezone     = process.env.TZ || Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+  // Use TZ env if set, otherwise try /etc/timezone, fallback to Intl or UTC
+  let timezone = process.env.TZ;
+  if (!timezone) {
+    try {
+      timezone = require('fs').readFileSync('/etc/timezone', 'utf8').trim() || null;
+    } catch (e) { timezone = null; }
+  }
+  if (!timezone) {
+    timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+  }
   let verbose      = false;
   let processedArg = null;
   let allowDuplicates = false;
