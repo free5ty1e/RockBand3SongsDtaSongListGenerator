@@ -13,7 +13,7 @@
       "runOptions": {
         "runOn": "folderOpen"
       },
-      "group": "opencode"
+      "group": "test"
     },
     {
       "label": "Opencode: Launch Fresh",
@@ -24,7 +24,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "opencode"
+      "group": "test"
     },
     {
       "label": "RB4: Scan PKGs (test set, fresh)",
@@ -35,7 +35,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-test"
+      "group": "test"
     },
     {
       "label": "RB4: Scan PKGs (test set, incremental)",
@@ -46,7 +46,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-test"
+      "group": "test"
     },
     {
       "label": "RB4: Scan PKGs (local /pkgs folder, fresh)",
@@ -57,7 +57,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-local"
+      "group": "build"
     },
     {
       "label": "RB4: Scan PKGs (local /pkgs folder, incremental)",
@@ -68,7 +68,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-local"
+      "group": "build"
     },
     {
       "label": "RB4: Scan PKGs (network share, incremental)",
@@ -79,7 +79,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-network"
+      "group": "build"
     },
     {
       "label": "RB4: Scan PKGs (network share, fresh)",
@@ -90,7 +90,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-network"
+      "group": "build"
     },
     {
       "label": "RB4: Scan PKGs (SMB share via smbclient)",
@@ -101,7 +101,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-network"
+      "group": "build"
     },
     {
       "label": "RB4: Scan PKGs (SMB share, fresh)",
@@ -112,7 +112,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-network"
+      "group": "build"
     },
     {
       "label": "RB4: Scan PKGs (SMB custom server)",
@@ -123,7 +123,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-network"
+      "group": "build"
     },
     {
       "label": "RB4: Scan PKGs (custom path)",
@@ -134,7 +134,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-custom"
+      "group": "build"
     },
     {
       "label": "RB4: Scan PKGs (custom path, fresh)",
@@ -145,7 +145,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-custom"
+      "group": "build"
     },
     {
       "label": "RB4: Show Mount Status",
@@ -156,7 +156,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4"
+      "group": "build"
     },
     {
       "label": "RB4: Configure Network Share (help)",
@@ -167,7 +167,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4"
+      "group": "build"
     },
     {
       "label": "RB4: List available PKG locations",
@@ -178,9 +178,20 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4"
+      "group": "build"
     },
     {
+      "label": "RB4: Reprocess Cached Data (fresh)",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/RB4 && node generate_rb4_song_list.js --custom ${workspaceFolder}/RB4/rb4_custom_songs.json --processed ${workspaceFolder}/RB4/processed_pkgs.json --no-incremental",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "test"
+    },
+        {
       "label": "RB4: Reprocess Cached Data",
       "type": "shell",
       "command": "cd ${workspaceFolder}/RB4 && node generate_rb4_song_list.js --custom ${workspaceFolder}/RB4/rb4_custom_songs.json --processed ${workspaceFolder}/RB4/processed_pkgs.json",
@@ -189,7 +200,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-reprocess"
+      "group": "test"
     },
     {
       "label": "RB4: Backup Previous Run",
@@ -200,7 +211,7 @@
         "reveal": "always",
         "panel": "new"
       },
-      "group": "rb4-reprocess"
+      "group": "build"
     }
   ]
 }
