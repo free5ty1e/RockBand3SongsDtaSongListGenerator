@@ -23,6 +23,22 @@ import re
 from datetime import datetime
 import logging
 
+# Import console styling
+from console_styling import (
+    icon, style, success, error, warning, info, progress,
+    progress_bar, Spinner
+)
+
+# Override the imported log to also write to LOG_FILE
+import console_styling as cs_module
+
+def log(msg):
+    """Log to both console and file (plain text for log file)."""
+    print(msg)
+    if LOG_FILE:
+        with open(LOG_FILE, 'a', encoding='utf-8') as f:
+            f.write(msg + '\n')
+
 # Default paths
 DEFAULT_PKG_DIR = "/workspace/pkgs"
 DEFAULT_TEMP_DIR = "/workspace/rb4_temp"
@@ -214,7 +230,7 @@ def run_cmd(cmd, check=True, capture=True, show_output=False, indent="\t\t", tim
 def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None, empty_baseline=None, error_tracker=None):
     """Extract only .songdta_ps4 files from a PKG using two-step extraction."""
     pkg_name = os.path.basename(pkg_path)
-    log(f"\t\t[1/4] Extracting: {pkg_name}")
+    log(f"\t\t{icon('gear')} [1/4] Extracting: {pkg_name}")
     sys.stdout.flush()
     
     basename = pkg_name.replace('.pkg', '')
@@ -226,13 +242,13 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None,
     
     try:
         # Step 1: Extract inner PFS image
-        log(f"\t\t[2/4] Extracting PFS image...")
+        log(f"\t\t{icon('floppy')} [2/4] Extracting PFS image...")
         sys.stdout.flush()
         run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract PkgTool.Core pkg_extractinnerpfs "{pkg_path}" {pfs_file}', show_output=True, indent="\t\t", timeout=3600)
         
         # Step 2: Extract PFS contents with limited parallelism to avoid file lock errors
         # Using environment variables to limit thread pool size and avoid parallel extraction
-        log(f"\t\t[3/4] Extracting song data from PFS...")
+        log(f"\t\t{icon('music')} [3/4] Extracting song data from PFS...")
         sys.stdout.flush()
         try:
             # Limit to 2 threads to reduce file lock conflicts
@@ -304,10 +320,10 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None,
         
     finally:
         # Clean up to free disk space
-        log(f"\t\t[4/4] Cleaning up extraction files...")
+        log(f"\t\t{icon('wrench')} [4/4] Cleaning up extraction files...")
         sys.stdout.flush()
         shutil.rmtree(work_dir, ignore_errors=True)
-        log(f"\t✓ Done: {pkg_name}")
+        log(success(f"Done: {pkg_name}"))
 
 
 def main():
@@ -366,13 +382,13 @@ Examples:
     else:
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
         LOG_FILE = os.path.join(args.temp_dir, f'rb4_extract_{ts}.log')
-    log(f"Logging to: {LOG_FILE}")
-    log(f"Started at {datetime.now().isoformat()}")
+    log(f"{icon('floppy')} Logging to: {LOG_FILE}")
+    log(f"{icon('clock')} Started at {datetime.now().isoformat()}")
     
     # Initialize error tracker
     error_tracker = ErrorTracker()
     if not args.incremental:
-        log("Full rebuild mode - clearing previous state...")
+        log(f"{icon('wrench')} Full rebuild mode - clearing previous state...")
         for f in [PROCESSED_PKGS_FILE, UPDATE_HISTORY_FILE, args.output_json]:
             if os.path.exists(f):
                 os.remove(f)
@@ -411,7 +427,7 @@ Examples:
         log(f"No .pkg files found in {args.pkg_dir}")
         sys.exit(1)
     
-    log(f"Found {len(pkg_files)} PKG files in {args.pkg_dir}")
+    log(f"{icon('package')} Found {len(pkg_files)} PKG files in {args.pkg_dir}")
     
     # Load processed PKGs for incremental mode
     processed = load_processed_pkgs() if args.incremental else set()
@@ -428,13 +444,13 @@ Examples:
         pkg_files = new_pkgs
     
     if not pkg_files:
-        log("No new PKGs to process.")
-        log("\nGenerating song lists from existing data...")
+        log(f"{icon('check')} No new PKGs to process.")
+        log(f"\n{icon('sparkles')} Generating song lists from existing data...")
         run_cmd(f'cd /workspace/RB4 && node generate_rb4_song_list.js --baseline {args.baseline} --custom {args.output_json} --processed {PROCESSED_PKGS_FILE}')
-        log("✅ Done!")
+        log(success("Pipeline complete!"))
         sys.exit(0)
     
-    log(f"Processing {len(pkg_files)} new PKGs...")
+    log(f"{icon('folder')} Processing {len(pkg_files)} new PKGs...")
     
     all_songs = []
     total_pkgs = len(pkg_files)
@@ -477,7 +493,7 @@ Examples:
             save_processed_pkgs(processed)
             
             pct = int(idx / total_pkgs * 100)
-            log(f"Progress: {pct}% ({idx}/{total_pkgs} PKGs) | Total songs: {len(all_songs)}")
+            log(f"{icon('chart')} {progress_bar(idx, total_pkgs, length=15)} | {icon('music')} {len(all_songs)} songs")
             sys.stdout.flush()
             
         except Exception as e:
@@ -491,10 +507,10 @@ Examples:
                 error_tracker.add_error('memory_map_error', pkg_name, error_msg)
             else:
                 error_tracker.add_error('pkg_processing_failed', pkg_name, error_msg)
-            log(f"ERROR processing {pkg_name}: {e}")
+            log(error(f"ERROR processing {pkg_name}: {e}"))
             continue
     
-    log(f"\nExtracted {len(all_songs)} songs from {len(pkg_files)} PKGs")
+    log(f"\n{icon('trophy')} Extracted {icon('music')} {len(all_songs)} songs from {icon('package')} {len(pkg_files)} PKGs")
     
     # Load existing songs if incremental mode and file exists
     if args.incremental and os.path.exists(args.output_json):
@@ -543,7 +559,7 @@ Examples:
     # Write JSON
     with open(args.output_json, 'w') as f:
         json.dump(valid_songs, f, indent=2)
-    log(f"Written: {args.output_json}")
+    log(f"\n{icon('floppy')} Written: {args.output_json}")
     
     # Check for issues
     zero_dur = [s for s in valid_songs if s.get('durationMs', 0) == 0]
@@ -551,7 +567,7 @@ Examples:
         log(f"\n⚠️  Songs with durationMs=0: {len(zero_dur)}")
     
     # Generate song lists
-    log(f"\nGenerating song lists...")
+    log(f"\n{icon('sparkles')} Generating song lists...")
     run_cmd(f'cd /workspace/RB4 && node generate_rb4_song_list.js --baseline {args.baseline} --custom {args.output_json} --processed {PROCESSED_PKGS_FILE}')
     
     # Save error tracking report
@@ -560,7 +576,7 @@ Examples:
     log(f"   Full report saved to: {ERROR_LOG_FILE}")
     
     log("\n✅ Pipeline complete!")
-    log(f"Processed PKGs saved to: {PROCESSED_PKGS_FILE}")
+    log(f"{icon('clip')} Processed PKGs saved to: {PROCESSED_PKGS_FILE}")
 
 
 if __name__ == '__main__':
