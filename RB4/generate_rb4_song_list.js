@@ -251,7 +251,7 @@ function buildHeader(songs, timestamp, duplicatesCount = 0) {
   header += `  🥁 = Drums/Pro Drums\n`;
   header += `  🎤 = Vocals/Harmony\n`;
   header += `  🎹 = Keys/Pro Keys\n`;
-  header += `  🔍 = Pro Guitar (6-string tier)\n\n`;
+  header += `  🔍 = Inferred (metadata was empty - recovered from shortName)\n\n`;
   header += `Use these to filter songs: e.g. search for "🎹" to find songs with keyboard parts.\n\n`;
   
   header += `Total songs: ${songs.length + duplicatesCount}\n`;

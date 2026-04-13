@@ -179,6 +179,28 @@
         "panel": "new"
       },
       "group": "rb4"
+    },
+    {
+      "label": "RB4: Reprocess Cached Data",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/RB4 && node generate_rb4_song_list.js --custom ${workspaceFolder}/RB4/rb4_custom_songs.json --processed ${workspaceFolder}/RB4/processed_pkgs.json",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4-reprocess"
+    },
+    {
+      "label": "RB4: Backup Previous Run",
+      "type": "shell",
+      "command": "cd ${workspaceFolder} && timestamp=$(date +%Y%m%d_%H%M%S) && backup_dir=\"rb4_backup_$timestamp\" && mkdir -p \"./$backup_dir\" && cp RB4/output/*.txt \"./$backup_dir/\" && cp RB4/rb4_custom_songs.json \"./$backup_dir/\" 2>/dev/null && cp RB4/processed_pkgs.json \"./$backup_dir/\" 2>/dev/null && cp RB4/songs_by_source.json \"./$backup_dir/\" 2>/dev/null && cp RB4/pipeline_errors.json \"./$backup_dir/\" 2>/dev/null && cp -r RB4/output/PkgMetadataExtracted \"./$backup_dir/\" 2>/dev/null && zip -r \"$backup_dir.zip\" \"./$backup_dir\" && rm -rf \"./$backup_dir\" && echo \"Backed up to: $backup_dir.zip\"",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "rb4-reprocess"
     }
   ]
 }

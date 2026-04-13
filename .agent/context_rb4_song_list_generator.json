@@ -1,0 +1,52 @@
+{
+  "repo_name": "RB4-Song-List-Generator",
+  "description": "Pipeline for extracting and cataloging Rock Band 4 songs from PS4 PKG files",
+  "key_scripts": {
+    "pipeline": "/workspace/RB4/scripts/rb4_songlist_generator.py",
+    "parser": "/workspace/RB4/scripts/extract_binary_dta.py",
+    "generator": "/workspace/RB4/generate_rb4_song_list.js"
+  },
+  "key_files": {
+    "baseline": "/workspace/RB4/rb4songlistWithRivals.txt",
+    "custom_songs": "/workspace/RB4/rb4_custom_songs.json",
+    "processed_pkgs": "/workspace/RB4/processed_pkgs.json",
+    "output_dir": "/workspace/RB4/output",
+    "temp_extraction_dir": "/workspace/rb4_temp"
+  },
+  "fallback_mechanism": {
+    "empty_songs_baseline": "/workspace/RB4/rb4_empty_songs_full.json",
+    "description": "When .songdta_ps4 metadata is empty/unparseable, songs are looked up in this baseline by shortFilename pattern matching. Contains ~465 songs with missing metadata that were recovered this way.",
+    "usage": "Loaded in rb4_songlist_generator.py via load_empty_songs_baseline() function"
+  },
+  "important_notes": [
+    "PS4 has NO internet connectivity - completely offline, no network-synced entitlements",
+    "No central SongList.json or songs.dta exists in RB4 - metadata is distributed across PKGs only",
+    "Our extraction method (parsing PKGs) is the ONLY way to get song list from RB4 - there's no 'truth' file to compare against",
+    "Baseline file contains ALL 99 free songs from RB4 v1.00 (65) + Rivals xpak (34)",
+    "v2.21 update was a maintenance patch with no new songs added",
+    "The 4,084 song PS4 count cannot be fully explained - gap source is unknown due to lack of reference data"
+  ],
+  "environment": {
+    "extraction_temp_dir": "/workspace/rb4_temp",
+    "pkg_source": "SMB share at 192.168.100.135/incoming/temp/Rb4Dlc",
+    "container_capabilities": ["CAP_SYS_ADMIN required for .NET MemoryMappedFile"]
+  },
+  "baseline_song_breakdown": {
+    "rock_band_4_v1_00": 65,
+    "rock_band_4_rivals_xpak": 34,
+    "total": 99
+  },
+  "known_issues": [
+    "Parallel.ForEach in PkgTool.Core causes file lock race conditions - fixed with DOTNET_ProcessorCount=1",
+    "Large PKGs (>400MB) need DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract"
+  ],
+  "instrument_legend": {
+    "🎸": "Guitar/Bass/Pro Guitar",
+    "🥁": "Drums/Pro Drums",
+    "🎤": "Vocals/Harmony",
+    "🎹": "Keys/Pro Keys",
+    "🔍": "Inferred (metadata was empty - recovered from shortName)"
+  },
+  "output_format": "Artist (Album) - Title (Year / Duration) - Source [ShortName] 🎸🎤🥁",
+  "filter_example": "Search for '🎹' to find songs with keyboard parts"
+}
