@@ -26,11 +26,12 @@ import logging
 # Default paths
 DEFAULT_PKG_DIR = "/workspace/pkgs"
 DEFAULT_TEMP_DIR = "/workspace/rb4_temp"
-DEFAULT_OUTPUT_JSON = "/workspace/RB4/rb4_custom_songs.json"
+DEFAULT_OUTPUT_JSON = "/workspace/rb4_temp/rb4_custom_songs.json"
 DEFAULT_SONGLIST_DIR = "/workspace/RB4/output"
-PROCESSED_PKGS_FILE = "/workspace/RB4/processed_pkgs.json"
-UPDATE_HISTORY_FILE = "/workspace/RB4/update_history.json"
-ERROR_LOG_FILE = "/workspace/RB4/pipeline_errors.json"
+DEFAULT_METADATA_DIR = "/workspace/RB4/output/PkgMetadataExtracted"
+PROCESSED_PKGS_FILE = "/workspace/rb4_temp/processed_pkgs.json"
+UPDATE_HISTORY_FILE = "/workspace/rb4_temp/update_history.json"
+ERROR_LOG_FILE = "/workspace/rb4_temp/pipeline_errors.json"
 
 LOG_FILE = None  # Set in main()
 
@@ -210,7 +211,7 @@ def run_cmd(cmd, check=True, capture=True, show_output=False, indent="\t\t", tim
         raise RuntimeError(f"Command failed: {cmd}")
     return result.stdout if capture else ""
 
-def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, empty_baseline=None, error_tracker=None):
+def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None, empty_baseline=None, error_tracker=None):
     """Extract only .songdta_ps4 files from a PKG using two-step extraction."""
     pkg_name = os.path.basename(pkg_path)
     log(f"\t\t[1/4] Extracting: {pkg_name}")
@@ -255,7 +256,12 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, empty_baseline=Non
             return []
         
         # Extract metadata using Python script
-        temp_output = os.path.join(temp_dir, f'metadata_{basename}.json')
+        # Write to metadata_dir if provided, otherwise temp_dir
+        if metadata_dir:
+            os.makedirs(metadata_dir, exist_ok=True)
+            temp_output = os.path.join(metadata_dir, f'metadata_{basename}.json')
+        else:
+            temp_output = os.path.join(temp_dir, f'metadata_{basename}.json')
         files_arg = ' '.join(f'"{f}"' for f in songdta_files)
         run_cmd(f'python3 /workspace/RB4/scripts/extract_binary_dta.py {files_arg} {temp_output}', show_output=True, indent="\t\t", timeout=300)
         
@@ -327,6 +333,8 @@ Examples:
                         help=f'Directory containing PKG files (default: {DEFAULT_PKG_DIR})')
     parser.add_argument('--temp-dir', default=DEFAULT_TEMP_DIR,
                         help=f'Temporary directory for extraction (default: {DEFAULT_TEMP_DIR})')
+    parser.add_argument('--metadata-dir', default=DEFAULT_METADATA_DIR,
+                        help=f'Output directory for extracted metadata JSONs (default: {DEFAULT_METADATA_DIR})')
     parser.add_argument('--output-json', default=DEFAULT_OUTPUT_JSON,
                         help=f'Output JSON file for custom songs (default: {DEFAULT_OUTPUT_JSON})')
     parser.add_argument('--songlist-dir', default=DEFAULT_SONGLIST_DIR,
@@ -343,15 +351,14 @@ Examples:
                         help='PKGs are on SMB share (use smbclient to access)')
     parser.add_argument('--log', default=None,
                         help='Log file path (default: temp_dir/metadata_<timestamp>.log)')
-    
+
     args = parser.parse_args()
-    
-    # Initialize error tracker
-    error_tracker = ErrorTracker()
-    log("Error tracking enabled")
-    
-    # Create temp directory
+
+    # Ensure directories exist on fresh checkout
     os.makedirs(args.temp_dir, exist_ok=True)
+    os.makedirs(args.metadata_dir, exist_ok=True)
+    os.makedirs(args.songlist_dir, exist_ok=True)
+    os.makedirs(os.path.dirname(args.output_json), exist_ok=True)
     
     global LOG_FILE
     if args.log:
@@ -362,7 +369,8 @@ Examples:
     log(f"Logging to: {LOG_FILE}")
     log(f"Started at {datetime.now().isoformat()}")
     
-    # Reset if --no-incremental (fresh run)
+    # Initialize error tracker
+    error_tracker = ErrorTracker()
     if not args.incremental:
         log("Full rebuild mode - clearing previous state...")
         for f in [PROCESSED_PKGS_FILE, UPDATE_HISTORY_FILE, args.output_json]:
@@ -456,7 +464,7 @@ Examples:
         sys.stdout.flush()
         
         try:
-            songs = extract_songdta_from_pkg(pkg_path, source, args.temp_dir, empty_baseline, error_tracker)
+            songs = extract_songdta_from_pkg(pkg_path, source, args.temp_dir, args.metadata_dir, empty_baseline, error_tracker)
             all_songs.extend(songs)
             
             # For SMB mode: clean up immediately after processing to free space

@@ -3,8 +3,8 @@
 // generate_rb4_song_list.js — RB4 Song List Generator
 //
 // Reads a hardcoded baseline (rb4songlistWithRivals.txt) and an optional
-// Onyx-scan JSON file (rb4_custom_songs.json), de-duplicates, applies a
-// profanity filter, and writes 4 output text files matching the RB3 pattern:
+// extracted song metadata JSON (rb4_custom_songs.json in rb4_temp),
+// de-duplicates, applies a profanity filter, and writes 4 output text files:
 //
 //   SongListSortedByArtist.txt
 //   SongListSortedBySongName.txt
@@ -16,11 +16,11 @@
 //
 // Options:
 //   --baseline <file>  Path to rb4songlistWithRivals.txt  (default: ./rb4songlistWithRivals.txt)
-//   --custom   <file>  Path to rb4_custom_songs.json      (optional)
-//   --outdir   <dir>   Output directory                   (default: ./output)
-//   --timezone <tz>    Timezone (e.g. America/New_York)   (default: system)
-//   -v, --verbose      Print each song as it is processed
-//   -h, --help         Show this help
+//   --custom   <file>  Path to rb4_custom_songs.json  (default: ./rb4_temp/rb4_custom_songs.json)
+//   --outdir  <dir>   Output directory         (default: ./output)
+//   --timezone <tz>   Timezone (e.g. America/New_York)  (default: system /etc/timezone)
+//   -v, --verbose     Print each song as it is processed
+//   -h, --help       Show this help
 // =============================================================================
 
 'use strict';
@@ -456,7 +456,7 @@ function writePair(lines, songs, headerFull, outFull, outClean, sortLabel, verbo
 // ── Main ──────────────────────────────────────────────────────────────────────
 function main(argv) {
   let baselineFile = path.join(__dirname, 'rb4songlistWithRivals.txt');
-  let customFile   = null;
+  let customFile   = '/workspace/rb4_temp/rb4_custom_songs.json';
   let outDir       = path.join(__dirname, 'output');
   // Use TZ env if set, otherwise try /etc/timezone, fallback to Intl or UTC
   let timezone = process.env.TZ;

@@ -183,7 +183,7 @@
     {
       "label": "RB4: Reprocess Cached Data",
       "type": "shell",
-      "command": "cd ${workspaceFolder}/RB4 && node generate_rb4_song_list.js --custom ${workspaceFolder}/RB4/rb4_custom_songs.json --processed ${workspaceFolder}/RB4/processed_pkgs.json",
+      "command": "cd ${workspaceFolder}/RB4 && node generate_rb4_song_list.js --custom ${workspaceFolder}/rb4_temp/rb4_custom_songs.json --processed ${workspaceFolder}/rb4_temp/processed_pkgs.json",
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -194,7 +194,18 @@
     {
       "label": "RB4: Backup Previous Run",
       "type": "shell",
-      "command": "cd ${workspaceFolder} && timestamp=$(date +%Y%m%d_%H%M%S) && backup_dir=\"${workspaceFolder}/rb4_temp/rb4_backup_$timestamp\" && mkdir -p \"$backup_dir\" && cp RB4/output/*.txt \"$backup_dir/\" && cp RB4/rb4_custom_songs.json \"$backup_dir/\" 2>/dev/null && cp RB4/processed_pkgs.json \"$backup_dir/\" 2>/dev/null && cp RB4/songs_by_source.json \"$backup_dir/\" 2>/dev/null && cp RB4/pipeline_errors.json \"$backup_dir/\" 2>/dev/null && cp -r RB4/output/PkgMetadataExtracted \"$backup_dir/\" 2>/dev/null && 7z a -mx=9 \"rb4_temp/rb4_backup_$timestamp.7z\" \"$backup_dir\" && rm -rf \"$backup_dir\" && echo \"Backed up to: rb4_temp/rb4_backup_$timestamp.7z\"",
+      "command": "bash ${workspaceFolder}/RB4/scripts/backup_rb4_run.sh",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "build"
+    },
+    {
+      "label": "RB4: Restore Backup",
+      "type": "shell",
+      "command": "bash ${workspaceFolder}/RB4/scripts/restore_rb4_run.sh",
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",

@@ -180,26 +180,21 @@ This is slower but works without kernel-level SMB mount.
 
 ## Debugging / Iterating on Existing Data
 
-When debugging issues (source detection, missing songs, etc.), you don't need to re-extract from PKGs each time. The extraction creates JSON metadata files in `/workspace/rb4_temp/metadata_*.json` that can be reprocessed directly:
+When debugging issues (source detection, missing songs, etc.), you don't need to re-extract from PKGs each time. Use the "Reprocess Cached Data" task or run:
 
 ```bash
-# Re-process all metadata JSON files with fixed logic
-cd /workspace && python3 -c "
-import json, glob, os
-
-# Your re-processing logic here
-# Read from rb4_temp/metadata_*.json
-# Write to RB4/rb4_custom_songs.json
-"
-
-# Then regenerate song lists
-cd /workspace/RB4 && node generate_rb4_song_list.js \
-  --baseline /workspace/RB4/rb4songlistWithRivals.txt \
-  --custom /workspace/RB4/rb4_custom_songs.json \
-  --processed /workspace/RB4/processed_pkgs.json
+# Regenerate song lists from cached metadata in rb4_temp
+cd /workspace/RB4 && node generate_rb4_song_list.js
 ```
 
-This is much faster than re-extracting from PKGs (which involves SMB download + binary parsing for each file).
+The pipeline stores intermediate files in `/workspace/rb4_temp/`:
+- `rb4_custom_songs.json` - extracted song metadata
+- `processed_pkgs.json` - PKGs already scanned
+- `pipeline_errors.json` - extraction errors/warnings
+- `update_history.json` - update history log
+- `rb4_extract_*.log` - run logs
+
+**Output files** go to `/workspace/RB4/output/` (committed to repo).
 
 ## Output Format
 
@@ -243,10 +238,10 @@ cd /workspace/RB4 && node generate_rb4_song_list.js \
 | Option                 | Default                         | Description                                            |
 | ---------------------- | ------------------------------- | ------------------------------------------------------ |
 | `--baseline`           | `rb4songlistWithRivals.txt`     | Baseline RB4/Rivals song list file                     |
-| `--custom`             | -                               | Custom songs JSON file                                |
-| `--outdir`             | `output/`                       | Output directory for generated lists                  |
-| `--processed`          | -                               | Processed PKGs JSON file                              |
-| `--timezone`           | system                          | Timezone for timestamps                               |
+| `--custom`             | `rb4_temp/rb4_custom_songs.json` | Custom songs JSON file                             |
+| `--outdir`             | `output/`                       | Output directory for generated lists                |
+| `--processed`         | `rb4_temp/processed_pkgs.json`  | Processed PKGs JSON file                          |
+| `--timezone`           | /etc/timezone                   | Timezone for timestamps                          |
 | `--allow-duplicates`  | disabled                        | Allow duplicate songs (for debugging)                 |
 | `-v`, `--verbose`     | disabled                        | Verbose output                                        |
 | `-h`, `--help`        | -                               | Show help                                             |
@@ -301,15 +296,35 @@ The pipeline tracks which PKGs have been processed in `processed_pkgs.json`. On 
 To force a full re-extraction:
 
 ```bash
-python3 RB4/scripts/rb4_extract_songs.py --no-incremental
+python3 RB4/scripts/rb4_songlist_generator.py --no-incremental
 ```
 
 ## Architecture
 
-- `rb4_extract_songs.py` - Main orchestration script (end-to-end pipeline)
+- `rb4_songlist_generator.py` - Main orchestration script (end-to-end pipeline)
 - `extract_binary_dta.py` - Binary parser for .songdta_ps4 files
 - `generate_rb4_song_list.js` - JSON to text list converter
-- `rb4songlistWithRivals.txt` - Baseline RB4 + Rivals songs
+- `backup_rb4_run.sh` - Backup script for archiving intermediate files
+- `rb4songlistWithRivals.txt` - Baseline RB4 + Rivals songs (source of truth)
+
+## VS Code Tasks ( rb4-reprocess group)
+
+| Task | Description |
+| ---- | ------------|
+| `RB4: Reprocess Cached Data` | Regenerate song lists from cached metadata (no PKG extraction). Uses files in `rb4_temp/` |
+| `RB4: Backup Previous Run` | Archive intermediate files + output to timestamped 7z in `rb4_temp/` |
+
+### Backup Script
+
+Run manually:
+```bash
+bash RB4/scripts/backup_rb4_run.sh
+```
+
+This archives to `/workspace/rb4_temp/rb4_backup_YYYYMMDD_HHMMSS.7z`:
+- Output song lists (`SongListSortedBy*.txt`)
+- Intermediate files from `rb4_temp/`
+- Most recent run log (`rb4_extract_*.log`)
 
 ## Dependencies
 
