@@ -493,7 +493,7 @@ Examples:
             save_processed_pkgs(processed)
             
             pct = int(idx / total_pkgs * 100)
-            log(f"{icon('chart')} {progress_bar(idx, total_pkgs, length=15)} | {icon('music')} {len(all_songs)} songs")
+            log(f"{icon('chart')} {progress_bar(idx, total_pkgs, length=40)} | {icon('music')} {len(all_songs)} songs")
             sys.stdout.flush()
             
         except Exception as e:

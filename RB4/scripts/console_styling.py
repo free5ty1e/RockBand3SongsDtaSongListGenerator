@@ -125,7 +125,7 @@ def progress(msg): return style(msg, color='blue')
 def highlight(msg): return style(msg, color='magenta', bold=True)
 
 # ── Progress Bar ─────────────────────────────────────────────────────────────
-def progress_bar(current, total, length=20, color='cyan', show_percent=True):
+def progress_bar(current, total, length=30, color='cyan', show_percent=True):
     """Generate a progress bar string.
     
     Args:
