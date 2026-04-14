@@ -4,10 +4,12 @@
 import json
 import sys
 import os
+import argparse
 
 sys.path.insert(0, os.path.dirname(__file__))
 from html_themes import THEMES, generate_theme_js
 from empty_song_processor import load_empty_songs_baseline, get_songs_with_fallback
+from settings_defaults import DEFAULT_HTML_PAGE_TITLE
 
 INSTRUMENT_ICONS = {
     'guitar': '🎸',
@@ -20,8 +22,11 @@ INSTRUMENT_ICONS = {
     'real_keys': '🎹',
 }
 
-def generate_html(metadata_dir, output_file):
+def generate_html(metadata_dir, output_file, page_title=None):
     """Generate HTML file from metadata directory."""
+    
+    if page_title is None:
+        page_title = DEFAULT_HTML_PAGE_TITLE
     
     baseline = load_empty_songs_baseline()
     songs = get_songs_with_fallback(metadata_dir, baseline)
@@ -93,21 +98,43 @@ def generate_html(metadata_dir, output_file):
             const srcs = [...new Set(SONG_DATA.map(s => s.source))].sort();
             document.getElementById('source').innerHTML = '<option value="">All</option>' + 
                 srcs.map(s => `<option value="${s}">${s}</option>`).join('');
-            document.getElementById('totalCount').textContent = `(${SONG_DATA.length})`;
+            document.getElementById('totalCount').textContent = `${SONG_DATA.length} total`;
             document.getElementById('filteredCount').textContent = '';
+            // Calculate default ranges from data
+            const years = SONG_DATA.map(s => s.year).filter(y => y);
+            const durs = SONG_DATA.map(s => s.duration).filter(d => d);
+            const minYear = Math.min(...years), maxYear = Math.max(...years);
+            const minDur = Math.min(...durs), maxDur = Math.max(...durs);
+            document.getElementById('yearFrom').value = minYear;
+            document.getElementById('yearTo').value = maxYear;
+            document.getElementById('durMin').value = minDur;
+            document.getElementById('durMax').value = maxDur;
+            document.getElementById('yearFrom').placeholder = minYear;
+            document.getElementById('yearTo').placeholder = maxYear;
+            document.getElementById('durMin').placeholder = minDur;
+            document.getElementById('durMax').placeholder = maxDur;
             const instruments = ['guitar', 'bass', 'drums', 'vocals', 'keys', 'real_guitar', 'real_bass', 'real_keys', 'harmony_1', 'harmony_2'];
             document.getElementById('instFilter').innerHTML = instruments.map(i => 
                 `<label style="margin-right:8px"><input type="checkbox" value="${i}" checked onchange="filter()">${i}</label>`
             ).join('');
+            // Store default ranges
+            window.DEFAULT_MIN_YEAR = minYear;
+            window.DEFAULT_MAX_YEAR = maxYear;
+            window.DEFAULT_MIN_DUR = minDur;
+            window.DEFAULT_MAX_DUR = maxDur;
             filter();
         }
         
         function filter() {
             const search = document.getElementById('search').value.toLowerCase();
-            const yearFrom = parseInt(document.getElementById('yearFrom').value) || 0;
-            const yearTo = parseInt(document.getElementById('yearTo').value) || 9999;
-            const durMin = parseInt(document.getElementById('durMin').value) || 0;
-            const durMax = parseInt(document.getElementById('durMax').value) || 99999;
+            const yf = document.getElementById('yearFrom').value;
+            const yt = document.getElementById('yearTo').value;
+            const df = document.getElementById('durMin').value;
+            const dt = document.getElementById('durMax').value;
+            const yearFrom = yf ? parseInt(yf) : window.DEFAULT_MIN_YEAR || 0;
+            const yearTo = yt ? parseInt(yt) : window.DEFAULT_MAX_YEAR || 9999;
+            const durMin = df ? parseInt(df) : window.DEFAULT_MIN_DUR || 0;
+            const durMax = dt ? parseInt(dt) : window.DEFAULT_MAX_DUR || 99999;
             const src = document.getElementById('source').value;
             const checkedInsts = [...document.querySelectorAll('#instFilter input:checked')].map(i => i.value);
             
@@ -116,7 +143,7 @@ def generate_html(metadata_dir, output_file):
                 if (s.year && (s.year < yearFrom || s.year > yearTo)) return false;
                 if (s.duration < durMin || s.duration > durMax) return false;
                 if (src && s.source !== src) return false;
-                if (checkedInsts.length > 0) {
+                if (checkedInsts.length > 0 && s.instruments) {
                     const instLower = s.instruments.toLowerCase();
                     if (!checkedInsts.some(i => instLower.includes(i))) return false;
                 }
@@ -144,7 +171,7 @@ def generate_html(metadata_dir, output_file):
                     <td class="inferred">${s.inferred || ''}</td>
                 </tr>
             `).join('');
-            document.getElementById('filteredCount').textContent = f.length !== SONG_DATA.length ? ` (filtered: ${f.length})` : '';
+            document.getElementById('filteredCount').textContent = f.length !== SONG_DATA.length ? ` (filters: ${f.length})` : '';
             document.getElementById('stats').textContent = `Showing ${f.length} of ${SONG_DATA.length} songs`;
         }
         
@@ -169,7 +196,7 @@ def generate_html(metadata_dir, output_file):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Band 4 Song List</title>
+    <title>{page_title}</title>
     <style>
         * {{ box-sizing: border-box; }}
         body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background: {t['body_bg']}; color: {t['text']}; }}
@@ -195,7 +222,7 @@ def generate_html(metadata_dir, output_file):
     </style>
 </head>
 <body>
-    <h1>🎸 Rock Band 4 Song List <span id="totalCount" style="font-size:16px;color:#888"></span> <span id="filteredCount" style="font-size:14px;color:#48dbfb"></span></h1>
+    <h1>{page_title} <span id="totalCount" style="font-size:16px;color:#888"></span> <span id="filteredCount" style="font-size:14px;color:#48dbfb"></span></h1>
     <div class="controls">
         <div class="control-group">
             <label>🎨 Theme</label>
@@ -215,19 +242,19 @@ def generate_html(metadata_dir, output_file):
         </div>
         <div class="control-group">
             <label>📅 Year From</label>
-            <input type="number" id="yearFrom" placeholder="1970" onchange="filter()">
+            <input type="number" id="yearFrom" onchange="filter()">
         </div>
         <div class="control-group">
             <label>📅 Year To</label>
-            <input type="number" id="yearTo" placeholder="2024" onchange="filter()">
+            <input type="number" id="yearTo" onchange="filter()">
         </div>
         <div class="control-group">
             <label>⏱️ Min Duration (sec)</label>
-            <input type="number" id="durMin" placeholder="0" onchange="filter()">
+            <input type="number" id="durMin" onchange="filter()">
         </div>
         <div class="control-group">
             <label>⏱️ Max Duration (sec)</label>
-            <input type="number" id="durMax" placeholder="999" onchange="filter()">
+            <input type="number" id="durMax" onchange="filter()">
         </div>
         <div class="control-group">
             <label>💿 Source</label>
@@ -271,8 +298,20 @@ def generate_html(metadata_dir, output_file):
     print(f"Generated: {output_file}")
 
 if __name__ == '__main__':
-    if len(sys.argv) < 3:
-        print("Usage: generate_html_list.py <metadata_dir> <output.html>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description='Generate HTML song list')
+    parser.add_argument('metadata_dir', help='Directory with metadata JSON files')
+    parser.add_argument('output_html', help='Output HTML file')
+    parser.add_argument('--title', default=None, help='HTML page title')
+    args = parser.parse_args()
     
-    generate_html(sys.argv[1], sys.argv[2])
+    # Load config for custom title
+    config_path = '/workspace/.devcontainer/rb4_dlc_config.sh'
+    title = args.title
+    if not title and os.path.exists(config_path):
+        with open(config_path) as f:
+            for line in f:
+                if line.startswith('HTML_PAGE_TITLE='):
+                    title = line.split('=', 1)[1].strip().strip('"')
+                    break
+    
+    generate_html(args.metadata_dir, args.output_html, title)

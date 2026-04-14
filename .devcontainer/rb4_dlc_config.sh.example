@@ -1,12 +1,12 @@
-# Custom RB4 DLC configuration
-# This file is gitignored - use it to specify your own mount location
-# Copy this file to rb4_dlc_config.sh and modify the values below:
+# Custom RB4 DLC SMB configuration - EXAMPLE FILE
+# Copy to rb4_dlc_config.sh and customize
 
-# SMB share URL (default: //incoming/temp/Rb4Dlc)
-# SMB_SHARE="//192.168.1.100/YourShareName"
+# SMB server IP (default: 192.168.100.135)
+# SMB_SERVER="192.168.100.135"
 
-# Mount point inside container (default: /mnt/rb4dlc)
-# MOUNT_POINT="/mnt/your-custom-path"
+# SMB share path - format: "sharename" or "sharename/subfolder/..."
+# Example: "incoming/temp/Rb4Dlc" or just "incoming"
+# SMB_SHARE="incoming/temp/Rb4Dlc"
 
-# Example: Use a local folder instead of SMB
-# MOUNT_POINT="/workspace/my-local-pkgs"
+# HTML page title (default: 🎸 Rock Band 4 Song List)
+# HTML_PAGE_TITLE="🎸 Rock Band 4 Song List"

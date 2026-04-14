@@ -21,6 +21,9 @@ ERROR_LOG_FILENAME = "pipeline_errors.json"
 # ── Console Output Settings ─────────────────────────────────────────────────────
 DEFAULT_PROGRESS_BAR_LENGTH = 50
 
+# ── HTML Output Settings ─────────────────────────────────────────────────
+DEFAULT_HTML_PAGE_TITLE = "🎸 Rock Band 4 Song List"
+
 
 def get_processed_pkgs_file(temp_dir):
     """Get the processed PKGs file path."""

@@ -351,6 +351,42 @@ Runs in the Devcontainer (Ubuntu 24.04) with:
 - smbclient - for network share access (optional)
 - PkgTool.Core - for PKG/PFS extraction
 
+## HTML Song List
+
+The pipeline generates an interactive HTML song list with filtering, sorting, and theming.
+
+### Generating HTML Directly
+
+```bash
+python3 RB4/scripts/generate_html_list.py RB4/output/PkgMetadataExtracted RB4/output/SongList.html
+```
+
+### Options
+
+| Option              | Default                          | Description                                    |
+| ------------------- | -------------------------------- | ---------------------------------------------- |
+| `--title`          | `🎸 Rock Band 4 Song List`       | Custom HTML page title                        |
+
+### Features
+
+- **Search**: Filter by artist, title, album, or shortName
+- **Year Range**: Filter by release year (defaults to min/max in data)
+- **Duration Range**: Filter by song length in seconds (defaults to min/max in data)
+- **Source**: Filter by song source (Custom, DLC, RB4, Rivals, etc.)
+- **Instruments**: Filter by instrument availability (guitar, bass, drums, vocals, keys, pro guitar, pro drums, pro keys, harmony_1, harmony_2)
+- **Themes**: 7 themes (Dark Blue, Matrix, Cyberpunk, Sunset, Forest, Rose, Monochrome)
+- **Sorting**: Click any column header to sort
+- **Reset**: Button to clear all filters
+
+### Customization
+
+Customize via `/workspace/.devcontainer/rb4_dlc_config.sh`:
+
+```bash
+# HTML page title
+HTML_PAGE_TITLE="🎸 Chris's PS4's Rock Band 4 Song List"
+```
+
 ## References
 
 - LibForge (mtolly/LibForge) - https://github.com/mtolly/LibForge
