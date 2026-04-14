@@ -43,8 +43,9 @@ fi
 
 echo "Restoring files..."
 
-# Restore output song lists
+# Restore output song lists and HTML
 cp "$EXTRACTED_FOLDER"/*.txt /workspace/RB4/output/ 2>/dev/null || true
+cp "$EXTRACTED_FOLDER"/*.html /workspace/RB4/output/ 2>/dev/null || true
 
 # Restore intermediate files to rb4_temp
 cp "$EXTRACTED_FOLDER"/rb4_custom_songs.json "$BACKUP_DIR/" 2>/dev/null || true

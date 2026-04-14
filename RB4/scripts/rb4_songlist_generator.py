@@ -237,6 +237,7 @@ def run_cmd(cmd, check=True, capture=True, show_output=False, indent="\t\t", tim
 def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None, empty_baseline=None, error_tracker=None):
     """Extract only .songdta_ps4 files from a PKG using two-step extraction."""
     pkg_name = os.path.basename(pkg_path)
+    log(style(f"[1/4] Extracting: {pkg_name}", color_name='cyan'))
     log(f"\t\t{icon('gear')} [1/4] Extracting: {pkg_name}")
     sys.stdout.flush()
     
@@ -584,6 +585,11 @@ Examples:
     # Generate song lists
     log(f"\n{icon('sparkles')} Generating song lists...")
     run_cmd(f'cd /workspace/RB4 && node generate_rb4_song_list.js --baseline {args.baseline} --custom {args.output_json} --processed {PROCESSED_PKGS_FILE}')
+    
+    # Generate HTML output
+    log(f"{icon('html')} Generating HTML song list...")
+    html_output = f"{args.songlist_dir}/SongListRB4.html"
+    run_cmd(f'python3 /workspace/RB4/scripts/generate_html_list.py {args.output_json} {html_output}')
     
     # Save error tracking report
     error_tracker.save()

@@ -67,6 +67,7 @@ ICONS = {
     'chart': '📊',
     'warning': '⚠️',
     'sparkles': '✨',
+    'html': '🌐',
     'cd': '💿',
     'floppy': '💾',
     'trophy': '🏆',

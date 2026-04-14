@@ -16,8 +16,9 @@ TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 BACKUP_DIR="/workspace/rb4_temp/rb4_backup_$TIMESTAMP"
 mkdir -p "$BACKUP_DIR"
 
-# Output song lists
+# Output song lists and HTML
 cp /workspace/RB4/output/*.txt "$BACKUP_DIR/"
+cp /workspace/RB4/output/*.html "$BACKUP_DIR/" 2>/dev/null || true
 
 # Baseline (keep in RB4 - source of truth)
 # cp /workspace/RB4/rb4songlistWithRivals.txt "$BACKUP_DIR/"
