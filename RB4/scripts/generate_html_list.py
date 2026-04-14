@@ -5,39 +5,32 @@ import json
 import sys
 import os
 
-# Import modules
 sys.path.insert(0, os.path.dirname(__file__))
 from html_themes import THEMES, generate_theme_js
-from empty_song_processor import apply_empty_song_fallback
+from empty_song_processor import load_empty_songs_baseline, get_songs_with_fallback
+
+INSTRUMENT_ICONS = {
+    'guitar': '🎸',
+    'bass': '🎸',
+    'drums': '🥁',
+    'vocals': '🎤',
+    'keys': '🎹',
+    'real_guitar': '🎸',
+    'real_bass': '🎸',
+    'real_keys': '🎹',
+}
 
 def generate_html(metadata_dir, output_file):
     """Generate HTML file from metadata directory."""
     
-    # Load and apply fallback
-    from empty_song_processor import load_empty_songs_baseline, get_songs_with_fallback
     baseline = load_empty_songs_baseline()
-    songs = get_songs_with_fallback(metadata_dir)
-    """Generate HTML file from song data."""
+    songs = get_songs_with_fallback(metadata_dir, baseline)
     
-    # Instrument icon mapping
-    INSTRUMENT_ICONS = {
-        'guitar': '🎸',
-        'bass': '🎸',
-        'drums': '🥁',
-        'vocals': '🎤',
-        'keys': '🎹',
-        'real_guitar': '🎸',
-        'real_bass': '🎸',
-        'real_keys': '🎹',
-    }
-    
-    # Convert to JS array
     js_songs = []
     for s in songs:
         duration_sec = s.get("durationMs", 0) // 1000 if s.get("durationMs") else 0
         duration_str = f"{duration_sec // 60}:{duration_sec % 60:02d}" if duration_sec else ""
         
-        # Build instruments: emoji icons + text list
         inst_list = s.get("instrumentList", []) or []
         instruments_text = ", ".join(inst_list) if inst_list else ""
         instruments_icons = ""
@@ -46,13 +39,11 @@ def generate_html(metadata_dir, output_file):
                 instruments_icons += INSTRUMENT_ICONS.get(inst, '🎵')
         instruments_display = instruments_icons + instruments_text
         
-        # Handle shortName: use _debug_file for empty metadata songs
         short_name = s.get("shortName", "")
         debug_file = s.get("_debug_file", "")
         if not short_name and debug_file:
             short_name = debug_file.replace(".songdta_ps4", "")
         
-        # Inferred marker
         inferred = "✓" if s.get("inferred") else ""
         
         js_songs.append({
@@ -70,9 +61,101 @@ def generate_html(metadata_dir, output_file):
     
     js_data = json.dumps(js_songs)
     themes_js = generate_theme_js()
-    
-    # Default theme CSS
     t = THEMES["dark_blue"]
+    
+    # Build JS as a regular string to avoid f-string issues
+    js_code = '''
+        const SONG_DATA = ''' + js_data + ''';
+        let col = 3, asc = false;
+        
+        function setTheme(themeName) {
+            const t = THEMES[themeName];
+            document.body.style.background = t.body_bg;
+            document.body.style.color = t.text;
+            document.querySelectorAll('.controls')[0].style.background = t.panel_bg;
+            document.querySelectorAll('table')[0].style.background = t.panel_bg;
+            document.querySelectorAll('th').forEach(el => {
+                el.style.background = t.header_bg;
+                el.style.color = t.accent;
+            });
+            document.querySelectorAll('tr:nth-child(even)').forEach(el => el.style.background = t.body_bg);
+            document.querySelectorAll('tr:hover').forEach(el => el.style.background = t.hover);
+            document.querySelectorAll('input, select').forEach(el => el.style.background = t.input_bg);
+            document.querySelectorAll('h1')[0].style.color = t.accent;
+        }
+        
+        function init() {
+            const srcs = [...new Set(SONG_DATA.map(s => s.source))].sort();
+            document.getElementById('source').innerHTML = '<option value="">All</option>' + 
+                srcs.map(s => `<option value="${s}">${s}</option>`).join('');
+            document.getElementById('totalCount').textContent = `(${SONG_DATA.length} songs)`;
+            const instruments = ['guitar', 'bass', 'drums', 'vocals', 'keys', 'real_guitar', 'real_bass', 'real_keys', 'harmony_1', 'harmony_2'];
+            document.getElementById('instFilter').innerHTML = instruments.map(i => 
+                `<label style="margin-right:8px"><input type="checkbox" value="${i}" checked onchange="filter()">${i}</label>`
+            ).join('');
+            filter();
+        }
+        
+        function filter() {
+            const search = document.getElementById('search').value.toLowerCase();
+            const yearFrom = parseInt(document.getElementById('yearFrom').value) || 0;
+            const yearTo = parseInt(document.getElementById('yearTo').value) || 9999;
+            const durMin = parseInt(document.getElementById('durMin').value) || 0;
+            const durMax = parseInt(document.getElementById('durMax').value) || 99999;
+            const src = document.getElementById('source').value;
+            const checkedInsts = [...document.querySelectorAll('#instFilter input:checked')].map(i => i.value);
+            
+            let f = SONG_DATA.filter(s => {
+                if (search && !s.artist.toLowerCase().includes(search) && !s.title.toLowerCase().includes(search) && !s.album.toLowerCase().includes(search) && !s.shortName.toLowerCase().includes(search)) return false;
+                if (s.year && (s.year < yearFrom || s.year > yearTo)) return false;
+                if (s.duration < durMin || s.duration > durMax) return false;
+                if (src && s.source !== src) return false;
+                if (checkedInsts.length > 0) {
+                    const instLower = s.instruments.toLowerCase();
+                    if (!checkedInsts.some(i => instLower.includes(i))) return false;
+                }
+                return true;
+            });
+            const cols = ['artist', 'title', 'album', 'year', 'duration', 'source', 'instruments', 'shortName', 'inferred'];
+            f.sort((a, b) => {
+                const va = a[cols[col]], vb = b[cols[col]];
+                if (typeof va === 'number') return asc ? va - vb : vb - va;
+                if (va === undefined || va === '') return asc ? 1 : -1;
+                if (vb === undefined || vb === '') return asc ? -1 : 1;
+                const av = String(va).toLowerCase(), bv = String(vb).toLowerCase();
+                return asc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+            });
+            document.getElementById('body').innerHTML = f.map(s => `
+                <tr>
+                    <td>${s.artist}</td>
+                    <td>${s.title}</td>
+                    <td>${s.album || ''}</td>
+                    <td>${s.year || ''}</td>
+                    <td>${s.duration_str || ''}</td>
+                    <td><span class="source-${s.source.replace(/\s+/g, '')}">${s.source}</span></td>
+                    <td class="instr">${s.instruments || ''}</td>
+                    <td style="font-family:monospace;font-size:11px;">${s.shortName || ''}</td>
+                    <td class="inferred">${s.inferred || ''}</td>
+                </tr>
+            `).join('');
+            document.getElementById('stats').textContent = `Showing ${f.length} of ${SONG_DATA.length} songs`;
+        }
+        
+        function sort(c) { col = c; asc = !asc; filter(); }
+        
+        function resetFilters() {
+            document.getElementById('search').value = '';
+            document.getElementById('yearFrom').value = '';
+            document.getElementById('yearTo').value = '';
+            document.getElementById('durMin').value = '';
+            document.getElementById('durMax').value = '';
+            document.getElementById('source').value = '';
+            document.querySelectorAll('#instFilter input').forEach(i => i.checked = true);
+            filter();
+        }
+        
+        init();
+    '''
     
     html = f'''<!DOCTYPE html>
 <html lang="en">
@@ -88,6 +171,8 @@ def generate_html(metadata_dir, output_file):
         .control-group {{ display: flex; flex-direction: column; gap: 5px; }}
         .control-group label {{ font-size: 12px; color: #888; }}
         input, select {{ padding: 8px 12px; border-radius: 4px; border: 1px solid #333; background: {t['input_bg']}; color: {t['text']}; font-size: 14px; }}
+        button {{ padding: 8px 12px; border-radius: 4px; border: 1px solid #333; background: {t['input_bg']}; color: {t['text']}; font-size: 14px; cursor: pointer; }}
+        button:hover {{ background: {t['header_bg']}; }}
         table {{ width: 100%; border-collapse: collapse; background: {t['panel_bg']}; border-radius: 8px; }}
         th, td {{ padding: 10px 12px; text-align: left; font-size: 13px; }}
         th {{ background: {t['header_bg']}; color: {t['accent']}; cursor: pointer; position: sticky; top: 0; white-space: nowrap; }}
@@ -97,13 +182,13 @@ def generate_html(metadata_dir, output_file):
         .source-Rivals {{ background: #ff6b6b; color: #000; padding: 2px 6px; border-radius: 8px; font-size: 10px; }}
         .source-custom {{ background: #feca57; color: #000; padding: 2px 6px; border-radius: 8px; font-size: 10px; }}
         .source-dlc, .source-DLC {{ background: #48dbfb; color: #000; padding: 2px 6px; border-radius: 8px; font-size: 10px; }}
-        .instr {{ font-size: 14px; white-space: nowrap; overflow-x: auto; max-width: 400px; }}
+        .instr {{ font-size: 14px; white-space: nowrap; }}
         .inferred {{ color: #4ade80; font-weight: bold; }}
         .stats {{ margin-top: 15px; color: #888; font-size: 14px; }}
     </style>
 </head>
 <body>
-    <h1>🎸 Rock Band 4 Song List</h1>
+    <h1>🎸 Rock Band 4 Song List <span id="totalCount" style="font-size:16px;color:#888"></span></h1>
     <div class="controls">
         <div class="control-group">
             <label>🎨 Theme</label>
@@ -130,12 +215,24 @@ def generate_html(metadata_dir, output_file):
             <input type="number" id="yearTo" placeholder="2024" onchange="filter()">
         </div>
         <div class="control-group">
+            <label>⏱️ Min Duration (sec)</label>
+            <input type="number" id="durMin" placeholder="0" onchange="filter()">
+        </div>
+        <div class="control-group">
             <label>⏱️ Max Duration (sec)</label>
             <input type="number" id="durMax" placeholder="999" onchange="filter()">
         </div>
         <div class="control-group">
             <label>💿 Source</label>
             <select id="source" onchange="filter()"><option value="">All</option></select>
+        </div>
+        <div class="control-group">
+            <label>🎸 Instruments</label>
+            <div id="instFilter" style="font-size:12px;display:flex;gap:8px;flex-wrap:wrap;"></div>
+        </div>
+        <div class="control-group">
+            <label>&nbsp;</label>
+            <button onclick="resetFilters()">Reset Filters</button>
         </div>
     </div>
     <table>
@@ -147,9 +244,9 @@ def generate_html(metadata_dir, output_file):
                 <th onclick="sort(3)">Year ⬍</th>
                 <th onclick="sort(4)">Duration ⬍</th>
                 <th onclick="sort(5)">Source ⬍</th>
-                <th onclick="sort(6)">ShortName ⬍</th>
-                <th>Instruments</th>
-                <th>Inferred</th>
+                <th onclick="sort(6)">Instruments ⬍</th>
+                <th onclick="sort(7)">ShortName ⬍</th>
+                <th onclick="sort(8)">Inferred ⬍</th>
             </tr>
         </thead>
         <tbody id="body"></tbody>
@@ -157,71 +254,7 @@ def generate_html(metadata_dir, output_file):
     <div class="stats" id="stats"></div>
     <script>
         {themes_js}
-        
-        const SONG_DATA = {js_data};
-        let col = 3, asc = false;
-        
-        function setTheme(themeName) {{
-            const t = THEMES[themeName];
-            document.body.style.background = t.body_bg;
-            document.body.style.color = t.text;
-            document.querySelectorAll('.controls')[0].style.background = t.panel_bg;
-            document.querySelectorAll('table')[0].style.background = t.panel_bg;
-            document.querySelectorAll('th').forEach(el => {{
-                el.style.background = t.header_bg;
-                el.style.color = t.accent;
-            }});
-            document.querySelectorAll('tr:nth-child(even)').forEach(el => el.style.background = t.body_bg);
-            document.querySelectorAll('tr:hover').forEach(el => el.style.background = t.hover);
-            document.querySelectorAll('input, select').forEach(el => el.style.background = t.input_bg);
-            document.querySelectorAll('h1')[0].style.color = t.accent;
-        }}
-        
-        function init() {{
-            const srcs = [...new Set(SONG_DATA.map(s => s.source))].sort();
-            document.getElementById('source').innerHTML = '<option value="">All</option>' + 
-                srcs.map(s => `<option value="${{s}}">${{s}}</option>`).join('');
-            filter();
-        }}
-        
-        function filter() {{
-            const search = document.getElementById('search').value.toLowerCase();
-            const yearFrom = parseInt(document.getElementById('yearFrom').value) || 0;
-            const yearTo = parseInt(document.getElementById('yearTo').value) || 9999;
-            const durMax = parseInt(document.getElementById('durMax').value) || 99999;
-            const src = document.getElementById('source').value;
-            
-            let f = SONG_DATA.filter(s => {{
-                if (search && !s.artist.toLowerCase().includes(search) && !s.title.toLowerCase().includes(search) && !s.album.toLowerCase().includes(search) && !s.shortName.toLowerCase().includes(search)) return false;
-                if (s.year && (s.year < yearFrom || s.year > yearTo)) return false;
-                if (s.duration > durMax) return false;
-                if (src && s.source !== src) return false;
-                return true;
-            }});
-            f.sort((a, b) => {{
-                const va = a[Object.keys(a)[col]], vb = b[Object.keys(b)[col]];
-                if (typeof va === 'number') return asc ? va - vb : vb - va;
-                return asc ? (va > vb ? 1 : -1) : (va < vb ? 1 : -1);
-            }});
-            document.getElementById('body').innerHTML = f.map(s => `
-                <tr>
-                    <td>${{s.artist}}</td>
-                    <td>${{s.title}}</td>
-                    <td>${{s.album || ''}}</td>
-                    <td>${{s.year || ''}}</td>
-                    <td>${{s.duration_str || ''}}</td>
-                    <td><span class="source-${{s.source.replace(/\\s+/g, '')}}">${{s.source}}</span></td>
-                    <td style="font-family:monospace;font-size:11px;">${{s.shortName || ''}}</td>
-                    <td class="instr">${{s.instruments || ''}}</td>
-                    <td class="inferred">${{s.inferred || ''}}</td>
-                </tr>
-            `).join('');
-            document.getElementById('stats').textContent = `Showing ${{f.length}} of ${{SONG_DATA.length}} songs`;
-        }}
-        
-        function sort(c) {{ col = c; asc = !asc; filter(); }}
-        
-        init();
+        {js_code}
     </script>
 </body>
 </html>'''
