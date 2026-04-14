@@ -37,50 +37,59 @@ python3 RB4/scripts/rb4_songlist_generator.py \
 
 ### Options
 
-| Option             | Default                         | Description                                                 |
-| ------------------ | ------------------------------- | ----------------------------------------------------------- |
-| `--pkg-dir`        | `/workspace/pkg`                | Directory containing PKG files (local or network mount)     |
-| `--temp-dir`       | `/workspace/rb4_temp`           | Temporary directory for extraction (cleaned after each PKG) |
-| `--output-json`    | `RB4/rb4_custom_songs.json`     | Output JSON file with extracted metadata                    |
-| `--songlist-dir`   | `RB4/output`                    | Output directory for generated song lists                   |
-| `--baseline`       | `RB4/rb4songlistWithRivals.txt` | Baseline song list file                                     |
-| `--incremental`    | enabled                         | Skip already-processed PKGs (saves time on re-runs)         |
-| `--no-incremental` | -                               | Disable incremental mode - re-process all PKGs              |
-| `--smb`            | -                               | Access PKGs via SMB share using smbclient                   |
-| `--log`            | `temp_dir/rb4_extract_<ts>.log` | Log file path (default: auto-generated with timestamp)       |
-| `-v`, `--verbose`  | -                               | Verbose output                                              |
+| Option              | Default                          | Description                                    |
+| ------------------- | -------------------------------- | ---------------------------------------------- |
+| `--pkg-dir`         | `/workspace/pkgs`                | Directory containing PKG files                 |
+| `--temp-dir`        | `/workspace/rb4_temp`            | Temporary directory for extraction             |
+| `--output-json`     | `rb4_temp/rb4_custom_songs.json` | Output JSON file with extracted metadata       |
+| `--metadata-dir`    | `output/PkgMetadataExtracted`    | Directory for extracted metadata JSONs         |
+| `--songlist-dir`    | `output/`                        | Output directory for song lists                |
+| `--baseline`        | `rb4songlistWithRivals.txt`      | Baseline song list file                        |
+| `--progress-length` | `40`                             | Progress bar length in characters              |
+| `--incremental`     | enabled                          | Skip already-processed PKGs (default: enabled) |
+| `--no-incremental`  | -                                | Disable incremental mode - re-process all PKGs |
+| `--smb`             | -                                | Access PKGs via SMB share using smbclient      |
+| `--log`             | `temp_dir/rb4_extract_<ts>.log`  | Log file path                                  |
+| `-v`, `--verbose`   | -                                | Verbose output                                 |
 
 ## Error Logging
 
 The pipeline tracks errors and warnings during execution:
 
 **Error types:**
+
 - `pfs_image_extract_failed` - Step 1: extracting inner PFS image from PKG
-- `pfs_contents_extract_failed` - Step 2: extracting PFS contents  
+- `pfs_contents_extract_failed` - Step 2: extracting PFS contents
 - `memory_map_error` - .NET memory mapped file errors (often from large PKGs)
 - `pkg_processing_failed` - Generic catch-all for PKG failures
 - `songdta_parse_failed` - Failed to parse .songdta_ps4 metadata files
 
 **Warning types:**
+
 - `no_songdta_found` - PKG extracted but no .songdta_ps4 files found
 - `empty_metadata` - Song has empty/unparseable metadata
 - `unknown_source` - Could not determine song source
 
 **Output files:**
+
 - `/workspace/RB4/pipeline_errors.json` - Full error/warning report in JSON format
 - `/workspace/rb4_temp/rb4_extract_<timestamp>.log` - Detailed execution log
 
 Example error report:
+
 ```json
 {
   "errors": {
-    "memory_map_error": [{"pkg": "CREQ2604P15MISCS.pkg", "details": "...", "timestamp": "..."}]
+    "memory_map_error": [
+      { "pkg": "CREQ2604P15MISCS.pkg", "details": "...", "timestamp": "..." }
+    ]
   },
   "warnings": {}
 }
 ```
 
 After each run, a summary is printed:
+
 ```
 📊 Error Report: Errors: 1, Warnings: 0
    Full report saved to: /workspace/RB4/pipeline_errors.json
@@ -188,6 +197,7 @@ cd /workspace/RB4 && node generate_rb4_song_list.js
 ```
 
 The pipeline stores intermediate files in `/workspace/rb4_temp/`:
+
 - `rb4_custom_songs.json` - extracted song metadata
 - `processed_pkgs.json` - PKGs already scanned
 - `pipeline_errors.json` - extraction errors/warnings
@@ -201,11 +211,13 @@ The pipeline stores intermediate files in `/workspace/rb4_temp/`:
 Each line in the generated song lists contains:
 
 **Artist-sorted:**
+
 ```
 Artist (Album) - Title (Year / Duration) - Source [ShortName] 🎸🎤🥁
 ```
 
 **Name-sorted:**
+
 ```
 Title by Artist on Album (Year / Duration) - Source [ShortName] 🎸🎤🥁
 ```
@@ -235,16 +247,16 @@ cd /workspace/RB4 && node generate_rb4_song_list.js \
   --verbose
 ```
 
-| Option                 | Default                         | Description                                            |
-| ---------------------- | ------------------------------- | ------------------------------------------------------ |
-| `--baseline`           | `rb4songlistWithRivals.txt`     | Baseline RB4/Rivals song list file                     |
-| `--custom`             | `rb4_temp/rb4_custom_songs.json` | Custom songs JSON file                             |
-| `--outdir`             | `output/`                       | Output directory for generated lists                |
-| `--processed`         | `rb4_temp/processed_pkgs.json`  | Processed PKGs JSON file                          |
-| `--timezone`           | /etc/timezone                   | Timezone for timestamps                          |
-| `--allow-duplicates`  | disabled                        | Allow duplicate songs (for debugging)                 |
-| `-v`, `--verbose`     | disabled                        | Verbose output                                        |
-| `-h`, `--help`        | -                               | Show help                                             |
+| Option               | Default                          | Description                           |
+| -------------------- | -------------------------------- | ------------------------------------- |
+| `--baseline`         | `rb4songlistWithRivals.txt`      | Baseline RB4/Rivals song list file    |
+| `--custom`           | `rb4_temp/rb4_custom_songs.json` | Custom songs JSON file                |
+| `--outdir`           | `output/`                        | Output directory for generated lists  |
+| `--processed`        | `rb4_temp/processed_pkgs.json`   | Processed PKGs JSON file              |
+| `--timezone`         | /etc/timezone                    | Timezone for timestamps               |
+| `--allow-duplicates` | disabled                         | Allow duplicate songs (for debugging) |
+| `-v`, `--verbose`    | disabled                         | Verbose output                        |
+| `-h`, `--help`       | -                                | Show help                             |
 
 ## Generated Files
 
@@ -309,19 +321,22 @@ python3 RB4/scripts/rb4_songlist_generator.py --no-incremental
 
 ## VS Code Tasks ( rb4-reprocess group)
 
-| Task | Description |
-| ---- | ------------|
-| `RB4: Reprocess Cached Data` | Regenerate song lists from cached metadata (no PKG extraction). Uses files in `rb4_temp/` |
-| `RB4: Backup Previous Run` | Archive intermediate files + output to timestamped 7z in `rb4_temp/` |
+| Task                         | Description                                  |
+| ---------------------------- | -------------------------------------------- |
+| `RB4: Reprocess Cached Data` | Regenerate song lists from cached metadata   |
+| `RB4: Backup Previous Run`   | Archive intermediate files to timestamped 7z |
+| `RB4: Restore Backup`        | Restore from most recent backup 7z file      |
 
 ### Backup Script
 
 Run manually:
+
 ```bash
 bash RB4/scripts/backup_rb4_run.sh
 ```
 
 This archives to `/workspace/rb4_temp/rb4_backup_YYYYMMDD_HHMMSS.7z`:
+
 - Output song lists (`SongListSortedBy*.txt`)
 - Intermediate files from `rb4_temp/`
 - Most recent run log (`rb4_extract_*.log`)

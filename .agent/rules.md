@@ -44,3 +44,9 @@ These rules apply to any AI agent (Antigravity, Gemini, Copilot, etc.) working i
 ## Git Behavior
 
 12. **Never commit directly to git.** Only stage/unstage files. Write a commit message for the user to execute in your response. The user handles all git write operations (commit, push, etc.).
+
+## Markdown Formatting
+
+13. **Always run prettier on all .md files before committing.** Use: `prettier --write /path/to/file.md`
+    - Install: `npm install -g prettier` (already in devcontainer)
+    - Prettier is configured in the project

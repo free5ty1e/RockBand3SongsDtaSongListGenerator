@@ -3,61 +3,68 @@
   "description": "Pipeline for extracting and cataloging Rock Band 4 songs from PS4 PKG files",
   "key_scripts": {
     "pipeline": "/workspace/RB4/scripts/rb4_songlist_generator.py",
+    "settings": "/workspace/RB4/scripts/settings_defaults.py",
     "parser": "/workspace/RB4/scripts/extract_binary_dta.py",
     "generator": "/workspace/RB4/generate_rb4_song_list.js",
-    "backup": "/workspace/RB4/scripts/backup_rb4_run.sh"
+    "backup": "/workspace/RB4/scripts/backup_rb4_run.sh",
+    "restore": "/workspace/RB4/scripts/restore_rb4_run.sh"
   },
   "key_files": {
     "baseline": "/workspace/RB4/rb4songlistWithRivals.txt",
     "output_dir": "/workspace/RB4/output",
-    "intermediate_dir": "/workspace/rb4_temp"
+    "metadata_output_dir": "/workspace/RB4/output/PkgMetadataExtracted",
+    "temp_dir": "/workspace/rb4_temp"
+  },
+  "cli_parameters": {
+    "--pkg-dir": "PKG directory (default: /workspace/pkgs)",
+    "--temp-dir": "Temp extraction dir (default: /workspace/rb4_temp)",
+    "--output-json": "Output JSON file (default: rb4_temp/rb4_custom_songs.json)",
+    "--metadata-dir": "Extracted metadata dir (default: output/PkgMetadataExtracted)",
+    "--songlist-dir": "Song lists output dir (default: output/)",
+    "--baseline": "Baseline song list file",
+    "--progress-length": "Progress bar chars (default: 40)",
+    "--smb": "Fetch PKGs via SMB",
+    "--no-incremental": "Full rebuild"
   },
   "intermediate_files_in_rb4_temp": {
     "rb4_custom_songs.json": "Main extracted song metadata",
-    "processed_pkgs.json": "PKGs already scanned (for incremental mode)",
-    "pipeline_errors.json": "Extraction errors and warnings",
-    "update_history.json": "Update history log",
-    "rb4_extract_*.log": "Run logs (most recent used for backup)"
-  },
-  "fallback_mechanism": {
-    "empty_songs_baseline": "/workspace/RB4/rb4_empty_songs_full.json",
-    "description": "When .songdta_ps4 metadata is empty/unparseable, songs are looked up in this baseline by shortFilename pattern matching. Contains ~465 songs with missing metadata that were recovered this way.",
-    "usage": "Loaded in rb4_songlist_generator.py via load_empty_songs_baseline() function"
+    "processed_pkgs.json": "PKGs already scanned",
+    "pipeline_errors.json": "Extraction errors",
+    "update_history.json": "Update history",
+    "rb4_extract_*.log": "Run logs"
   },
   "important_notes": [
-    "PS4 has NO internet connectivity - completely offline, no network-synced entitlements",
-    "No central SongList.json or songs.dta exists in RB4 - metadata is distributed across PKGs only",
-    "Our extraction method (parsing PKGs) is the ONLY way to get song list from RB4 - there's no 'truth' file to compare against",
-    "Baseline file contains ALL 99 free songs from RB4 v1.00 (65) + Rivals xpak (34)",
-    "v2.21 update was a maintenance patch with no new songs added",
-    "The 4,084 song PS4 count cannot be fully explained - gap source is unknown due to lack of reference data",
-    "Intermediate files now stored in /workspace/rb4_temp/ (not in RB4/)"
+    "PS4 has NO internet connectivity - completely offline",
+    "No central SongList.json in RB4 - metadata only in PKGs",
+    "Baseline file contains ALL 99 free songs (v1.00 + Rivals xpak)",
+    "v2.21 update was maintenance only - no new songs"
   ],
-  "environment": {
-    "extraction_temp_dir": "/workspace/rb4_temp",
-    "pkg_source": "SMB share at 192.168.100.135/incoming/temp/Rb4Dlc",
-    "container_capabilities": ["CAP_SYS_ADMIN required for .NET MemoryMappedFile"]
-  },
-  "baseline_song_breakdown": {
-    "rock_band_4_v1_00": 65,
-    "rock_band_4_rivals_xpak": 34,
-    "total": 99
-  },
-  "known_issues": [
-    "Parallel.ForEach in PkgTool.Core causes file lock race conditions - fixed with DOTNET_ProcessorCount=1",
-    "Large PKGs (>400MB) need DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract"
-  ],
+  "smb_config": "SMB share configured in /workspace/.devcontainer/rb4_dlc_config.sh",
   "instrument_legend": {
     "🎸": "Guitar/Bass/Pro Guitar",
     "🥁": "Drums/Pro Drums",
     "🎤": "Vocals/Harmony",
     "🎹": "Keys/Pro Keys",
-    "🔍": "Inferred (metadata was empty - recovered from shortName)"
+    "🔍": "Inferred (empty metadata)"
   },
-  "output_format": "Artist (Album) - Title (Year / Duration) - Source [ShortName] 🎸🎤🥁",
-  "filter_example": "Search for '🎹' to find songs with keyboard parts",
+  "prettier_command": "prettier --write /workspace/RB4/README.md",
   "vscode_tasks": [
-    "RB4: Reprocess Cached Data - Regenerate song lists from cached metadata (no PKG extraction)",
-    "RB4: Backup Previous Run - Archive intermediate files to timestamped 7z"
+    "RB4: Scan PKGs (test set, fresh)",
+    "RB4: Scan PKGs (test set, incremental)",
+    "RB4: Scan PKGs (local /pkgs folder, fresh)",
+    "RB4: Scan PKGs (local /pkgs folder, incremental)",
+    "RB4: Scan PKGs (network share, incremental)",
+    "RB4: Scan PKGs (network share, fresh)",
+    "RB4: Scan PKGs (SMB share via smbclient)",
+    "RB4: Scan PKGs (SMB share, fresh)",
+    "RB4: Scan PKGs (SMB custom server)",
+    "RB4: Scan PKGs (custom path)",
+    "RB4: Scan PKGs (custom path, fresh)",
+    "RB4: Show Mount Status",
+    "RB4: Configure Network Share (help)",
+    "RB4: List available PKG locations",
+    "RB4: Reprocess Cached Data",
+    "RB4: Backup Previous Run",
+    "RB4: Restore Backup"
   ]
 }

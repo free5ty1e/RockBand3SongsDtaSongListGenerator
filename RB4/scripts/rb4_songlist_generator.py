@@ -39,17 +39,23 @@ def log(msg):
         with open(LOG_FILE, 'a', encoding='utf-8') as f:
             f.write(msg + '\n')
 
-# Default paths
-DEFAULT_PKG_DIR = "/workspace/pkgs"
-DEFAULT_TEMP_DIR = "/workspace/rb4_temp"
-DEFAULT_OUTPUT_JSON = "/workspace/rb4_temp/rb4_custom_songs.json"
-DEFAULT_SONGLIST_DIR = "/workspace/RB4/output"
-DEFAULT_METADATA_DIR = "/workspace/RB4/output/PkgMetadataExtracted"
-PROCESSED_PKGS_FILE = "/workspace/rb4_temp/processed_pkgs.json"
-UPDATE_HISTORY_FILE = "/workspace/rb4_temp/update_history.json"
-ERROR_LOG_FILE = "/workspace/rb4_temp/pipeline_errors.json"
+# Import settings defaults
+from settings_defaults import (
+    DEFAULT_PKG_DIR,
+    DEFAULT_TEMP_DIR,
+    DEFAULT_OUTPUT_JSON,
+    DEFAULT_SONGLIST_DIR,
+    DEFAULT_METADATA_DIR,
+    DEFAULT_PROGRESS_BAR_LENGTH,
+    get_processed_pkgs_file,
+    get_update_history_file,
+    get_error_log_file,
+)
 
-LOG_FILE = None  # Set in main()
+LOG_FILE = None
+PROCESSED_PKGS_FILE = None  # Set in main()
+UPDATE_HISTORY_FILE = None  # Set in main()
+ERROR_LOG_FILE = None  # Set in main()
 
 
 def log(msg):
@@ -74,17 +80,18 @@ def load_empty_songs_baseline():
             log(f"Warning: Failed to load empty songs baseline: {e}")
     return {}
 
-def load_processed_pkgs():
+def load_processed_pkgs(processed_pkgs_file):
     """Load list of already-processed PKGs."""
-    if os.path.exists(PROCESSED_PKGS_FILE):
-        with open(PROCESSED_PKGS_FILE) as f:
+    if processed_pkgs_file and os.path.exists(processed_pkgs_file):
+        with open(processed_pkgs_file) as f:
             return set(json.load(f))
     return set()
 
-def save_processed_pkgs(processed):
+def save_processed_pkgs(processed, processed_pkgs_file):
     """Save list of processed PKGs."""
-    with open(PROCESSED_PKGS_FILE, 'w') as f:
-        json.dump(sorted(processed), f, indent=2)
+    if processed_pkgs_file:
+        with open(processed_pkgs_file, 'w') as f:
+            json.dump(sorted(processed), f, indent=2)
 
 def load_update_history():
     """Load update history."""
@@ -366,7 +373,9 @@ Examples:
     parser.add_argument('--smb', action='store_true',
                         help='PKGs are on SMB share (use smbclient to access)')
     parser.add_argument('--log', default=None,
-                        help='Log file path (default: temp_dir/metadata_<timestamp>.log)')
+                        help='Log file path (default: temp_dir/rb4_extract_<timestamp>.log)')
+    parser.add_argument('--progress-length', type=int, default=DEFAULT_PROGRESS_BAR_LENGTH,
+                        help=f'Progress bar length in characters (default: {DEFAULT_PROGRESS_BAR_LENGTH})')
 
     args = parser.parse_args()
 
@@ -382,6 +391,12 @@ Examples:
     else:
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
         LOG_FILE = os.path.join(args.temp_dir, f'rb4_extract_{ts}.log')
+    
+    # Derive state file paths from temp_dir
+    PROCESSED_PKGS_FILE = get_processed_pkgs_file(args.temp_dir)
+    UPDATE_HISTORY_FILE = get_update_history_file(args.temp_dir)
+    ERROR_LOG_FILE = get_error_log_file(args.temp_dir)
+    
     log(f"{icon('floppy')} Logging to: {LOG_FILE}")
     log(f"{icon('clock')} Started at {datetime.now().isoformat()}")
     
@@ -430,7 +445,7 @@ Examples:
     log(f"{icon('package')} Found {len(pkg_files)} PKG files in {args.pkg_dir}")
     
     # Load processed PKGs for incremental mode
-    processed = load_processed_pkgs() if args.incremental else set()
+    processed = load_processed_pkgs(PROCESSED_PKGS_FILE) if args.incremental else set()
     log(f"Incremental mode: {'enabled' if args.incremental else 'disabled'}")
     if processed:
         log(f"  Already processed: {len(processed)} PKGs")
@@ -490,10 +505,10 @@ Examples:
             
             # Mark as processed
             processed.add(pkg_name)
-            save_processed_pkgs(processed)
+            save_processed_pkgs(processed, PROCESSED_PKGS_FILE)
             
             pct = int(idx / total_pkgs * 100)
-            log(f"{icon('chart')} {progress_bar(idx, total_pkgs, length=40)} | {icon('music')} {len(all_songs)} songs")
+            log(f"{icon('chart')} {progress_bar(idx, total_pkgs, length=args.progress_length)} | {icon('music')} {len(all_songs)} songs")
             sys.stdout.flush()
             
         except Exception as e:
