@@ -32,6 +32,11 @@ def generate_html(metadata_dir, output_file):
         duration_str = f"{duration_sec // 60}:{duration_sec % 60:02d}" if duration_sec else ""
         
         inst_list = s.get("instrumentList", []) or []
+        vocal_parts = s.get("vocalParts", 0)
+        if vocal_parts > 1:
+            inst_list.append("harmony_1")
+        if vocal_parts > 2:
+            inst_list.append("harmony_2")
         instruments_text = ", ".join(inst_list) if inst_list else ""
         instruments_icons = ""
         for inst in ['real_guitar', 'real_bass', 'guitar', 'bass', 'drums', 'real_keys', 'keys', 'vocals']:
@@ -88,7 +93,8 @@ def generate_html(metadata_dir, output_file):
             const srcs = [...new Set(SONG_DATA.map(s => s.source))].sort();
             document.getElementById('source').innerHTML = '<option value="">All</option>' + 
                 srcs.map(s => `<option value="${s}">${s}</option>`).join('');
-            document.getElementById('totalCount').textContent = `(${SONG_DATA.length} songs)`;
+            document.getElementById('totalCount').textContent = `(${SONG_DATA.length})`;
+            document.getElementById('filteredCount').textContent = '';
             const instruments = ['guitar', 'bass', 'drums', 'vocals', 'keys', 'real_guitar', 'real_bass', 'real_keys', 'harmony_1', 'harmony_2'];
             document.getElementById('instFilter').innerHTML = instruments.map(i => 
                 `<label style="margin-right:8px"><input type="checkbox" value="${i}" checked onchange="filter()">${i}</label>`
@@ -138,6 +144,7 @@ def generate_html(metadata_dir, output_file):
                     <td class="inferred">${s.inferred || ''}</td>
                 </tr>
             `).join('');
+            document.getElementById('filteredCount').textContent = f.length !== SONG_DATA.length ? ` (filtered: ${f.length})` : '';
             document.getElementById('stats').textContent = `Showing ${f.length} of ${SONG_DATA.length} songs`;
         }
         
@@ -188,7 +195,7 @@ def generate_html(metadata_dir, output_file):
     </style>
 </head>
 <body>
-    <h1>🎸 Rock Band 4 Song List <span id="totalCount" style="font-size:16px;color:#888"></span></h1>
+    <h1>🎸 Rock Band 4 Song List <span id="totalCount" style="font-size:16px;color:#888"></span> <span id="filteredCount" style="font-size:14px;color:#48dbfb"></span></h1>
     <div class="controls">
         <div class="control-group">
             <label>🎨 Theme</label>
