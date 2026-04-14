@@ -3708,5 +3708,45 @@
     "category": "Other",
     "probable_title": "Youth of the Nation",
     "probable_artist": "P.O.D."
+  },
+  {
+    "short_filename": "21pilots_garbage",
+    "full_filename": "21pilots_garbage.songdta_ps4",
+    "source_pkg": "00-CREQ2604P08GARBG",
+    "category": "Other",
+    "probable_title": "Stressed Out",
+    "probable_artist": "Twenty One Pilots"
+  },
+  {
+    "short_filename": "gh&gw_cs",
+    "full_filename": "gh&gw_cs.songdta_ps4",
+    "source_pkg": "00-CREQ2604P15MISCS",
+    "category": "Other",
+    "probable_title": "Closer",
+    "probable_artist": "The Neighbourhood"
+  },
+  {
+    "short_filename": "loseyourself",
+    "full_filename": "loseyourself.songdta_ps4",
+    "source_pkg": "00-CREQ2604P18FIXED",
+    "category": "Other",
+    "probable_title": "Lose Yourself",
+    "probable_artist": "Eminem"
+  },
+  {
+    "short_filename": "beatsports",
+    "full_filename": "beatsports.songdta_ps4",
+    "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
+    "category": "Other",
+    "probable_title": "Beat Sports",
+    "probable_artist": "The Sports"
+  },
+  {
+    "short_filename": "21her",
+    "full_filename": "21her.songdta_ps4",
+    "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
+    "category": "Other",
+    "probable_title": "Her",
+    "probable_artist": "Twenty One Pilots"
   }
 ]

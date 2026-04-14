@@ -37,13 +37,23 @@ def generate_html(metadata_dir, output_file):
         duration_sec = s.get("durationMs", 0) // 1000 if s.get("durationMs") else 0
         duration_str = f"{duration_sec // 60}:{duration_sec % 60:02d}" if duration_sec else ""
         
-        # Convert instruments string to icons
-        instruments_str = s.get("instruments", "")
+        # Build instruments: emoji icons + text list
+        inst_list = s.get("instrumentList", []) or []
+        instruments_text = ", ".join(inst_list) if inst_list else ""
         instruments_icons = ""
-        if instruments_str:
-            for inst in ['real_guitar', 'real_bass', 'guitar', 'bass', 'drums', 'real_keys', 'keys', 'vocals']:
-                if inst in instruments_str.lower():
-                    instruments_icons += INSTRUMENT_ICONS.get(inst, '🎵')
+        for inst in ['real_guitar', 'real_bass', 'guitar', 'bass', 'drums', 'real_keys', 'keys', 'vocals']:
+            if inst in instruments_text.lower():
+                instruments_icons += INSTRUMENT_ICONS.get(inst, '🎵')
+        instruments_display = instruments_icons + instruments_text
+        
+        # Handle shortName: use _debug_file for empty metadata songs
+        short_name = s.get("shortName", "")
+        debug_file = s.get("_debug_file", "")
+        if not short_name and debug_file:
+            short_name = debug_file.replace(".songdta_ps4", "")
+        
+        # Inferred marker
+        inferred = "✓" if s.get("inferred") else ""
         
         js_songs.append({
             "artist": s.get("artist", ""),
@@ -53,8 +63,9 @@ def generate_html(metadata_dir, output_file):
             "duration": duration_sec,
             "duration_str": duration_str,
             "source": s.get("source", ""),
-            "shortName": s.get("shortName", ""),
-            "instruments": instruments_icons
+            "shortName": short_name,
+            "instruments": instruments_display,
+            "inferred": inferred
         })
     
     js_data = json.dumps(js_songs)
@@ -86,7 +97,8 @@ def generate_html(metadata_dir, output_file):
         .source-Rivals {{ background: #ff6b6b; color: #000; padding: 2px 6px; border-radius: 8px; font-size: 10px; }}
         .source-custom {{ background: #feca57; color: #000; padding: 2px 6px; border-radius: 8px; font-size: 10px; }}
         .source-dlc, .source-DLC {{ background: #48dbfb; color: #000; padding: 2px 6px; border-radius: 8px; font-size: 10px; }}
-        .instr {{ font-size: 14px; }}
+        .instr {{ font-size: 14px; white-space: nowrap; overflow-x: auto; max-width: 400px; }}
+        .inferred {{ color: #4ade80; font-weight: bold; }}
         .stats {{ margin-top: 15px; color: #888; font-size: 14px; }}
     </style>
 </head>
@@ -137,6 +149,7 @@ def generate_html(metadata_dir, output_file):
                 <th onclick="sort(5)">Source ⬍</th>
                 <th onclick="sort(6)">ShortName ⬍</th>
                 <th>Instruments</th>
+                <th>Inferred</th>
             </tr>
         </thead>
         <tbody id="body"></tbody>
@@ -200,6 +213,7 @@ def generate_html(metadata_dir, output_file):
                     <td><span class="source-${{s.source.replace(/\\s+/g, '')}}">${{s.source}}</span></td>
                     <td style="font-family:monospace;font-size:11px;">${{s.shortName || ''}}</td>
                     <td class="instr">${{s.instruments || ''}}</td>
+                    <td class="inferred">${{s.inferred || ''}}</td>
                 </tr>
             `).join('');
             document.getElementById('stats').textContent = `Showing ${{f.length}} of ${{SONG_DATA.length}} songs`;
