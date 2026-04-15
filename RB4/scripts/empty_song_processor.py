@@ -19,7 +19,9 @@ def load_empty_songs_baseline(baseline_path=None):
                 return {
                     s['short_filename']: {
                         'title': s.get('probable_title'), 
-                        'artist': s.get('probable_artist')
+                        'artist': s.get('probable_artist'),
+                        'instrumentList': s.get('instrumentList', []),
+                        'vocalParts': s.get('vocalParts', 0)
                     } 
                     for s in data if 'short_filename' in s
                 }
@@ -50,16 +52,23 @@ def apply_empty_song_fallback(songs, baseline=None):
         filename = song.get('_debug_file', '')
         short_name = filename.replace('.songdta_ps4', '')
         
-        if not song.get('artist') or song.get('artist') == 'Unknown':
-            if short_name in baseline:
+        if short_name in baseline:
                 baseline_info = baseline[short_name]
                 current_title = song.get('title')
                 current_artist = song.get('artist')
+                current_inst = song.get('instrumentList', [])
+                current_vp = song.get('vocalParts', 0)
                 
+                # Apply fallback for any missing data
                 if not current_title or current_title == short_name:
                     song['title'] = baseline_info.get('title') or current_title
                 if not current_artist or current_artist == 'Unknown':
                     song['artist'] = baseline_info.get('artist') or current_artist
+                # Copy instruments if not present or empty
+                if (not current_inst or len(current_inst) == 0) and baseline_info.get('instrumentList'):
+                    song['instrumentList'] = baseline_info['instrumentList']
+                if not current_vp and baseline_info.get('vocalParts'):
+                    song['vocalParts'] = baseline_info['vocalParts']
                 song['inferred'] = True
     
     return songs

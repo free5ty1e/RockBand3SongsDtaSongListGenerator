@@ -5,7 +5,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Other",
     "probable_title": "10,000 Hours",
-    "probable_artist": "Dan + Shay"
+    "probable_artist": "Dan + Shay",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "18andlife",
@@ -13,19 +20,37 @@
     "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
     "category": "Other",
     "probable_title": "18 and Life",
-    "probable_artist": "Skid Row"
+    "probable_artist": "Skid Row",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "21her",
     "full_filename": "21her.songdta_ps4",
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
-    "category": "Other"
+    "category": "Other",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "21pilots_garbage",
     "full_filename": "21pilots_garbage.songdta_ps4",
     "source_pkg": "00-CREQ2604P08GARBG",
-    "category": "Other"
+    "category": "Other",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "21stcenturybreakdown",
@@ -33,7 +58,14 @@
     "source_pkg": "00-GDRBGREENDAYPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "21st Century (Breakdown)",
-    "probable_artist": "Green Day"
+    "probable_artist": "Green Day",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "24kmagic",
@@ -41,7 +73,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "24K Magic",
-    "probable_artist": "Bruno Mars"
+    "probable_artist": "Bruno Mars",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "2minutestomidnight",
@@ -49,7 +88,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "2 Minutes to Midnight",
-    "probable_artist": "Iron Maiden"
+    "probable_artist": "Iron Maiden",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "3am",
@@ -57,7 +103,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "3AM",
-    "probable_artist": "Matchbox Twenty"
+    "probable_artist": "Matchbox Twenty",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "5minutesalone",
@@ -65,7 +118,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "5 Minutes Alone",
-    "probable_artist": "Pantera"
+    "probable_artist": "Pantera",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "abigail_rbn",
@@ -73,7 +133,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "Abigail",
-    "probable_artist": "Stealing Abraham"
+    "probable_artist": "Stealing Abraham",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "absolutely",
@@ -81,7 +148,14 @@
     "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
     "category": "Other",
     "probable_title": "Absolutely",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "aceofspades",
@@ -89,7 +163,14 @@
     "source_pkg": "00-RB2ROCKBAND2PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Ace of Spades",
-    "probable_artist": "Mot\u00f6rhead"
+    "probable_artist": "Mot\u00f6rhead",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "addicted",
@@ -97,7 +178,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Other",
     "probable_title": "Addicted",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "agirllikeyou",
@@ -105,7 +193,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "A Girl Like You",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "alinnocencev2",
@@ -113,7 +208,11 @@
     "source_pkg": "00-CREQ2604P03AVRIL",
     "category": "Version_Number",
     "probable_title": "All Innocence",
-    "probable_artist": "Avril Lavigne"
+    "probable_artist": "Avril Lavigne",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "alive2",
@@ -121,7 +220,14 @@
     "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Alive",
-    "probable_artist": "Pearl Jam"
+    "probable_artist": "Pearl Jam",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "allaboutthatbass",
@@ -129,7 +235,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "All About That Bass",
-    "probable_artist": "Meghan Trainor"
+    "probable_artist": "Meghan Trainor",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "alldownhillfromhere",
@@ -137,7 +250,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "All Downhill From Here",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "alliwant",
@@ -145,7 +265,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "All I Want",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "allmyfavoritesongs2",
@@ -153,7 +280,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "All My Favorite Songs",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "allthesethingsthativedone",
@@ -161,7 +295,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "All the Things That I've Done",
-    "probable_artist": "The Killers"
+    "probable_artist": "The Killers",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "allthethingsthatgo",
@@ -169,7 +310,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "All the Things That Go",
-    "probable_artist": "The Killers"
+    "probable_artist": "The Killers",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "alnotenough",
@@ -177,7 +325,11 @@
     "source_pkg": "00-CREQ2604P03AVRIL",
     "category": "Other",
     "probable_title": "Not Enough",
-    "probable_artist": "Avril Lavigne"
+    "probable_artist": "Avril Lavigne",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "altoomuchtoaskv3",
@@ -185,7 +337,11 @@
     "source_pkg": "00-CREQ2604P03AVRIL",
     "category": "Version_Number",
     "probable_title": "Too Much to Ask",
-    "probable_artist": "Avril Lavigne"
+    "probable_artist": "Avril Lavigne",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "amaranth",
@@ -193,7 +349,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Amaranth",
-    "probable_artist": "Nightwish"
+    "probable_artist": "Nightwish",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "analysetcbyaenv",
@@ -201,7 +364,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "Other",
     "probable_title": "Analyze",
-    "probable_artist": "Env"
+    "probable_artist": "Env",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "andres",
@@ -209,7 +376,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Andres",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "animalinstinct_rb3byaldoen",
@@ -217,7 +391,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "RB3_Export",
     "probable_title": "Animal Instinct",
-    "probable_artist": "The Cranberries"
+    "probable_artist": "The Cranberries",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "anotheronebitesthedust",
@@ -225,7 +403,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Another One Bites the Dust",
-    "probable_artist": "Queen"
+    "probable_artist": "Queen",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "antibodies",
@@ -233,7 +418,14 @@
     "source_pkg": "00-RB3ROCKBAND3PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Antibodies",
-    "probable_artist": "Puscifer"
+    "probable_artist": "Puscifer",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "antisocialist",
@@ -241,7 +433,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Other",
     "probable_title": "Antisocialist",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "anymanofmine",
@@ -249,7 +448,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Any Man of Mine",
-    "probable_artist": "Shania Twain"
+    "probable_artist": "Shania Twain",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "appetiterbn",
@@ -257,7 +463,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Appetite",
-    "probable_artist": "Rival Sons"
+    "probable_artist": "Rival Sons",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "apunk",
@@ -265,7 +478,11 @@
     "source_pkg": "00-LEGOROCKBANDPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "A Punk",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "atoutlemonde",
@@ -273,7 +490,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Au Tour du Monde",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "awfulbeautifullife2",
@@ -281,7 +505,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Awful Beautiful Life",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "backthroughtime_rbn",
@@ -289,7 +520,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "Back Through Time",
-    "probable_artist": "Alestorm"
+    "probable_artist": "Alestorm",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "badcaseoflovingyou",
@@ -297,7 +535,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Bad Case of Loving You",
-    "probable_artist": "Mike Oldfield"
+    "probable_artist": "Mike Oldfield",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "badcatholics",
@@ -305,7 +550,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Bad Catholics",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "badmedicine",
@@ -313,7 +565,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Bad Medicine",
-    "probable_artist": "Bon Jovi"
+    "probable_artist": "Bon Jovi",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "badreputation",
@@ -321,7 +580,14 @@
     "source_pkg": "00-RB2ROCKBAND2PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Bad Reputation",
-    "probable_artist": "Joan Jett"
+    "probable_artist": "Joan Jett",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "bakerstreet",
@@ -329,7 +595,14 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "Baker Street",
-    "probable_artist": "Gerry Rafferty"
+    "probable_artist": "Gerry Rafferty",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "bandontherun",
@@ -337,7 +610,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Band on the Run",
-    "probable_artist": "Paul McCartney & Wings"
+    "probable_artist": "Paul McCartney & Wings",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "bathcounty",
@@ -345,7 +625,14 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "Bath County",
-    "probable_artist": "Kyuss"
+    "probable_artist": "Kyuss",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "bbmegalomaniacv1",
@@ -353,7 +640,11 @@
     "source_pkg": "00-CREQ2604P13INCYA",
     "category": "Other",
     "probable_title": "Megalomaniac",
-    "probable_artist": "Miley Cyrus"
+    "probable_artist": "Miley Cyrus",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "beatitondowntheline",
@@ -361,13 +652,27 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Beat It Down the Line",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "beatsports",
     "full_filename": "beatsports.songdta_ps4",
     "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
-    "category": "Other"
+    "category": "Other",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "ben",
@@ -375,7 +680,11 @@
     "source_pkg": "00-CREQ2604P11MJACK",
     "category": "Other",
     "probable_title": "Ben",
-    "probable_artist": "Michael Jackson"
+    "probable_artist": "Michael Jackson",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "bigbangbaby",
@@ -383,7 +692,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Big Bang Baby",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "black",
@@ -391,7 +707,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Black",
-    "probable_artist": "Pearl Jam"
+    "probable_artist": "Pearl Jam",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "blacksummer",
@@ -399,7 +722,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Black Summer",
-    "probable_artist": "Red Hot Chili Peppers"
+    "probable_artist": "Red Hot Chili Peppers",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "blitzkriegbop",
@@ -407,7 +737,14 @@
     "source_pkg": "00-RB1ROCKBAND1PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Blitzkrieg Bop",
-    "probable_artist": "Ramones"
+    "probable_artist": "Ramones",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "bloodredrock_rbn",
@@ -415,7 +752,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "Blood Red Rock",
-    "probable_artist": "Fox Amuse"
+    "probable_artist": "Fox Amuse",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "blueonblack",
@@ -423,7 +767,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Other",
     "probable_title": "Blue on Black",
-    "probable_artist": "Kenny Wayne Shepherd"
+    "probable_artist": "Kenny Wayne Shepherd",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "blurry",
@@ -431,7 +782,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Blurry",
-    "probable_artist": "Puddle of Mudd"
+    "probable_artist": "Puddle of Mudd",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "bnl_onelittleslip",
@@ -439,7 +797,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "Other",
     "probable_title": "One Little Slip",
-    "probable_artist": "Barenaked Ladies"
+    "probable_artist": "Barenaked Ladies",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "bnljanev2",
@@ -447,7 +809,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "Version_Number",
     "probable_title": "Jane",
-    "probable_artist": "Barenaked Ladies"
+    "probable_artist": "Barenaked Ladies",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "bodhisattva",
@@ -455,7 +821,14 @@
     "source_pkg": "00-RB2ROCKBAND2PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Bodhisattva",
-    "probable_artist": "Steely Dan"
+    "probable_artist": "Steely Dan",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "bombtrack",
@@ -463,7 +836,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Bomb Track",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "bornagaintomorrow",
@@ -471,7 +851,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Born Again Tomorrow",
-    "probable_artist": "The Killers"
+    "probable_artist": "The Killers",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "bornintheheat",
@@ -479,7 +866,14 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "Born in the Heat",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "bringmetolife",
@@ -487,7 +881,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Bring Me to Life",
-    "probable_artist": "Evanescence"
+    "probable_artist": "Evanescence",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "broken3",
@@ -495,7 +896,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Broken",
-    "probable_artist": "Seether"
+    "probable_artist": "Seether",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "brooklynbridge_strokes",
@@ -503,7 +911,11 @@
     "source_pkg": "00-CREQ2604P16STROK",
     "category": "Other",
     "probable_title": "Brooklyn Bridge",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "burninghearts_rbn",
@@ -511,7 +923,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "Burning Hearts",
-    "probable_artist": "Rob Dougan"
+    "probable_artist": "Rob Dougan",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "burnitdown",
@@ -519,7 +938,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Burn It Down",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "burnitdown_rbn",
@@ -527,7 +953,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "Burn It Down",
-    "probable_artist": "Korn"
+    "probable_artist": "Korn",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "cantgetenoughofyoubaby",
@@ -535,7 +968,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Can't Get Enough of You Baby",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "canyoutell_rbn",
@@ -543,7 +983,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "Can You Tell",
-    "probable_artist": "Rival Sons"
+    "probable_artist": "Rival Sons",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "caraphernelia_rbn",
@@ -551,7 +998,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "Caraphrenia",
-    "probable_artist": "Pierce the Veil"
+    "probable_artist": "Pierce the Veil",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "carryonwaywardson",
@@ -559,7 +1013,14 @@
     "source_pkg": "00-RB2ROCKBAND2PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Carry On Wayward Son",
-    "probable_artist": "Kansas"
+    "probable_artist": "Kansas",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "catcherintherye",
@@ -567,7 +1028,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Catcher in the Rye",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "cavitysearch",
@@ -575,7 +1043,11 @@
     "source_pkg": "00-CREQ2604P17WRDAL",
     "category": "Other",
     "probable_title": "Cavity Search",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "champagnesupernova",
@@ -583,7 +1055,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Champagne Supernova",
-    "probable_artist": "Oasis"
+    "probable_artist": "Oasis",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "chandelier",
@@ -591,7 +1070,11 @@
     "source_pkg": "00-CREQ2604P14KTSIA",
     "category": "Other",
     "probable_title": "Chandelier",
-    "probable_artist": "Sia"
+    "probable_artist": "Sia",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "chinagrove",
@@ -599,7 +1082,14 @@
     "source_pkg": "00-RB3ROCKBAND3PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "China Grove",
-    "probable_artist": "The Doobie Brothers"
+    "probable_artist": "The Doobie Brothers",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "closer3",
@@ -607,7 +1097,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Closer",
-    "probable_artist": "The Neighbourhood"
+    "probable_artist": "The Neighbourhood",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "comeandgetyourlove",
@@ -615,7 +1112,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Other",
     "probable_title": "Come and Get Your Love",
-    "probable_artist": "Redbone"
+    "probable_artist": "Redbone",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "comforteagle",
@@ -623,7 +1127,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Comfort Eagle",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "complicated",
@@ -631,7 +1142,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Complicated",
-    "probable_artist": "Avril Lavigne"
+    "probable_artist": "Avril Lavigne",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "cosmicdancer",
@@ -639,7 +1157,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Cosmic Dancer",
-    "probable_artist": "T. Rex"
+    "probable_artist": "T. Rex",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "countingcrowsroundhere",
@@ -647,7 +1172,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "Other",
     "probable_title": "Round Here",
-    "probable_artist": "Counting Crows"
+    "probable_artist": "Counting Crows",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cowboycasanova",
@@ -655,7 +1184,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Cowboy Casanova",
-    "probable_artist": "M\u00f6tley Cr\u00fce"
+    "probable_artist": "M\u00f6tley Cr\u00fce",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "crawlingbacktoyou",
@@ -663,7 +1199,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Crawling Back to You",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "crazylittlething",
@@ -671,7 +1214,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Crazy Little Thing Called Love",
-    "probable_artist": "Queen"
+    "probable_artist": "Queen",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "crosses",
@@ -679,7 +1229,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Crosses",
-    "probable_artist": "Crosses"
+    "probable_artist": "Crosses",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "cu_alwaysonmymindkris",
@@ -687,7 +1244,11 @@
     "source_pkg": "00-ELVIS00000000001",
     "category": "Custom",
     "probable_title": "Always on My Mind",
-    "probable_artist": "Elvis"
+    "probable_artist": "Elvis",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_beegees_words",
@@ -695,7 +1256,11 @@
     "source_pkg": "00-BEEGEES000000001",
     "category": "Custom",
     "probable_title": "Words",
-    "probable_artist": "Bee Gees"
+    "probable_artist": "Bee Gees",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_bg_massachusetts",
@@ -703,7 +1268,11 @@
     "source_pkg": "00-BEEGEES000000001",
     "category": "Custom",
     "probable_title": "Massachusetts",
-    "probable_artist": "Bee Gees"
+    "probable_artist": "Bee Gees",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_bg_nf_mtaw",
@@ -711,7 +1280,11 @@
     "source_pkg": "00-BEEGEES000000001",
     "category": "Custom",
     "probable_title": "More Than a Woman",
-    "probable_artist": "Bee Gees"
+    "probable_artist": "Bee Gees",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_bk_gruntildaslair",
@@ -719,7 +1292,11 @@
     "source_pkg": "00-GRANTKIRKHOPE001",
     "category": "Custom",
     "probable_title": "Gruntilda's Lair",
-    "probable_artist": "Grant Kirkhope"
+    "probable_artist": "Grant Kirkhope",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_canthelp",
@@ -727,7 +1304,11 @@
     "source_pkg": "00-ELVIS00000000001",
     "category": "Custom",
     "probable_title": "Can't Help Falling in Love",
-    "probable_artist": "Elvis"
+    "probable_artist": "Elvis",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_df_letsgetrocked_d",
@@ -735,7 +1316,11 @@
     "source_pkg": "00-DEFLEPPARD000001",
     "category": "Custom",
     "probable_title": "Let's Get Rocked",
-    "probable_artist": "Def Leppard"
+    "probable_artist": "Def Leppard",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_dl_love",
@@ -743,7 +1328,11 @@
     "source_pkg": "00-DEFLEPPARD000001",
     "category": "Custom",
     "probable_title": "Love",
-    "probable_artist": "Def Leppard"
+    "probable_artist": "Def Leppard",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_doclittlesiselvis69fb",
@@ -751,7 +1340,11 @@
     "source_pkg": "00-ELVIS00000000001",
     "category": "Custom",
     "probable_title": "A Little Less Conversation",
-    "probable_artist": "Elvis"
+    "probable_artist": "Elvis",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_gk_bubblegloopswamprj",
@@ -759,7 +1352,11 @@
     "source_pkg": "00-GRANTKIRKHOPE001",
     "category": "Custom",
     "probable_title": "Bubblegloop Swamp",
-    "probable_artist": "Grant Kirkhope"
+    "probable_artist": "Grant Kirkhope",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_gk_clickclockwoodspring",
@@ -767,7 +1364,11 @@
     "source_pkg": "00-GRANTKIRKHOPE001",
     "category": "Custom",
     "probable_title": "Click Clock Wood",
-    "probable_artist": "Grant Kirkhope"
+    "probable_artist": "Grant Kirkhope",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_gk_spiralmountain",
@@ -775,7 +1376,11 @@
     "source_pkg": "00-GRANTKIRKHOPE001",
     "category": "Custom",
     "probable_title": "Spiral Mountain",
-    "probable_artist": "Grant Kirkhope"
+    "probable_artist": "Grant Kirkhope",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_gk_treasuretrovecove",
@@ -783,7 +1388,11 @@
     "source_pkg": "00-GRANTKIRKHOPE001",
     "category": "Custom",
     "probable_title": "Treasure Trove Cove",
-    "probable_artist": "Grant Kirkhope"
+    "probable_artist": "Grant Kirkhope",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_leppardlovebites",
@@ -791,7 +1400,11 @@
     "source_pkg": "00-DEFLEPPARD000001",
     "category": "Custom",
     "probable_title": "Love Bites",
-    "probable_artist": "Def Leppard"
+    "probable_artist": "Def Leppard",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_littlelessconversation",
@@ -799,7 +1412,11 @@
     "source_pkg": "00-ELVIS00000000001",
     "category": "Custom",
     "probable_title": "A Little Less Conversation",
-    "probable_artist": "Elvis"
+    "probable_artist": "Elvis",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_o434159706",
@@ -807,7 +1424,11 @@
     "source_pkg": "00-DEFLEPPARD000001",
     "category": "Custom",
     "probable_title": "434159706",
-    "probable_artist": "Unknown"
+    "probable_artist": "Unknown",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_o874280806_manenough_defle",
@@ -815,7 +1436,11 @@
     "source_pkg": "00-DEFLEPPARD000001",
     "category": "Custom",
     "probable_title": "Man Enough",
-    "probable_artist": "Def Leppard"
+    "probable_artist": "Def Leppard",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_o932729391_greaselive_beeg",
@@ -823,7 +1448,11 @@
     "source_pkg": "00-BEEGEES000000001",
     "category": "Custom",
     "probable_title": "Grease",
-    "probable_artist": "Bee Gees"
+    "probable_artist": "Bee Gees",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "cu_poursomesugaronme",
@@ -831,7 +1460,11 @@
     "source_pkg": "00-DEFLEPPARD000001",
     "category": "Custom",
     "probable_title": "Pour Some Sugar On Me",
-    "probable_artist": "Def Leppard"
+    "probable_artist": "Def Leppard",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "deep",
@@ -839,7 +1472,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Deep",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "devilshaircut",
@@ -847,7 +1487,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Devil's Haircut",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "dieouthere",
@@ -855,7 +1502,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Die Out Here",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "dontfearthereaper",
@@ -863,7 +1517,14 @@
     "source_pkg": "00-RB1ROCKBAND1PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Don't Fear the Reaper",
-    "probable_artist": "Blue \u00d6yster Cult"
+    "probable_artist": "Blue \u00d6yster Cult",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "down3",
@@ -871,7 +1532,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Down",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "downfall",
@@ -879,7 +1547,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Downfall",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "dragthewaters",
@@ -887,7 +1562,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Drag the Waters",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "dreambaby",
@@ -895,7 +1577,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Dream Baby",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "dreamingoflove",
@@ -903,7 +1592,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Dreaming of Love",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "drunk",
@@ -911,7 +1607,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Drunk",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "drunkenlullabieslive_rbn",
@@ -919,7 +1622,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "Drunken Lullabies",
-    "probable_artist": "Flogging Molly"
+    "probable_artist": "Flogging Molly",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "duality",
@@ -927,7 +1637,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Duality",
-    "probable_artist": "Slipknot"
+    "probable_artist": "Slipknot",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "ef_ham_alexh",
@@ -935,7 +1652,11 @@
     "source_pkg": "00-HAMILTONDMUSICAL",
     "category": "Other",
     "probable_title": "Alexander Hamilton",
-    "probable_artist": "Lin-Manuel Miranda"
+    "probable_artist": "Lin-Manuel Miranda",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "ef_ham_deartheo",
@@ -943,7 +1664,11 @@
     "source_pkg": "00-HAMILTONDMUSICAL",
     "category": "Other",
     "probable_title": "Dear Theodosia",
-    "probable_artist": "Lin-Manuel Miranda"
+    "probable_artist": "Lin-Manuel Miranda",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "ef_ham_schuysis",
@@ -951,7 +1676,11 @@
     "source_pkg": "00-HAMILTONDMUSICAL",
     "category": "Other",
     "probable_title": "The Schuyler Sisters",
-    "probable_artist": "Lin-Manuel Miranda"
+    "probable_artist": "Lin-Manuel Miranda",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "ef_ham_stayrep",
@@ -959,7 +1688,11 @@
     "source_pkg": "00-HAMILTONDMUSICAL",
     "category": "Other",
     "probable_title": "Stay",
-    "probable_artist": "Lin-Manuel Miranda"
+    "probable_artist": "Lin-Manuel Miranda",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "ef_ham_tsot",
@@ -967,7 +1700,11 @@
     "source_pkg": "00-HAMILTONDMUSICAL",
     "category": "Other",
     "probable_title": "Ten Things One Thing",
-    "probable_artist": "Hamilton"
+    "probable_artist": "Hamilton",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "ef_ham_waitfi",
@@ -975,7 +1712,11 @@
     "source_pkg": "00-HAMILTONDMUSICAL",
     "category": "Other",
     "probable_title": "Wait For It",
-    "probable_artist": "Lin-Manuel Miranda"
+    "probable_artist": "Lin-Manuel Miranda",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "einsteinonthebeach",
@@ -983,7 +1724,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "Other",
     "probable_title": "Einstein on the Beach",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "embedded",
@@ -991,7 +1736,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Embedded",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "empireofthegun",
@@ -999,7 +1751,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Empire of the Gun",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "escapethepinacoladasong",
@@ -1007,7 +1766,14 @@
     "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
     "category": "Other",
     "probable_title": "Escape (The Pi\u00f1a Colada Song)",
-    "probable_artist": "Rupert Holmes"
+    "probable_artist": "Rupert Holmes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "estella",
@@ -1015,7 +1781,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Estella",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "euphoria",
@@ -1023,7 +1796,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Euphoria",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "evercleareldistortodemelod",
@@ -1031,7 +1811,11 @@
     "source_pkg": "00-CREQ2604P06EVRCL",
     "category": "Other",
     "probable_title": "Father of Mine",
-    "probable_artist": "Everclear"
+    "probable_artist": "Everclear",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "everybreathyoutake",
@@ -1039,7 +1823,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Every Breath You Take",
-    "probable_artist": "The Police"
+    "probable_artist": "The Police",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "everymorning",
@@ -1047,7 +1838,14 @@
     "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
     "category": "Other",
     "probable_title": "Every Morning",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "everythingzen",
@@ -1055,7 +1853,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Everything Zen",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "exodus",
@@ -1063,7 +1868,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Exodus",
-    "probable_artist": "Bob Marley"
+    "probable_artist": "Bob Marley",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "falling2",
@@ -1071,7 +1883,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Falling",
-    "probable_artist": "Three Days Grace"
+    "probable_artist": "Three Days Grace",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "fallingawayfromme",
@@ -1079,7 +1898,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Falling Away from Me",
-    "probable_artist": "Korn"
+    "probable_artist": "Korn",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "fame",
@@ -1087,7 +1913,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Fame",
-    "probable_artist": "David Bowie"
+    "probable_artist": "David Bowie",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "fantasma2",
@@ -1095,7 +1928,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Fantasma",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "far_badv2",
@@ -1103,7 +1943,11 @@
     "source_pkg": "00-CREQ2604P11MJACK",
     "category": "Version_Number",
     "probable_title": "Far Bad",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "fatherofmine",
@@ -1111,7 +1955,11 @@
     "source_pkg": "00-CREQ2604P06EVRCL",
     "category": "Other",
     "probable_title": "Father of Mine",
-    "probable_artist": "Everclear"
+    "probable_artist": "Everclear",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "feelgoodinc",
@@ -1119,7 +1967,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Feel Good Inc",
-    "probable_artist": "Gorillaz"
+    "probable_artist": "Gorillaz",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "feelinvincible",
@@ -1127,7 +1982,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Feel Invincible",
-    "probable_artist": "Skillet"
+    "probable_artist": "Skillet",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "feelitstill",
@@ -1135,7 +1997,14 @@
     "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
     "category": "Other",
     "probable_title": "Feel It Still",
-    "probable_artist": "Portugal. The Man"
+    "probable_artist": "Portugal. The Man",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "feelslikethefirsttime",
@@ -1143,7 +2012,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Feels Like the First Time",
-    "probable_artist": "Foreigner"
+    "probable_artist": "Foreigner",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "fellinlovewithagirl",
@@ -1151,7 +2027,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Fell in Love with a Girl",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "ffv_bridge",
@@ -1159,7 +2042,11 @@
     "source_pkg": "00-CREQ2604P07FNLFN",
     "category": "Other",
     "probable_title": "Final Fantasy V Bridge",
-    "probable_artist": "Nobuo Uematsu"
+    "probable_artist": "Nobuo Uematsu",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "firelive",
@@ -1167,7 +2054,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Fire (Live)",
-    "probable_artist": "The Jimi Hendrix"
+    "probable_artist": "The Jimi Hendrix",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "fireohio",
@@ -1175,7 +2069,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Fire Ohio",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "firstdate",
@@ -1183,7 +2084,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "First Date",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "flowerpeople",
@@ -1191,7 +2099,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Flower People",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "footloose",
@@ -1199,7 +2114,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Footloose",
-    "probable_artist": "Kenny Loggins"
+    "probable_artist": "Kenny Loggins",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "fortunateson",
@@ -1207,7 +2129,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Fortunate Son",
-    "probable_artist": "Creedence Clearwater Revival"
+    "probable_artist": "Creedence Clearwater Revival",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "foundoutaboutyou",
@@ -1215,7 +2144,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Found Out About You",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "franzferdinandthisfire",
@@ -1223,7 +2159,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "Other",
     "probable_title": "This Fire",
-    "probable_artist": "Franz Ferdinand"
+    "probable_artist": "Franz Ferdinand",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "freeandeasy",
@@ -1231,7 +2171,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Free and Easy",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "freezeframe",
@@ -1239,7 +2186,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Freeze Frame",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "gasoline_rbn",
@@ -1247,7 +2201,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "Gasoline",
-    "probable_artist": "The Raconteurs"
+    "probable_artist": "The Raconteurs",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "getready2rokk",
@@ -1255,13 +2216,24 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Get Ready to Rock",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "gh&gw_cs",
     "full_filename": "gh&gw_cs.songdta_ps4",
     "source_pkg": "00-CREQ2604P15MISCS",
-    "category": "Other"
+    "category": "Other",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "gif",
@@ -1269,7 +2241,11 @@
     "source_pkg": "00-CREQ2604P17WRDAL",
     "category": "Other",
     "probable_title": "GIF",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "girlscoutcookies",
@@ -1277,7 +2253,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Girl Scout Cookies",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "girlsjustwanttohavefun",
@@ -1285,7 +2268,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Girls Just Want to Have Fun",
-    "probable_artist": "Cyndi Lauper"
+    "probable_artist": "Cyndi Lauper",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "giveitall",
@@ -1293,7 +2283,14 @@
     "source_pkg": "00-RB2ROCKBAND2PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Give It All",
-    "probable_artist": "Rise Against"
+    "probable_artist": "Rise Against",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "glycerine2",
@@ -1301,7 +2298,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Glycerine",
-    "probable_artist": "Bush"
+    "probable_artist": "Bush",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "godzillaprov3",
@@ -1309,7 +2313,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "Version_Number",
     "probable_title": "Godzilla",
-    "probable_artist": "Blue \u00d6yster Cult"
+    "probable_artist": "Blue \u00d6yster Cult",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "goodbyegoodluck",
@@ -1317,7 +2325,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Goodbye Good Luck",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "grubcurejset",
@@ -1325,7 +2340,11 @@
     "source_pkg": "00-THEECURENOTINRB4",
     "category": "Other",
     "probable_title": "Grub Cure J Set",
-    "probable_artist": "The E-Cur"
+    "probable_artist": "The E-Cur",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "grubcureobject",
@@ -1333,7 +2352,11 @@
     "source_pkg": "00-THEECURENOTINRB4",
     "category": "Other",
     "probable_title": "Grub Cure Object",
-    "probable_artist": "The E-Cur"
+    "probable_artist": "The E-Cur",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "grubcurepfr",
@@ -1341,7 +2364,11 @@
     "source_pkg": "00-THEECURENOTINRB4",
     "category": "Other",
     "probable_title": "Grub Cure PFR",
-    "probable_artist": "The E-Cur"
+    "probable_artist": "The E-Cur",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "handclap",
@@ -1349,7 +2376,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "HandClap",
-    "probable_artist": "Fitz and the Tantrums"
+    "probable_artist": "Fitz and the Tantrums",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "hangar18",
@@ -1357,7 +2391,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Hangar 18",
-    "probable_artist": "Megadeth"
+    "probable_artist": "Megadeth",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "hardtosee_rbn",
@@ -1365,7 +2406,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "Hard to See",
-    "probable_artist": "Five Finger Death Punch"
+    "probable_artist": "Five Finger Death Punch",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "hateful",
@@ -1373,7 +2421,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Hateful",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "haveaniceday",
@@ -1381,7 +2436,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Have a Nice Day",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "heavenbesideyou",
@@ -1389,7 +2451,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Heaven Beside You",
-    "probable_artist": "Alice in Chains"
+    "probable_artist": "Alice in Chains",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "heavenknows",
@@ -1397,7 +2466,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Heaven Knows",
-    "probable_artist": "The Pretty Reckless"
+    "probable_artist": "The Pretty Reckless",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "heresjohnny",
@@ -1405,7 +2481,11 @@
     "source_pkg": "00-CREQ2604P17WRDAL",
     "category": "Other",
     "probable_title": "Here's Johnny",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "heroes",
@@ -1413,7 +2493,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Heroes",
-    "probable_artist": "David Bowie"
+    "probable_artist": "David Bowie",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "heyjealousy",
@@ -1421,7 +2508,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Hey Jealousy",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "heymanniceshot",
@@ -1429,7 +2523,14 @@
     "source_pkg": "00-RB3ROCKBAND3PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Hey Man, Nice Shot",
-    "probable_artist": "Mana"
+    "probable_artist": "Mana",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "heyya",
@@ -1437,7 +2538,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Hey Ya!",
-    "probable_artist": "OutKast"
+    "probable_artist": "OutKast",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "highwaystar",
@@ -1445,7 +2553,14 @@
     "source_pkg": "00-RB1ROCKBAND1PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Highway Star",
-    "probable_artist": "Deep Purple"
+    "probable_artist": "Deep Purple",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "hitmewithyourbestshot",
@@ -1453,7 +2568,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Hit Me with Your Best Shot",
-    "probable_artist": "Pat Benatar"
+    "probable_artist": "Pat Benatar",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "holeintheearth",
@@ -1461,7 +2583,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Hole in the Earth",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "holidayincambodia",
@@ -1469,7 +2598,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Holiday in Cambodia",
-    "probable_artist": "Dead Kennedys"
+    "probable_artist": "Dead Kennedys",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "homecoming",
@@ -1477,7 +2613,14 @@
     "source_pkg": "00-GDRBGREENDAYPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Homecoming",
-    "probable_artist": "Green Day"
+    "probable_artist": "Green Day",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "homesick",
@@ -1485,7 +2628,14 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "Homesick",
-    "probable_artist": "The Killers"
+    "probable_artist": "The Killers",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "howdoyousleep",
@@ -1493,7 +2643,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "How Do You Sleep",
-    "probable_artist": "The Killers"
+    "probable_artist": "The Killers",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "hungrywolf",
@@ -1501,7 +2658,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Hungry Wolf",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "hysteria",
@@ -1509,7 +2673,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Hysteria",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "ialone",
@@ -1517,7 +2688,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "I Alone",
-    "probable_artist": "Live"
+    "probable_artist": "Live",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "iamarock",
@@ -1525,7 +2703,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "I Am a Rock",
-    "probable_artist": "Simon & Garfunkel"
+    "probable_artist": "Simon & Garfunkel",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "icantdrive55",
@@ -1533,7 +2718,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "I Can't Drive 55",
-    "probable_artist": "Sammy Hagar"
+    "probable_artist": "Sammy Hagar",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "icouldhavelied",
@@ -1541,7 +2733,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "I Could Have Lied",
-    "probable_artist": "Red Hot Chili Peppers"
+    "probable_artist": "Red Hot Chili Peppers",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "idontwanttogotoschool",
@@ -1549,7 +2748,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "I Don't Want to Go to School",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "ifyouleavemenow",
@@ -1557,7 +2763,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "If You Leave Me Now",
-    "probable_artist": "Chicago"
+    "probable_artist": "Chicago",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "ignorance",
@@ -1565,7 +2778,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Ignition",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "ihope",
@@ -1573,7 +2793,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Other",
     "probable_title": "I Hope",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "ily",
@@ -1581,7 +2808,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "I Love You",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "imbroken",
@@ -1589,7 +2823,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "I'm Broken",
-    "probable_artist": "Pantera"
+    "probable_artist": "Pantera",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "imgoneimgoing",
@@ -1597,7 +2838,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "I'm Gone, I'm Going",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "imissyou",
@@ -1605,7 +2853,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "I Miss You",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "imustnotthink",
@@ -1613,7 +2868,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "I Must Not Think Bad Thoughts",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "insideout2",
@@ -1621,7 +2883,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Inside Out",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "isthisitv3",
@@ -1629,7 +2898,11 @@
     "source_pkg": "00-CREQ2604P16STROK",
     "category": "Version_Number",
     "probable_title": "Is This It",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "isthislove",
@@ -1637,7 +2910,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Is This Love",
-    "probable_artist": "Whitesnake"
+    "probable_artist": "Whitesnake",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "itsallbeendone",
@@ -1645,7 +2925,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "Other",
     "probable_title": "It's All Been Done",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "iwantitall2",
@@ -1653,7 +2937,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "I Want It All",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "iwillpossessyourheart",
@@ -1661,7 +2952,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "I Will Possess Your Heart",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "iwillsurvive",
@@ -1669,7 +2967,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "I Will Survive",
-    "probable_artist": "Gloria Gaynor"
+    "probable_artist": "Gloria Gaynor",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "jane",
@@ -1677,7 +2982,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Jane",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "jealousguy",
@@ -1685,7 +2997,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Jealous Guy",
-    "probable_artist": "John Lennon"
+    "probable_artist": "John Lennon",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "joe_tcbyaenv",
@@ -1693,7 +3012,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "Other",
     "probable_title": "Joe",
-    "probable_artist": "Toby Keith"
+    "probable_artist": "Toby Keith",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "johnnyguitar",
@@ -1701,7 +3024,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Johnny Guitar",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "justfortonight",
@@ -1709,7 +3039,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Just for Tonight",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "kam_strokes_vod1_con",
@@ -1717,7 +3054,11 @@
     "source_pkg": "00-CREQ2604P16STROK",
     "category": "Other",
     "probable_title": "Kam",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "karmachameleon",
@@ -1725,7 +3066,14 @@
     "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
     "category": "Other",
     "probable_title": "Karma Chameleon",
-    "probable_artist": "Culture Club"
+    "probable_artist": "Culture Club",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "katseye_gnarly",
@@ -1733,7 +3081,11 @@
     "source_pkg": "00-CREQ2604P16MISCS",
     "category": "Other",
     "probable_title": "Katseye",
-    "probable_artist": "Gnarls Barkley"
+    "probable_artist": "Gnarls Barkley",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "kickstartmyheart",
@@ -1741,7 +3093,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Kick Start My Heart",
-    "probable_artist": "M\u00f6tley Cr\u00fce"
+    "probable_artist": "M\u00f6tley Cr\u00fce",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "kinggeorge",
@@ -1749,7 +3108,14 @@
     "source_pkg": "00-RB3ROCKBAND3PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "King George",
-    "probable_artist": "Doyle Bramhall II"
+    "probable_artist": "Doyle Bramhall II",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "knowyourenemy",
@@ -1757,7 +3123,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Know Your Enemy",
-    "probable_artist": "Green Day"
+    "probable_artist": "Green Day",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "kokko_rbn",
@@ -1765,7 +3138,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "Kokko",
-    "probable_artist": "Sid"
+    "probable_artist": "Sid",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "lastoftheamerican",
@@ -1773,7 +3153,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Last of the Americans",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "lastresort",
@@ -1781,7 +3168,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Last Resort",
-    "probable_artist": "Papa Roach"
+    "probable_artist": "Papa Roach",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "leavinghere",
@@ -1789,7 +3183,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Leaving Here",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "lieslieslies",
@@ -1797,7 +3198,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Lies Lies Lies",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "lifestylesoftherichandfamous",
@@ -1805,7 +3213,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Lifestyles of the Rich and Famous",
-    "probable_artist": "Good Charlotte"
+    "probable_artist": "Good Charlotte",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "limelight2",
@@ -1813,7 +3228,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Limelight",
-    "probable_artist": "Rush"
+    "probable_artist": "Rush",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "lisztomania",
@@ -1821,7 +3243,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Lisztomania",
-    "probable_artist": "Phoenix"
+    "probable_artist": "Phoenix",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "littleofyourtime",
@@ -1829,7 +3258,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Little of Your Time",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "littlesister",
@@ -1837,7 +3273,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Little Sister",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "lodger",
@@ -1845,7 +3288,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "The Lodger",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "lookinforagoodtime",
@@ -1853,7 +3303,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Looking for a Good Time",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "losangeles",
@@ -1861,7 +3318,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS1-A0000-V0100",
     "category": "Other",
     "probable_title": "Los Angeles",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "lostinthesupermarket",
@@ -1869,7 +3333,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Lost in the Supermarket",
-    "probable_artist": "The Clash"
+    "probable_artist": "The Clash",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "loveaddict",
@@ -1877,7 +3348,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Love Addict",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "lovespell",
@@ -1885,7 +3363,14 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "Love Spell",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "lovespreads",
@@ -1893,7 +3378,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Love Spreads",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "lovestruckbaby",
@@ -1901,7 +3393,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Love Struck Baby",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "loveyourself",
@@ -1909,7 +3408,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Love Yourself",
-    "probable_artist": "Justin Bieber"
+    "probable_artist": "Justin Bieber",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "lucretia",
@@ -1917,7 +3423,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Lucretia",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "machinehead",
@@ -1925,7 +3438,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Machinehead",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "mamatried2",
@@ -1933,7 +3453,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Mama Tried",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "margaritaville",
@@ -1941,7 +3468,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Margaritaville",
-    "probable_artist": "Jimmy Buffett"
+    "probable_artist": "Jimmy Buffett",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "meandmygang",
@@ -1949,7 +3483,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Me and My Gang",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "miami2017",
@@ -1957,7 +3498,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Miami 2017",
-    "probable_artist": "Billy Joel"
+    "probable_artist": "Billy Joel",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "milesandmiles",
@@ -1965,7 +3513,14 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "Miles and Miles",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "mj_htw",
@@ -1973,7 +3528,11 @@
     "source_pkg": "00-CREQ2604P11MJACK",
     "category": "Other",
     "probable_title": "Hit the Wall",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "moneytalks_live",
@@ -1981,7 +3540,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Live_Version",
     "probable_title": "Moneytalks",
-    "probable_artist": "AC/DC"
+    "probable_artist": "AC/DC",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "monkeywrench",
@@ -1989,7 +3555,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Monkey Wrench",
-    "probable_artist": "Foo Fighters"
+    "probable_artist": "Foo Fighters",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "mountainsong",
@@ -1997,7 +3570,14 @@
     "source_pkg": "00-RB2ROCKBAND2PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Mountain Song",
-    "probable_artist": "Jane's Addiction"
+    "probable_artist": "Jane's Addiction",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "moveslikejagger",
@@ -2005,7 +3585,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Moves Like Jagger",
-    "probable_artist": "Maroon 5"
+    "probable_artist": "Maroon 5",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "myexsbuild",
@@ -2013,7 +3600,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "My Ex's Body",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "myfriendsoveryou",
@@ -2021,7 +3615,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "My Friends over You",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "mygeneration",
@@ -2029,7 +3630,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "My Generation",
-    "probable_artist": "The Who"
+    "probable_artist": "The Who",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "mylife",
@@ -2037,7 +3645,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "My Life",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "nakedintherain",
@@ -2045,7 +3660,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Naked in the Rain",
-    "probable_artist": "Red Hot Chili Peppers"
+    "probable_artist": "Red Hot Chili Peppers",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "newwayhome",
@@ -2053,7 +3675,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "New Way Home",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "noapologies",
@@ -2061,7 +3690,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "No Apologies",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "nooneknows",
@@ -2069,7 +3705,14 @@
     "source_pkg": "00-RB3ROCKBAND3PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "No One Knows",
-    "probable_artist": "Queens of the Stone Age"
+    "probable_artist": "Queens of the Stone Age",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "numb2",
@@ -2077,7 +3720,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Numb",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "o105537474_wretchesandking",
@@ -2085,7 +3735,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Wretches and Kings",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o159985860_thehellcatspang",
@@ -2093,7 +3747,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "The Hellcat Spang",
-    "probable_artist": "Tantric"
+    "probable_artist": "Tantric",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o184198108_smoothcriminal",
@@ -2101,7 +3759,11 @@
     "source_pkg": "00-CREQ2604P11MJACK",
     "category": "RBN_ID",
     "probable_title": "Smooth Criminal",
-    "probable_artist": "Michael Jackson"
+    "probable_artist": "Michael Jackson",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o219946432_westcoast_lanad",
@@ -2109,7 +3771,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "West Coast",
-    "probable_artist": "Lindsey Stirling"
+    "probable_artist": "Lindsey Stirling",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o224634780_thecatalyst_lin",
@@ -2117,7 +3783,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "The Catalyst",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o228068992_handinmypocket",
@@ -2125,7 +3795,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Hand in My Pocket",
-    "probable_artist": "Alanis Morissette"
+    "probable_artist": "Alanis Morissette",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o234181059_rehab_amywineho",
@@ -2133,7 +3807,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Rehab",
-    "probable_artist": "Amy Winehouse"
+    "probable_artist": "Amy Winehouse",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o274013414_resolution_link",
@@ -2141,7 +3819,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Resolution",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o292084379_thatswhereyoure",
@@ -2149,7 +3831,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "That's Where You're Wrong",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o326235955_fallofanempirep",
@@ -2157,7 +3843,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Fall of an Empire",
-    "probable_artist": "Marty Friedman"
+    "probable_artist": "Marty Friedman",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o328244543_fathersday_cg5",
@@ -2165,7 +3855,11 @@
     "source_pkg": "00-CREQ2604P16MISCS",
     "category": "RBN_ID",
     "probable_title": "Father's Day",
-    "probable_artist": "Candy Golf"
+    "probable_artist": "Candy Golf",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o343903627_cumulus2002demo",
@@ -2173,7 +3867,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Cumulus 2002 Demo",
-    "probable_artist": "Cumulus"
+    "probable_artist": "Cumulus",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o35109952_castleofglass_li",
@@ -2181,7 +3879,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Castle of Glass",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o353933775_down_311",
@@ -2189,7 +3891,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Down",
-    "probable_artist": "311"
+    "probable_artist": "311",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o355116921_thecatalyst2010",
@@ -2197,7 +3903,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "The Catalyst 2010",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o409442312_love_lanadelrey",
@@ -2205,7 +3915,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Love",
-    "probable_artist": "Lana Del Rey"
+    "probable_artist": "Lana Del Rey",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o427622429_thosewhofightfu",
@@ -2213,7 +3927,11 @@
     "source_pkg": "00-CREQ2604P07FNLFN",
     "category": "RBN_ID",
     "probable_title": "Those Who Fight",
-    "probable_artist": "Micheal Jackson"
+    "probable_artist": "Micheal Jackson",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o432802579_bymyself_linkin",
@@ -2221,7 +3939,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "By Myself",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o471844568_whereveryouwill",
@@ -2229,7 +3951,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Wherever You Will Go",
-    "probable_artist": "The Calling"
+    "probable_artist": "The Calling",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o578516428_soma_thestrokes",
@@ -2237,7 +3963,11 @@
     "source_pkg": "00-CREQ2604P16STROK",
     "category": "RBN_ID",
     "probable_title": "Soma",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o609699427_dancelittleliar",
@@ -2245,7 +3975,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Dance Little Liar",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o646251520_themodernage_th",
@@ -2253,7 +3987,11 @@
     "source_pkg": "00-CREQ2604P16STROK",
     "category": "RBN_ID",
     "probable_title": "The Modern Age",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o65887561_wisdomjusticeand",
@@ -2261,7 +3999,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Wisdom, Justice, and Love",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o672768891_babooshka_kateb",
@@ -2269,7 +4011,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Babooshka",
-    "probable_artist": "Kate Bush"
+    "probable_artist": "Kate Bush",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o672941401_robotboytestmix",
@@ -2277,7 +4023,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Robot Boy",
-    "probable_artist": "Test Mix"
+    "probable_artist": "Test Mix",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o715039707_brickbybrick_ar",
@@ -2285,7 +4035,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Brick by Brick",
-    "probable_artist": "Arctic Monkeys"
+    "probable_artist": "Arctic Monkeys",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o759073800_hitthefloor_lin",
@@ -2293,7 +4047,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Hit the Floor",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o821358587_morethevictim_l",
@@ -2301,7 +4059,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "More Than a Victim",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o842836467_dollparts_hole",
@@ -2309,7 +4071,11 @@
     "source_pkg": "00-CREQ2604P09HOOLE",
     "category": "RBN_ID",
     "probable_title": "Doll Parts",
-    "probable_artist": "Hole"
+    "probable_artist": "Hole",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o860088703_heavyisthecrown",
@@ -2317,7 +4083,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Heavy Is the Crown",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o913819214_overflow_linkin",
@@ -2325,7 +4095,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Overflow",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o929951875_aplaceformyhead",
@@ -2333,7 +4107,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "A Place for My Head",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "o932885950_betweentwolungs",
@@ -2341,7 +4119,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "RBN_ID",
     "probable_title": "Between Two Lungs",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "ohprettywoman",
@@ -2349,7 +4131,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Oh, Pretty Woman",
-    "probable_artist": "Roy Orbison"
+    "probable_artist": "Roy Orbison",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "onerainywish",
@@ -2357,7 +4146,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "One Rainy Wish",
-    "probable_artist": "Prince"
+    "probable_artist": "Prince",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "onlyhappywhenitrains",
@@ -2365,7 +4161,11 @@
     "source_pkg": "00-CREQ2604P08GARBG",
     "category": "Other",
     "probable_title": "Only Happy When It Rains",
-    "probable_artist": "Garbage"
+    "probable_artist": "Garbage",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "orphans",
@@ -2373,7 +4173,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Other",
     "probable_title": "Orphans",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "ourlipsaresealed",
@@ -2381,7 +4188,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Our Lips Are Sealed",
-    "probable_artist": "The Go-Go's"
+    "probable_artist": "The Go-Go's",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "outerspaceaf",
@@ -2389,7 +4203,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Outer Space",
-    "probable_artist": "Weezer"
+    "probable_artist": "Weezer",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "paralyzed",
@@ -2397,7 +4218,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Paralyzed",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "paranoid",
@@ -2405,7 +4233,11 @@
     "source_pkg": "00-UNEXPORTABLEPORT-A0000-V0100",
     "category": "Other",
     "probable_title": "Paranoid",
-    "probable_artist": "Black Sabbath"
+    "probable_artist": "Black Sabbath",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "pathkeeper",
@@ -2413,7 +4245,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Pathkeeper",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "peaceofmind",
@@ -2421,7 +4260,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Peace of Mind",
-    "probable_artist": "Boston"
+    "probable_artist": "Boston",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "peacesells",
@@ -2429,7 +4275,14 @@
     "source_pkg": "00-RB2ROCKBAND2PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Peace Sells",
-    "probable_artist": "Megadeth"
+    "probable_artist": "Megadeth",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "personaljesus",
@@ -2437,7 +4290,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Personal Jesus",
-    "probable_artist": "Depeche Mode"
+    "probable_artist": "Depeche Mode",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "photograph",
@@ -2445,7 +4305,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Photograph",
-    "probable_artist": "Def Leppard"
+    "probable_artist": "Def Leppard",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "porch",
@@ -2453,7 +4320,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Porch",
-    "probable_artist": "Pearl Jam"
+    "probable_artist": "Pearl Jam",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "poursomesugarlive",
@@ -2461,7 +4335,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Pour Some Sugar on Me (Live)",
-    "probable_artist": "Def Leppard"
+    "probable_artist": "Def Leppard",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "prequeltothesequel",
@@ -2469,7 +4350,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Prequel to the Sequel",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "prettyflyforawhiteguy",
@@ -2477,7 +4365,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Pretty Fly (For a White Guy)",
-    "probable_artist": "The Offspring"
+    "probable_artist": "The Offspring",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "pricelessjim",
@@ -2485,7 +4380,11 @@
     "source_pkg": "00-CREQ2604P13INCYA",
     "category": "Other",
     "probable_title": "Priceless",
-    "probable_artist": "Jim"
+    "probable_artist": "Jim",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "promisedland",
@@ -2493,7 +4392,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "A Promised Land",
-    "probable_artist": "U2"
+    "probable_artist": "U2",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "pumpedupkicks",
@@ -2501,7 +4407,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Pumped Up Kicks",
-    "probable_artist": "Foster the People"
+    "probable_artist": "Foster the People",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "push",
@@ -2509,7 +4422,11 @@
     "source_pkg": "00-THEECURENOTINRB4",
     "category": "Other",
     "probable_title": "Push",
-    "probable_artist": "Matchbox Twenty"
+    "probable_artist": "Matchbox Twenty",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "radarlove",
@@ -2517,7 +4434,14 @@
     "source_pkg": "00-RB3ROCKBAND3PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Radar Love",
-    "probable_artist": "Golden Earring"
+    "probable_artist": "Golden Earring",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "raindancemaggie",
@@ -2525,7 +4449,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Rain Dance",
-    "probable_artist": "Mazzy Star"
+    "probable_artist": "Mazzy Star",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "raindown",
@@ -2533,7 +4464,14 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "Rain Down",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "rainingblood",
@@ -2541,7 +4479,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Raining Blood",
-    "probable_artist": "Metallica"
+    "probable_artist": "Metallica",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "raiseyourglass",
@@ -2549,7 +4494,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Raise Your Glass",
-    "probable_artist": "P!nk"
+    "probable_artist": "P!nk",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "rapture",
@@ -2557,7 +4509,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Rapture",
-    "probable_artist": "Blondie"
+    "probable_artist": "Blondie",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "rbnmegamix01",
@@ -2565,7 +4524,11 @@
     "source_pkg": "00-UNEXPORTABLEPORT-A0000-V0100",
     "category": "Other",
     "probable_title": "RBN Megamix 01",
-    "probable_artist": "Various Artists"
+    "probable_artist": "Various Artists",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "reddevil",
@@ -2573,7 +4536,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Red Devil",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "redneck",
@@ -2581,7 +4551,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Redneck",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "resentment",
@@ -2589,7 +4566,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Resentment",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "richgirl",
@@ -2597,7 +4581,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Rich Girl",
-    "probable_artist": "Hall & Oates"
+    "probable_artist": "Hall & Oates",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "ridesthebus",
@@ -2605,7 +4596,11 @@
     "source_pkg": "00-CREQ2604P17WRDAL",
     "category": "Other",
     "probable_title": "Rides the Bus",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "ridinthestormout",
@@ -2613,7 +4608,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Ridin' The Storm Out",
-    "probable_artist": "REO Speedwagon"
+    "probable_artist": "REO Speedwagon",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "ringoffire3",
@@ -2621,7 +4623,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Ring of Fire",
-    "probable_artist": "Johnny Cash"
+    "probable_artist": "Johnny Cash",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "rockofages",
@@ -2629,7 +4638,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Rock of Ages",
-    "probable_artist": "Def Leppard"
+    "probable_artist": "Def Leppard",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "rockthecasbah",
@@ -2637,7 +4653,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Rock the Casbah",
-    "probable_artist": "The Clash"
+    "probable_artist": "The Clash",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "rollthedice_rbn",
@@ -2645,7 +4668,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "Roll the Dice",
-    "probable_artist": "Sick Puppies"
+    "probable_artist": "Sick Puppies",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "rooftops",
@@ -2653,7 +4683,11 @@
     "source_pkg": "00-LEGOROCKBANDPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Rooftops",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "rooster",
@@ -2661,7 +4695,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Rooster",
-    "probable_artist": "Alice in Chains"
+    "probable_artist": "Alice in Chains",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "roundabout",
@@ -2669,7 +4710,14 @@
     "source_pkg": "00-RB3ROCKBAND3PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Roundabout",
-    "probable_artist": "Yes"
+    "probable_artist": "Yes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "santeria",
@@ -2677,7 +4725,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Santeria",
-    "probable_artist": "Sublime"
+    "probable_artist": "Sublime",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "sassafrasroots",
@@ -2685,7 +4740,14 @@
     "source_pkg": "00-GDRBGREENDAYPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Sassafras Roots",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "saveahorse",
@@ -2693,7 +4755,14 @@
     "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
     "category": "Other",
     "probable_title": "Save a Horse (Ride a Cowboy)",
-    "probable_artist": "Big & Rich"
+    "probable_artist": "Big & Rich",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "scarletbegonias",
@@ -2701,7 +4770,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Scarlet Begonias",
-    "probable_artist": "Grateful Dead"
+    "probable_artist": "Grateful Dead",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "scraped",
@@ -2709,7 +4785,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Scraped",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "seasonsintheabyss",
@@ -2717,7 +4800,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Seasons in the Abyss",
-    "probable_artist": "Slayer"
+    "probable_artist": "Slayer",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "secondchance",
@@ -2725,7 +4815,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Second Chance",
-    "probable_artist": "Shinedown"
+    "probable_artist": "Shinedown",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "seether",
@@ -2733,7 +4830,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Seether",
-    "probable_artist": "Seether"
+    "probable_artist": "Seether",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "settling",
@@ -2741,13 +4845,27 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "Settling",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "sextypething",
     "full_filename": "sextypething.songdta_ps4",
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
-    "category": "Other"
+    "category": "Other",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "shakemeup",
@@ -2755,7 +4873,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Shake Me Up",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "shegotarrasted_ti",
@@ -2763,7 +4888,11 @@
     "source_pkg": "00-RB4CINTERRUPTERS",
     "category": "Other",
     "probable_title": "She's Got It All",
-    "probable_artist": "Disturbed"
+    "probable_artist": "Disturbed",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "shesalliwannabe",
@@ -2771,7 +4900,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "She's All I Wanna Be",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "shhh",
@@ -2779,7 +4915,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Shhh",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "shiver",
@@ -2787,7 +4930,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Other",
     "probable_title": "Shiver",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "shoottothrill_live",
@@ -2795,7 +4945,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Live_Version",
     "probable_title": "Shoot to Thrill",
-    "probable_artist": "AC/DC"
+    "probable_artist": "AC/DC",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "shotinthedark",
@@ -2803,7 +4960,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Other",
     "probable_title": "Shot in the Dark",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "shouldistay",
@@ -2811,7 +4975,14 @@
     "source_pkg": "00-RB1ROCKBAND1PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Should I Stay",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "shout",
@@ -2819,7 +4990,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Shout",
-    "probable_artist": "The Isley Brothers"
+    "probable_artist": "The Isley Brothers",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "sing_ed",
@@ -2827,7 +5005,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Sing",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "sistereurope",
@@ -2835,7 +5020,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Sister Europe",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "sixteen",
@@ -2843,7 +5035,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Sixteen",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "smashitup",
@@ -2851,7 +5050,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Smash It Up",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "smile",
@@ -2859,7 +5065,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Smile",
-    "probable_artist": "Avril Lavigne"
+    "probable_artist": "Avril Lavigne",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "smilelikeyoumeanit",
@@ -2867,7 +5080,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Smile Like You Mean It",
-    "probable_artist": "The Killers"
+    "probable_artist": "The Killers",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "sober",
@@ -2875,7 +5095,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Sober",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "some1else",
@@ -2883,7 +5110,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Other",
     "probable_title": "Someone Else",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "someonetoyou",
@@ -2891,7 +5125,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Someone to You",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "sometimes",
@@ -2899,7 +5140,14 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "Sometimes",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "soonerorlater",
@@ -2907,7 +5155,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Sooner or Later",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "sos",
@@ -2915,7 +5170,14 @@
     "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
     "category": "Other",
     "probable_title": "S.O.S.",
-    "probable_artist": "ABBA"
+    "probable_artist": "ABBA",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "spacetruckin",
@@ -2923,7 +5185,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Space Truckin'",
-    "probable_artist": "Deep Purple"
+    "probable_artist": "Deep Purple",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "special",
@@ -2931,7 +5200,11 @@
     "source_pkg": "00-CREQ2604P08GARBG",
     "category": "Other",
     "probable_title": "Special",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "spiderwebs",
@@ -2939,7 +5212,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Spiderwebs",
-    "probable_artist": "No Doubt"
+    "probable_artist": "No Doubt",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "spoonman2",
@@ -2947,7 +5227,14 @@
     "source_pkg": "00-RB2ROCKBAND2PASS-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Spoonman",
-    "probable_artist": "Soundgarden"
+    "probable_artist": "Soundgarden",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "starboy",
@@ -2955,7 +5242,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Starboy",
-    "probable_artist": "The Weeknd"
+    "probable_artist": "The Weeknd",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "stayhigh",
@@ -2963,7 +5257,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Stay High",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "stealaway",
@@ -2971,7 +5272,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Steal Away",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "stellar",
@@ -2979,7 +5287,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Stellar",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "stickysweet",
@@ -2987,7 +5302,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Sticky Sweet",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "stopmeifyouthink",
@@ -2995,7 +5317,14 @@
     "source_pkg": "00-RB3ROCKBAND3PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Stop Me If You Think",
-    "probable_artist": "The Smiths"
+    "probable_artist": "The Smiths",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "straightlines",
@@ -3003,7 +5332,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Straight Lines",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "stricken",
@@ -3011,7 +5347,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Stricken",
-    "probable_artist": "Disturbed"
+    "probable_artist": "Disturbed",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "strokes_automaticstop",
@@ -3019,7 +5362,11 @@
     "source_pkg": "00-CREQ2604P16STROK",
     "category": "Other",
     "probable_title": "Automatic Stop",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "strokes_odetothemets",
@@ -3027,7 +5374,11 @@
     "source_pkg": "00-CREQ2604P16STROK",
     "category": "Other",
     "probable_title": "Ode to the Mets",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "sulpher",
@@ -3035,7 +5386,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Sulfur",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "swing",
@@ -3043,7 +5401,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Swing, Swing",
-    "probable_artist": "The All-American Rejects"
+    "probable_artist": "The All-American Rejects",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "taintedlove",
@@ -3051,7 +5416,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Tainted Love",
-    "probable_artist": "Soft Cell"
+    "probable_artist": "Soft Cell",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "takemehomecountryroads2",
@@ -3059,7 +5431,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "Take Me Home, Country Roads",
-    "probable_artist": "John Denver"
+    "probable_artist": "John Denver",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "takemetochurch",
@@ -3067,7 +5446,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Take Me to Church",
-    "probable_artist": "Hozier"
+    "probable_artist": "Hozier",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "takemetotheriver",
@@ -3075,7 +5461,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Take Me to the River",
-    "probable_artist": "Talking Heads"
+    "probable_artist": "Talking Heads",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "takeonme",
@@ -3083,7 +5476,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Take On Me",
-    "probable_artist": "a-ha"
+    "probable_artist": "a-ha",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "tcthemrb3",
@@ -3091,7 +5491,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "Version_Number",
     "probable_title": "The Schuy-ler Sisters",
-    "probable_artist": "Hamilton"
+    "probable_artist": "Hamilton",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "thatshowcountryboysroll2",
@@ -3099,7 +5503,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "That's How Country Boys Roll",
-    "probable_artist": "Billy Ray Cyrus"
+    "probable_artist": "Billy Ray Cyrus",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thatswhatyouget",
@@ -3107,7 +5518,14 @@
     "source_pkg": "00-RB2ROCKBAND2PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "That's What You Get",
-    "probable_artist": "Paramore"
+    "probable_artist": "Paramore",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thebest",
@@ -3115,7 +5533,14 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Other",
     "probable_title": "The Best",
-    "probable_artist": "Tina Turner"
+    "probable_artist": "Tina Turner",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thebroken",
@@ -3123,7 +5548,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "The Broken",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thecure100years",
@@ -3131,7 +5563,11 @@
     "source_pkg": "00-THEECURENOTINRB4",
     "category": "Other",
     "probable_title": "100 Years",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "thedopeshow",
@@ -3139,7 +5575,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "The Dope Show",
-    "probable_artist": "Marilyn Manson"
+    "probable_artist": "Marilyn Manson",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thegunshow_rbn",
@@ -3147,7 +5590,14 @@
     "source_pkg": "00-RB4RBNRERELEASES-A0000-V0100",
     "category": "RBN_Suffix",
     "probable_title": "The Gun Show",
-    "probable_artist": "Puscifer"
+    "probable_artist": "Puscifer",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thehardestbutton",
@@ -3155,7 +5605,14 @@
     "source_pkg": "00-RB3ROCKBAND3PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "The Hardest Button to Button",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "theheist",
@@ -3163,7 +5620,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "The Heist",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thembellyfull",
@@ -3171,7 +5635,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "The Belly Full of Things",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thenightsanta",
@@ -3179,7 +5650,11 @@
     "source_pkg": "00-CREQ2604P17WRDAL",
     "category": "Other",
     "probable_title": "The Night Santa Claus Got Stuck",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "thenightthelightswentout2",
@@ -3187,7 +5662,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "The Night the Lights Went Out",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thepeoplethatwelove",
@@ -3195,7 +5677,11 @@
     "source_pkg": "00-CREQ2604P04BUSHH",
     "category": "Other",
     "probable_title": "The People That We Love",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "therunningfree",
@@ -3203,7 +5689,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Running Free",
-    "probable_artist": "Iron Maiden"
+    "probable_artist": "Iron Maiden",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thesagabegins",
@@ -3211,7 +5704,11 @@
     "source_pkg": "00-CREQ2604P17WRDAL",
     "category": "Other",
     "probable_title": "The Saga Begins",
-    "probable_artist": "Weird Al"
+    "probable_artist": "Weird Al",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "thethrillisgone",
@@ -3219,7 +5716,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "The Thrill Is Gone",
-    "probable_artist": "BB King"
+    "probable_artist": "BB King",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thetimeiswrong",
@@ -3227,7 +5731,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "The Time Is Wrong",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thetrees",
@@ -3235,7 +5746,14 @@
     "source_pkg": "00-RB2ROCKBAND2PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "The Trees",
-    "probable_artist": "Pearl Jam"
+    "probable_artist": "Pearl Jam",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thetrooper",
@@ -3243,7 +5761,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "The Trooper",
-    "probable_artist": "Iron Maiden"
+    "probable_artist": "Iron Maiden",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thewaythatitshows",
@@ -3251,7 +5776,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "The Way That It Shows",
-    "probable_artist": "Deep Purple"
+    "probable_artist": "Deep Purple",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thewindcriesmary",
@@ -3259,7 +5791,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "The Wind Cries Mary",
-    "probable_artist": "Jimi Hendrix"
+    "probable_artist": "Jimi Hendrix",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thieves",
@@ -3267,7 +5806,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Thieves",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thirdstonefromthesun",
@@ -3275,7 +5821,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Third Stone from the Sun",
-    "probable_artist": "Jimi Hendrix"
+    "probable_artist": "Jimi Hendrix",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thisafternoon",
@@ -3283,7 +5836,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "This Afternoon",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thisisacall",
@@ -3291,7 +5851,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "This Is a Call",
-    "probable_artist": "Foo Fighters"
+    "probable_artist": "Foo Fighters",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "thrasher",
@@ -3299,7 +5866,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Thrasher",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "throughbeingcool",
@@ -3307,7 +5881,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Through Being Cool",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "throughthenoise",
@@ -3315,7 +5896,14 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "Through the Noise",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "tightenup",
@@ -3323,7 +5911,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Tighten Up",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "timewehad",
@@ -3331,7 +5926,14 @@
     "source_pkg": "00-RB1ROCKBAND1PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "The Time We Had",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "tonighttonight",
@@ -3339,7 +5941,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Tonight Tonight",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "torn",
@@ -3347,7 +5956,14 @@
     "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
     "category": "Other",
     "probable_title": "Torn",
-    "probable_artist": "Natalie Imbruglia"
+    "probable_artist": "Natalie Imbruglia",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "toxicity",
@@ -3355,7 +5971,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Toxicity",
-    "probable_artist": "System of a Down"
+    "probable_artist": "System of a Down",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "tubthumping",
@@ -3363,7 +5986,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Tubthumping",
-    "probable_artist": "Chumbawamba"
+    "probable_artist": "Chumbawamba",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "tuesdaysgone",
@@ -3371,7 +6001,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Tuesday's Gone",
-    "probable_artist": "Lynyrd Skynyrd"
+    "probable_artist": "Lynyrd Skynyrd",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "ud_adultsaretalking",
@@ -3379,7 +6016,11 @@
     "source_pkg": "00-CREQ2604P16STROK",
     "category": "Other",
     "probable_title": "The Adults Are Talking",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "ugc_5004173",
@@ -3387,7 +6028,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "Version_Number",
     "probable_title": "UGC Song 5004173",
-    "probable_artist": "UGC"
+    "probable_artist": "UGC",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "undefeated",
@@ -3395,7 +6040,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Undefeated",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "unholyconfessions",
@@ -3403,7 +6055,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Unholy Confessions",
-    "probable_artist": "Avenged Sevenfold"
+    "probable_artist": "Avenged Sevenfold",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "untilifoundyou",
@@ -3411,7 +6070,14 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "Until I Found You",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "untiltheend",
@@ -3419,7 +6085,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Until the End",
-    "probable_artist": "Linkin Park"
+    "probable_artist": "Linkin Park",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "upallnight",
@@ -3427,7 +6100,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Up All Night",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "upinarms",
@@ -3435,7 +6115,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Up in Arms",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "usblues",
@@ -3443,7 +6130,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "US Blues",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "valleysofneptune",
@@ -3451,7 +6145,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Valleys of Neptune",
-    "probable_artist": "Jimi Hendrix"
+    "probable_artist": "Jimi Hendrix",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "velvetelvis",
@@ -3459,7 +6160,11 @@
     "source_pkg": "00-CREQ2604P17WRDAL",
     "category": "Other",
     "probable_title": "Velvet Elvis",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "vengeanceismine",
@@ -3467,7 +6172,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Vengeance Is Mine",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "visitor",
@@ -3475,7 +6187,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Visitor",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "vitalsigns",
@@ -3483,7 +6202,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Vital Signs",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "voices",
@@ -3491,7 +6217,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Voices",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "voicesinmyhead",
@@ -3499,7 +6232,14 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "Voices in My Head",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "waitingforagirl",
@@ -3507,7 +6247,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Waiting for a Girl",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "waitinginvain",
@@ -3515,7 +6262,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Waiting in Vain",
-    "probable_artist": "Bob Marley"
+    "probable_artist": "Bob Marley",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "wakeupcall",
@@ -3523,7 +6277,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Wake Up Call",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "walkinonthesun",
@@ -3531,7 +6292,14 @@
     "source_pkg": "00-RB3ROCKBAND3PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Walkin' on the Sun",
-    "probable_artist": "Smash Mouth"
+    "probable_artist": "Smash Mouth",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "warpigs",
@@ -3539,7 +6307,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "War Pigs",
-    "probable_artist": "Black Sabbath"
+    "probable_artist": "Black Sabbath",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "waylesssad",
@@ -3547,7 +6322,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "Way Less Sad",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "wearethechampions2",
@@ -3555,7 +6337,11 @@
     "source_pkg": "00-LEGOROCKBANDPASS-A0000-V0100",
     "category": "Version_Number",
     "probable_title": "We Are the Champions",
-    "probable_artist": "Queen"
+    "probable_artist": "Queen",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "wedidntstartthefire",
@@ -3563,7 +6349,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "We Didn't Start the Fire",
-    "probable_artist": "Billy Joel"
+    "probable_artist": "Billy Joel",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "weirdscience",
@@ -3571,7 +6364,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Weird Science",
-    "probable_artist": "Korn"
+    "probable_artist": "Korn",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "welcometothe",
@@ -3579,7 +6379,14 @@
     "source_pkg": "00-RB2ROCKBAND2PASS-A0000-V0100",
     "category": "Other",
     "probable_title": "Welcome to the Black Parade",
-    "probable_artist": "My Chemical Romance"
+    "probable_artist": "My Chemical Romance",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "welcometothefamily",
@@ -3587,7 +6394,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Welcome to the Family",
-    "probable_artist": "Avenged Sevenfold"
+    "probable_artist": "Avenged Sevenfold",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "wellthoughtouttwinkles",
@@ -3595,7 +6409,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Well Thought Out Twinkles",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "whataboutlove",
@@ -3603,7 +6424,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "What About Love",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "whatsyourfavoritedinosaur",
@@ -3611,7 +6439,14 @@
     "source_pkg": "00-RB4PRESEASONPASS-A0000-V0100",
     "category": "Other",
     "probable_title": "What's Your Favorite Dinosaur",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "whenimgone",
@@ -3619,7 +6454,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "When I'm Gone",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "whitetrashmillionaire",
@@ -3627,7 +6469,14 @@
     "source_pkg": "00-RB4SEASON31TOS35-A0000-V0100",
     "category": "Other",
     "probable_title": "White Trash Millionaire",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "whosgoinghome",
@@ -3635,7 +6484,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Who's Going Home",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "woman",
@@ -3643,7 +6499,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Woman",
-    "probable_artist": "John Lennon"
+    "probable_artist": "John Lennon",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "wordforward",
@@ -3651,7 +6514,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "Word Forward",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "wrongemboyo",
@@ -3659,7 +6529,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Wrong Em' Boyo",
-    "probable_artist": "The Strokes"
+    "probable_artist": "The Strokes",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "yoda_v1",
@@ -3667,7 +6544,11 @@
     "source_pkg": "00-CREQ2604P17WRDAL",
     "category": "Other",
     "probable_title": "Yoda",
-    "probable_artist": "\u53d8\u5f02"
+    "probable_artist": "\u53d8\u5f02",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "yougotit",
@@ -3675,7 +6556,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS2-A0000-V0100",
     "category": "Other",
     "probable_title": "You Got It",
-    "probable_artist": "Roy Orbison"
+    "probable_artist": "Roy Orbison",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "youknowimnogood",
@@ -3683,7 +6571,11 @@
     "source_pkg": "00-CREQ2604P13INCYA",
     "category": "Other",
     "probable_title": "You Know I'm No Good",
-    "probable_artist": "Amy Winehouse"
+    "probable_artist": "Amy Winehouse",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "youregonnagofarkid",
@@ -3691,7 +6583,14 @@
     "source_pkg": "00-RB4SEASON21TOS30-A0000-V0100",
     "category": "Other",
     "probable_title": "You're Gonna Go Far, Kid",
-    "probable_artist": "The Offspring"
+    "probable_artist": "The Offspring",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "youremybestfriend",
@@ -3699,7 +6598,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "You're My Best Friend",
-    "probable_artist": "Queen"
+    "probable_artist": "Queen",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "youthofthenation",
@@ -3707,7 +6613,14 @@
     "source_pkg": "00-RBLEGACYDLCPASS3-A0000-V0100",
     "category": "Other",
     "probable_title": "Youth of the Nation",
-    "probable_artist": "P.O.D."
+    "probable_artist": "P.O.D.",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "21pilots_garbage",
@@ -3715,7 +6628,11 @@
     "source_pkg": "00-CREQ2604P08GARBG",
     "category": "Other",
     "probable_title": "Stressed Out",
-    "probable_artist": "Twenty One Pilots"
+    "probable_artist": "Twenty One Pilots",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "gh&gw_cs",
@@ -3723,7 +6640,11 @@
     "source_pkg": "00-CREQ2604P15MISCS",
     "category": "Other",
     "probable_title": "Closer",
-    "probable_artist": "The Neighbourhood"
+    "probable_artist": "The Neighbourhood",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "loseyourself",
@@ -3731,7 +6652,11 @@
     "source_pkg": "00-CREQ2604P18FIXED",
     "category": "Other",
     "probable_title": "Lose Yourself",
-    "probable_artist": "Eminem"
+    "probable_artist": "Eminem",
+    "instrumentList": [
+      "guitar"
+    ],
+    "vocalParts": 1
   },
   {
     "short_filename": "beatsports",
@@ -3739,7 +6664,14 @@
     "source_pkg": "00-RB4SEASON01TOS10-A0000-V0100",
     "category": "Other",
     "probable_title": "Beat Sports",
-    "probable_artist": "The Sports"
+    "probable_artist": "The Sports",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   },
   {
     "short_filename": "21her",
@@ -3747,6 +6679,13 @@
     "source_pkg": "00-RB4SEASON11TOS20-A0000-V0100",
     "category": "Other",
     "probable_title": "Her",
-    "probable_artist": "Twenty One Pilots"
+    "probable_artist": "Twenty One Pilots",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "vocalParts": 3
   }
 ]

@@ -141,7 +141,7 @@ def generate_html(metadata_dir, output_file, page_title=None):
             let f = SONG_DATA.filter(s => {
                 if (search && !s.artist.toLowerCase().includes(search) && !s.title.toLowerCase().includes(search) && !s.album.toLowerCase().includes(search) && !s.shortName.toLowerCase().includes(search)) return false;
                 if (s.year && (s.year < yearFrom || s.year > yearTo)) return false;
-                if (s.duration < durMin || s.duration > durMax) return false;
+                if (s.duration && (s.duration < durMin || s.duration > durMax)) return false;
                 if (src && s.source !== src) return false;
                 if (checkedInsts.length > 0 && s.instruments) {
                     const instLower = s.instruments.toLowerCase();
@@ -280,12 +280,15 @@ def generate_html(metadata_dir, output_file, page_title=None):
                 <th onclick="sort(5)">Source ⬍</th>
                 <th onclick="sort(6)">Instruments ⬍</th>
                 <th onclick="sort(7)">ShortName ⬍</th>
-                <th onclick="sort(8)">Inferred ⬍</th>
+                <th onclick="sort(8)">Inferred* ⬍</th>
             </tr>
         </thead>
         <tbody id="body"></tbody>
     </table>
     <div class="stats" id="stats"></div>
+    <div style="margin-top:10px;font-size:12px;color:#666;">
+        * Inferred: Song metadata was empty/unparseable - recovered from baseline using short filename
+    </div>
     <script>
         {themes_js}
         {js_code}
