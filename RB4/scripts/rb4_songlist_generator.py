@@ -95,7 +95,7 @@ def save_processed_pkgs(processed, processed_pkgs_file):
 
 def load_update_history():
     """Load update history."""
-    if os.path.exists(UPDATE_HISTORY_FILE):
+    if UPDATE_HISTORY_FILE and os.path.exists(UPDATE_HISTORY_FILE):
         with open(UPDATE_HISTORY_FILE) as f:
             return json.load(f)
     return []
