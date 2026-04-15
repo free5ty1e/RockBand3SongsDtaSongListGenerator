@@ -369,6 +369,8 @@ Examples:
                         help='Skip already-processed PKGs (default: enabled)')
     parser.add_argument('--no-incremental', action='store_false', dest='incremental',
                         help='Disable incremental mode - re-process all PKGs')
+    parser.add_argument('--reprocess-cached-metadata', action='store_true',
+                        help='Skip PKG extraction, reprocess existing metadata files only')
     parser.add_argument('-v', '--verbose', action='store_true',
                         help='Verbose output')
     parser.add_argument('--smb', action='store_true',
@@ -439,9 +441,13 @@ Examples:
             if f.endswith('.pkg') and not f.startswith('._')
         ]
     
-    if not pkg_files:
-        log(f"No .pkg files found in {args.pkg_dir}")
-        sys.exit(1)
+    # Handle --reprocess-cached-metadata: skip PKG scanning entirely
+    if args.reprocess_cached_metadata:
+        log(f"{icon('cached')} Reprocessing cached metadata (skipping PKG scan)...")
+        # Skip all PKG processing - go directly to generating from existing metadata
+        pkg_files = []
+        # Skip to the "no new PKGs" section
+        log(f"\n{icon('sparkles')} Generating song lists from existing metadata...")
     
     log(f"{icon('package')} Found {len(pkg_files)} PKG files in {args.pkg_dir}")
     
@@ -462,7 +468,34 @@ Examples:
     if not pkg_files:
         log(f"{icon('check')} No new PKGs to process.")
         log(f"\n{icon('sparkles')} Generating song lists from existing data...")
+        
+        # Load existing songs from metadata directory
+        log(f"{icon('loading')} Loading songs from {args.metadata_dir}...")
+        from empty_song_processor import get_songs_with_fallback
+        baseline_path = '/workspace/RB4/rb4_empty_songs_full.json'
+        songs = get_songs_with_fallback(args.metadata_dir)
+        
+        # Save as output JSON
+        import json
+        with open(args.output_json, 'w') as f:
+            json.dump(songs, f, indent=2)
+        log(f"Saved {len(songs)} songs to {args.output_json}")
+        
+        # Generate TXT lists
         run_cmd(f'cd /workspace/RB4 && node generate_rb4_song_list.js --baseline {args.baseline} --custom {args.output_json} --processed {PROCESSED_PKGS_FILE}')
+        
+        # Generate HTML
+        log(f"{icon('html')} Generating HTML song list...")
+        html_output = f"{args.songlist_dir}/SongList.html"
+        run_cmd(f'python3 /workspace/RB4/scripts/generate_html_list.py {args.metadata_dir} {html_output}')
+        
+        # Copy to docs for GitHub Pages
+        docs_index = "/workspace/docs/SongList.html"
+        if os.path.exists(html_output):
+            import shutil
+            shutil.copy(html_output, docs_index)
+            log(f"{icon('docs')} Copied HTML to docs for GitHub Pages: {docs_index}")
+        
         log(success("Pipeline complete!"))
         sys.exit(0)
     
@@ -483,9 +516,9 @@ Examples:
             # Fetch from SMB to temp dir
             sys.path.insert(0, '/workspace/RB4/scripts')
             from smb_pkg_finder import get_pkg_file
-            success = get_pkg_file(pkg_name, args.temp_dir)
+            fetch_ok = get_pkg_file(pkg_name, args.temp_dir)
             
-            if not success:
+            if not fetch_ok:
                 log(f"  ERROR: Failed to fetch {pkg_name} from SMB")
                 continue
             
@@ -588,8 +621,15 @@ Examples:
     
     # Generate HTML output
     log(f"{icon('html')} Generating HTML song list...")
-    html_output = f"{args.songlist_dir}/SongListRB4.html"
-    run_cmd(f'python3 /workspace/RB4/scripts/generate_html_list.py {args.output_json} {html_output}')
+    html_output = f"{args.songlist_dir}/SongList.html"
+    run_cmd(f'python3 /workspace/RB4/scripts/generate_html_list.py {args.metadata_dir} {html_output}')
+    
+    # Copy to docs for GitHub Pages
+    docs_index = "/workspace/docs/SongList.html"
+    if os.path.exists(html_output):
+        import shutil
+        shutil.copy(html_output, docs_index)
+        log(f"{icon('docs')} Copied HTML to docs for GitHub Pages: {docs_index}")
     
     # Save error tracking report
     error_tracker.save()

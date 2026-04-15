@@ -183,7 +183,7 @@
     {
       "label": "RB4: Reprocess Cached Data",
       "type": "shell",
-      "command": "cd ${workspaceFolder}/RB4 && node generate_rb4_song_list.js --custom ${workspaceFolder}/rb4_temp/rb4_custom_songs.json --processed ${workspaceFolder}/rb4_temp/processed_pkgs.json",
+      "command": "python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --reprocess-cached-metadata",
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
