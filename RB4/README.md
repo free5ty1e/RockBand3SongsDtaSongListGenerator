@@ -1,25 +1,31 @@
 # Rock Band 4 Custom Song List Generator
 
-This folder contains a pipeline for scanning PS4 (fPKG) Rock Band 4 custom song packages, extracting metadata from compiled `.songdta_ps4` binary blobs, and generating a text-based, human-readable song list that mirrors the output format of the older RB3 tool.
+This folder contains a pipeline for scanning PS4 (fPKG) Rock Band 4 custom song packages, extracting metadata from compiled `.songdta_ps4` binary blobs, and generating a human-readable song list.
 
-## Overview
+## Requirements
 
-The standard `rb4songlistWithRivals.txt` file serves as the baseline database of all default RB4 songs + Rivals expansion tracks.
-This tool supplements the baseline with your custom songs, dropping duplicates (custom files take precedence).
+- Python 3.x
+- .NET 8 (for PkgTool)
+- Node.js (for song list generation)
+- Optional: smbclient (for network share access)
+
+## Running the Pipeline
+
+**IMPORTANT:** Run scripts from the `RB4` folder for relative paths to work:
+
+```bash
+cd RB4
+python3 scripts/rb4_songlist_generator.py --pkg-dir /path/to/pkgs
+```
+
+Or with default paths:
+
+```bash
+cd RB4
+python3 scripts/rb4_songlist_generator.py
+```
 
 ## Quick Start
-
-Run the full extraction pipeline:
-
-```bash
-python3 RB4/scripts/rb4_songlist_generator.py --pkg-dir /path/to/your/pkgs --temp-dir /tmp/rb4_extract
-```
-
-Or use default paths (local `/workspace/pkgs` directory):
-
-```bash
-python3 RB4/scripts/rb4_songlist_generator.py
-```
 
 ## Full Pipeline (End-to-End)
 
@@ -37,15 +43,41 @@ python3 RB4/scripts/rb4_songlist_generator.py \
 
 ### Options
 
-| Option              | Default                          | Description                                    |
-| ------------------- | -------------------------------- | ---------------------------------------------- |
-| `--pkg-dir`         | `/workspace/pkgs`                | Directory containing PKG files                 |
-| `--temp-dir`        | `/workspace/rb4_temp`            | Temporary directory for extraction             |
-| `--output-json`     | `rb4_temp/rb4_custom_songs.json` | Output JSON file with extracted metadata       |
-| `--metadata-dir`    | `output/PkgMetadataExtracted`    | Directory for extracted metadata JSONs         |
-| `--songlist-dir`    | `output/`                        | Output directory for song lists                |
-| `--baseline`        | `rb4songlistWithRivals.txt`      | Baseline song list file                        |
-| `--progress-length` | `40`                             | Progress bar length in characters              |
+| Option                     | Default                    | Description                                      |
+| --------------------------- | -------------------------- | ------------------------------------------------ |
+| `--pkg-dir`                | `pkgs`                     | Directory containing PKG files                   |
+| `--temp-dir`               | `rb4_temp`                 | Temporary directory for extraction              |
+| `--output-json`            | `rb4_temp/rb4_custom_songs.json` | Output JSON file with extracted metadata    |
+| `--metadata-dir`           | `output/PkgMetadataExtracted` | Directory for extracted metadata JSONs       |
+| `--songlist-dir`           | `output/`                  | Output directory for song lists                 |
+| `--baseline`               | `rb4songlistWithRivals.txt` | Baseline song list file                         |
+
+## How It Works
+
+### Baseline Song Database
+
+The standard `rb4songlistWithRivals.txt` file serves as the baseline database of all default RB4 songs + Rivals expansion tracks. This tool supplements the baseline with your custom songs, dropping duplicates (custom files take precedence).
+
+### Empty Metadata Fallback
+
+Some custom songs have unparseable/empty metadata in their `.songdta_ps4` files. The pipeline uses `rb4_empty_songs_full.json` as a lookup table to recover artist, title, and instruments from the short filename. Songs recovered this way are marked with a "✓" in the Inferred column of the HTML output.
+
+### Output Files
+
+**Text lists (in `output/`):**
+- `SongListSortedByArtist.txt` - All songs sorted by artist
+- `SongListSortedBySongName.txt` - All songs sorted by title  
+- `SongListSortedByArtistClean.txt` - Same as above, with inferred songs flagged
+- `SongListSortedBySongNameClean.txt` - Same as above, with inferred songs flagged
+
+**HTML list (in `output/` and `docs/`):**
+- `RB4SongList.html` - Interactive HTML with filtering, sorting, 7 themes
+
+The HTML output is auto-copied to `docs/RB4SongList.html` for GitHub Pages deployment.
+| `--progress-length`        | `40`                       | Progress bar length in characters               |
+| `--reprocess-cached-metadata` | -                       | Skip PKG extraction, reprocess existing metadata |
+| `--smb`                    | -                          | Access PKGs via SMB share using smbclient        |
+| `--no-incremental`         | -                          | Disable incremental mode - re-process all PKGs   |
 | `--incremental`     | enabled                          | Skip already-processed PKGs (default: enabled) |
 | `--no-incremental`  | -                                | Disable incremental mode - re-process all PKGs |
 | `--smb`             | -                                | Access PKGs via SMB share using smbclient      |

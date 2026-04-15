@@ -138,11 +138,12 @@ class ErrorTracker:
             })
     
     def save(self):
-        with open(ERROR_LOG_FILE, 'w') as f:
-            json.dump({
-                'errors': self.errors,
-                'warnings': self.warnings
-            }, f, indent=2)
+        if ERROR_LOG_FILE:
+            with open(ERROR_LOG_FILE, 'w') as f:
+                json.dump({
+                    'errors': self.errors,
+                    'warnings': self.warnings
+                }, f, indent=2)
     
     def summary(self):
         total_errors = sum(len(v) for v in self.errors.values())
@@ -151,8 +152,9 @@ class ErrorTracker:
 
 def save_update_history(history):
     """Save update history."""
-    with open(UPDATE_HISTORY_FILE, 'w') as f:
-        json.dump(history, f, indent=2)
+    if UPDATE_HISTORY_FILE:
+        with open(UPDATE_HISTORY_FILE, 'w') as f:
+            json.dump(history, f, indent=2)
 
 def record_update(new_songs, total_songs_count):
     """Record this update in history."""
@@ -430,23 +432,24 @@ Examples:
         pkg_names = smb_list_pkgs()
         pkg_files = pkg_names  # Store just names, we'll fetch one at a time
     else:
-        # Local directory - filter out macOS hidden files (starting with ._)
-        if not os.path.isdir(args.pkg_dir):
-            log(f"ERROR: PKG directory not found: {args.pkg_dir}")
-            sys.exit(1)
-        
-        pkg_files = [
-            os.path.join(args.pkg_dir, f) 
-            for f in os.listdir(args.pkg_dir) 
-            if f.endswith('.pkg') and not f.startswith('._')
-        ]
+        # Handle --reprocess-cached-metadata: skip PKG scanning entirely
+        if args.reprocess_cached_metadata:
+            log(f"{icon('cached')} Reprocessing cached metadata (skipping PKG scan)...")
+            pkg_files = []
+        else:
+            # Local directory - filter out macOS hidden files (starting with ._)
+            if not os.path.isdir(args.pkg_dir):
+                log(f"ERROR: PKG directory not found: {args.pkg_dir}")
+                sys.exit(1)
+            
+            pkg_files = [
+                os.path.join(args.pkg_dir, f) 
+                for f in os.listdir(args.pkg_dir) 
+                if f.endswith('.pkg') and not f.startswith('._')
+            ]
     
-    # Handle --reprocess-cached-metadata: skip PKG scanning entirely
+    # Skip to "no new PKGs" section for reprocess
     if args.reprocess_cached_metadata:
-        log(f"{icon('cached')} Reprocessing cached metadata (skipping PKG scan)...")
-        # Skip all PKG processing - go directly to generating from existing metadata
-        pkg_files = []
-        # Skip to the "no new PKGs" section
         log(f"\n{icon('sparkles')} Generating song lists from existing metadata...")
     
     log(f"{icon('package')} Found {len(pkg_files)} PKG files in {args.pkg_dir}")
@@ -476,7 +479,6 @@ Examples:
         songs = get_songs_with_fallback(args.metadata_dir)
         
         # Save as output JSON
-        import json
         with open(args.output_json, 'w') as f:
             json.dump(songs, f, indent=2)
         log(f"Saved {len(songs)} songs to {args.output_json}")
@@ -486,15 +488,22 @@ Examples:
         
         # Generate HTML
         log(f"{icon('html')} Generating HTML song list...")
-        html_output = f"{args.songlist_dir}/SongList.html"
+        html_output = f"{args.songlist_dir}/RB4SongList.html"
         run_cmd(f'python3 /workspace/RB4/scripts/generate_html_list.py {args.metadata_dir} {html_output}')
         
         # Copy to docs for GitHub Pages
-        docs_index = "/workspace/docs/SongList.html"
+        docs_index = "/workspace/docs/RB4SongList.html"
         if os.path.exists(html_output):
             import shutil
             shutil.copy(html_output, docs_index)
             log(f"{icon('docs')} Copied HTML to docs for GitHub Pages: {docs_index}")
+        
+        # Auto-backup latest run
+        log(f"\n{icon('backup')} Running automatic backup...")
+        backup_script = os.path.join(os.path.dirname(__file__), 'backup_rb4_run.sh')
+        if os.path.exists(backup_script):
+            run_cmd(f'bash {backup_script}')
+            log(f"{icon('backup')} Backup complete!")
         
         log(success("Pipeline complete!"))
         sys.exit(0)
@@ -621,11 +630,11 @@ Examples:
     
     # Generate HTML output
     log(f"{icon('html')} Generating HTML song list...")
-    html_output = f"{args.songlist_dir}/SongList.html"
+    html_output = f"{args.songlist_dir}/RB4SongList.html"
     run_cmd(f'python3 /workspace/RB4/scripts/generate_html_list.py {args.metadata_dir} {html_output}')
     
     # Copy to docs for GitHub Pages
-    docs_index = "/workspace/docs/SongList.html"
+    docs_index = "/workspace/docs/RB4SongList.html"
     if os.path.exists(html_output):
         import shutil
         shutil.copy(html_output, docs_index)
@@ -635,6 +644,13 @@ Examples:
     error_tracker.save()
     log(f"\n📊 Error Report: {error_tracker.summary()}")
     log(f"   Full report saved to: {ERROR_LOG_FILE}")
+    
+    # Auto-backup latest run
+    log(f"\n{icon('backup')} Running automatic backup...")
+    backup_script = os.path.join(os.path.dirname(__file__), 'backup_rb4_run.sh')
+    if os.path.exists(backup_script):
+        run_cmd(f'bash {backup_script}')
+        log(f"{icon('backup')} Backup complete!")
     
     log("\n✅ Pipeline complete!")
     log(f"{icon('clip')} Processed PKGs saved to: {PROCESSED_PKGS_FILE}")
