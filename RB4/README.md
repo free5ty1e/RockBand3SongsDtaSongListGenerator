@@ -74,15 +74,32 @@ Some custom songs have unparseable/empty metadata in their `.songdta_ps4` files.
 - `RB4SongList.html` - Interactive HTML with filtering, sorting, 7 themes
 
 The HTML output is auto-copied to `docs/RB4SongList.html` for GitHub Pages deployment.
-| `--progress-length`        | `40`                       | Progress bar length in characters               |
-| `--reprocess-cached-metadata` | -                       | Skip PKG extraction, reprocess existing metadata |
-| `--smb`                    | -                          | Access PKGs via SMB share using smbclient        |
-| `--no-incremental`         | -                          | Disable incremental mode - re-process all PKGs   |
-| `--incremental`     | enabled                          | Skip already-processed PKGs (default: enabled) |
-| `--no-incremental`  | -                                | Disable incremental mode - re-process all PKGs |
-| `--smb`             | -                                | Access PKGs via SMB share using smbclient      |
-| `--log`             | `temp_dir/rb4_extract_<ts>.log`  | Log file path                                  |
-| `-v`, `--verbose`   | -                                | Verbose output                                 |
+
+## GitHub Pages Deployment
+
+This repo is set up to host the HTML song list via GitHub Pages.
+
+**Enable in repo Settings:**
+1. Go to Settings → Pages
+2. Source: "Deploy from a branch"
+3. Branch: `main`, Folder: `/docs`
+4. Click Save
+
+**Your URL will be:**
+```
+https://free5ty1e.github.io/RockBand3SongsDtaSongListGenerator/
+```
+
+### Hosting for Your Own Collection
+
+Want to share your own RB4 song list with party guests?
+
+1. Fork this repo
+2. Run the pipeline with your PKGs
+3. Commit the generated `docs/RB4SongList.html`
+4. Enable GitHub Pages in Settings
+
+Your guests can then browse and search your entire song collection from any device with a browser - no app or local files needed!
 
 ## Error Logging
 
