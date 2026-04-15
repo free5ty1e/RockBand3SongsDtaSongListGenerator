@@ -1,10 +1,8 @@
-#!/usr/bin/env python3
-"""Generate HTML song list from JSON data."""
-
-import json
+from datetime import datetime
 import sys
 import os
 import argparse
+import json
 
 sys.path.insert(0, os.path.dirname(__file__))
 from html_themes import THEMES, generate_theme_js
@@ -54,19 +52,25 @@ def generate_html(metadata_dir, output_file, page_title=None):
         if not short_name and debug_file:
             short_name = debug_file.replace(".songdta_ps4", "")
         
-        inferred = "✓" if s.get("inferred") else ""
+        infer = "✓" if s.get("inferred") else ""
+        
+        # Normalize year - fix invalid years (greater than current year)
+        year = s.get("year", 0) or 0
+        current_year = datetime.now().year
+        if year > current_year:
+            year = current_year
         
         js_songs.append({
             "artist": s.get("artist", ""),
             "title": s.get("title", ""),
             "album": s.get("album", ""),
-            "year": s.get("year", 0) or "",
+            "year": year,
             "duration": duration_sec,
             "duration_str": duration_str,
             "source": s.get("source", ""),
             "shortName": short_name,
             "instruments": instruments_display,
-            "inferred": inferred
+            "inferred": infer
         })
     
     js_data = json.dumps(js_songs)
