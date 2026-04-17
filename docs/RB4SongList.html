@@ -30,6 +30,7 @@
 </head>
 <body>
     <h1>🎸 Chris's PS4's Rock Band 4 Deluxe Song List <span id="totalCount" style="font-size:16px;color:#888"></span> <span id="filteredCount" style="font-size:14px;color:#48dbfb"></span></h1>
+    <p style="color:#888;font-size:12px;margin-top:0;">Last updated: Friday, April 17, 2026 at 01:20 AM EDT</p>
     <p style="color:#666;font-size:13px;margin-top:0;">💡 Click on any column header to sort by that column</p>
     <div class="controls">
         <div class="control-group">
@@ -210,8 +211,9 @@
             document.getElementById('durMin').placeholder = minDur;
             document.getElementById('durMax').placeholder = maxDur;
             const instruments = ['guitar', 'bass', 'drums', 'vocals', 'keys', 'real_guitar', 'real_bass', 'real_keys', 'harmony_1', 'harmony_2'];
+            const instIcons = {'guitar': '🎸', 'bass': '🎸', 'drums': '🥁', 'vocals': '🎤', 'keys': '🎹', 'real_guitar': '🎸', 'real_bass': '🎸', 'real_keys': '🎹', 'harmony_1': '🎤', 'harmony_2': '🎤'};
             document.getElementById('instFilter').innerHTML = instruments.map(i => 
-                `<label style="margin-right:8px"><input type="checkbox" value="${i}" checked onchange="filter()">${i}</label>`
+                `<label style="margin-right:8px"><input type="checkbox" value="${i}" checked onchange="filter()">${instIcons[i] || ''} ${i}</label>`
             ).join('');
             // Store default ranges
             window.DEFAULT_MIN_YEAR = minYear;

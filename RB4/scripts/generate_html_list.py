@@ -26,6 +26,23 @@ def generate_html(metadata_dir, output_file, page_title=None):
     if page_title is None:
         page_title = DEFAULT_HTML_PAGE_TITLE
     
+    # Get timezone from /etc/localtime (follows devcontainer's configured timezone)
+    try:
+        tz_link = os.readlink('/etc/localtime')
+        tz = tz_link.replace('/usr/share/zoneinfo/', '')
+    except:
+        tz = 'America/New_York'  # Default fallback
+    
+    # Get current timestamp in devcontainer's timezone
+    import time
+    now = datetime.now()
+    try:
+        import zoneinfo
+        tz_obj = zoneinfo.ZoneInfo(tz)
+        last_updated = now.astimezone(tz_obj).strftime('%A, %B %d, %Y at %I:%M %p %Z')
+    except:
+        last_updated = now.strftime('%A, %B %d, %Y at %I:%M %p')
+    
     baseline = load_empty_songs_baseline()
     songs = get_songs_with_fallback(metadata_dir, baseline)
     
@@ -118,8 +135,9 @@ def generate_html(metadata_dir, output_file, page_title=None):
             document.getElementById('durMin').placeholder = minDur;
             document.getElementById('durMax').placeholder = maxDur;
             const instruments = ['guitar', 'bass', 'drums', 'vocals', 'keys', 'real_guitar', 'real_bass', 'real_keys', 'harmony_1', 'harmony_2'];
+            const instIcons = {'guitar': '🎸', 'bass': '🎸', 'drums': '🥁', 'vocals': '🎤', 'keys': '🎹', 'real_guitar': '🎸', 'real_bass': '🎸', 'real_keys': '🎹', 'harmony_1': '🎤', 'harmony_2': '🎤'};
             document.getElementById('instFilter').innerHTML = instruments.map(i => 
-                `<label style="margin-right:8px"><input type="checkbox" value="${i}" checked onchange="filter()">${i}</label>`
+                `<label style="margin-right:8px"><input type="checkbox" value="${i}" checked onchange="filter()">${instIcons[i] || ''} ${i}</label>`
             ).join('');
             // Store default ranges
             window.DEFAULT_MIN_YEAR = minYear;
@@ -227,6 +245,7 @@ def generate_html(metadata_dir, output_file, page_title=None):
 </head>
 <body>
     <h1>{page_title} <span id="totalCount" style="font-size:16px;color:#888"></span> <span id="filteredCount" style="font-size:14px;color:#48dbfb"></span></h1>
+    <p style="color:#888;font-size:12px;margin-top:0;">Last updated: {last_updated}</p>
     <p style="color:#666;font-size:13px;margin-top:0;">💡 Click on any column header to sort by that column</p>
     <div class="controls">
         <div class="control-group">
