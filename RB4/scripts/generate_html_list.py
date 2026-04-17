@@ -73,9 +73,9 @@ def generate_html(metadata_dir, output_file, page_title=None):
                             'year': year,
                             'durationMs': 0,
                             'duration_str': '',
-                            'source': 'Rock Band 4 v1.00 / Rivals',
+                            'source': 'Rock Band 4',  # Match JS logic for baseline detection
                             'shortName': '',
-                            'instruments': '🎸🥁🎤',
+                            'instruments': '🎸🎸🥁🎤 guitar, bass, drums, vocals',
                             'inferred': '',
                             'from_baseline': True
                         })
@@ -84,25 +84,27 @@ def generate_html(metadata_dir, output_file, page_title=None):
     all_songs = songs + baseline_songs
     print(f"Extracted: {len(songs)} songs + Baseline-only: {len(baseline_songs)} = {len(all_songs)} total")
     
-    print(f"Extracted: {len(songs)} songs + Baseline-only: {len(baseline_songs)} = {len(all_songs)} total")
-    
     js_songs = []
     for s in all_songs:
         duration_sec = s.get("durationMs", 0) // 1000 if s.get("durationMs") else 0
         duration_str = f"{duration_sec // 60}:{duration_sec % 60:02d}" if duration_sec else ""
         
-        inst_list = s.get("instrumentList", []) or []
-        vocal_parts = s.get("vocalParts", 0)
-        if vocal_parts > 1:
-            inst_list.append("harmony_1")
-        if vocal_parts > 2:
-            inst_list.append("harmony_2")
-        instruments_text = ", ".join(inst_list) if inst_list else ""
-        instruments_icons = ""
-        for inst in ['real_guitar', 'real_bass', 'guitar', 'bass', 'drums', 'real_keys', 'keys', 'vocals']:
-            if inst in instruments_text.lower():
-                instruments_icons += INSTRUMENT_ICONS.get(inst, '🎵')
-        instruments_display = instruments_icons + instruments_text
+        # Handle baseline songs (from_baseline flag)
+        if s.get('from_baseline'):
+            instruments_display = "🎸🎸🥁🎤 guitar, bass, drums, vocals"  # emoji + text for filter
+        else:
+            inst_list = s.get("instrumentList", []) or []
+            vocal_parts = s.get("vocalParts", 0)
+            if vocal_parts > 1:
+                inst_list.append("harmony_1")
+            if vocal_parts > 2:
+                inst_list.append("harmony_2")
+            instruments_text = ", ".join(inst_list) if inst_list else ""
+            instruments_icons = ""
+            for inst in ['real_guitar', 'real_bass', 'guitar', 'bass', 'drums', 'real_keys', 'keys', 'vocals']:
+                if inst in instruments_text.lower():
+                    instruments_icons += INSTRUMENT_ICONS.get(inst, '🎵')
+            instruments_display = instruments_icons + instruments_text
         
         short_name = s.get("shortName", "")
         debug_file = s.get("_debug_file", "")
