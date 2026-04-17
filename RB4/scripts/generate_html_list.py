@@ -257,6 +257,42 @@ def generate_html(metadata_dir, output_file, page_title=None):
             filter();
         }
         
+        function randomSong() {
+            // Get current filtered songs
+            const search = document.getElementById('search').value.toLowerCase();
+            const yf = document.getElementById('yearFrom').value;
+            const yt = document.getElementById('yearTo').value;
+            const df = document.getElementById('durMin').value;
+            const dt = document.getElementById('durMax').value;
+            const yearFrom = yf ? parseInt(yf) : window.DEFAULT_MIN_YEAR || 0;
+            const yearTo = yt ? parseInt(yt) : window.DEFAULT_MAX_YEAR || 9999;
+            const durMin = df ? parseInt(df) : window.DEFAULT_MIN_DUR || 0;
+            const durMax = dt ? parseInt(dt) : window.DEFAULT_MAX_DUR || 99999;
+            const src = document.getElementById('source').value;
+            const checkedInsts = [...document.querySelectorAll('#instFilter input:checked')].map(i => i.value);
+            
+            let f = SONG_DATA.filter(s => {
+                if (search && !s.artist.toLowerCase().includes(search) && !s.title.toLowerCase().includes(search) && !s.album.toLowerCase().includes(search) && !s.shortName.toLowerCase().includes(search)) return false;
+                if (s.year && (s.year < yearFrom || s.year > yearTo)) return false;
+                if (s.duration && (s.duration < durMin || s.duration > durMax)) return false;
+                if (src && s.source !== src) return false;
+                if (checkedInsts.length > 0 && s.instruments) {
+                    const instLower = s.instruments.toLowerCase();
+                    if (!checkedInsts.some(i => instLower.includes(i))) return false;
+                }
+                return true;
+            });
+            
+            if (f.length === 0) {
+                alert('No songs match current filters!');
+                return;
+            }
+            
+            const randomIdx = Math.floor(Math.random() * f.length);
+            const song = f[randomIdx];
+            alert(`🎲 Random Song:\n\n${song.artist} - ${song.title}\n${song.album || ''} (${song.year || '?'})\nSource: ${song.source}`);
+        }
+        
         init();
     '''
     
@@ -338,6 +374,10 @@ def generate_html(metadata_dir, output_file, page_title=None):
         <div class="control-group">
             <label>&nbsp;</label>
             <button onclick="resetFilters()">Reset Filters</button>
+        </div>
+        <div class="control-group">
+            <label>&nbsp;</label>
+            <button onclick="randomSong()">🎲 Random Song</button>
         </div>
     </div>
     <table>
