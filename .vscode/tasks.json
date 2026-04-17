@@ -27,6 +27,72 @@
       "group": "test"
     },
     {
+      "label": "Ollama: Pull Models",
+      "type": "shell",
+      "command": "bash ${workspaceFolder}/.devcontainer/setup_ollama.sh",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "ollama"
+    },
+    {
+      "label": "Ollama: Start Server",
+      "type": "shell",
+      "command": "bash ${workspaceFolder}/.devcontainer/start_ollama.sh",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "ollama"
+    },
+    {
+      "label": "Opencode + Ollama: qwen2.5-coder:7b (code)",
+      "type": "shell",
+      "command": "bash ${workspaceFolder}/.devcontainer/start_ollama.sh && opencode /workspace --model ollama/qwen2.5-coder:7b",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "ollama"
+    },
+    {
+      "label": "Opencode + Ollama: qwen3:8b (general)",
+      "type": "shell",
+      "command": "bash ${workspaceFolder}/.devcontainer/start_ollama.sh && opencode /workspace --model ollama/qwen3:8b",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "ollama"
+    },
+    {
+      "label": "Opencode + Ollama: deepseek-coder-v2:16b (code)",
+      "type": "shell",
+      "command": "bash ${workspaceFolder}/.devcontainer/start_ollama.sh && opencode /workspace --model ollama/deepseek-coder-v2:16b",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "ollama"
+    },
+    {
+      "label": "Opencode + Ollama: mistral-nemo:12b (reasoning)",
+      "type": "shell",
+      "command": "bash ${workspaceFolder}/.devcontainer/start_ollama.sh && opencode /workspace --model ollama/mistral-nemo:12b",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "ollama"
+    },
+    {
       "label": "RB4: Scan PKGs (test set, fresh)",
       "type": "shell",
       "command": "python3 ${workspaceFolder}/RB4/scripts/rb4_songlist_generator.py --pkg-dir ${workspaceFolder}/pkgs_test --no-incremental",

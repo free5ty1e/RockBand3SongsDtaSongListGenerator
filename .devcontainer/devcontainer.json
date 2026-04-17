@@ -35,14 +35,22 @@
     }
   },
   "forwardPorts": [
-    3000
+    3000,
+    11434
   ],
   "portsAttributes": {
     "3000": {
       "label": "Song List Preview",
       "onAutoForward": "notify"
+    },
+    "11434": {
+      "label": "Ollama API",
+      "onAutoForward": "notify"
     }
   },
   "postCreateCommand": "bash .devcontainer/setup_devcontainer.sh",
+  "containerEnv": {
+    "OLLAMA_MODELS": "qwen2.5-coder:7b qwen3:8b deepseek-coder-v2:16b mistral-nemo:12b"
+  },
   "remoteUser": "vscode"
 }

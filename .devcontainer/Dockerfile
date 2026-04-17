@@ -25,6 +25,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xvfb \
     alsa-utils \
     libpulse0 \
+    # ── Ollama dependencies ──────────────────────────────────────────────────
+    zstd \
     # ──────────────────────────────────────────────────────────────────────────
     build-essential \
     cmake \
@@ -95,6 +97,13 @@ RUN curl -fsSL -o /tmp/opencode.tar.gz https://github.com/anomalyco/opencode/rel
     && tar -xzf /tmp/opencode.tar.gz -C /usr/local/bin \
     && chmod +x /usr/local/bin/opencode \
     && rm /tmp/opencode.tar.gz
+
+# ── Ollama (local AI models) ───────────────────────────────────────────────────
+# Ollama provides local AI model serving for opencode with tool-calling support
+ARG OLLAMA_VERSION=0.5.4
+RUN curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=$OLLAMA_VERSION sh \
+    && ln -s /usr/local/bin/ollama /usr/bin/ollama \
+    || echo "⚠️  Ollama installation failed (optional)"
 
 # ── LibForge (libopenmdf, song parsing) ───────────────────────────────────────
 RUN git clone --depth 1 https://github.com/mtolly/LibForge.git /workspace/LibForge

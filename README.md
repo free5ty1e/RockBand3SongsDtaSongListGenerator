@@ -128,6 +128,79 @@ Frank Sinatra (My Way) - My Way (1969 / 4:49) (songs.dta)
 
 To build song lists for Rock Band 4 and user custom PKGs, please refer to the specific toolset in the `RB4/` directory. See the [RB4 README](./RB4/README.md) for its specific setup and pipeline documentation.
 
+## Local Ollama Models
+
+This project includes support for running local AI models via [Ollama](https://ollama.com/). This keeps your code local and private — no data leaves your machine.
+
+### Available Models
+
+The following agent-capable models are configured (support tool calling):
+
+| Model | Size | Purpose |
+|-------|------|---------|
+| qwen2.5-coder:7b | ~4.4GB | Fast code generation |
+| deepseek-coder-v2:16b | ~9GB | GPT4-Turbo class coding |
+| qwen3:8b | ~8GB | General purpose |
+| mistral-nemo:12b | ~12GB | Reasoning and analysis |
+
+**Total: ~33GB** (all models)
+
+### Adding/Changing Models
+
+Models are defined in one place: [`.devcontainer/ollama_models.conf`](.devcontainer/ollama_models.conf)
+
+To add or change models:
+
+1. Edit `.devcontainer/ollama_models.conf` (format: `["model:name"]="description|size"`)
+2. Update [`.vscode/tasks.json`](.vscode/tasks.json) tasks for new models
+3. Update [`opencode.json`](opencode.json) with new model entries
+4. Run `bash .devcontainer/check_models.sh` to verify sync
+
+### Checking Config Sync
+
+Run the validation script to ensure all configs are consistent:
+
+```bash
+bash .devcontainer/check_models.sh
+```
+
+This checks that every model in `ollama_models.conf` exists in both `tasks.json` and `opencode.json`.
+
+### Ollama Tasks
+
+- **`Ollama: Pull Models`** — Downloads selected models (~33GB total)
+  - First prompt: Install all models? (A/n)
+  - If 'n': individual prompts for each model with size/description
+  - Can also set via env var: `OLLAMA_MODELS='model1 model2' bash .devcontainer/setup_ollama.sh`
+
+- **`Ollama: Start Server`** — Starts Ollama server (idempotent — safe to run multiple times)
+
+- **`Opencode + Ollama: <model>`** — Starts server + launches opencode with that model
+  - Auto-selects any installed model as your coding assistant
+  - Run from VS Code: `Tasks: Run Task` → select the model you want
+
+### Manual Ollama Usage
+
+```bash
+# Start Ollama server
+bash .devcontainer/start_ollama.sh
+
+# Pull specific model
+ollama pull qwen2.5-coder:7b
+
+# Run opencode with local model
+opencode /workspace --model ollama/qwen2.5-coder:7b
+
+# List installed models
+ollama list
+```
+
+### Notes
+
+- Ollama downloads are cached — if a model fails mid-download, re-running will resume
+- Models persist in Ollama storage, not in the container — survives rebuilds
+- Port 11434 is forwarded for Ollama API access
+
 # Other Tools
 
 See the other tools folder for README files for each specific related tool / toolset

@@ -80,7 +80,7 @@ def generate_html(metadata_dir, output_file, page_title=None):
     # Build JS as a regular string to avoid f-string issues
     js_code = '''
         const SONG_DATA = ''' + js_data + ''';
-        let col = 3, asc = false;
+        let col = 0, asc = true; // Default sort: artist (column 0), ascending
         
         function setTheme(themeName) {
             const t = THEMES[themeName];
@@ -227,6 +227,7 @@ def generate_html(metadata_dir, output_file, page_title=None):
 </head>
 <body>
     <h1>{page_title} <span id="totalCount" style="font-size:16px;color:#888"></span> <span id="filteredCount" style="font-size:14px;color:#48dbfb"></span></h1>
+    <p style="color:#666;font-size:13px;margin-top:0;">💡 Click on any column header to sort by that column</p>
     <div class="controls">
         <div class="control-group">
             <label>🎨 Theme</label>
