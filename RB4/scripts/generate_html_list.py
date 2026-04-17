@@ -46,8 +46,48 @@ def generate_html(metadata_dir, output_file, page_title=None):
     baseline = load_empty_songs_baseline()
     songs = get_songs_with_fallback(metadata_dir, baseline)
     
+    # Also load and merge baseline songs (rb4songlistWithRivals.txt)
+    baseline_file = '/workspace/RB4/rb4songlistWithRivals.txt'
+    baseline_songs = []
+    if os.path.exists(baseline_file):
+        import re
+        with open(baseline_file, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                m = re.match(r'^(.+?) \(([^)]+)\)\s*-\s*(.+?)\s*\((\d+)', line)
+                if m:
+                    artist = m.group(1).strip()
+                    album = m.group(2).strip()
+                    title = m.group(3).strip()
+                    year = int(m.group(4))
+                    # Check if this song already exists in extracted songs
+                    key = f"{artist}|{title}".lower()
+                    exists = any(f"{s.get('artist','')}|{s.get('title','')}".lower() == key for s in songs)
+                    if not exists:
+                        baseline_songs.append({
+                            'artist': artist,
+                            'title': title,
+                            'album': album,
+                            'year': year,
+                            'durationMs': 0,
+                            'duration_str': '',
+                            'source': 'Rock Band 4 v1.00 / Rivals',
+                            'shortName': '',
+                            'instruments': '🎸🥁🎤',
+                            'inferred': '',
+                            'from_baseline': True
+                        })
+    
+    # Combine extracted songs + baseline-only songs
+    all_songs = songs + baseline_songs
+    print(f"Extracted: {len(songs)} songs + Baseline-only: {len(baseline_songs)} = {len(all_songs)} total")
+    
+    print(f"Extracted: {len(songs)} songs + Baseline-only: {len(baseline_songs)} = {len(all_songs)} total")
+    
     js_songs = []
-    for s in songs:
+    for s in all_songs:
         duration_sec = s.get("durationMs", 0) // 1000 if s.get("durationMs") else 0
         duration_str = f"{duration_sec // 60}:{duration_sec % 60:02d}" if duration_sec else ""
         
