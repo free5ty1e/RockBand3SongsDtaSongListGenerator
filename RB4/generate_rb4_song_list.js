@@ -195,13 +195,18 @@ function formatArtistLine(song) {
   const shortName = song.shortName || '';
   let instruments = song.instruments || '';
   
-  // For baseline (official) songs, default to full band + vocals
+  // For baseline (official) songs OR inferred songs, default to full band + vocals
   // Emoji order: 🎸=guitar, 🎸=bass, 🥁=drums, 🎤=vocals
   // Check for harmony (vocalParts > 1 means multiple vocal tracks)
-  const isBaseline = ['Rock Band 4', 'Rock Band 4 Rivals'].includes(song.source);
+  const isBaseline = song.source && (
+    song.source === 'Rock Band 4' || 
+    song.source === 'Rock Band 4 Rivals' || 
+    song.source.startsWith('Rock Band 4 ')  // Covers "Rock Band 4 DLC", "Rock Band 4 Rivals xpak", etc.
+  );
+  const isInferred = song.inferred && (song.inferred === true || song.inferred === '✓' || song.inferred === 'true');
   if (song.vocalParts && song.vocalParts > 1) {
     instruments = '🎸 🎸 🥁 🎤 🎤';  // Multiple vocal mics for harmony
-  } else if (!instruments && isBaseline) {
+  } else if (!instruments && (isBaseline || isInferred)) {
     instruments = '🎸 🎸 🥁 🎤';  // guitar, bass, drums, vocals
   }
   
@@ -219,12 +224,16 @@ function formatNameLine(song) {
   const shortName = song.shortName || '';
   let instruments = song.instruments || '';
   
-  // For baseline (official) songs, default to full band + vocals
-  // RB4, Rivals, and other official content have all instruments
-  const isBaseline = ['Rock Band 4', 'Rock Band 4 Rivals'].includes(song.source);
+  // For baseline (official) songs OR inferred songs, default to full band + vocals
+  const isBaseline = song.source && (
+    song.source === 'Rock Band 4' || 
+    song.source === 'Rock Band 4 Rivals' || 
+    song.source.startsWith('Rock Band 4 ')  // Covers "Rock Band 4 DLC", "Rock Band 4 Rivals xpak", etc.
+  );
+  const isInferred = song.inferred && (song.inferred === true || song.inferred === '✓' || song.inferred === 'true');
   if (song.vocalParts && song.vocalParts > 1) {
     instruments = '🎸 🎸 🥁 🎤 🎤';
-  } else if (!instruments && isBaseline) {
+  } else if (!instruments && (isBaseline || isInferred)) {
     instruments = '🎸 🎸 🥁 🎤';
   }
   

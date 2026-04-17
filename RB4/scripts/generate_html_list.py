@@ -89,11 +89,16 @@ def generate_html(metadata_dir, output_file, page_title=None):
         duration_sec = s.get("durationMs", 0) // 1000 if s.get("durationMs") else 0
         duration_str = f"{duration_sec // 60}:{duration_sec % 60:02d}" if duration_sec else ""
         
-        # Handle baseline songs (from_baseline flag)
-        if s.get('from_baseline'):
+        # Get instrument list first
+        inst_list = s.get("instrumentList", []) or []
+        
+        # Handle baseline songs (from_baseline flag) or inferred songs with limited instruments
+        is_inferred = s.get("inferred")
+        has_limited_instruments = len(inst_list) <= 1
+        if s.get('from_baseline') or (is_inferred and has_limited_instruments):
+            # If no instruments, from_baseline, or only 1 instrument, assume all 4 basic instruments
             instruments_display = "🎸🎸🥁🎤 guitar, bass, drums, vocals"  # emoji + text for filter
         else:
-            inst_list = s.get("instrumentList", []) or []
             vocal_parts = s.get("vocalParts", 0)
             if vocal_parts > 1:
                 inst_list.append("harmony_1")
