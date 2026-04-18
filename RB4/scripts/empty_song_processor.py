@@ -90,8 +90,14 @@ def get_songs_with_fallback(metadata_dir, baseline=None):
     
     songs = []
     for f in sorted(glob.glob(os.path.join(metadata_dir, 'metadata_*.json'))):
+        # Add pkg filename from metadata filename
+        pkg_name = os.path.basename(f).replace('metadata_', '').replace('.json', '')
         with open(f) as fp:
-            songs.extend(json.load(fp))
+            loaded_songs = json.load(fp)
+        # Add pkg to ALL songs in this file
+        for song in loaded_songs:
+            song['_pkg_file'] = pkg_name
+        songs.extend(loaded_songs)
     
     return apply_empty_song_fallback(songs, baseline)
 

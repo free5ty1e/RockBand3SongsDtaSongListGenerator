@@ -213,7 +213,10 @@ function formatArtistLine(song) {
   // Add inference indicator for songs that used empty song fallback
   const inferred = song.inferred ? ' 🔍' : '';
   
-  return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source} [${shortName}]${inferred} ${instruments}`;
+  // PKG source info (from _debug_file or shortName) - show filename
+  const pkgInfo = song.shortName ? `[${song.shortName}]` : '';
+
+  return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source} ${pkgInfo}${inferred} ${instruments}`;
 }
 
 // ── Format a song as a name-sorted line ──────────────────────────────────────
@@ -240,7 +243,10 @@ function formatNameLine(song) {
   // Add inference indicator for songs that used empty song fallback
   const inferred = song.inferred ? ' 🔍' : '';
   
-  return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source} [${shortName}]${inferred} ${instruments}`;
+  // PKG source info (from _debug_file or shortName) - show filename
+  const pkgInfo = song.shortName ? `[${song.shortName}]` : '';
+
+  return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source} ${pkgInfo}${inferred} ${instruments}`;
 }
 
 // ── Build stats header ────────────────────────────────────────────────────────

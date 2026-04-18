@@ -66,6 +66,9 @@ def generate_html(metadata_dir, output_file, page_title=None):
                     key = f"{artist}|{title}".lower()
                     exists = any(f"{s.get('artist','')}|{s.get('title','')}".lower() == key for s in songs)
                     if not exists:
+                        # Extract source name (e.g., "Rock Band 4 v1.00") - after the last " - "
+                        line_parts = line.split(' - ')
+                        src = line_parts[-1].strip() if line_parts else 'Rock Band 4'
                         baseline_songs.append({
                             'artist': artist,
                             'title': title,
@@ -73,7 +76,7 @@ def generate_html(metadata_dir, output_file, page_title=None):
                             'year': year,
                             'durationMs': 0,
                             'duration_str': '',
-                            'source': 'Rock Band 4',  # Match JS logic for baseline detection
+                            'source': src,
                             'shortName': '',
                             'instruments': '🎸🎸🥁🎤 guitar, bass, drums, vocals',
                             'inferred': '',
@@ -116,6 +119,9 @@ def generate_html(metadata_dir, output_file, page_title=None):
         if not short_name and debug_file:
             short_name = debug_file.replace(".songdta_ps4", "")
         
+        # Get PKG filename (metadata filename, not shortname)
+        pkg_file = s.get("_pkg_file", "")
+        
         infer = "✓" if s.get("inferred") else ""
         
         # Normalize year - fix invalid years (greater than current year)
@@ -134,7 +140,8 @@ def generate_html(metadata_dir, output_file, page_title=None):
             "source": s.get("source", ""),
             "shortName": short_name,
             "instruments": instruments_display,
-            "inferred": infer
+            "inferred": infer,
+            "pkg": pkg_file
         })
     
     js_data = json.dumps(js_songs)
@@ -218,7 +225,7 @@ def generate_html(metadata_dir, output_file, page_title=None):
                 }
                 return true;
             });
-            const cols = ['artist', 'title', 'album', 'year', 'duration', 'source', 'instruments', 'shortName', 'inferred'];
+            const cols = ['artist', 'title', 'album', 'year', 'duration', 'source', 'instruments', 'shortName', 'inferred', 'pkg'];
             f.sort((a, b) => {
                 const va = a[cols[col]], vb = b[cols[col]];
                 if (typeof va === 'number') return asc ? va - vb : vb - va;
@@ -238,6 +245,7 @@ def generate_html(metadata_dir, output_file, page_title=None):
                     <td class="instr">${s.instruments || ''}</td>
                     <td style="font-family:monospace;font-size:11px;">${s.shortName || ''}</td>
                     <td class="inferred">${s.inferred || ''}</td>
+                    <td style="font-family:monospace;font-size:10px;color:#888;">${s.pkg || ''}</td>
                 </tr>
             `).join('');
             document.getElementById('filteredCount').textContent = f.length !== SONG_DATA.length ? ` (filters: ${f.length})` : '';
@@ -392,6 +400,7 @@ def generate_html(metadata_dir, output_file, page_title=None):
                 <th onclick="sort(6)">Instruments ⬍</th>
                 <th onclick="sort(7)">ShortName ⬍</th>
                 <th onclick="sort(8)">Inferred* ⬍</th>
+                <th onclick="sort(9)">PKG ⬍</th>
             </tr>
         </thead>
         <tbody id="body"></tbody>
