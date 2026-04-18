@@ -180,11 +180,12 @@ function parseOnyxSong(obj, sourceOverride) {
   source = sourceMap[source] || source;
 
   const shortName = get('shortName', 'shortname') || '';
+  const pkFile = get('_pkg_file') || '';  // PKG metadata filename
   const instruments = get('instruments', 'instrumentEmoji') || '';
 
   if (!artist || !title) return null; // skip non-song PKGs
   const inferred = obj.inferred || obj.Inferred || false;
-  return { artist, album: album || null, title, year: isNaN(year) ? null : year, durationMs, source, shortName, instruments, inferred };
+  return { artist, album: album || null, title, year: isNaN(year) ? null : year, durationMs, source, shortName, instruments, inferred, _pkg_file: pkFile };
 }
 
 // ── Format a song as an output line (artist-sorted style) ────────────────────
@@ -193,6 +194,7 @@ function formatArtistLine(song) {
   const year    = song.year   != null ? song.year : '?';
   const dur     = msToMmSs(song.durationMs);
   const shortName = song.shortName || '';
+  const pkgFile = song._pkg_file || '';  // PKG metadata filename
   let instruments = song.instruments || '';
   
   // For baseline (official) songs OR inferred songs, default to full band + vocals
@@ -213,10 +215,12 @@ function formatArtistLine(song) {
   // Add inference indicator for songs that used empty song fallback
   const inferred = song.inferred ? ' 🔍' : '';
   
-  // PKG source info (from _debug_file or shortName) - show filename
-  const pkgInfo = song.shortName ? `[${song.shortName}]` : '';
+  // PKG source info - show both shortName and PKG filename
+  const shortNameStr = shortName ? `[${shortName}]` : '';
+  const pkgStr = pkgFile ? `<${pkgFile}>` : '';
+  const pkgDisplay = [shortNameStr, pkgStr].filter(x => x).join(' ');
 
-  return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source} ${pkgInfo}${inferred} ${instruments}`;
+  return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source} ${pkgDisplay}${inferred} ${instruments}`;
 }
 
 // ── Format a song as a name-sorted line ──────────────────────────────────────
@@ -225,6 +229,7 @@ function formatNameLine(song) {
   const year    = song.year   != null ? song.year : '?';
   const dur     = msToMmSs(song.durationMs);
   const shortName = song.shortName || '';
+  const pkgFile = song._pkg_file || '';  // PKG metadata filename
   let instruments = song.instruments || '';
   
   // For baseline (official) songs OR inferred songs, default to full band + vocals
@@ -243,10 +248,12 @@ function formatNameLine(song) {
   // Add inference indicator for songs that used empty song fallback
   const inferred = song.inferred ? ' 🔍' : '';
   
-  // PKG source info (from _debug_file or shortName) - show filename
-  const pkgInfo = song.shortName ? `[${song.shortName}]` : '';
+  // PKG source info - show both shortName and PKG filename
+  const shortNameStr = shortName ? `[${shortName}]` : '';
+  const pkgStr = pkgFile ? `<${pkgFile}>` : '';
+  const pkgDisplay = [shortNameStr, pkgStr].filter(x => x).join(' ');
 
-  return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source} ${pkgInfo}${inferred} ${instruments}`;
+  return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source} ${pkgDisplay}${inferred} ${instruments}`;
 }
 
 // ── Build stats header ────────────────────────────────────────────────────────
