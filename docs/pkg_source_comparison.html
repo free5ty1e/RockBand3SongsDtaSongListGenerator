@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RB4 Song Source Comparison - Detailed</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #1a1a2e; color: #eee; }
+        h1 { color: #00d4ff; }
+        h2 { color: #48dbfb; margin-top: 30px; }
+        h3 { color: #feca57; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; background: #16213e; }
+        th, td { padding: 8px; text-align: left; border: 1px solid #333; font-size: 13px; }
+        th { background: #0f3460; color: #00d4ff; cursor: pointer; }
+        tr:nth-child(even) { background: #1a1a2e; }
+        tr:hover { background: #1f4068; }
+        .found { color: #4ade80; }
+        .missing { color: #f87171; }
+        .summary-box { background: #0f3460; padding: 15px; border-radius: 8px; margin: 20px 0; }
+        .source-section { margin: 30px 0; padding: 15px; background: #16213e; border-radius: 8px; }
+        .notes { background: #0f3460; padding: 10px; border-radius: 4px; margin: 10px 0; font-style: italic; }
+    </style>
+</head>
+<body>
+    <h1>🎸 RB4 Song Source Comparison - DETAILED</h1>
+    <p>Comparing our extraction (3705 songs) to expected counts from Wikipedia/official sources.</p>
+    
+    <div class="source-section">
+        <h2>📊 Summary by Source Category</h2>
+        <table>
+            <tr><th>Source Category</th><th>Our Count</th><th>Expected</th><th>Gap</th><th>Status</th></tr>
+            <tr><td>Rock Band 1 (disc)</td><td>51</td><td>60</td><td>-9</td><td class="missing">MISSING</td></tr>
+            <tr><td>Rock Band 1 DLC</td><td>893</td><td>893</td><td>0</td><td class="found">COMPLETE</td></tr>
+            <tr><td>Rock Band 2 (disc)</td><td>75</td><td>84</td><td>-9</td><td class="missing">MISSING</td></tr>
+            <tr><td>Rock Band 2 DLC</td><td>0</td><td>84+</td><td>-84</td><td class="missing">NOT PRESENT</td></tr>
+            <tr><td>Rock Band 3 (disc)</td><td>73</td><td>83</td><td>-10</td><td class="missing">MISSING</td></tr>
+            <tr><td>Rock Band 3 DLC</td><td>463</td><td>588</td><td>-125</td><td class="missing">MISSING</td></tr>
+            <tr><td>Rock Band 4 (disc + Rivals)</td><td>89</td><td>65+26</td><td>+24</td><td>EXTRA</td></tr>
+            <tr><td>Rock Band 4 DLC</td><td>625</td><td>800+</td><td>-175+</td><td class="missing">MISSING</td></tr>
+            <tr><td>Rock Band Network 1</td><td>155</td><td>1030</td><td>-875</td><td class="missing">MAJOR GAP</td></tr>
+            <tr><td>Rock Band Green Day</td><td>41</td><td>41</td><td>0</td><td class="found">COMPLETE</td></tr>
+            <tr><td>LEGO Rock Band</td><td>40</td><td>40</td><td>0</td><td class="found">COMPLETE</td></tr>
+            <tr><td>Custom (UGC)</td><td>1289</td><td>?</td><td>?</td><td>UNKNOWN</td></tr>
+        </table>
+    </div>
+
+    <div class="source-section">
+        <h2>🎯 KEY FINDING: RBN1 Only Has 155 of ~1030 Songs!</h2>
+        <div class="notes">
+            Rock Band Network (RBN) was released in 2010-2012 for Rock Band 3 (PS3/Xbox 360).
+            Many RBN songs are widely known. Check if these exist on your PS4:
+        </div>
+        <h3>Songs WE HAVE (155 total - first 30):</h3>
+        <table>
+            <tr><th>Artist</th><th>Title</th></tr>
+            <tr><td>Clutch</td><td>50,000 Unstoppable Watts</td></tr>
+            <tr><td>Fake Problems</td><td>5678</td></tr>
+            <tr><td>Anamanaguchi</td><td>Airbrushed</td></tr>
+            <tr><td>Between the Buried and Me</td><td>Alaska</td></tr>
+            <tr><td>Nonpoint</td><td>Alive and Kicking</td></tr>
+            <tr><td>Between the Buried and Me</td><td>All Bodies</td></tr>
+            <tr><td>A Day to Remember</td><td>All I Want</td></tr>
+            <tr><td>Silverstein</td><td>American Dream</td></tr>
+            <tr><td>Woe, Is Me</td><td>[&] Delinquents</td></tr>
+            <tr><td>Go Radio</td><td>Any Other Heart</td></tr>
+            <tr><td>Pierce the Veil</td><td>Been to Hell</td></tr>
+            <tr><td>Bring Me the Horizon</td><td>Can You Feel My Heart</td></tr>
+            <tr><td>Hit the Lights</td><td>Demons</td></tr>
+            <tr><td>The Amity Affliction</td><td>Don't Lean on Me</td></tr>
+            <tr><td>For Today</td><td>Eye of the Storm</td></tr>
+            <tr><td>We set the Scene</td><td>Fight From the Inside</td></tr>
+            <tr><td>A Day to Remember</td><td>Hold My Hand</td></tr>
+            <tr><td>Issues</td><td>I巡ly</td></tr>
+            <tr><td>Motionless</td><td>Immortal Corps</td></tr>
+            <tr><td>Carnifex</td><td>Infected</td></tr>
+            <tr><td>The Devil Wears Prada</td><td>Konstantine</td></tr>
+            <tr><td>Miss May I</td><td>Liights</td></tr>
+            <tr><td>Of Mice &amp; Men</td><td>My Turn</td></tr>
+            <tr><td>Parkway Drive</td><td>Romance Is Dead</td></tr>
+            <tr><td>Sleeping With Sirens</td><td>Set It Off</td></tr>
+            <tr><td>The Story So Far</td><td>Take Me As</td></tr>
+            <tr><td>Motion City Soundtrack</td><td>The Race</td></tr>
+            <tr><td>Underoath</td><td>Venice</td></tr>
+            <tr><td>Waiting</td><td>When I See the Light</td></tr>
+            <tr><td>You Me At Six</td><td>Wilderness</td></tr>
+        </table>
+        
+        <h3>RBN1 Songs LIKELY MISSING (not in our list - check PS4):</h3>
+        <table>
+            <tr><th>Artist</th><th>Title</th><th>Why Should Be There</th></tr>
+            <tr><td>DragonForce</td><td>Through the Fire and Flames</td><td>Most iconic RBN1 song</td></tr>
+            <tr><td>3 Doors Down</td><td>Kryptonite</td><td>Huge hit</td></tr>
+            <tr><td>Avenged Sevenfold</td><td>Critical Acclaim</td><td>Fan favorite</td></tr>
+            <tr><td>Disturbed</td><td>Down With the Sickness</td><td>Huge hit</td></tr>
+            <tr><td>Breaking Benjamin</td><td>Failure</td><td>Rock radio hit</td></tr>
+            <tr><td>Linkin Park</td><td>Given Up</td><td>Major band</td></tr>
+            <tr><td>Pantera</td><td>Walk</td><td>Metal classic</td></tr>
+            <tr><td>Metallica</td><td>Cyanide</td><td>Major band</td></tr>
+            <tr><td>Bullet for My Valentine</td><td>Your Betrayal</td><td>Popular in RB</td></tr>
+            <tr><td>Cradle of Filth</td><td>Nymphetamine</td><td>Metalcore hit</td></tr>
+            <tr><td>Blind Guardian</td><td>Twilight of the Gods</td><td>Metal classic</td></tr>
+            <tr><td>Dimmu Borgir</td><td>Iron Crown</td><td>Symphonic metal</td></tr>
+            <tr><td>All That Remains</td><td>This Darkened Heart</td><td>Metalcore</td></tr>
+            <tr><td>As I Lay Dying</td><td>Empty Hearts</td><td>Metalcore</td></tr>
+            <tr><td>Bury Tomorrow</td><td>Sworn to Quiet</td><td>UK metal</td></tr>
+            <tr><td>HIM</td><td>Heart of Every Man</td><td>Gothic rock</td></tr>
+            <tr><td>In This Moment</td><td>Into the Light</td><td>Female fronted</td></tr>
+            <tr><td>La Dispute</td><td>Such Small Hands</td><td>Post-hardcore</td></tr>
+            <tr><td>Muse</td><td>Uprising</td><td>Major band</td></tr>
+            <tr><td>Shinedown</td><td>Second Chance</td><td>Radio rock</td></tr>
+            <tr><td>Slipknot</td><td>Psychosocial</td><td>Nu metal</td></tr>
+            <tr><td>30 Seconds to Mars</td><td>This Is War</td><td>Alt rock</td></tr>
+            <tr><td>Alesana</td><td>Apology</td><td>Post-hardcore</td></tr>
+            <tr><td>Attack Attack!</td><td>Stick Stick</td><td>Metalcore</td></tr>
+            <tr><td>From First to Last</td><td>EM</td><td>Pop post-hardcore</td></tr>
+            <tr><td>Escape the Fate</td><td>Gravity</td><td>Post-hardcore</td></tr>
+            <tr><td>Mayday Parade</td><td>Merry Christmas After All</td><td>Pop punk</td></tr>
+            <tr><td>P.O.D.</td><td>Sleepers</td><td>Nu metal</td></tr>
+            <tr><td>The Devil Wears Prada</td><td>You Pulled a Pistol on the Paparazzi</td><td>Metalcore</td></tr>
+            <tr><td>Unearth</td><td>False Devotions</td><td>Metalcore</td></tr>
+        </table>
+    </div>
+
+    <div class="source-section">
+        <h2>🎮 Rock Band 3 DLC - Check These on PS4 (MISSING ~125)</h2>
+        <table>
+            <tr><th>Artist</th><th>Title</th></tr>
+            <tr><td>The Killers</td><td>Mr. Brightside</td></tr>
+            <tr><td>Foo Fighters</td><td>Everlong</td></tr>
+            <tr><td>The Offspring</td><td>Self Esteem</td></tr>
+            <tr><td>Evanescence</td><td>Call Me When You're Sober</td></tr>
+            <tr><td>Sublime</td><td>What I Got</td></tr>
+            <tr><td>Rage Against the Machine</td><td>Killing in the Name</td></tr>
+            <tr><td>Soundgarden</td><td>Live to Rise</td></tr>
+            <tr><td>Cheap Trick</td><td>I Want You to Want Me</td></tr>
+            <tr><td>Stone Temple Pilots</td><td>Plush</td></tr>
+            <tr><td>The Doors</td><td>Light My Fire</td></tr>
+            <tr><td>Alice in Chains</td><td>Roads</td></tr>
+            <tr><td>Rage Against the Machine</td><td>Bulls on Parade</td></tr>
+            <tr><td>Incubus</td><td>Megalomaniac</td></tr>
+            <tr><td>Red Hot Chili Peppers</td><td>Give It Away</td></tr>
+            <tr><td>Bush</td><td>Glycerine</td></tr>
+            <tr><td>Oasis</td><td>Wonderwall</td></tr>
+            <tr><td>Def Leppard</td><td>Photograph</td></tr>
+            <tr><td>Weezer</td><td>Say It Ain't So</td></tr>
+            <tr><td>Jimmy Eat World</td><td>The Middle</td></tr>
+            <tr><td>Green Day</td><td>Jesus of Suburbia</td></tr>
+            <tr><td>No Doubt</td><td>Don't Speak</td></tr>
+            <tr><td>Lynyrd Skynyrd</td><td>Simple Man</td></tr>
+            <tr><td>The Cranberries</td><td>Zombie</td></tr>
+            <tr><td>Breaking Benjamin</td><td>Soul Self Destruct</td></tr>
+            <tr><td>Three Days Grace</td><td>Never Really Told</td></tr>
+            <tr><td>Seether</td><td>Gasoline</td></tr>
+            <tr><td>Staind</td><td>It's Been Awhile</td></tr>
+            <tr><td>Godsmack</td><td>Whatever</td></tr>
+            <tr><td>Queens of the Stone Age</td><td>No One Knows</td></tr>
+            <tr><td>Audioslave</td><td>Show Me How to Live</td></tr>
+            <tr><td>Ten Thousand Fists</td><td>Judgeme</td></tr>
+            <tr><td>Papa Roach</td><td>Getting Away with Murder</td></tr>
+            <tr><td>Saliva</td><td>Always</td></tr>
+            <tr><td>Staind</td><td>Right Here</td></tr>
+            <tr><td>Daughtry</td><td>It's Not Over</td></tr>
+            <tr><td>Alter Bridge</td><td>Watch Over You</td></tr>
+            <tr><td>Shinedown</td><td>Save Me</td></tr>
+            <tr><td>3 Doors Down</td><td>Here Without You</td></tr>
+            <tr><td>Seether</td><td>Fine Again</td></tr>
+            <tr><td>Daughtry</td><td>What About Now</td></tr>
+            <tr><td>Papa Roach</td><td>Scars on the Ready</td></tr>
+            <tr><td>Nickelback</td><td>Someday</td></tr>
+            <tr><td>Godsmack</td><td>Whatever</td></tr>
+        </table>
+    </div>
+
+    <div class="source-section">
+        <h2>🎵 Rock Band 4 DLC - Check These on PS4 (MISSING ~175)</h2>
+        <table>
+            <tr><th>Artist</th><th>Title</th></tr>
+            <tr><td>Kings of Leon</td><td>Use Somebody</td></tr>
+            <tr><td>Zedd</td><td>The Middle (ft. Maren Morris)</td></tr>
+            <tr><td>Twenty One Pilots</td><td>Stressed Out</td></tr>
+            <tr><td>Twenty One Pilots</td><td>Tear in My Heart</td></tr>
+            <tr><td>Twenty One Pilots</td><td>Lane Boy</td></tr>
+            <tr><td>The 1975</td><td>Love It If We Could</td></tr>
+            <tr><td>The 1975</td><td>The Sound</td></tr>
+            <tr><td>Fall Out Boy</td><td>Centuries</td></tr>
+            <tr><td>Fall Out Boy</td><td>Uma Thurman</td></tr>
+            <tr><td>Fall Out Boy</td><td>Young Volcanoes</td></tr>
+            <tr><td>Fall Out Boy</td><td>Jet Pack Blues</td></tr>
+            <tr><td>Imagine Dragons</td><td>I Bet My Life</td></tr>
+            <tr><td>Imagine Dragons</td><td>Shots</td></tr>
+            <tr><td>Imagine Dragons</td><td>Gold</td></tr>
+            <tr><td>Imagine Dragons</td><td>Thunder</td></tr>
+            <tr><td>Imagine Dragons</td><td>Believer</td></tr>
+            <tr><td>Imagine Dragons</td><td>Radioactive</td></tr>
+            <tr><td>The Killers</td><td>When You Were Young</td></tr>
+            <tr><td>The Killers</td><td>The Man</td></tr>
+            <tr><td>Jack White</td><td>Lazaretto</td></tr>
+            <tr><td>The Strokes</td><td>Bad Decisions</td></tr>
+            <tr><td>The Strokes</td><td>Under Cover of Darkness</td></tr>
+            <tr><td>Neon Trees</td><td>Animal</td></tr>
+            <tr><td>Neon Trees</td><td>Everybody Talks</td></tr>
+            <tr><td>The Black Keys</td><td>Fever</td></tr>
+            <tr><td>The Black Keys</td><td>Lonely Boy</td></tr>
+            <tr><td>The Black Keys</td><td>Tighten Up</td></tr>
+            <tr><td>Of Monsters and Men</td><td>Little Talks</td></tr>
+            <tr><td>Mumford &amp; Sons</td><td>I Will Wait</td></tr>
+            <tr><td>Mumford &amp; Sons</td><td>Babel</td></tr>
+            <tr><td>Mumford &amp; Sons</td><td>Whispers of Death</td></tr>
+            <tr><td>The Avett Brothers</td><td>Head Full of Doubt</td></tr>
+            <tr><td>The Lumineers</td><td>Ho Hey</td></tr>
+            <tr><td>The Lumineers</td><td>Stubborn Love</td></tr>
+            <tr><td>Gary Clark Jr.</td><td>Ain't Messin 'Round</td></tr>
+            <tr><td>Alabama Shakes</td><td>Hold On</td></tr>
+            <tr><td>Alabama Shakes</td><td>Future Kids</td></tr>
+            <tr><td>The Head and the Heart</td><td>All We Ever Knew</td></tr>
+            <tr><td>Gary Clark Jr.</td><td>Bright Lights</td></tr>
+            <tr><td>Band of Horses</td><td>No One's Gonna Love You</td></tr>
+            <tr><td>Young the Giant</td><td>My Waves</td></tr>
+            <tr><td>Young the Giant</td><td>Cough Syrup</td></tr>
+            <tr><td>Grouplove</td><td>Tongue Tied</td></tr>
+            <tr><td>Grouplove</td><td>Colours</td></tr>
+            <tr><td>Here We Go Magic</td><td>Pockets</td></tr>
+            <tr><td>Fun.</td><td>We Are Young</td></tr>
+            <tr><td>Fun.</td><td>Some Nights</td></tr>
+            <tr><td>AWOLNATION</td><td>Sail</td></tr>
+            <tr><td>MGMT</td><td>Kids</td></tr>
+            <tr><td>MGMT</td><td>Electric Feel</td></tr>
+            <tr><td> Foster the People</td><td>Pumped Up Kicks</td></tr>
+            <tr><td> Foster the People</td><td>Call It What You Like</td></tr>
+            <tr><td>Cage the Elephant</td><td>Come Together</td></tr>
+            <tr><td>Cage the Elephant</td><td>Ain't It Fun</td></tr>
+            <tr><td>TheNeighbourhood</td><td>Sweater Weather</td></tr>
+            <tr><td>Capital Cities</td><td>Kangaroo Court</td></tr>
+            <tr><td>Lady GaGa</td><td>G.U.Y.</td></tr>
+            <tr><td>Santigold</td><td>Can't Get Enough</td></tr>
+            <tr><td>The Fray</td><td>Heartbeat</td></tr>
+            <tr><td>The Fray</td><td>Run Run Run</td></tr>
+            <tr><td>Ed Sheeran</td><td>Sing</td></tr>
+            <tr><td>Ed Sheeran</td><td>Photograph</td></tr>
+            <tr><td>Counting Stars</td><td>OneRepublic</td></tr>
+            <tr><td>AoR</td><td>My Songs Know What You Did</td></tr>
+            <tr><td>Panic! at the Disco</td><td>Miss Jackson</td></tr>
+            <tr><td>Panic! at the Disco</td><td>Death of a Bachelor</td></tr>
+            <tr><td>Panic! at the Disco</td><td>Hallelujah</td></tr>
+            <tr><td>Bonnie Tyler</td><td>Total Eclipse of the Heart</td></tr>
+            <tr><td>Huey Lewis &amp; the News</td><td>Heart of Rock and Roll</td></tr>
+            <tr><td>Foreigner</td><td>Juke Box Hero</td></tr>
+            <tr><td>Boston</td><td>More Than a Feeling</td></tr>
+        </table>
+    </div>
+
+    <div class="notes">
+        <h3>📝 What To Do:</h3>
+        <ol>
+            <li><strong>Before anything: Run "Rebuild Song Cache" in RB4 Options</strong></li>
+            <li>Search for RBN1 songs on PS4 - if none show, that's the biggest gap</li>
+            <li>Note each category total on PS4 vs our counts above</li>
+            <li>Any song you find on PS4 that's NOT in our 3705 should be noted</li>
+        </ol>
+    </div>
+</body>
+</html>
