@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RB4 Songs to Verify on PS4</title>
+    <title>RB4 Songs to Verify on PS4 - Test Procedures</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; background: #1a1a2e; color: #eee; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 900px; margin: 50px auto; padding: 20px; background: #1a1a2e; color: #eee; }
         h1 { color: #00d4ff; }
         h2 { color: #48dbfb; margin-top: 30px; }
         h3 { color: #feca57; }
@@ -15,41 +15,57 @@
         li { margin: 8px 0; }
         code { background: #0f3460; padding: 2px 6px; border-radius: 4px; }
         hr { border: none; border-top: 1px solid #333; margin: 30px 0; }
+        .song-list { column-count: 3; column-gap: 20px; }
+        @media (max-width: 800px) { .song-list { column-count: 2; } }
     </style>
 </head>
 <body>
-    <h1>🎸 Songs to Verify on PS4</h1>
+    <h1>RB4 Songs to Verify on PS4 - Test Procedures</h1>
     
     <div class="info">
         <h2>Background</h2>
         <ul>
-            <li>Our extraction: <strong>3705 songs</strong> (3623 unique)</li>
-            <li>PS4 shows: <strong>4084</strong></li>
-            <li>Gap: <strong>~379 songs</strong></li>
+            <li><strong>Our extraction:</strong> 3796 songs (3705 + ~91 baseline unique)</li>
+            <li><strong>PS4 shows:</strong> 4084</li>
+            <li><strong>Gap:</strong> ~288 songs</li>
         </ul>
     </div>
 
     <div class="warning">
-        <h2>⚠️ CRITICAL: First run "Rebuild Song Cache" in RB4!</h2>
-        <p>Go to RB4 Options > Rebuild Song Cache before testing anything else.</p>
+        <h2>CRITICAL: First run "Rebuild Song Cache" in RB4!</h2>
+        <p>Go to RB4 Options > Rebuild Song Cache before testing anything else. This may reveal songs that didn't show at parties.</p>
     </div>
 
     <div class="test-section">
         <h2>TEST 1: Search for RBN1 Songs (Biggest Gap!)</h2>
-        <p>Search these iconic RBN1 songs - if ANY show, we may have the RBN1 PKG:</p>
-        <ul>
+        <p>Search these iconic RBN1 songs - if ANY show, we have RBN1 PKGs:</p>
+        <ul class="song-list">
             <li>"DragonForce - Through the Fire and Flames"</li>
             <li>"3 Doors Down - Kryptonite"</li>
             <li>"Breaking Benjamin - Failure"</li>
             <li>"Disturbed - Down With the Sickness"</li>
             <li>"Avenged Sevenfold - Critical Acclaim"</li>
+            <li>"Metallica - Cyanide"</li>
+            <li>"Linkin Park - Given Up"</li>
+            <li>"Pantera - Walk"</li>
+            <li>"Bullet for My Valentine - Your Betrayal"</li>
+            <li>"Slipknot - Psychosocial"</li>
+            <li>"Muse - Uprising"</li>
+            <li>"Shinedown - Second Chance"</li>
+            <li>"30 Seconds to Mars - This Is War"</li>
+            <li>"Tool - Schism"</li>
+            <li>"Nirvana - Smells Like Teen Spirit"</li>
+            <li>"Soundgarden - Black Hole Sun"</li>
+            <li>"Pearl Jam - Alive"</li>
+            <li>"Alice in Chains - Roads"</li>
         </ul>
+        <p><strong>If NO RBN1 songs show:</strong> The RBN1 PKGs are likely missing from our extraction.</p>
     </div>
 
     <div class="test-section">
         <h2>TEST 2: Search for RB2 DLC Songs (We have NONE!)</h2>
         <p>We have 0 RB2 DLC songs. Check if any exist on your PS4:</p>
-        <ul>
+        <ul class="song-list">
             <li>"Green Day - Boulevard of Broken Dreams"</li>
             <li>"Foo Fighters - Best of You"</li>
             <li>"All-American Rejects - It Ends Tonight"</li>
@@ -59,52 +75,142 @@
             <li>"Paramore - Misery Business"</li>
             <li>"Smashing Pumpkins - 1979"</li>
             <li>"System of a Down - Chop Suey!"</li>
+            <li>"Disturbed - Down With the Sickness"</li>
+            <li>"Metallica - Enter Sandman"</li>
+            <li>"Rage Against the Machine - Killing in the Name"</li>
+            <li>"Linkin Park - In the End"</li>
+            <li>"30 Seconds to Mars - The Kill"</li>
+            <li>"The Killers - Mr. Brightside"</li>
+            <li>"Evanescence - Bring Me to Life"</li>
+            <li>"Papa Roach - Last Resort"</li>
+            <li>"Three Days Grace - Animal I Have Become"</li>
+            <li>"Breaking Benjamin - The Diary of Jane"</li>
+            <li>"Korn - Freak on a Leash"</li>
+            <li>"Slipknot - Before I Forget"</li>
+            <li>"Godsmack - Awake"</li>
+            <li>"Tool - Stinkfist"</li>
+            <li>"Queens of the Stone Age - No One Knows"</li>
+            <li>"Nirvana - Smells Like Teen Spirit"</li>
+            <li>"Pearl Jam - Alive"</li>
+            <li>"Soundgarden - Black Hole Sun"</li>
+            <li>"Audioslave - Like a Stone"</li>
         </ul>
     </div>
 
     <div class="test-section">
         <h2>TEST 3: RB3 DLC - Check These (we're missing ~125)</h2>
-        <ul>
+        <ul class="song-list">
             <li>"The Killers - Mr. Brightside"</li>
             <li>"Foo Fighters - Everlong"</li>
             <li>"The Offspring - Self Esteem"</li>
             <li>"Sublime - What I Got"</li>
             <li>"Rage Against the Machine - Killing in the Name"</li>
             <li>"Stone Temple Pilots - Plush"</li>
+            <li>"The Doors - Light My Fire"</li>
+            <li>"Alice in Chains - Roads"</li>
+            <li>"Red Hot Chili Peppers - Give It Away"</li>
+            <li>"Oasis - Wonderwall"</li>
+            <li>"Def Leppard - Photograph"</li>
+            <li>"Weezer - Say It Ain't So"</li>
+            <li>"Green Day - Jesus of Suburbia"</li>
+            <li>"No Doubt - Don't Speak"</li>
+            <li>"Lynyrd Skynyrd - Simple Man"</li>
+            <li>"The Cranberries - Zombie"</li>
+            <li>"Breaking Benjamin - So Cold"</li>
+            <li>"Seether - Gasoline"</li>
+            <li>"Staind - It's Been Awhile"</li>
+            <li>"Godsmack - Whatever"</li>
+            <li>"The Doors - Roadhouse Blues"</li>
+            <li>"Jimi Hendrix - Purple Haze"</li>
+            <li>"Foreigner - Juke Box Hero"</li>
+            <li>"Boston - More Than a Feeling"</li>
+            <li>"Journey - Any Way You Want It"</li>
+            <li>"Journey - Don't Stop Believin'"</li>
+            <li>"The Who - Baba O'Riley"</li>
+            <li>"The Who - Won't Get Fooled Again"</li>
         </ul>
     </div>
 
     <div class="test-section">
         <h2>TEST 4: RB4 DLC - Check These (we're missing ~175)</h2>
-        <ul>
+        <ul class="song-list">
             <li>"Kings of Leon - Use Somebody"</li>
             <li>"Zedd - The Middle"</li>
             <li>"Twenty One Pilots - Stressed Out"</li>
+            <li>"Twenty One Pilots - Tear in My Heart"</li>
+            <li>"Twenty One Pilots - Lane Boy"</li>
             <li>"The 1975 - Love It If We Could"</li>
+            <li>"The 1975 - The Sound"</li>
+            <li>"Fall Out Boy - Centuries"</li>
+            <li>"Fall Out Boy - Uma Thurman"</li>
+            <li>"Fall Out Boy - Young Volcanoes"</li>
+            <li>"Imagine Dragons - I Bet My Life"</li>
+            <li>"Imagine Dragons - Shots"</li>
+            <li>"Imagine Dragons - Gold"</li>
+            <li>"Imagine Dragons - Thunder"</li>
+            <li>"Imagine Dragons - Believer"</li>
             <li>"Imagine Dragons - Radioactive"</li>
-            <li>"The Strokes - Bad Decisions"</li>
+            <li>"The Killers - When You Were Young"</li>
+            <li>"The Killers - The Man"</li>
             <li>"Jack White - Lazaretto"</li>
+            <li>"The Strokes - Bad Decisions"</li>
+            <li>"The Strokes - Under Cover of Darkness"</li>
+            <li>"Neon Trees - Animal"</li>
+            <li>"Neon Trees - Everybody Talks"</li>
+            <li>"The Black Keys - Fever"</li>
+            <li>"The Black Keys - Lonely Boy"</li>
+            <li>"The Black Keys - Tighten Up"</li>
+            <li>"Of Monsters and Men - Little Talks"</li>
+            <li>"Mumford & Sons - I Will Wait"</li>
+            <li>"The Lumineers - Ho Hey"</li>
+            <li>"Fun. - We Are Young"</li>
+            <li>"Fun. - Some Nights"</li>
+            <li>"AWOLNATION - Sail"</li>
+            <li>"MGMT - Kids"</li>
+            <li>"Foster the People - Pumped Up Kicks"</li>
+            <li>"Cage the Elephant - Come Together"</li>
+            <li>"Cage the Elephant - Ain't It Fun"</li>
+            <li>"The Neighbourhood - Sweater Weather"</li>
+            <li>"OneRepublic - Counting Stars"</li>
         </ul>
     </div>
 
     <div class="test-section">
         <h2>TEST 5: RB1/RB2/RB3 Disc Songs (~28 missing total)</h2>
+        <p>These should be exported from previous games:</p>
         <ul>
             <li>"Metallica - Enter Sandman" (RB1 disc)</li>
             <li>"Bon Jovi - Livin' on a Prayer" (RB1 disc)</li>
             <li>"The Who - Baba O'Riley" (RB1 disc)</li>
+            <li>"Black Sabbath - Iron Man" (RB1 disc)</li>
+            <li>"Deep Purple - Smoke on the Water" (RB1 disc)</li>
+            <li>"Aerosmith - Sweet Emotion" (RB1 disc)</li>
+            <li>"Foo Fighters - Learn to Fly" (RB1 disc)</li>
+            <li>"Green Day - When I Come Around" (RB1 disc)</li>
+            <li>The Who - Behind Blue Eyes (RB1 DLC)</li>
+            <li>The Killers - All These Things (RB1 DLC)</li>
+            <li>R.E.M. - Losing My Religion (RB1 DLC)</li>
+            <li>Pearl Jam - Even Flow (RB2 disc)</li>
+            <li>Journey - Don't Stop Believin' (RB2 disc)</li>
+            <li>AC/DC - Back in Black (RB2 DLC export)</li>
+            <li>AC/DC - Highway to Hell (RB2 DLC export)</li>
+            <li> Guns N' Roses - Welcome to the Jungle (RB2 DLC)</li>
+            <li> Guns N' Roses - Sweet Child O' Mine (RB2 DLC)</li>
+            <li>Tool - Prison Sex (RB2 DLC)</li>
+            <li>Coheed and Cambria - The Button</li>
+            <li>The Red Hot Chili Peppers - Dani California</li>
         </ul>
     </div>
 
     <div class="test-section">
-        <h2>TEST 6: Verify Our Sources Match</h2>
-        <p>Go to Source filter and check these totals:</p>
+        <h2>TEST 6: Verify Our Source Counts Match</h2>
+        <p>Go to RB4 filter and check these totals (source from game):</p>
         <ul>
-            <li>Custom: ~1289</li>
+            <li>Custom (UGC): ~1289</li>
             <li>Rock Band 1 DLC: ~893</li>
             <li>Rock Band 4 DLC: ~625</li>
             <li>Rock Band 3 DLC: ~463</li>
-            <li>Rock Band Network 1: ~155 (should be ~1030!)</li>
+            <li>Rock Band Network 1: ~155 (should be ~1000+!)</li>
             <li>Rock Band 2: ~75</li>
             <li>Rock Band 3: ~73</li>
             <li>Rock Band 1: ~51</li>
@@ -114,11 +220,14 @@
     </div>
 
     <div class="test-section">
-        <h2>TEST 7: Inferred Songs</h2>
+        <h2>TEST 7: "Inferred" Songs Test</h2>
         <p>Our "inferred" songs had empty metadata. Test a few:</p>
         <ul>
             <li>Search "Bee Gees - Words"</li>
             <li>Search "a-ha - Take On Me"</li>
+            <li>Search "The B-52's - Love Shack"</li>
+            <li>Search "Queen - Don't Stop Me Now"</li>
+            <li>Search "ABBA - Dancing Queen"</li>
         </ul>
     </div>
 
@@ -129,8 +238,18 @@
         <li>Total songs on PS4 (after rebuild):</li>
         <li>Did ANY RBN1 songs show in search?</li>
         <li>Did ANY RB2 DLC songs show?</li>
-        <li>Source filter counts for each category</li>
-        <li>Any songs you searched that SHOULD be in our 3705 but weren't found?</li>
+        <li>Source filter counts for each category (list above)</li>
+        <li>Any songs you searched that SHOULD be in our 3796 but weren't found?</li>
     </ol>
+
+    <hr>
+
+    <h3>Research Sources</h3>
+    <ul>
+        <li>Wikipedia: List of songs in Rock Band 2</li>
+        <li>Wikipedia: List of Rock Band Network 1.0 songs</li>
+        <li>Wikipedia: List of songs in Rock Band 3</li>
+        <li>Wikipedia: List of downloadable songs for the Rock Band series</li>
+    </ul>
 </body>
 </html>
