@@ -26,8 +26,16 @@
 **SMB Share Locations:**
 ```
 //192.168.100.135/incoming/temp/Rb4Dlc       (DLC packages - 98 files)
-//192.168.100.135/income/temp/rb4gamepkgs   (Game/Update packages)
+//192.168.100.135/incoming/temp/rb4gamepkgs   (Game/Update packages)
 ```
+
+**PS4 FTP Access (READ-ONLY):**
+```
+ftp://192.168.100.117:2121
+Login: anonymous
+```
+- Port: 2121
+- Use only for READ operations - do NOT write to PS4
 
 **Game/Expansion PKGs in rb4gamepkgs:**
 - `Rock.Band.4_CUSA02084_v1.00_[2.50]_OPOISSO893.pkg` (base game ~3.7GB)

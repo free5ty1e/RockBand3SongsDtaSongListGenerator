@@ -47,6 +47,20 @@
     "🎹": "Keys/Pro Keys",
     "🔍": "Inferred (empty metadata)"
   },
+  "ps4_source_counts": {
+    "Downloaded Songs": 3499,
+    "Rock Band Rivals": 24,
+    "Rock Band 4": 65,
+    "Rock Band 3": 82,
+    "Rock Band 2": 87,
+    "Rock Band": 57,
+    "LEGO Rock Band": 42,
+    "Green Day Rock Band": 44,
+    "Rock Band Network": 184
+  },
+  "ps4_total": 4084,
+  "our_extraction_total": 3705,
+  "note": "PS4 shows 4084 songs total. Downloaded Songs=3499 includes all RB1-RB4 DLC + Custom + Network songs",
   "prettier_command": "prettier --write /workspace/RB4/README.md",
   "vscode_tasks": [
     "RB4: Scan PKGs (test set, fresh)",

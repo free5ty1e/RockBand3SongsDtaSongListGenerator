@@ -41,12 +41,24 @@ These rules apply to any AI agent (Antigravity, Gemini, Copilot, etc.) working i
 
 11. **Non-song PKGs must be skipped gracefully.** If `onyx metadata` returns no artist/title fields, emit a warning to stderr and continue — never crash the scan.
 
+## PS4 FTP Exploration
+
+14. **READ-ONLY access to PS4.** Only perform READ operations on the PS4 via FTP (192.168.100.117). Do NOT write any files or make any changes to the PS4 file system.
+
+15. **Use RB4 Deluxe project as a guide.** The rb4dx_repo contains the game's file structure - use it to understand what directories and files to look for on the PS4.
+
+16. **Log all findings.** Document all PS4 exploration in `RB4/docs/research/ps4-exploration-findings.md`.
+
 ## Git Behavior
 
 12. **Never commit directly to git.** Only stage/unstage files. Write a commit message for the user to execute in your response. The user handles all git write operations (commit, push, etc.).
 
+## Temporary Files
+
+13. **Always use /workspace/rb4_temp for temporary files.** Never use /tmp - all temp files should be visible in the workspace.
+
 ## Markdown Formatting
 
-13. **Always run prettier on all .md files before committing.** Use: `prettier --write /path/to/file.md`
+14. **Always run prettier on all .md files before committing.** Use: `prettier --write /path/to/file.md`
     - Install: `npm install -g prettier` (already in devcontainer)
     - Prettier is configured in the project
