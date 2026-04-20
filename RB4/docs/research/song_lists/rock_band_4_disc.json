@@ -1,0 +1,862 @@
+{
+  "game": "Rock Band 4",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "Ain\u2019t Messin \u2018Round",
+      "artist": "Gary Clark, Jr.",
+      "year": 2012,
+      "genre": "Rock"
+    },
+    {
+      "title": "Albert",
+      "artist": "Eddie Japan",
+      "year": 2015,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "All Over You",
+      "artist": "Live",
+      "year": 1994,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Arabella",
+      "artist": "Arctic Monkeys",
+      "year": 2013,
+      "genre": "Rock"
+    },
+    {
+      "title": "At Night in Dreams",
+      "artist": "White Denim",
+      "year": 2013,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Birth in Reverse",
+      "artist": "St. Vincent",
+      "year": 2014,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Brown Eyed Girl",
+      "artist": "Van Morrison",
+      "year": 1967
+    },
+    {
+      "title": "Cedarwood Road",
+      "artist": "U2",
+      "year": 2014,
+      "genre": "Rock"
+    },
+    {
+      "title": "Centuries",
+      "artist": "Fall Out Boy",
+      "year": 2015,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Cold Clear Light",
+      "artist": "Johnny Blazes and the Pretty Boys",
+      "year": 2015
+    },
+    {
+      "title": "Dead Black (Heart of Ice)",
+      "artist": "Soul Remnants",
+      "year": 2013,
+      "genre": "Metal"
+    },
+    {
+      "title": "Dream Genie",
+      "artist": "Lightning Bolt",
+      "year": 2015,
+      "genre": "Rock"
+    },
+    {
+      "title": "The Feast and the Famine",
+      "artist": "Foo Fighters",
+      "year": 2014,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Fever",
+      "artist": "The Black Keys",
+      "year": 2014,
+      "genre": "Rock"
+    },
+    {
+      "title": "Follow You Down",
+      "artist": "Gin Blossoms",
+      "year": 1996,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Free Falling",
+      "artist": "The Warning",
+      "year": 2015,
+      "genre": "Rock"
+    },
+    {
+      "title": "Friday I'm In Love",
+      "artist": "The Cure",
+      "year": 1992,
+      "genre": "New Wave"
+    },
+    {
+      "title": "Hail to the King",
+      "artist": "Avenged Sevenfold",
+      "year": 2013,
+      "genre": "Metal"
+    },
+    {
+      "title": "Halls of Valhalla",
+      "artist": "Judas Priest",
+      "year": 2014,
+      "genre": "Metal"
+    },
+    {
+      "title": "I Am Electric",
+      "artist": "Heaven's Basement",
+      "year": 2013,
+      "genre": "Rock"
+    },
+    {
+      "title": "I Bet My Life",
+      "artist": "Imagine Dragons",
+      "year": 2015,
+      "genre": "Alternative"
+    },
+    {
+      "title": "I Miss the Misery",
+      "artist": "Halestorm",
+      "year": 2012,
+      "genre": "Rock"
+    },
+    {
+      "title": "I Will Follow",
+      "artist": "U2",
+      "year": 1980,
+      "genre": "Rock"
+    },
+    {
+      "title": "The Impression That I Get",
+      "artist": "The Mighty Mighty Bosstones",
+      "year": 1997,
+      "genre": "Reggae/Ska"
+    },
+    {
+      "title": "Kick It Out",
+      "artist": "Heart",
+      "year": 1977,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Knock Em Down",
+      "artist": "Duck &amp; Cover",
+      "year": 2014,
+      "genre": "Punk"
+    },
+    {
+      "title": "Lazaretto",
+      "artist": "Jack White",
+      "year": 2014,
+      "genre": "Rock"
+    },
+    {
+      "title": "Light the Fuse",
+      "artist": "Slydigs",
+      "year": 2015,
+      "genre": "Rock"
+    },
+    {
+      "title": "Light Up the Night",
+      "artist": "The Protomen",
+      "year": 2009,
+      "genre": "Rock"
+    },
+    {
+      "title": "Little Miss Can't Be Wrong",
+      "artist": "Spin Doctors",
+      "year": 1991,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Little White Church",
+      "artist": "Little Big Town",
+      "year": 2010,
+      "genre": "Country"
+    },
+    {
+      "title": "Mainstream Kid",
+      "artist": "Brandi Carlile",
+      "year": 2015,
+      "genre": "Blues"
+    },
+    {
+      "title": "Metropolis\u2014Part I: ",
+      "artist": "Dream Theater",
+      "year": 1992,
+      "genre": "Prog"
+    },
+    {
+      "title": "Milwaukee",
+      "artist": "The Both",
+      "year": 2014,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Miracle Man",
+      "artist": "Ozzy Osbourne",
+      "year": 1988,
+      "genre": "Metal"
+    },
+    {
+      "title": "My God Is the Sun",
+      "artist": "Queens of the Stone Age",
+      "year": 2013,
+      "genre": "Alternative"
+    },
+    {
+      "title": "No One Like You",
+      "artist": "Scorpions",
+      "year": 1982,
+      "genre": "Metal"
+    },
+    {
+      "title": "The One I Love",
+      "artist": "R.E.M.",
+      "year": 1987,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Panama",
+      "artist": "Van Halen",
+      "year": 1984,
+      "genre": "Rock"
+    },
+    {
+      "title": "A Passage to Bangkok",
+      "artist": "Rush",
+      "year": 1976,
+      "genre": "Prog"
+    },
+    {
+      "title": "Pistol Whipped",
+      "artist": "Tijuana Sweetheart",
+      "year": 2012,
+      "genre": "Punk"
+    },
+    {
+      "title": "Prayer",
+      "artist": "Disturbed",
+      "year": 2002,
+      "genre": "Nu-Metal"
+    },
+    {
+      "title": "Recession",
+      "artist": "Jeff Allen ft. Noelle LeBlanc and Naoko Takamoto",
+      "year": 2015,
+      "genre": "Pop/Dance/Electronic"
+    },
+    {
+      "title": "Rock and Roll, Hoochie Koo",
+      "artist": "Rick Derringer",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "The Seeker",
+      "artist": "The Who",
+      "year": 1970,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Short Skirt/Long Jacket",
+      "artist": "Cake",
+      "year": 2001,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Somebody Told Me",
+      "artist": "The Killers",
+      "year": 2004,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Spiders",
+      "artist": "System of a Down",
+      "year": 1998,
+      "genre": "Nu-Metal"
+    },
+    {
+      "title": "Start a Band",
+      "artist": "Brad Paisley ft. Keith Urban",
+      "year": 2008,
+      "genre": "Country"
+    },
+    {
+      "title": "Still Into You",
+      "artist": "Paramore",
+      "year": 2013,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Superunknown",
+      "artist": "Soundgarden",
+      "year": 1994,
+      "genre": "Grunge"
+    },
+    {
+      "title": "Suspicious Minds",
+      "artist": "Elvis Presley",
+      "year": 1969,
+      "genre": "Rock"
+    },
+    {
+      "title": "That Smell",
+      "artist": "Lynyrd Skynyrd",
+      "year": 1977,
+      "genre": "Southern Rock"
+    },
+    {
+      "title": "Tongue Tied",
+      "artist": "Grouplove",
+      "year": 2011,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Toys in the Attic",
+      "artist": "Aerosmith",
+      "year": 1975,
+      "genre": "Rock"
+    },
+    {
+      "title": "Turn it Around",
+      "artist": "Lucius",
+      "year": 2013,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Uptown Funk",
+      "artist": "Mark Ronson ft. Bruno Mars",
+      "year": 2015
+    },
+    {
+      "title": "V-Bomb",
+      "artist": "Dark Wheels",
+      "year": 2015,
+      "genre": "Rock"
+    },
+    {
+      "title": "Violent Shiver",
+      "artist": "Benjamin Booker",
+      "year": 2014,
+      "genre": "Rock"
+    },
+    {
+      "title": "The Warrior",
+      "artist": "Scandal",
+      "year": 1984,
+      "genre": "Rock"
+    },
+    {
+      "title": "The Wolf",
+      "artist": "Mumford &amp; Sons",
+      "year": 2015,
+      "genre": "Rock"
+    },
+    {
+      "title": "You Make Loving Fun",
+      "artist": "Fleetwood Mac",
+      "year": 1977,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Your Love",
+      "artist": "The Outfield",
+      "year": 1985,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Don't Wanna Fight",
+      "artist": "Alabama Shakes",
+      "year": 2015
+    },
+    {
+      "title": "Failure",
+      "artist": "Breaking Benjamin",
+      "year": 2015
+    },
+    {
+      "title": "Trainwreck 1979",
+      "artist": "Death from Above 1979",
+      "year": 2014
+    },
+    {
+      "title": "Follow Me Down",
+      "artist": "The Pretty Reckless",
+      "year": 2014,
+      "genre": "Song Title"
+    },
+    {
+      "title": "Divide",
+      "artist": "All That Remains",
+      "year": 2015,
+      "genre": "Metal"
+    },
+    {
+      "title": "Run for Cover",
+      "artist": "Blitz Kids",
+      "year": 2014,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Throne",
+      "artist": "Bring Me the Horizon",
+      "year": 2015,
+      "genre": "Nu-Metal"
+    },
+    {
+      "title": "Mona Lisa",
+      "artist": "Dead Sara",
+      "year": 2015,
+      "genre": "Alternative"
+    },
+    {
+      "title": "The Reflex",
+      "artist": "Duran Duran",
+      "year": 1983,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Move Over",
+      "artist": "Janis Joplin",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Would You Still Be There",
+      "artist": "Of Mice &amp; Men",
+      "year": 2014,
+      "genre": "Nu-Metal"
+    },
+    {
+      "title": "Sugar, You",
+      "artist": "Oh Honey",
+      "year": 2015,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Cowboys from Hell",
+      "artist": "Pantera",
+      "year": 1991,
+      "genre": "Metal"
+    },
+    {
+      "title": "Summertime Boy",
+      "artist": "Seasick Steve",
+      "year": 2015,
+      "genre": "Blues"
+    },
+    {
+      "title": "What If I Was Nothing",
+      "artist": "All That Remains",
+      "year": 2012,
+      "genre": "Metal"
+    },
+    {
+      "title": "High Road",
+      "artist": "Mastodon",
+      "year": 2014,
+      "genre": "Metal"
+    },
+    {
+      "title": "September",
+      "artist": "Earth, Wind &amp; Fire",
+      "year": 1978
+    },
+    {
+      "title": "Backwoods Company",
+      "artist": "The Wild Feathers",
+      "year": 2013,
+      "genre": "Southern Rock"
+    },
+    {
+      "title": "One Big Holiday",
+      "artist": "My Morning Jacket",
+      "year": 2003,
+      "genre": "Southern Rock"
+    },
+    {
+      "title": "Jane",
+      "artist": "Jefferson Starship",
+      "year": 1979,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Gimme Chocolate!!",
+      "artist": "Babymetal",
+      "year": 2014,
+      "genre": "Metal"
+    },
+    {
+      "title": "King for a Day",
+      "artist": "Pierce the Veil",
+      "year": 2012,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Rebellion",
+      "artist": "Linkin Park",
+      "year": 2014,
+      "genre": "Nu-Metal"
+    },
+    {
+      "title": "All the Rage Back Home",
+      "artist": "Interpol",
+      "year": 2014,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "The Mephistopheles of Los Angeles",
+      "artist": "Marilyn Manson",
+      "year": 2015,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Happy Song",
+      "artist": "Bring Me the Horizon",
+      "year": 2015,
+      "genre": "Nu-Metal"
+    },
+    {
+      "title": "Safe and Sound",
+      "artist": "Capital Cities",
+      "year": 2011,
+      "genre": "Pop/Dance/Electronic"
+    },
+    {
+      "title": "Save Tonight",
+      "artist": "Eagle-Eye Cherry",
+      "year": 1997,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Sweater Weather",
+      "artist": "The Neighbourhood",
+      "year": 2011,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Little Talks",
+      "artist": "Of Monsters and Men",
+      "year": 2011,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Happy",
+      "artist": "Pharrell Williams",
+      "year": 2013
+    },
+    {
+      "title": "Closing Time",
+      "artist": "Semisonic",
+      "year": 1998,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Chandelier",
+      "artist": "Sia",
+      "year": 2014,
+      "genre": "Pop/Dance/Electronic"
+    },
+    {
+      "title": "Feel Invincible",
+      "artist": "Skillet",
+      "year": 2016,
+      "genre": "Rock"
+    },
+    {
+      "title": "King of the World",
+      "artist": "Weezer",
+      "year": 2016,
+      "genre": "Alternative"
+    },
+    {
+      "title": "One More Night",
+      "artist": "Maroon 5",
+      "year": 2012,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "3AM",
+      "artist": "Matchbox Twenty",
+      "year": 1997,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Bethany",
+      "artist": "Goddamn Draculas",
+      "year": 2015,
+      "genre": "Rock"
+    },
+    {
+      "title": "Black Corridor",
+      "artist": "Worshipper",
+      "year": 2016,
+      "genre": "Metal"
+    },
+    {
+      "title": "Black Streak",
+      "artist": "Nemes",
+      "year": 2014,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Closer, Closer",
+      "artist": "The Warning Shots",
+      "year": 2016,
+      "genre": "Punk"
+    },
+    {
+      "title": "Constant Disaster",
+      "artist": "When Particles Collide",
+      "year": 2014,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Hour of Rats",
+      "artist": "The Red Chord",
+      "year": 2009,
+      "genre": "Metal"
+    },
+    {
+      "title": "I Recognize",
+      "artist": "Newfane",
+      "year": 2016,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Mean Girls",
+      "artist": "Petty Morals",
+      "year": 2016,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Never Let 'Em Hold Ya Back!",
+      "artist": "Parlour Bells",
+      "year": 2016,
+      "genre": "Glam"
+    },
+    {
+      "title": "Pain Killer",
+      "artist": "Ruby Rose Fox",
+      "year": 2016,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Shadow",
+      "artist": "Bearstronaut",
+      "year": 2016,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "True Confessional",
+      "artist": "Party Bois",
+      "year": 2016,
+      "genre": "Pop/Dance/Electronic"
+    },
+    {
+      "title": "S.O.M.P",
+      "artist": "Skratch'N Snyf",
+      "year": 1990,
+      "genre": "Glam"
+    },
+    {
+      "title": "Sink",
+      "artist": "Animal Flag",
+      "year": 2016,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "These Hands",
+      "artist": "Bent Knee",
+      "year": 2016,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "No Place for Me",
+      "artist": "Black Beach",
+      "year": 2016,
+      "genre": "Rock"
+    },
+    {
+      "title": "History Repeats",
+      "artist": "Creaturos",
+      "year": 2016,
+      "genre": "Rock"
+    },
+    {
+      "title": "RudeBoys",
+      "artist": "Dutch ReBelle",
+      "year": 2016,
+      "genre": "Hip-Hop/Rap"
+    },
+    {
+      "title": "Hurry Up (&amp; Wait for You)",
+      "artist": "Julie Rhodes",
+      "year": 2016,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Casablanca",
+      "artist": "Littlefoot",
+      "year": 2016,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Cross That Line",
+      "artist": "Michael Christmas",
+      "year": 2016,
+      "genre": "Hip-Hop/Rap"
+    },
+    {
+      "title": "Skydiver",
+      "artist": "Ruby Rose Fox",
+      "year": 2016,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Good",
+      "artist": "STL GLD",
+      "year": 2016,
+      "genre": "Hip-Hop/Rap"
+    },
+    {
+      "title": "Alone Time",
+      "artist": "Tigerman WOAH",
+      "year": 2016,
+      "genre": "Rock"
+    },
+    {
+      "title": "Sweater Weather",
+      "artist": "Parks",
+      "year": 2012,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "To My Romeo",
+      "artist": "Spirit Kid",
+      "year": 2016,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Black Seas",
+      "artist": "Arctic Horror",
+      "year": 2016,
+      "genre": "Metal"
+    },
+    {
+      "title": "(You're) Breakin' Up",
+      "artist": "The Black Cheers",
+      "year": 2015,
+      "genre": "Punk"
+    },
+    {
+      "title": "Open Water",
+      "artist": "Assuming We Survive",
+      "year": 2016,
+      "genre": "Rock"
+    },
+    {
+      "title": "Shy",
+      "artist": "Hunny",
+      "year": 2017,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Bloodhands (Oh My Fever)",
+      "artist": "In the Valley Below",
+      "year": 2017,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Who's Your Lover",
+      "artist": "Nightmare Air",
+      "year": 2017,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Radio",
+      "artist": "No Small Children",
+      "year": 2017,
+      "genre": "Rock"
+    },
+    {
+      "title": "Forget About Tomorrow",
+      "artist": "The Bergamot",
+      "year": 2016,
+      "genre": "Alternative"
+    },
+    {
+      "title": "I Hear the Dead",
+      "artist": "Dolly Spartans",
+      "year": 2017,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Body Like That",
+      "artist": "The Eiffels",
+      "year": 2018,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Vinyl",
+      "artist": "Fly By Midnight",
+      "year": 2018,
+      "genre": "Pop/Dance/Electronic"
+    },
+    {
+      "title": "Shame",
+      "artist": "Jocelyn and Chris Arndt",
+      "year": 2016,
+      "genre": "Rock"
+    },
+    {
+      "title": "Survive",
+      "artist": "The Warning",
+      "year": 2017,
+      "genre": "Rock"
+    },
+    {
+      "title": "This Will Be the Day",
+      "artist": "Jeff Williams feat. Casey Lee Williams",
+      "year": 2013,
+      "genre": "Rock"
+    },
+    {
+      "title": "Thinking Emoji",
+      "artist": "Barely March",
+      "year": 2018,
+      "genre": "Punk"
+    },
+    {
+      "title": "Love That Hurts",
+      "artist": "PREACHERVAN",
+      "year": 2018,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Let's Just Dance",
+      "artist": "Ships Have Sailed",
+      "year": 2018,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Save Yourself",
+      "artist": "tiLLie",
+      "year": 2017,
+      "genre": "Alternative"
+    }
+  ]
+}

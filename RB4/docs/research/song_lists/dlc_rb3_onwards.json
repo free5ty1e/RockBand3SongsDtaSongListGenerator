@@ -1,0 +1,601 @@
+{
+  "game": "Rock Band Series",
+  "type": "dlc",
+  "compatibility": "rb3_onwards",
+  "songs": [
+    {
+      "title": "[Light My Fire](/wiki/Light_My_Fire ",
+      "artist": "The Doors",
+      "year": 1967,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Riders on the Storm](/wiki/Riders_on_the_Storm ",
+      "artist": "The Doors",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Touch Me](/wiki/Touch_Me_\\(The_Doors_song\\) ",
+      "artist": "The Doors",
+      "year": 1969,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Hello, I Love You](/wiki/Hello,_I_Love_You ",
+      "artist": "The Doors",
+      "year": 1968,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[L.A. Woman](/wiki/L.A._Woman_\\(song\\) ",
+      "artist": "The Doors",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Love Her Madly](/wiki/Love_Her_Madly ",
+      "artist": "The Doors",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Love Me Two Times](/wiki/Love_Me_Two_Times ",
+      "artist": "The Doors",
+      "year": 1967,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Peace Frog](/wiki/Peace_Frog ",
+      "artist": "The Doors",
+      "year": 1970,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[People Are Strange](/wiki/People_Are_Strange ",
+      "artist": "The Doors",
+      "year": 1967,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Roadhouse Blues](/wiki/Roadhouse_Blues ",
+      "artist": "The Doors",
+      "year": 1970,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Soul Kitchen](/wiki/Soul_Kitchen_\\(song\\) ",
+      "artist": "The Doors",
+      "year": 1967,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[The Crystal Ship](/wiki/The_Crystal_Ship ",
+      "artist": "The Doors",
+      "year": 1967,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Subdivisions](/wiki/Subdivisions_\\(song\\) ",
+      "artist": "Rush",
+      "year": 1982,
+      "genre": "Prog"
+    },
+    {
+      "title": "[Bad Medicine](/wiki/Bad_Medicine_\\(song\\) ",
+      "artist": "Bon Jovi",
+      "year": 1988,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Blaze of Glory](/wiki/Blaze_of_Glory_\\(Jon_Bon_Jovi_song\\) ",
+      "artist": "Bon Jovi",
+      "year": 1990,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Have a Nice Day](/wiki/Have_a_Nice_Day_\\(Bon_Jovi_song\\) ",
+      "artist": "Bon Jovi",
+      "year": 2005,
+      "genre": "Rock"
+    },
+    {
+      "title": "[I'll Be There for You](/wiki/I%27ll_Be_There_for_You_\\(Bon_Jovi_song\\) ",
+      "artist": "Bon Jovi",
+      "year": 1988,
+      "genre": "Rock"
+    },
+    {
+      "title": "[It's My Life](/wiki/It%27s_My_Life_\\(Bon_Jovi_song\\) ",
+      "artist": "Bon Jovi",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Lay Your Hands On Me](/wiki/Lay_Your_Hands_on_Me_\\(Bon_Jovi_song\\) ",
+      "artist": "Bon Jovi",
+      "year": 1988,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Livin' on a Prayer](/wiki/Livin%27_on_a_Prayer ",
+      "artist": "Bon Jovi",
+      "year": 1986,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Runaway](/wiki/Runaway_\\(Bon_Jovi_song\\) ",
+      "artist": "Bon Jovi",
+      "year": 1984,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Wanted Dead or Alive](/wiki/Wanted_Dead_or_Alive_\\(Bon_Jovi_song\\) ",
+      "artist": "Bon Jovi",
+      "year": 1986,
+      "genre": "Rock"
+    },
+    {
+      "title": "[We Weren't Born to Follow](/wiki/We_Weren%27t_Born_to_Follow ",
+      "artist": "Bon Jovi",
+      "year": 2009,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Who Says You Can't Go Home](/wiki/Who_Says_You_Can%27t_Go_Home ",
+      "artist": "Bon Jovi",
+      "year": 2005,
+      "genre": "Rock"
+    },
+    {
+      "title": "[You Give Love a Bad Name](/wiki/You_Give_Love_a_Bad_Name_\\(song\\) ",
+      "artist": "Bon Jovi",
+      "year": 1986,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Blue Monday](/wiki/Blue_Monday_\\(New_Order_song\\) ",
+      "artist": "New Order",
+      "year": 1983,
+      "genre": "New Wave"
+    },
+    {
+      "title": "[Burning Down the House](/wiki/Burning_Down_the_House ",
+      "artist": "Talking Heads",
+      "year": 1983,
+      "genre": "New Wave"
+    },
+    {
+      "title": "[My Own Summer (Shove It)](/wiki/My_Own_Summer_\\(Shove_It\\) ",
+      "artist": "Deftones",
+      "year": 1997,
+      "genre": "Nu-Metal"
+    },
+    {
+      "title": "[Jive Talkin'](/wiki/Jive_Talkin%27 ",
+      "artist": "Bee Gees",
+      "year": 1975,
+      "genre": "R&B/Soul/Funk"
+    },
+    {
+      "title": "[Night Fever](/wiki/Night_Fever ",
+      "artist": "Bee Gees",
+      "year": 1977,
+      "genre": "R&B/Soul/Funk"
+    },
+    {
+      "title": "[Stayin' Alive](/wiki/Stayin%27_Alive ",
+      "artist": "Bee Gees",
+      "year": 1977,
+      "genre": "R&B/Soul/Funk"
+    },
+    {
+      "title": "[Nights on Broadway](/wiki/Nights_on_Broadway ",
+      "artist": "Bee Gees",
+      "year": 1975,
+      "genre": "R&B/Soul/Funk"
+    },
+    {
+      "title": "[Tragedy](/wiki/Tragedy_\\(Bee_Gees_song\\) ",
+      "artist": "Bee Gees",
+      "year": 1979,
+      "genre": "R&B/Soul/Funk"
+    },
+    {
+      "title": "[You Should Be Dancing](/wiki/You_Should_Be_Dancing ",
+      "artist": "Bee Gees",
+      "year": 1976,
+      "genre": "R&B/Soul/Funk"
+    },
+    {
+      "title": "[The Thrill is Gone](/wiki/The_Thrill_Is_Gone#B.B._King_versions ",
+      "artist": "B.B. King",
+      "year": 1969,
+      "genre": "Blues"
+    },
+    {
+      "title": "[A Whiter Shade of Pale](/wiki/A_Whiter_Shade_of_Pale ",
+      "artist": "Procol Harum",
+      "year": 1967,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Crippled Inside](/wiki/Crippled_Inside ",
+      "artist": "John Lennon",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Jealous Guy](/wiki/Jealous_Guy ",
+      "artist": "John Lennon",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[It's So Hard](/wiki/It%27s_So_Hard ",
+      "artist": "John Lennon",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[I Don't Wanna Be a Soldier Mama](/wiki/I_Don%27t_Wanna_Be_a_Soldier_Mama ",
+      "artist": "John Lennon",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Gimme Some Truth](/wiki/Gimme_Some_Truth ",
+      "artist": "John Lennon",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Oh My Love](/wiki/Oh_My_Love ",
+      "artist": "John Lennon",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[How Do You Sleep?](/wiki/How_Do_You_Sleep%3F_\\(John_Lennon_song\\) ",
+      "artist": "John Lennon",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[How?](/wiki/How%3F_\\(song\\) ",
+      "artist": "John Lennon",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Oh Yoko!](/wiki/Oh_Yoko! ",
+      "artist": "John Lennon",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Hold On Loosely](/wiki/Hold_On_Loosely ",
+      "artist": "38 Special",
+      "year": 1981,
+      "genre": "Southern Rock"
+    },
+    {
+      "title": "[Can't Get Enough](/wiki/Can%27t_Get_Enough_\\(Bad_Company_song\\) ",
+      "artist": "Bad Company",
+      "year": 1974,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Saturday Night Special](/wiki/Saturday_Night_Special_\\(Lynyrd_Skynyrd_song\\) ",
+      "artist": "Lynyrd Skynyrd",
+      "year": 1975,
+      "genre": "Southern Rock"
+    },
+    {
+      "title": "[Sweet Home Alabama](/wiki/Sweet_Home_Alabama ",
+      "artist": "Lynyrd Skynyrd",
+      "year": 1976,
+      "genre": "Southern Rock"
+    },
+    {
+      "title": "[Tuesday's Gone](/wiki/Tuesday%27s_Gone ",
+      "artist": "Lynyrd Skynyrd",
+      "year": 1973,
+      "genre": "Southern Rock"
+    },
+    {
+      "title": "[What's Your Name?](/wiki/What%27s_Your_Name_\\(Lynyrd_Skynyrd_song\\) ",
+      "artist": "Lynyrd Skynyrd",
+      "year": 1977,
+      "genre": "Southern Rock"
+    },
+    {
+      "title": "[Hammer to Fall](/wiki/Hammer_to_Fall ",
+      "artist": "Queen",
+      "year": 1984,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Keep Yourself Alive](/wiki/Keep_Yourself_Alive ",
+      "artist": "Queen",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Now I'm Here](/wiki/Now_I%27m_Here ",
+      "artist": "Queen",
+      "year": 1974,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Play the Game](/wiki/Play_the_Game_\\(song\\) ",
+      "artist": "Queen",
+      "year": 1980,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Tenement Funster",
+      "artist": "Queen",
+      "year": 1974,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[We Are the Champions](/wiki/We_Are_the_Champions ",
+      "artist": "Queen",
+      "year": 1977,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[We Will Rock You](/wiki/We_Will_Rock_You ",
+      "artist": "Queen",
+      "year": 1977,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[I Want It All](/wiki/I_Want_It_All_\\(Queen_song\\) ",
+      "artist": "Queen",
+      "year": 1989,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[I Want To Break Free](/wiki/I_Want_to_Break_Free ",
+      "artist": "Queen",
+      "year": 1984,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Killer Queen](/wiki/Killer_Queen ",
+      "artist": "Queen",
+      "year": 1974,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[One Vision](/wiki/One_Vision ",
+      "artist": "Queen",
+      "year": 1986,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Somebody to Love](/wiki/Somebody_to_Love_\\(Queen_song\\) ",
+      "artist": "Queen",
+      "year": 1976,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Under Pressure](/wiki/Under_Pressure ",
+      "artist": "Queen",
+      "year": 1982,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Big Shot](/wiki/Big_Shot_\\(song\\) ",
+      "artist": "Billy Joel",
+      "year": 1978,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Captain Jack](/wiki/Captain_Jack_\\(Billy_Joel_song\\) ",
+      "artist": "Billy Joel",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[It's Still Rock and Roll to Me](/wiki/It%27s_Still_Rock_and_Roll_to_Me ",
+      "artist": "Billy Joel",
+      "year": 1980,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Movin' Out (Anthony's Song)](/wiki/Movin%27_Out_\\(Anthony%27s_Song\\) ",
+      "artist": "Billy Joel",
+      "year": 1977,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Only the Good Die Young](/wiki/Only_the_Good_Die_Young ",
+      "artist": "Billy Joel",
+      "year": 1977,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Piano Man](/wiki/Piano_Man_\\(song\\) ",
+      "artist": "Billy Joel",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Pressure](/wiki/Pressure_\\(Billy_Joel_song\\) ",
+      "artist": "Billy Joel",
+      "year": 1982,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Say Goodbye to Hollywood](/wiki/Say_Goodbye_to_Hollywood ",
+      "artist": "Billy Joel",
+      "year": 1976,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[The Entertainer](/wiki/The_Entertainer_\\(Billy_Joel_song\\) ",
+      "artist": "Billy Joel",
+      "year": 1974,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[The Stranger](/wiki/The_Stranger_\\(Billy_Joel_song\\) ",
+      "artist": "Billy Joel",
+      "year": 1977,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[We Didn't Start the Fire](/wiki/We_Didn%27t_Start_the_Fire ",
+      "artist": "Billy Joel",
+      "year": 1989,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[You May Be Right](/wiki/You_May_Be_Right ",
+      "artist": "Billy Joel",
+      "year": 1980,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Happy Xmas (War Is Over)](/wiki/Happy_Xmas_\\(War_Is_Over\\) ",
+      "artist": "John & Yoko, The Plastic Ono Band",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Peut-\u00catre une Angine",
+      "artist": "Ana\u00efs",
+      "year": 2008,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Dis-Moi",
+      "artist": "BB Brunes",
+      "year": 2007,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Verdamp Lang Her",
+      "artist": "BAP",
+      "year": 1981,
+      "genre": "Rock"
+    },
+    {
+      "title": "Nur ein Wort",
+      "artist": "Wir sind Helden",
+      "year": 2005,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Fantasma",
+      "artist": "Linea 77",
+      "year": 2003,
+      "genre": "Nu-Metal"
+    },
+    {
+      "title": "Proibito",
+      "artist": "Litfiba",
+      "year": 1990,
+      "genre": "Rock"
+    },
+    {
+      "title": "Dame Aire",
+      "artist": "Skizoo",
+      "year": 2007,
+      "genre": "Metal"
+    },
+    {
+      "title": "[Jerk It Out](/wiki/Jerk_It_Out ",
+      "artist": "Caesars",
+      "year": 2003,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "[Maybe I'm Amazed](/wiki/Maybe_I%27m_Amazed ",
+      "artist": "Paul McCartney",
+      "year": 1970,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Band on the Run](/wiki/Band_on_the_Run_\\(song\\) ",
+      "artist": "Paul McCartney & Wings",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Helen Wheels](/wiki/Helen_Wheels ",
+      "artist": "Paul McCartney & Wings",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Let Me Roll It](/wiki/Let_Me_Roll_It ",
+      "artist": "Paul McCartney & Wings",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Open My Eyes",
+      "artist": "Inhabited",
+      "year": 2005,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "[Cities in Dust](/wiki/Cities_in_Dust ",
+      "artist": "Siouxsie and The Banshees",
+      "year": 1986,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "[Cry, Cry, Cry](/wiki/Cry!_Cry!_Cry! ",
+      "artist": "Johnny Cash",
+      "year": 1955,
+      "genre": "Country"
+    },
+    {
+      "title": "[Don't Take Your Guns to Town](/wiki/Don%27t_Take_Your_Guns_to_Town ",
+      "artist": "Johnny Cash",
+      "year": 1958,
+      "genre": "Country"
+    },
+    {
+      "title": "[Five Feet High and Rising](/wiki/Five_Feet_High_and_Rising_\\(song\\) ",
+      "artist": "Johnny Cash",
+      "year": 1959,
+      "genre": "Country"
+    },
+    {
+      "title": "[Folsom Prison Blues](/wiki/Folsom_Prison_Blues ",
+      "artist": "Johnny Cash",
+      "year": 1955,
+      "genre": "Country"
+    },
+    {
+      "title": "[I Got Stripes](/wiki/I_Got_Stripes ",
+      "artist": "Johnny Cash",
+      "year": 1959,
+      "genre": "Country"
+    },
+    {
+      "title": "[I Walk the Line](/wiki/I_Walk_the_Line ",
+      "artist": "Johnny Cash",
+      "year": 1956,
+      "genre": "Country"
+    },
+    {
+      "title": "[Tennessee Flat Top Box](/wiki/Tennessee_Flat_Top_Box ",
+      "artist": "Johnny Cash",
+      "year": 1961,
+      "genre": "Country"
+    },
+    {
+      "title": "[The Ballad of Ira Hayes](/wiki/The_Ballad_of_Ira_Hayes ",
+      "artist": "Johnny Cash",
+      "year": 1964,
+      "genre": "Country"
+    }
+  ]
+}

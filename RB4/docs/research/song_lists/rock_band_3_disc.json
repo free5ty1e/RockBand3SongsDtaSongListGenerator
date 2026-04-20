@@ -1,0 +1,504 @@
+{
+  "game": "Rock Band 3",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "[20th Century Boy](/wiki/20th_Century_Boy ",
+      "artist": "T. Rex",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[25 or 6 to 4](/wiki/25_or_6_to_4 ",
+      "artist": "Chicago",
+      "year": 1970,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Antibodies",
+      "artist": "Poni Hoax",
+      "year": 2008,
+      "genre": "New Wave"
+    },
+    {
+      "title": "[Beast and the Harlot](/wiki/Beast_and_the_Harlot ",
+      "artist": "Avenged Sevenfold",
+      "year": 2005,
+      "genre": "Metal"
+    },
+    {
+      "title": "[The Beautiful People](/wiki/The_Beautiful_People_\\(Marilyn_Manson_song\\) ",
+      "artist": "Marilyn Manson",
+      "year": 1996,
+      "genre": "Alternative"
+    },
+    {
+      "title": "[Been Caught Stealing](/wiki/Been_Caught_Stealing ",
+      "artist": "Jane's Addiction",
+      "year": 1990,
+      "genre": "Alternative"
+    },
+    {
+      "title": "[Before I Forget](/wiki/Before_I_Forget_\\(song\\) ",
+      "artist": "Slipknot",
+      "year": 2004,
+      "genre": "Metal"
+    },
+    {
+      "title": "[Bohemian Rhapsody](/wiki/Bohemian_Rhapsody ",
+      "artist": "Queen",
+      "year": 1975,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Break on Through (To the Other Side)](/wiki/Break_on_Through_\\(To_the_Other_Side\\) ",
+      "artist": "The Doors",
+      "year": 1967,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Caught in a Mosh](/wiki/Caught_in_a_Mosh ",
+      "artist": "Anthrax",
+      "year": 1987,
+      "genre": "Metal"
+    },
+    {
+      "title": "[Centerfold](/wiki/Centerfold_\\(song\\) ",
+      "artist": "The J. Geils Band",
+      "year": 1981,
+      "genre": "Rock"
+    },
+    {
+      "title": "[China Grove](/wiki/China_Grove_\\(song\\) ",
+      "artist": "The Doobie Brothers",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Cold as Ice](/wiki/Cold_as_Ice_\\(Foreigner_song\\) ",
+      "artist": "Foreigner",
+      "year": 1977,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Combat Baby",
+      "artist": "Metric",
+      "year": 2003,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "The Con",
+      "artist": "Tegan and Sara",
+      "year": 2007,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "[Crazy Train](/wiki/Crazy_Train ",
+      "artist": "Ozzy Osbourne",
+      "year": 1980,
+      "genre": "Metal"
+    },
+    {
+      "title": "[Crosstown Traffic](/wiki/Crosstown_Traffic_\\(song\\) ",
+      "artist": "The Jimi Hendrix Experience",
+      "year": 1968,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Dead End Friends",
+      "artist": "Them Crooked Vultures",
+      "year": 2009,
+      "genre": "Rock"
+    },
+    {
+      "title": "Don't Bury Me... I'm Still Not Dead",
+      "artist": "Riverboat Gamblers",
+      "year": 2006,
+      "genre": "Punk"
+    },
+    {
+      "title": "[Don't Stand So Close to Me](/wiki/Don%27t_Stand_So_Close_to_Me ",
+      "artist": "The Police",
+      "year": 1980,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "[Du Hast](/wiki/Du_hast ",
+      "artist": "Rammstein",
+      "year": 1997,
+      "genre": "Metal"
+    },
+    {
+      "title": "[Everybody Wants to Rule the World](/wiki/Everybody_Wants_to_Rule_the_World ",
+      "artist": "Tears for Fears",
+      "year": 1985,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "[False Alarm](/wiki/False_Alarm_\\(The_Bronx_song\\) ",
+      "artist": "The Bronx",
+      "year": 2003,
+      "genre": "Punk"
+    },
+    {
+      "title": "[Fly Like an Eagle](/wiki/Fly_Like_an_Eagle_\\(song\\) ",
+      "artist": "Steve Miller Band",
+      "year": 1976,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Foolin'](/wiki/Foolin%27 ",
+      "artist": "Def Leppard",
+      "year": 1983,
+      "genre": "Metal"
+    },
+    {
+      "title": "[Free Bird](/wiki/Free_Bird ",
+      "artist": "Lynyrd Skynyrd",
+      "year": 1973,
+      "genre": "Southern Rock"
+    },
+    {
+      "title": "[Get Free](/wiki/Get_Free_\\(The_Vines_song\\) ",
+      "artist": "The Vines",
+      "year": 2002,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Get Up, Stand Up](/wiki/Get_Up,_Stand_Up ",
+      "artist": "Bob Marley and the Wailers",
+      "year": 1973,
+      "genre": "Reggae/Ska"
+    },
+    {
+      "title": "[Good Vibrations](/wiki/Good_Vibrations ",
+      "artist": "The Beach Boys",
+      "year": 1968,
+      "genre": "Rock"
+    },
+    {
+      "title": "[The Hardest Button to Button](/wiki/The_Hardest_Button_to_Button ",
+      "artist": "The White Stripes",
+      "year": 2003,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Heart of Glass](/wiki/Heart_of_Glass_\\(song\\) ",
+      "artist": "Blondie",
+      "year": 1978,
+      "genre": "New Wave"
+    },
+    {
+      "title": "[Here I Go Again](/wiki/Here_I_Go_Again ",
+      "artist": "Whitesnake",
+      "year": 1987,
+      "genre": "Metal"
+    },
+    {
+      "title": "[Hey Man, Nice Shot](/wiki/Hey_Man,_Nice_Shot ",
+      "artist": "Filter",
+      "year": 1995,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Humanoid",
+      "artist": "Tokio Hotel",
+      "year": 2009,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "[I Can See for Miles](/wiki/I_Can_See_for_Miles ",
+      "artist": "The Who",
+      "year": 1967,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[I Got You (I Feel Good)](/wiki/I_Got_You_\\(I_Feel_Good\\) ",
+      "artist": "James Brown",
+      "year": 1974,
+      "genre": "R&B/Soul/Funk"
+    },
+    {
+      "title": "[I Love Rock N' Roll](/wiki/I_Love_Rock_%27n%27_Roll#Joan_Jett_version ",
+      "artist": "Joan Jett & The Blackhearts",
+      "year": 1981,
+      "genre": "Punk"
+    },
+    {
+      "title": "[I Need to Know](/wiki/I_Need_to_Know_\\(Tom_Petty_and_the_Heartbreakers_song\\) ",
+      "artist": "Tom Petty and the Heartbreakers",
+      "year": 1978,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[I Wanna Be Sedated](/wiki/I_Wanna_Be_Sedated ",
+      "artist": "Ramones",
+      "year": 1978,
+      "genre": "Punk"
+    },
+    {
+      "title": "[Imagine](/wiki/Imagine_\\(song\\) ",
+      "artist": "John Lennon",
+      "year": 1971,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[In a Big Country](/wiki/In_a_Big_Country ",
+      "artist": "Big Country",
+      "year": 1983,
+      "genre": "New Wave"
+    },
+    {
+      "title": "[In the Meantime](/wiki/In_the_Meantime_\\(Spacehog_song\\) ",
+      "artist": "Spacehog",
+      "year": 1995,
+      "genre": "Alternative"
+    },
+    {
+      "title": "[Jerry Was a Race Car Driver](/wiki/Jerry_Was_a_Race_Car_Driver ",
+      "artist": "Primus",
+      "year": 1991,
+      "genre": "Alternative"
+    },
+    {
+      "title": "[Just Like Heaven](/wiki/Just_like_Heaven_\\(The_Cure_song\\) ",
+      "artist": "The Cure",
+      "year": 1987,
+      "genre": "New Wave"
+    },
+    {
+      "title": "[Killing Loneliness](/wiki/Killing_Loneliness ",
+      "artist": "HIM",
+      "year": 2005,
+      "genre": "Alternative"
+    },
+    {
+      "title": "[The Killing Moon](/wiki/The_Killing_Moon ",
+      "artist": "Echo & the Bunnymen",
+      "year": 1984,
+      "genre": "New Wave"
+    },
+    {
+      "title": "King George",
+      "artist": "Dover",
+      "year": 2001,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Lasso](/wiki/Wolfgang_Amadeus_Phoenix ",
+      "artist": "Phoenix",
+      "year": 2009,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Last Dance",
+      "artist": "The Raveonettes",
+      "year": 2009,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "[Living in America](/wiki/Living_in_America_\\(The_Sounds_song\\) ",
+      "artist": "The Sounds",
+      "year": 2002,
+      "genre": "New Wave"
+    },
+    {
+      "title": "[Llama](/wiki/A_Picture_of_Nectar ",
+      "artist": "Phish",
+      "year": 1992,
+      "genre": "Rock"
+    },
+    {
+      "title": "[The Look](/wiki/The_Look ",
+      "artist": "Roxette",
+      "year": 1988,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "[Low Rider](/wiki/Low_Rider ",
+      "artist": "WAR",
+      "year": 1975,
+      "genre": "R&B/Soul/Funk"
+    },
+    {
+      "title": "[Me Enamora](/wiki/Me_Enamora ",
+      "artist": "Juanes",
+      "year": 2007,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "[Midlife Crisis](/wiki/Midlife_Crisis ",
+      "artist": "Faith No More",
+      "year": 1992,
+      "genre": "Alternative"
+    },
+    {
+      "title": "[Misery Business](/wiki/Misery_Business ",
+      "artist": "Paramore",
+      "year": 2007,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "[Need You Tonight](/wiki/Need_You_Tonight ",
+      "artist": "INXS",
+      "year": 1987,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "[No One Knows](/wiki/No_One_Knows ",
+      "artist": "Queens of the Stone Age",
+      "year": 2002,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Oh My God](/wiki/Oh_My_God_\\(Ida_Maria_song\\) ",
+      "artist": "Ida Maria",
+      "year": 2008,
+      "genre": "Alternative"
+    },
+    {
+      "title": "[One Armed Scissor](/wiki/One_Armed_Scissor ",
+      "artist": "At the Drive-In",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Outer Space",
+      "artist": "The Muffs",
+      "year": 1997,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Oye Mi Amor",
+      "artist": "Man\u00e1",
+      "year": 1992,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "[Plush](/wiki/Plush_\\(song\\) ",
+      "artist": "Stone Temple Pilots",
+      "year": 1992,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Portions for Foxes",
+      "artist": "Rilo Kiley",
+      "year": 2004,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "[The Power of Love](/wiki/The_Power_of_Love_\\(Huey_Lewis_and_the_News_song\\) ",
+      "artist": "Huey Lewis and the News",
+      "year": 1985,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Radar Love](/wiki/Radar_Love ",
+      "artist": "Golden Earring",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Rainbow in the Dark](/wiki/Rainbow_in_the_Dark ",
+      "artist": "Dio",
+      "year": 1983,
+      "genre": "Metal"
+    },
+    {
+      "title": "[Rehab](/wiki/Rehab_\\(Amy_Winehouse_song\\) ",
+      "artist": "Amy Winehouse",
+      "year": 2006,
+      "genre": "R&B/Soul/Funk"
+    },
+    {
+      "title": "[Rock Lobster](/wiki/Rock_Lobster ",
+      "artist": "The B-52's",
+      "year": 1979,
+      "genre": "New Wave"
+    },
+    {
+      "title": "[Roundabout](/wiki/Roundabout_\\(Yes_song\\) ",
+      "artist": "Yes",
+      "year": 1971,
+      "genre": "Prog"
+    },
+    {
+      "title": "[Saturday Night's Alright for Fighting](/wiki/Saturday_Night%27s_Alright_for_Fighting ",
+      "artist": "Elton John",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Sister Christian](/wiki/Sister_Christian ",
+      "artist": "Night Ranger",
+      "year": 1983,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Smoke on the Water](/wiki/Smoke_on_the_Water ",
+      "artist": "Deep Purple",
+      "year": 1972,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Something Bigger, Something Brighter",
+      "artist": "Pretty Girls Make Graves",
+      "year": 2003,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "[Space Oddity](/wiki/Space_Oddity ",
+      "artist": "David Bowie",
+      "year": 1969,
+      "genre": "Glam"
+    },
+    {
+      "title": "[Stop Me If You Think You've Heard This One Before](/wiki/Stop_Me_If_You_Think_You%27ve_Heard_This_One_Before ",
+      "artist": "The Smiths",
+      "year": 1987,
+      "genre": "Alternative"
+    },
+    {
+      "title": "This Bastard's Life",
+      "artist": "Swingin' Utters",
+      "year": 1998,
+      "genre": "Punk"
+    },
+    {
+      "title": "Viva la Resistance",
+      "artist": "Hypernova",
+      "year": 2010,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "[Walk of Life](/wiki/Walk_of_Life ",
+      "artist": "Dire Straits",
+      "year": 1985,
+      "genre": "Rock"
+    },
+    {
+      "title": "[Walkin' on the Sun](/wiki/Walkin%27_on_the_Sun ",
+      "artist": "Smash Mouth",
+      "year": 1997,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "[Werewolves of London](/wiki/Werewolves_of_London ",
+      "artist": "Warren Zevon",
+      "year": 1978,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "[Whip It](/wiki/Whip_It_\\(Devo_song\\) ",
+      "artist": "Devo",
+      "year": 1980,
+      "genre": "New Wave"
+    },
+    {
+      "title": "[Yoshimi Battles the Pink Robots Pt. 1](/wiki/Yoshimi_Battles_the_Pink_Robots,_Pt._1 ",
+      "artist": "The Flaming Lips",
+      "year": 2002,
+      "genre": "Alternative"
+    }
+  ]
+}
