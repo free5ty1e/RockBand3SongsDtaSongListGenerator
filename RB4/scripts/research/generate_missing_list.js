@@ -27,9 +27,15 @@ ourSongs.filter(s => s.source !== 'Custom').forEach(s => {
 });
 
 const listDir = './docs/research/song_lists';
-const files = fs.readdirSync(listDir).filter(f => f.endsWith('.json'));
+const ghDir = './docs/research/song_lists/gh';
+
+const files = [
+  ...fs.readdirSync(listDir).filter(f => f.endsWith('.json')).map(f => ({file: f, dir: listDir})),
+  ...fs.readdirSync(ghDir).filter(f => f.endsWith('.json')).map(f => ({file: f, dir: ghDir}))
+];
 
 const sourceLabels = {
+  // Rock Band
   'beatles_rock_band_disc': 'The Beatles Rock Band',
   'green_day_rock_band': 'Green Day Rock Band',
   'lego_rock_band': 'LEGO Rock Band',
@@ -40,15 +46,32 @@ const sourceLabels = {
   'rock_band_4_disc': 'Rock Band 4 disc',
   'rock_band_3_disc': 'Rock Band 3 disc',
   'rock_band_2_disc': 'Rock Band 2 disc',
-  'rock_band_1_disc': 'Rock Band 1 disc'
+  'rock_band_1_disc': 'Rock Band 1 disc',
+  
+  // Guitar Hero (in release order)
+  'guitar_hero': 'Guitar Hero 1',
+  'guitar_hero_2': 'Guitar Hero II',
+  'gh3_songs': 'Guitar Hero III: Legends of Rock',
+  'ghwt_dlc': 'Guitar Hero World Tour',  // GH4
+  'guitar_hero_5': 'Guitar Hero 5',
+  'guitar_hero_encore': 'Guitar Hero Encore: Rocks the 80s',
+  'ghwor': 'Guitar Hero: Warriors of Rock',
+  'guitar_hero_live': 'Guitar Hero Live',
+  'ghm': 'Guitar Hero: Metallica',
+  'gha': 'Guitar Hero: Aerosmith',
+  'gh_smash_hits': 'Guitar Hero Smash Hits',
+  'gh_van_halen': 'Guitar Hero: Van Halen',
+  'dj_hero': 'DJ Hero',
+  'dj_hero_2': 'DJ Hero 2',
+  'gh_on_tour': 'Guitar Hero: On Tour'
 };
 
 const allMissing = [];
 
-files.forEach(file => {
-  const data = JSON.parse(fs.readFileSync(path.join(listDir, file), 'utf8'));
+files.forEach(item => {
+  const data = JSON.parse(fs.readFileSync(path.join(item.dir, item.file), 'utf8'));
   const songs = data.songs || [];
-  const srcName = sourceLabels[file.replace('.json', '')] || file;
+  const srcName = sourceLabels[item.file.replace('.json', '')] || item.file;
   
   songs.forEach(s => {
     if (!s.title || s.title.length < 3) return;
