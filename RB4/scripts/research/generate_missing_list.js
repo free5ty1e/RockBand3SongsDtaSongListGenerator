@@ -2,9 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const ourSongs = JSON.parse(fs.readFileSync('./rb4_temp/rb4_custom_songs.json'), 'utf8');
-const ourOfficialSet = new Set(ourSongs.filter(s => s.source !== 'Custom').map(s => (s.title||'').toLowerCase().trim()));
 
-function cleanTitle(t) {
+function normalize(t) {
   if (!t) return '';
   // Remove wiki markdown links [text](url) -> text
   t = t.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
@@ -14,21 +13,23 @@ function cleanTitle(t) {
   t = t.replace(/\/wiki\/[^\s)]+/g, '');
   // Remove underscores
   t = t.replace(/_/g, ' ');
-  // Clean up special chars but keep apostrophes and hyphens
-  t = t.replace(/[^a-z0-9 \'\-]/gi, '');
-  // Remove duplicate words
-  const words = t.split(' ').filter(w => w.length > 0);
-  const unique = [];
-  for (let i = 0; i < words.length; i++) {
-    if (i === 0 || words[i] !== words[i-1]) unique.push(words[i]);
-  }
-  return unique.join(' ').toLowerCase().trim();
+  // Normalize: lowercase, keep only letters/numbers/space/hyphen/slash/apostrophe
+  t = t.toLowerCase().replace(/[^a-z0-9 \'\-\/]/g, '');
+  // Collapse multiple spaces/slashes
+  t = t.replace(/\s+/g, ' ').replace(/\/+/g, '/');
+  return t.trim();
 }
+
+// Build lookup from our official songs with normalized keys
+const ourOfficialSet = new Set();
+ourSongs.filter(s => s.source !== 'Custom').forEach(s => {
+  ourOfficialSet.add(normalize((s.title||'').trim()));
+});
 
 const listDir = './docs/research/song_lists';
 const files = fs.readdirSync(listDir).filter(f => f.endsWith('.json'));
 
-const sourceMap = {
+const sourceLabels = {
   'beatles_rock_band_disc': 'The Beatles Rock Band',
   'green_day_rock_band': 'Green Day Rock Band',
   'lego_rock_band': 'LEGO Rock Band',
@@ -47,14 +48,15 @@ const allMissing = [];
 files.forEach(file => {
   const data = JSON.parse(fs.readFileSync(path.join(listDir, file), 'utf8'));
   const songs = data.songs || [];
-  const srcName = sourceMap[file] || file;
+  const srcName = sourceLabels[file.replace('.json', '')] || file;
   
   songs.forEach(s => {
     if (!s.title || s.title.length < 3) return;
-    const t = cleanTitle(s.title);
+    const t = normalize(s.title);
     if (t.length < 3) return;
     if (!ourOfficialSet.has(t)) {
-      allMissing.push({title: t, artist: (s.artist || '').trim(), source: srcName});
+      const displayTitle = normalize(s.title);
+      allMissing.push({title: displayTitle, artist: (s.artist || '').trim(), source: srcName});
     }
   });
 });
