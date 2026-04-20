@@ -78,12 +78,15 @@ h1{color:#00d4ff}
 h2{color:#48dbfb;cursor:pointer;padding:10px;margin:0;background:#0f3460;border-radius:5px}
 h2:hover{background:#1a4a7a}
 .section{background:#16213e;padding:15px;margin:15px 0;border-radius:8px}
-table{display:none;width:100%;border-collapse:collapse;margin-top:10px}
+table,ol{display:none;width:100%;border-collapse:collapse;margin-top:10px}
+ol{background:#16213e;padding:15px 15px 15px 35px;margin-top:10px;border-radius:8px}
+a{color:#48dbfb}
 th,td{padding:6px;text-align:left;border-bottom:1px solid #333}
 th{color:#e94560;font-size:0.85em}
 .song-title{color:#e94560}
 .artist{color:#00d4ff;font-size:0.9em}
 .show{display:table}
+ol.show{display:block}
 .count{color:#888;font-size:0.8em;margin-left:10px}
 </style>
 <script>
@@ -108,24 +111,24 @@ sorted.forEach(([src, songs], idx) => {
 
 html += `
 <div class="section">
-<h2>Sources & References</h2>
-<table>
+<h2 onclick="toggle('sources')">Sources & References<span class="count">(click to expand)</span></h2>
+<table id="sources">
 <tr><th>Source</th><th>URL</th></tr>
-<tr><td>Rock Band disc</td><td>https://en.wikipedia.org/wiki/List_of_songs_in_Rock_Band</td></tr>
-<tr><td>Rock Band 2 disc</td><td>https://en.wikipedia.org/wiki/List_of_songs_in_Rock_Band_2</td></tr>
-<tr><td>Rock Band 3 disc</td><td>https://en.wikipedia.org/wiki/List_of_songs_in_Rock_Band_3</td></tr>
-<tr><td>Rock Band 4 disc</td><td>https://en.wikipedia.org/wiki/List_of_songs_in_Rock_Band_4</td></tr>
-<tr><td>LEGO Rock Band</td><td>https://en.wikipedia.org/wiki/List_of_songs_in_Lego_Rock_Band</td></tr>
-<tr><td>Green Day: Rock Band</td><td>https://en.wikipedia.org/wiki/List_of_songs_in_Green_Day:_Rock_Band</td></tr>
-<tr><td>The Beatles: Rock Band</td><td>https://en.wikipedia.org/wiki/List_of_songs_in_The_Beatles:_Rock_Band</td></tr>
-<tr><td>Rock Band DLC</td><td>https://en.wikipedia.org/wiki/List_of_downloadable_songs_for_the_Rock_Band_series</td></tr>
-<tr><td>Rock Band Network</td><td>https://en.wikipedia.org/wiki/List_of_Rock_Band_Network_songs</td></tr>
+<tr><td>Rock Band disc</td><td><a href="https://en.wikipedia.org/wiki/List_of_songs_in_Rock_Band" target="_blank">https://en.wikipedia.org/wiki/List_of_songs_in_Rock_Band</a></td></tr>
+<tr><td>Rock Band 2 disc</td><td><a href="https://en.wikipedia.org/wiki/List_of_songs_in_Rock_Band_2" target="_blank">https://en.wikipedia.org/wiki/List_of_songs_in_Rock_Band_2</a></td></tr>
+<tr><td>Rock Band 3 disc</td><td><a href="https://en.wikipedia.org/wiki/List_of_songs_in_Rock_Band_3" target="_blank">https://en.wikipedia.org/wiki/List_of_songs_in_Rock_Band_3</a></td></tr>
+<tr><td>Rock Band 4 disc</td><td><a href="https://en.wikipedia.org/wiki/List_of_songs_in_Rock_Band_4" target="_blank">https://en.wikipedia.org/wiki/List_of_songs_in_Rock_Band_4</a></td></tr>
+<tr><td>LEGO Rock Band</td><td><a href="https://en.wikipedia.org/wiki/List_of_songs_in_Lego_Rock_Band" target="_blank">https://en.wikipedia.org/wiki/List_of_songs_in_Lego_Rock_Band</a></td></tr>
+<tr><td>Green Day: Rock Band</td><td><a href="https://en.wikipedia.org/wiki/List_of_songs_in_Green_Day:_Rock_Band" target="_blank">https://en.wikipedia.org/wiki/List_of_songs_in_Green_Day:_Rock_Band</a></td></tr>
+<tr><td>The Beatles: Rock Band</td><td><a href="https://en.wikipedia.org/wiki/List_of_songs_in_The_Beatles:_Rock_Band" target="_blank">https://en.wikipedia.org/wiki/List_of_songs_in_The_Beatles:_Rock_Band</a></td></tr>
+<tr><td>Rock Band DLC</td><td><a href="https://en.wikipedia.org/wiki/List_of_downloadable_songs_for_the_Rock_Band_series" target="_blank">https://en.wikipedia.org/wiki/List_of_downloadable_songs_for_the_Rock_Band_series</a></td></tr>
+<tr><td>Rock Band Network</td><td><a href="https://en.wikipedia.org/wiki/List_of_Rock_Band_Network_songs" target="_blank">https://en.wikipedia.org/wiki/List_of_Rock_Band_Network_songs</a></td></tr>
 </table>
 </div>
 
 <div class="section">
-<h2>How to Verify</h2>
-<ol>
+<h2 onclick="toggle('howto')">How to Verify<span class="count">(click to expand)</span></h2>
+<ol id="howto">
 <li>Open Rock Band 4 on PS4</li>
 <li>Go to the song library or browser</li>
 <li>Search for songs listed as missing</li>
