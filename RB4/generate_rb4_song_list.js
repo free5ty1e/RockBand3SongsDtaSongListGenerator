@@ -188,12 +188,26 @@ function parseOnyxSong(obj, sourceOverride) {
   if (source === 'Custom' && pkFile) {
     // Map PKG filenames to official sources
     const pkgSourceMap = {
+      // Disc exports
       'RB3ROCKBAND3PASS': 'Rock Band 3',
       'RB2ROCKBAND2PASS': 'Rock Band 2',
       'RB1ROCKBAND1PASS': 'Rock Band 1',
       'GDRBGREENDAYPASS': 'Rock Band Green Day',
       'LEGOROCKBANDPASS': 'LEGO Rock Band',
-      'BEACHBOYS': 'Rock Band 3',  // Beach Boys pack for RB3 export
+      'BEACHBOYS': 'Rock Band 3',
+      
+      // RB4 DLC (season passes, re-releases)
+      'RB4PRESEASONPASS': 'Rock Band 4 DLC',
+      'RB4SEASON': 'Rock Band 4 DLC',
+      'RB4RBNRERELEASES': 'Rock Band Network 1',
+      
+      // Legacy DLC passes (RB1-3 era)
+      'RBLEGACYDLCPASS1': 'Rock Band 1 DLC',
+      'RBLEGACYDLCPASS2': 'Rock Band 2 DLC',
+      'RBLEGACYDLCPASS3': 'Rock Band 3 DLC',
+      
+      // RBN (when re-released for RB4)
+      'RBN': 'Rock Band Network 1',
     };
     for (const [pkg, officialSource] of Object.entries(pkgSourceMap)) {
       if (pkFile.includes(pkg)) {
