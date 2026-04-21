@@ -1,5 +1,5 @@
 {
-  "game": "Rock Band Series",
+  "game": "Rock Band 4 DLC",
   "type": "dlc",
   "compatibility": "rb4_only",
   "songs": [
@@ -208,7 +208,7 @@
       "genre": "Pop-Rock"
     },
     {
-      "title": "[F\u00edjate Bien](/wiki/F%C3%ADjate_Bien_\\(song\\) ",
+      "title": "[Fíjate Bien](/wiki/F%C3%ADjate_Bien_\\(song\\) ",
       "artist": "Juanes",
       "year": 2000,
       "genre": "Pop-Rock"
@@ -3340,7 +3340,7 @@
       "genre": "Pop-Rock"
     },
     {
-      "title": "[Can\u2019t Get Enough of You Baby](/wiki/Can%E2%80%99t_Get_Enough_of_You_Baby ",
+      "title": "[Can’t Get Enough of You Baby](/wiki/Can%E2%80%99t_Get_Enough_of_You_Baby ",
       "artist": "Smash Mouth",
       "year": 1999,
       "genre": "Pop-Rock"
@@ -3544,7 +3544,7 @@
       "genre": "Rock"
     },
     {
-      "title": "\u00bfViva la Gloria? (Little Girl)",
+      "title": "¿Viva la Gloria? (Little Girl)",
       "artist": "Green Day",
       "year": 2009,
       "genre": "Rock"
@@ -4043,7 +4043,7 @@
     },
     {
       "title": "[Silent Lucidity](/wiki/Silent_Lucidity ",
-      "artist": "Queensr\u00ffche",
+      "artist": "Queensrÿche",
       "year": 1990,
       "genre": "Prog"
     },
@@ -4475,7 +4475,7 @@
     },
     {
       "title": "[Electric Love](/wiki/Electric_Love_\\(B%C3%B8rns_song\\) ",
-      "artist": "B\u00d8RNS",
+      "artist": "BØRNS",
       "year": 2015,
       "genre": "Pop/Dance/Electronic"
     },
@@ -4733,7 +4733,7 @@
     },
     {
       "title": "Thunder & Lightning",
-      "artist": "Mot\u00f6rhead",
+      "artist": "Motörhead",
       "year": 2015,
       "genre": "Metal"
     },
@@ -5489,7 +5489,7 @@
     },
     {
       "title": "[(Don't Fear) The Reaper](/wiki/\\(Don%27t_Fear\\)_The_Reaper ",
-      "artist": "Blue \u00d6yster Cult",
+      "artist": "Blue Öyster Cult",
       "year": 1976,
       "genre": "Classic Rock"
     },
@@ -5555,7 +5555,7 @@
     },
     {
       "title": "[Ace of Spades '08](/wiki/Ace_of_Spades_\\(song\\) ",
-      "artist": "Mot\u00f6rhead",
+      "artist": "Motörhead",
       "year": 1980,
       "genre": "Metal"
     },
@@ -5885,7 +5885,7 @@
     },
     {
       "title": "[Burnin' for You](/wiki/Burnin%27_for_You ",
-      "artist": "Blue \u00d6yster Cult",
+      "artist": "Blue Öyster Cult",
       "year": 1981,
       "genre": "Classic Rock"
     },
@@ -5998,7 +5998,7 @@
       "genre": "Other"
     },
     {
-      "title": "Doppelg\u00e4nger",
+      "title": "Doppelgänger",
       "artist": "Freezepop",
       "year": 2010,
       "genre": "Pop/Dance/Electronic"
@@ -6185,7 +6185,7 @@
     },
     {
       "title": "[Takin' Care of Business](/wiki/Takin%27_Care_of_Business_\\(song\\) ",
-      "artist": "Bachman\u2013Turner Overdrive",
+      "artist": "Bachman–Turner Overdrive",
       "year": 1974,
       "genre": "Classic Rock"
     },
@@ -6592,7 +6592,7 @@
       "genre": "Rock"
     },
     {
-      "title": "[Escape (The Pi\u00f1a Colada Song)](/wiki/Escape_\\(The_Pi%C3%B1a_Colada_Song\\) ",
+      "title": "[Escape (The Piña Colada Song)](/wiki/Escape_\\(The_Pi%C3%B1a_Colada_Song\\) ",
       "artist": "Rupert Holmes",
       "year": 1979,
       "genre": "Pop-Rock"
@@ -8770,7 +8770,7 @@
       "genre": "Emo"
     },
     {
-      "title": "\u00a1Ol\u00e9!",
+      "title": "¡Olé!",
       "artist": "The Bouncing Souls",
       "year": 1999,
       "genre": "Punk"
@@ -9945,5 +9945,6 @@
       "year": 1994,
       "genre": "Rock"
     }
-  ]
+  ],
+  "year": 2015
 }

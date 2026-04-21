@@ -1,5 +1,5 @@
 {
-  "game": "Rock Band Series",
+  "game": "Rock Band 3 DLC",
   "type": "dlc",
   "compatibility": "rb3_onwards",
   "songs": [
@@ -466,8 +466,8 @@
       "genre": "Classic Rock"
     },
     {
-      "title": "Peut-\u00catre une Angine",
-      "artist": "Ana\u00efs",
+      "title": "Peut-Être une Angine",
+      "artist": "Anaïs",
       "year": 2008,
       "genre": "Pop-Rock"
     },
@@ -597,5 +597,6 @@
       "year": 1964,
       "genre": "Country"
     }
-  ]
+  ],
+  "year": 2010
 }

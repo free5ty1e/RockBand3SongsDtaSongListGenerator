@@ -3,136 +3,792 @@
   "type": "dlc",
   "notes": "RBN songs from Wikipedia. Original count: ~2135 Xbox 360, 814 PS3, 159 Wii. Sample of first entries.",
   "songs": [
-    {"title": "A Drug Against War", "artist": "KMFDM", "year": 1990, "genre": "Metal"},
-    {"title": "Angel Lust", "artist": "Fake Shark – Real Zombie!", "year": 2000, "genre": "Alternative"},
-    {"title": "Another California Song", "artist": "Zack Wilson", "year": 2000, "genre": "Rock"},
-    {"title": "Arigato", "artist": "Gandhi", "year": 2000, "genre": "Rock"},
-    {"title": "Australia", "artist": "The Shins", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Backyard Buildyard", "artist": "Steve and Lindley Band", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Battles and Brotherhood", "artist": "3 Inches of Blood", "year": 2000, "genre": "Metal"},
-    {"title": "Buried Cold", "artist": "Rose of Jericho", "year": 2000, "genre": "Pop-Rock"},
-    {"title": "Burn It Down", "artist": "Five Finger Death Punch", "year": 2000, "genre": "Metal"},
-    {"title": "California", "artist": "The Kimberly Trip", "year": 2000, "genre": "Pop-Rock"},
-    {"title": "Can I Stay", "artist": "Stephanie Hatfield and Hot Mess", "year": 2000, "genre": "Rock"},
-    {"title": "Cease and Desist", "artist": "The Main Drag", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Children of December", "artist": "The Slip", "year": 2000, "genre": "Rock"},
-    {"title": "Creepy Doll", "artist": "Jonathan Coulton", "year": 2000, "genre": "Rock"},
-    {"title": "Crushed Beyond Dust", "artist": "Skeletonwitch", "year": 2000, "genre": "Metal"},
-    {"title": "Day of Mourning", "artist": "Despised Icon", "year": 2000, "genre": "Metal"},
-    {"title": "Disengage", "artist": "Suicide Silence", "year": 2000, "genre": "Metal"},
-    {"title": "Don't Let Me Down (Slowly)", "artist": "The Main Drag", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Dove Nets", "artist": "The Main Drag", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Drunken Lullabies", "artist": "Flogging Molly", "year": 2010, "genre": "Punk"},
-    {"title": "End Quote", "artist": "Full-Source", "year": 2000, "genre": "New Wave"},
-    {"title": "Even Rats", "artist": "The Slip", "year": 2000, "genre": "Rock"},
-    {"title": "Fade Away", "artist": "Of Last Resort", "year": 2000, "genre": "Rock"},
-    {"title": "Far Away from Heaven", "artist": "Free Spirit", "year": 2000, "genre": "Rock"},
-    {"title": "Fight Back", "artist": "Ron Wasserman", "year": 2010, "genre": "Rock"},
-    {"title": "Footloose and Fancy Free", "artist": "Bill Bruford's Earthworks", "year": 2000, "genre": "Jazz"},
-    {"title": "For the Love of God", "artist": "Steve Vai", "year": 2000, "genre": "Rock"},
-    {"title": "Fortune", "artist": "Kristin Hersh", "year": 2010, "genre": "Indie Rock"},
-    {"title": "Get the Hell Out of Here", "artist": "Steve Vai", "year": 2000, "genre": "Rock"},
-    {"title": "Give", "artist": "The Cold Goodnight", "year": 2000, "genre": "Alternative"},
-    {"title": "Goth Girls", "artist": "MC Frontalot", "year": 2000, "genre": "Other"},
-    {"title": "Grumpytown", "artist": "Speck", "year": 2000, "genre": "Emo"},
-    {"title": "He Sleeps in a Grove", "artist": "Amberian Dawn", "year": 2000, "genre": "Metal"},
-    {"title": "Heimdalsgate Like a Promethean Curse", "artist": "of Montreal", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Homosuperior", "artist": "The Main Drag", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Horses in Heaven", "artist": "Fake Shark – Real Zombie!", "year": 2000, "genre": "Alternative"},
-    {"title": "How We'd Look on Paper", "artist": "The Main Drag", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Hyperbole", "artist": "Glass Hammer", "year": 2000, "genre": "Prog"},
-    {"title": "Icarus' Song", "artist": "Furly", "year": 2000, "genre": "Rock"},
-    {"title": "If Not Now When", "artist": "Color Theory", "year": 2000, "genre": "Other"},
-    {"title": "If Trucks Drank Beer", "artist": "Error 404 feat. CJ Watson", "year": 2000, "genre": "Country"},
-    {"title": "Ikea", "artist": "Jonathan Coulton", "year": 2000, "genre": "Rock"},
-    {"title": "In Memories", "artist": "Giant Target", "year": 2000, "genre": "Punk"},
-    {"title": "Inside Out", "artist": "Nick Gallant", "year": 2000, "genre": "Alternative"},
-    {"title": "It's Good", "artist": "The Humans", "year": 2000, "genre": "Rock"},
-    {"title": "It's Not You, It's Everyone", "artist": "Full-Source", "year": 2000, "genre": "New Wave"},
-    {"title": "Juke Joint Jezebel", "artist": "KMFDM", "year": 1990, "genre": "Metal"},
-    {"title": "Kick Some Ass", "artist": "Stroke 9", "year": 2010, "genre": "Rock"},
-    {"title": "Lady in a Blue Dress", "artist": "Senses Fail", "year": 2000, "genre": "Rock"},
-    {"title": "Lemon Juice", "artist": "Scratching the Itch", "year": 2000, "genre": "Rock"},
-    {"title": "Lilith in Libra", "artist": "You Shriek", "year": 2000, "genre": "New Wave"},
-    {"title": "Limousine", "artist": "Stars of Boulevard", "year": 2000, "genre": "Rock"},
-    {"title": "Liquid Smog (StompBox Remix)", "artist": "WaveGroup feat. Becca Neun", "year": 2000, "genre": "Rock"},
-    {"title": "Little Black Backpack", "artist": "Stroke 9", "year": 2010, "genre": "Rock"},
-    {"title": "Liverpool Judies", "artist": "The Fisticuffs", "year": 2000, "genre": "Punk"},
-    {"title": "Love During Wartime", "artist": "The Main Drag", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Mechanical Love", "artist": "In This Moment", "year": 2000, "genre": "Metal"},
-    {"title": "Megatron", "artist": "The Main Drag", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Mississippi Kite", "artist": "Kristin Hersh", "year": 2010, "genre": "Indie Rock"},
-    {"title": "Moonboy", "artist": "The Dirty Love Band", "year": 2010, "genre": "Rock"},
-    {"title": "Nancy Drew", "artist": "Pink Flag", "year": 2000, "genre": "Punk"},
-    {"title": "No Direction", "artist": "Longwave", "year": 2000, "genre": "Alternative"},
-    {"title": "No Heroes", "artist": "You Shriek", "year": 2010, "genre": "New Wave"},
-    {"title": "Not My Fault", "artist": "Ultra Saturday", "year": 2010, "genre": "Punk"},
-    {"title": "Ox", "artist": "Zack Wilson", "year": 2010, "genre": "Rock"},
-    {"title": "Paper Valentines", "artist": "James William Roy", "year": 2010, "genre": "Indie Rock"},
-    {"title": "Parhelia", "artist": "Heaven Ablaze", "year": 2000, "genre": "Metal"},
-    {"title": "Persistence of Vision", "artist": "Matter in the Medium", "year": 2000, "genre": "Prog"},
-    {"title": "Race The Hourglass", "artist": "Audio Fiction", "year": 2000, "genre": "Rock"},
-    {"title": "Red Sky At Morn", "artist": "Full-Source", "year": 2000, "genre": "Other"},
-    {"title": "Requiem for a Dying Song", "artist": "Flogging Molly", "year": 2000, "genre": "Punk"},
-    {"title": "Revengers", "artist": "Ron Wasserman", "year": 2010, "genre": "Rock"},
-    {"title": "Rip'er", "artist": "Lead the Dead", "year": 2000, "genre": "Metal"},
-    {"title": "River of Tuoni", "artist": "Amberian Dawn", "year": 2000, "genre": "Metal"},
-    {"title": "Running for the Razors", "artist": "Fake Shark – Real Zombie!", "year": 2000, "genre": "Alternative"},
-    {"title": "Rx", "artist": "Wounded Soul", "year": 2000, "genre": "Metal"},
-    {"title": "Sequestered in Memphis", "artist": "The Hold Steady", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Sestri Levante", "artist": "Fake Shark – Real Zombie!", "year": 2000, "genre": "Alternative"},
-    {"title": "Sick", "artist": "Bif Naked", "year": 2000, "genre": "Rock"},
-    {"title": "Signs", "artist": "Giant Target", "year": 2000, "genre": "Punk"},
-    {"title": "Sissyfuss", "artist": "Surprise Me Mr. Davis", "year": 2000, "genre": "Rock"},
-    {"title": "Sleep On", "artist": "Glass Hammer", "year": 2000, "genre": "Prog"},
-    {"title": "Stand for Something", "artist": "Skindred", "year": 2000, "genre": "Metal"},
-    {"title": "Still There", "artist": "Bojibian", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Superhero!", "artist": "Ultra Saturday", "year": 2000, "genre": "Punk"},
-    {"title": "Survive", "artist": "Lacuna Coil", "year": 2000, "genre": "Metal"},
-    {"title": "Tadpole Search and Rescue", "artist": "Chaunce DeLeon and the Fountain of Choof", "year": 2000, "genre": "Alternative"},
-    {"title": "Talk About", "artist": "Dear and the Headlights", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Talk Them Down", "artist": "The Main Drag", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Teeth, Face, Outerspace", "artist": "The Main Drag", "year": 2000, "genre": "Indie Rock"},
-    {"title": "The Attitude Song", "artist": "Steve Vai", "year": 1980, "genre": "Rock"},
-    {"title": "The Buddy Disease", "artist": "Scratching the Itch", "year": 2000, "genre": "Rock"},
-    {"title": "The Complexity of Light", "artist": "Children of Nova", "year": 2000, "genre": "Prog"},
-    {"title": "The Future Soon", "artist": "Jonathan Coulton", "year": 2000, "genre": "Rock"},
-    {"title": "The Heist", "artist": "DnA's Evolution", "year": 2000, "genre": "Rock"},
-    {"title": "Tongue Twister Typo", "artist": "Blackmarket", "year": 2010, "genre": "Alternative"},
-    {"title": "Top Back", "artist": "Alias Unknown", "year": 2000, "genre": "Urban"},
-    {"title": "Tricky Girl", "artist": "The Main Drag", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Trippolette", "artist": "Andraleia Buch", "year": 2000, "genre": "Prog"},
-    {"title": "Turn Yourself Around", "artist": "Nick Gallant", "year": 2000, "genre": "Alternative"},
-    {"title": "VP of Booty Reports", "artist": "Speck", "year": 2000, "genre": "Pop-Rock"},
-    {"title": "Watch It All Go Down", "artist": "Foreword", "year": 2000, "genre": "Indie Rock"},
-    {"title": "We Are the Best", "artist": "C&O", "year": 2000, "genre": "Rock"},
-    {"title": "Whatever Is Wrong With You", "artist": "Marillion", "year": 2000, "genre": "Prog"},
-    {"title": "What's Your Favorite Dinosaur?", "artist": "The Main Drag", "year": 2000, "genre": "Indie Rock"},
-    {"title": "You Got That", "artist": "The Everybody", "year": 2000, "genre": "Indie Rock"},
-    {"title": "You're My Everything", "artist": "Scratching the Itch", "year": 2000, "genre": "New Wave"},
-    {"title": "Bleeder", "artist": "Alchemilla", "year": 2010, "genre": "Rock"},
-    {"title": "Cali Girl", "artist": "Ballyhoo!", "year": 2000, "genre": "Rock"},
-    {"title": "Code Monkey", "artist": "Jonathan Coulton", "year": 2000, "genre": "Rock"},
-    {"title": "Gave It Up", "artist": "Pollyn", "year": 2000, "genre": "Alternative"},
-    {"title": "Genius", "artist": "The B.O.L.T.", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Makeup/Breakup", "artist": "Super Gravity", "year": 2000, "genre": "Rock"},
-    {"title": "Minnesota", "artist": "Voodoo Pharmacology", "year": 2010, "genre": "Indie Rock"},
-    {"title": "Packet Flier", "artist": "Terrorhorse", "year": 2000, "genre": "Metal"},
-    {"title": "Push Push (Lady Lightning)", "artist": "Bang Camaro", "year": 2000, "genre": "Rock"},
-    {"title": "Stegosaurus Song", "artist": "Eric Harm", "year": 2000, "genre": "Pop-Rock"},
-    {"title": "White Heat", "artist": "Cetan Clawson and the Soul Side", "year": 2000, "genre": "Blues"},
-    {"title": "Approach the Podium", "artist": "Winds of Plague", "year": 2000, "genre": "Metal"},
-    {"title": "Demon Woman", "artist": "Flight of the Conchords", "year": 2000, "genre": "Novelty"},
-    {"title": "Roll Over", "artist": "Uniform Motion", "year": 2010, "genre": "Indie Rock"},
-    {"title": "So Says I", "artist": "The Shins", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Push Me", "artist": "The Carsitters", "year": 2000, "genre": "Rock"},
-    {"title": "Shiny Dark Bar", "artist": "James William Roy", "year": 2010, "genre": "Indie Rock"},
-    {"title": "Do You Feel Like Breaking Up?", "artist": "Mark Mallman", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Mordecai", "artist": "Between the Buried and Me", "year": 2000, "genre": "Metal"},
-    {"title": "Stick Stickly", "artist": "Attack Attack!", "year": 2000, "genre": "Metal"},
-    {"title": "Africa", "artist": "Quartered", "year": 2000, "genre": "Prog"},
-    {"title": "Atomic", "artist": "Blondie", "year": 1970, "genre": "Pop-Rock"},
-    {"title": "Car Windows", "artist": "The Main Drag", "year": 2000, "genre": "Indie Rock"},
-    {"title": "Descend Into the Eternal Pits of Possession", "artist": "Abiotic", "year": 2010, "genre": "Metal"}
-  ]
+    {
+      "title": "A Drug Against War",
+      "artist": "KMFDM",
+      "year": 1990,
+      "genre": "Metal"
+    },
+    {
+      "title": "Angel Lust",
+      "artist": "Fake Shark – Real Zombie!",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Another California Song",
+      "artist": "Zack Wilson",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Arigato",
+      "artist": "Gandhi",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Australia",
+      "artist": "The Shins",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Backyard Buildyard",
+      "artist": "Steve and Lindley Band",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Battles and Brotherhood",
+      "artist": "3 Inches of Blood",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Buried Cold",
+      "artist": "Rose of Jericho",
+      "year": 2000,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Burn It Down",
+      "artist": "Five Finger Death Punch",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "California",
+      "artist": "The Kimberly Trip",
+      "year": 2000,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Can I Stay",
+      "artist": "Stephanie Hatfield and Hot Mess",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Cease and Desist",
+      "artist": "The Main Drag",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Children of December",
+      "artist": "The Slip",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Creepy Doll",
+      "artist": "Jonathan Coulton",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Crushed Beyond Dust",
+      "artist": "Skeletonwitch",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Day of Mourning",
+      "artist": "Despised Icon",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Disengage",
+      "artist": "Suicide Silence",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Don't Let Me Down (Slowly)",
+      "artist": "The Main Drag",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Dove Nets",
+      "artist": "The Main Drag",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Drunken Lullabies",
+      "artist": "Flogging Molly",
+      "year": 2010,
+      "genre": "Punk"
+    },
+    {
+      "title": "End Quote",
+      "artist": "Full-Source",
+      "year": 2000,
+      "genre": "New Wave"
+    },
+    {
+      "title": "Even Rats",
+      "artist": "The Slip",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Fade Away",
+      "artist": "Of Last Resort",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Far Away from Heaven",
+      "artist": "Free Spirit",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Fight Back",
+      "artist": "Ron Wasserman",
+      "year": 2010,
+      "genre": "Rock"
+    },
+    {
+      "title": "Footloose and Fancy Free",
+      "artist": "Bill Bruford's Earthworks",
+      "year": 2000,
+      "genre": "Jazz"
+    },
+    {
+      "title": "For the Love of God",
+      "artist": "Steve Vai",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Fortune",
+      "artist": "Kristin Hersh",
+      "year": 2010,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Get the Hell Out of Here",
+      "artist": "Steve Vai",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Give",
+      "artist": "The Cold Goodnight",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Goth Girls",
+      "artist": "MC Frontalot",
+      "year": 2000,
+      "genre": "Other"
+    },
+    {
+      "title": "Grumpytown",
+      "artist": "Speck",
+      "year": 2000,
+      "genre": "Emo"
+    },
+    {
+      "title": "He Sleeps in a Grove",
+      "artist": "Amberian Dawn",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Heimdalsgate Like a Promethean Curse",
+      "artist": "of Montreal",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Homosuperior",
+      "artist": "The Main Drag",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Horses in Heaven",
+      "artist": "Fake Shark – Real Zombie!",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "How We'd Look on Paper",
+      "artist": "The Main Drag",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Hyperbole",
+      "artist": "Glass Hammer",
+      "year": 2000,
+      "genre": "Prog"
+    },
+    {
+      "title": "Icarus' Song",
+      "artist": "Furly",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "If Not Now When",
+      "artist": "Color Theory",
+      "year": 2000,
+      "genre": "Other"
+    },
+    {
+      "title": "If Trucks Drank Beer",
+      "artist": "Error 404 feat. CJ Watson",
+      "year": 2000,
+      "genre": "Country"
+    },
+    {
+      "title": "Ikea",
+      "artist": "Jonathan Coulton",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "In Memories",
+      "artist": "Giant Target",
+      "year": 2000,
+      "genre": "Punk"
+    },
+    {
+      "title": "Inside Out",
+      "artist": "Nick Gallant",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "It's Good",
+      "artist": "The Humans",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "It's Not You, It's Everyone",
+      "artist": "Full-Source",
+      "year": 2000,
+      "genre": "New Wave"
+    },
+    {
+      "title": "Juke Joint Jezebel",
+      "artist": "KMFDM",
+      "year": 1990,
+      "genre": "Metal"
+    },
+    {
+      "title": "Kick Some Ass",
+      "artist": "Stroke 9",
+      "year": 2010,
+      "genre": "Rock"
+    },
+    {
+      "title": "Lady in a Blue Dress",
+      "artist": "Senses Fail",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Lemon Juice",
+      "artist": "Scratching the Itch",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Lilith in Libra",
+      "artist": "You Shriek",
+      "year": 2000,
+      "genre": "New Wave"
+    },
+    {
+      "title": "Limousine",
+      "artist": "Stars of Boulevard",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Liquid Smog (StompBox Remix)",
+      "artist": "WaveGroup feat. Becca Neun",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Little Black Backpack",
+      "artist": "Stroke 9",
+      "year": 2010,
+      "genre": "Rock"
+    },
+    {
+      "title": "Liverpool Judies",
+      "artist": "The Fisticuffs",
+      "year": 2000,
+      "genre": "Punk"
+    },
+    {
+      "title": "Love During Wartime",
+      "artist": "The Main Drag",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Mechanical Love",
+      "artist": "In This Moment",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Megatron",
+      "artist": "The Main Drag",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Mississippi Kite",
+      "artist": "Kristin Hersh",
+      "year": 2010,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Moonboy",
+      "artist": "The Dirty Love Band",
+      "year": 2010,
+      "genre": "Rock"
+    },
+    {
+      "title": "Nancy Drew",
+      "artist": "Pink Flag",
+      "year": 2000,
+      "genre": "Punk"
+    },
+    {
+      "title": "No Direction",
+      "artist": "Longwave",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "No Heroes",
+      "artist": "You Shriek",
+      "year": 2010,
+      "genre": "New Wave"
+    },
+    {
+      "title": "Not My Fault",
+      "artist": "Ultra Saturday",
+      "year": 2010,
+      "genre": "Punk"
+    },
+    {
+      "title": "Ox",
+      "artist": "Zack Wilson",
+      "year": 2010,
+      "genre": "Rock"
+    },
+    {
+      "title": "Paper Valentines",
+      "artist": "James William Roy",
+      "year": 2010,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Parhelia",
+      "artist": "Heaven Ablaze",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Persistence of Vision",
+      "artist": "Matter in the Medium",
+      "year": 2000,
+      "genre": "Prog"
+    },
+    {
+      "title": "Race The Hourglass",
+      "artist": "Audio Fiction",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Red Sky At Morn",
+      "artist": "Full-Source",
+      "year": 2000,
+      "genre": "Other"
+    },
+    {
+      "title": "Requiem for a Dying Song",
+      "artist": "Flogging Molly",
+      "year": 2000,
+      "genre": "Punk"
+    },
+    {
+      "title": "Revengers",
+      "artist": "Ron Wasserman",
+      "year": 2010,
+      "genre": "Rock"
+    },
+    {
+      "title": "Rip'er",
+      "artist": "Lead the Dead",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "River of Tuoni",
+      "artist": "Amberian Dawn",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Running for the Razors",
+      "artist": "Fake Shark – Real Zombie!",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Rx",
+      "artist": "Wounded Soul",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Sequestered in Memphis",
+      "artist": "The Hold Steady",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Sestri Levante",
+      "artist": "Fake Shark – Real Zombie!",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Sick",
+      "artist": "Bif Naked",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Signs",
+      "artist": "Giant Target",
+      "year": 2000,
+      "genre": "Punk"
+    },
+    {
+      "title": "Sissyfuss",
+      "artist": "Surprise Me Mr. Davis",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Sleep On",
+      "artist": "Glass Hammer",
+      "year": 2000,
+      "genre": "Prog"
+    },
+    {
+      "title": "Stand for Something",
+      "artist": "Skindred",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Still There",
+      "artist": "Bojibian",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Superhero!",
+      "artist": "Ultra Saturday",
+      "year": 2000,
+      "genre": "Punk"
+    },
+    {
+      "title": "Survive",
+      "artist": "Lacuna Coil",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Tadpole Search and Rescue",
+      "artist": "Chaunce DeLeon and the Fountain of Choof",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Talk About",
+      "artist": "Dear and the Headlights",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Talk Them Down",
+      "artist": "The Main Drag",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Teeth, Face, Outerspace",
+      "artist": "The Main Drag",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "The Attitude Song",
+      "artist": "Steve Vai",
+      "year": 1980,
+      "genre": "Rock"
+    },
+    {
+      "title": "The Buddy Disease",
+      "artist": "Scratching the Itch",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "The Complexity of Light",
+      "artist": "Children of Nova",
+      "year": 2000,
+      "genre": "Prog"
+    },
+    {
+      "title": "The Future Soon",
+      "artist": "Jonathan Coulton",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "The Heist",
+      "artist": "DnA's Evolution",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Tongue Twister Typo",
+      "artist": "Blackmarket",
+      "year": 2010,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Top Back",
+      "artist": "Alias Unknown",
+      "year": 2000,
+      "genre": "Urban"
+    },
+    {
+      "title": "Tricky Girl",
+      "artist": "The Main Drag",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Trippolette",
+      "artist": "Andraleia Buch",
+      "year": 2000,
+      "genre": "Prog"
+    },
+    {
+      "title": "Turn Yourself Around",
+      "artist": "Nick Gallant",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "VP of Booty Reports",
+      "artist": "Speck",
+      "year": 2000,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Watch It All Go Down",
+      "artist": "Foreword",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "We Are the Best",
+      "artist": "C&O",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Whatever Is Wrong With You",
+      "artist": "Marillion",
+      "year": 2000,
+      "genre": "Prog"
+    },
+    {
+      "title": "What's Your Favorite Dinosaur?",
+      "artist": "The Main Drag",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "You Got That",
+      "artist": "The Everybody",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "You're My Everything",
+      "artist": "Scratching the Itch",
+      "year": 2000,
+      "genre": "New Wave"
+    },
+    {
+      "title": "Bleeder",
+      "artist": "Alchemilla",
+      "year": 2010,
+      "genre": "Rock"
+    },
+    {
+      "title": "Cali Girl",
+      "artist": "Ballyhoo!",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Code Monkey",
+      "artist": "Jonathan Coulton",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Gave It Up",
+      "artist": "Pollyn",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Genius",
+      "artist": "The B.O.L.T.",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Makeup/Breakup",
+      "artist": "Super Gravity",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Minnesota",
+      "artist": "Voodoo Pharmacology",
+      "year": 2010,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Packet Flier",
+      "artist": "Terrorhorse",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Push Push (Lady Lightning)",
+      "artist": "Bang Camaro",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Stegosaurus Song",
+      "artist": "Eric Harm",
+      "year": 2000,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "White Heat",
+      "artist": "Cetan Clawson and the Soul Side",
+      "year": 2000,
+      "genre": "Blues"
+    },
+    {
+      "title": "Approach the Podium",
+      "artist": "Winds of Plague",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Demon Woman",
+      "artist": "Flight of the Conchords",
+      "year": 2000,
+      "genre": "Novelty"
+    },
+    {
+      "title": "Roll Over",
+      "artist": "Uniform Motion",
+      "year": 2010,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "So Says I",
+      "artist": "The Shins",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Push Me",
+      "artist": "The Carsitters",
+      "year": 2000,
+      "genre": "Rock"
+    },
+    {
+      "title": "Shiny Dark Bar",
+      "artist": "James William Roy",
+      "year": 2010,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Do You Feel Like Breaking Up?",
+      "artist": "Mark Mallman",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Mordecai",
+      "artist": "Between the Buried and Me",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Stick Stickly",
+      "artist": "Attack Attack!",
+      "year": 2000,
+      "genre": "Metal"
+    },
+    {
+      "title": "Africa",
+      "artist": "Quartered",
+      "year": 2000,
+      "genre": "Prog"
+    },
+    {
+      "title": "Atomic",
+      "artist": "Blondie",
+      "year": 1970,
+      "genre": "Pop-Rock"
+    },
+    {
+      "title": "Car Windows",
+      "artist": "The Main Drag",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Descend Into the Eternal Pits of Possession",
+      "artist": "Abiotic",
+      "year": 2010,
+      "genre": "Metal"
+    }
+  ],
+  "year": 2010
 }

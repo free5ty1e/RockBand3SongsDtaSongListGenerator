@@ -370,7 +370,7 @@
     },
     {
       "title": "Oye Mi Amor",
-      "artist": "Man\u00e1",
+      "artist": "Maná",
       "year": 1992,
       "genre": "Pop-Rock"
     },
@@ -500,5 +500,6 @@
       "year": 2002,
       "genre": "Alternative"
     }
-  ]
+  ],
+  "year": 2010
 }

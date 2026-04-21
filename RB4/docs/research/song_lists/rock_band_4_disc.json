@@ -3,7 +3,7 @@
   "type": "disc",
   "songs": [
     {
-      "title": "Ain\u2019t Messin \u2018Round",
+      "title": "Ain’t Messin ‘Round",
       "artist": "Gary Clark, Jr.",
       "year": 2012,
       "genre": "Rock"
@@ -193,7 +193,7 @@
       "genre": "Blues"
     },
     {
-      "title": "Metropolis\u2014Part I: ",
+      "title": "Metropolis—Part I: ",
       "artist": "Dream Theater",
       "year": 1992,
       "genre": "Prog"
@@ -858,5 +858,6 @@
       "year": 2017,
       "genre": "Alternative"
     }
-  ]
+  ],
+  "year": 2015
 }

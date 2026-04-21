@@ -35,35 +35,35 @@ const files = [
 ];
 
 const sourceLabels = {
-  // Rock Band
-  'beatles_rock_band_disc': 'The Beatles Rock Band',
-  'green_day_rock_band': 'Green Day Rock Band',
-  'lego_rock_band': 'LEGO Rock Band',
-  'rock_band_network': 'Rock Band Network',
-  'dlc_rb4_only': 'Rock Band 4 DLC',
-  'dlc_rb_all_games': 'Rock Band DLC (all games)',
-  'dlc_rb3_onwards': 'Rock Band 3 DLC',
-  'rock_band_4_disc': 'Rock Band 4 disc',
-  'rock_band_3_disc': 'Rock Band 3 disc',
-  'rock_band_2_disc': 'Rock Band 2 disc',
-  'rock_band_1_disc': 'Rock Band 1 disc',
+  // Rock Band (release order)
+  'rock_band_1_disc': { name: 'Rock Band', year: 2007 },
+  'rock_band_2_disc': { name: 'Rock Band 2', year: 2008 },
+  'rock_band_3_disc': { name: 'Rock Band 3', year: 2010 },
+  'rock_band_4_disc': { name: 'Rock Band 4', year: 2015 },
+  'dlc_rb_all_games': { name: 'Rock Band DLC (all)', year: 2007 },
+  'dlc_rb3_onwards': { name: 'Rock Band 3 DLC', year: 2010 },
+  'dlc_rb4_only': { name: 'Rock Band 4 DLC', year: 2015 },
+  'rock_band_network': { name: 'Rock Band Network', year: 2010 },
+  'beatles_rock_band_disc': { name: 'The Beatles: Rock Band', year: 2009 },
+  'green_day_rock_band': { name: 'Green Day: Rock Band', year: 2010 },
+  'lego_rock_band': { name: 'LEGO Rock Band', year: 2009 },
   
-  // Guitar Hero (in release order)
-  'guitar_hero': 'Guitar Hero 1',
-  'guitar_hero_2': 'Guitar Hero II',
-  'gh3_songs': 'Guitar Hero III: Legends of Rock',
-  'ghwt_dlc': 'Guitar Hero World Tour',  // GH4
-  'guitar_hero_5': 'Guitar Hero 5',
-  'guitar_hero_encore': 'Guitar Hero Encore: Rocks the 80s',
-  'ghwor': 'Guitar Hero: Warriors of Rock',
-  'guitar_hero_live': 'Guitar Hero Live',
-  'ghm': 'Guitar Hero: Metallica',
-  'gha': 'Guitar Hero: Aerosmith',
-  'gh_smash_hits': 'Guitar Hero Smash Hits',
-  'gh_van_halen': 'Guitar Hero: Van Halen',
-  'dj_hero': 'DJ Hero',
-  'dj_hero_2': 'DJ Hero 2',
-  'gh_on_tour': 'Guitar Hero: On Tour'
+  // Guitar Hero (release order) - matching GH filenames
+  'guitar_hero_disc': { name: 'Guitar Hero', year: 2005 },
+  'guitar_hero_2_disc': { name: 'Guitar Hero II', year: 2006 },
+  'guitar_hero_3_disc': { name: 'Guitar Hero III', year: 2007 },
+  'guitar_hero_world_tour_disc': { name: 'Guitar Hero World Tour', year: 2008 },
+  'guitar_hero_5_disc': { name: 'Guitar Hero 5', year: 2009 },
+  'guitar_hero_encore_80s_disc': { name: 'GH Encore: 80s', year: 2007 },
+  'guitar_hero_warriors_rock_disc': { name: 'GH: Warriors of Rock', year: 2010 },
+  'guitar_hero_aerosmith_disc': { name: 'GH: Aerosmith', year: 2008 },
+  'guitar_hero_metallica_disc': { name: 'GH: Metallica', year: 2009 },
+  'guitar_hero_smash_hits': { name: 'GH Smash Hits', year: 2009 },
+  'guitar_hero_van_halen_disc': { name: 'GH: Van Halen', year: 2010 },
+  'dj_hero_disc': { name: 'DJ Hero', year: 2009 },
+  'dj_hero_2_disc': { name: 'DJ Hero 2', year: 2010 },
+  'guitar_hero_on_tour_disc': { name: 'GH: On Tour', year: 2008 },
+  'guitar_hero_live_disc': { name: 'Guitar Hero Live', year: 2015 },
 };
 
 const allMissing = [];
@@ -71,7 +71,9 @@ const allMissing = [];
 files.forEach(item => {
   const data = JSON.parse(fs.readFileSync(path.join(item.dir, item.file), 'utf8'));
   const songs = data.songs || [];
-  const srcName = sourceLabels[item.file.replace('.json', '')] || item.file;
+  const key = item.file.replace('.json', '');
+  const label = sourceLabels[key] || {name: item.file, year: '?'};
+  const srcName = label.name + ' (' + label.year + ')';
   
   songs.forEach(s => {
     if (!s.title || s.title.length < 3) return;
@@ -79,7 +81,7 @@ files.forEach(item => {
     if (t.length < 3) return;
     if (!ourOfficialSet.has(t)) {
       const displayTitle = normalize(s.title);
-      allMissing.push({title: displayTitle, artist: (s.artist || '').trim(), source: srcName});
+      allMissing.push({title: displayTitle, artist: (s.artist || '').trim(), source: srcName, year: label.year, orderKey: key});
     }
   });
 });
@@ -87,7 +89,23 @@ files.forEach(item => {
 const bySource = {};
 allMissing.forEach(s => { bySource[s.source] = bySource[s.source] || []; bySource[s.source].push(s); });
 
-const sorted = Object.entries(bySource).sort((a,b) => b[1].length - a[1].length);
+// Sort by release order: Rock Band first (RB1-RB4, DLC, spin-offs), then Guitar Hero
+const order = {
+  'rock_band_1_disc': 1, 'rock_band_2_disc': 2, 'rock_band_3_disc': 3, 'rock_band_4_disc': 4,
+  'dlc_rb_all_games': 5, 'dlc_rb3_onwards': 6, 'dlc_rb4_only': 7,
+  'rock_band_network': 8, 'beatles_rock_band_disc': 9, 'green_day_rock_band': 10, 'lego_rock_band': 11,
+  'guitar_hero_disc': 101, 'guitar_hero_2_disc': 102, 'guitar_hero_3_disc': 103, 'guitar_hero_world_tour_disc': 104,
+  'guitar_hero_5_disc': 105, 'guitar_hero_encore_80s_disc': 106, 'guitar_hero_warriors_rock_disc': 107, 'guitar_hero_aerosmith_disc': 108,
+  'guitar_hero_metallica_disc': 109, 'guitar_hero_smash_hits': 110, 'guitar_hero_van_halen_disc': 111, 'dj_hero_disc': 112, 'dj_hero_2_disc': 113,
+  'guitar_hero_on_tour_disc': 114, 'guitar_hero_live_disc': 115
+};
+
+const sorted = Object.entries(bySource).sort((a,b) => {
+  // Extract the order key (first entry's orderKey)
+  const keyA = allMissing.find(s => s.source === a[0])?.orderKey || a[0];
+  const keyB = allMissing.find(s => s.source === b[0])?.orderKey || b[0];
+  return (order[keyA] || 999) - (order[keyB] || 999);
+});
 
 console.log('Missing by source:');
 sorted.forEach(([src, songs]) => console.log('  ' + src + ': ' + songs.length));
