@@ -13,6 +13,12 @@ function normalize(t) {
   t = t.replace(/\/wiki\/[^\s)]+/g, '');
   // Remove underscores
   t = t.replace(/_/g, ' ');
+  // Remove common suffixes that cause mismatches
+  t = t.replace(/\s*\(live\)/gi, '');
+  t = t.replace(/\s*\(studio\)/gi, '');
+  t = t.replace(/\s*\(album version\)/gi, '');
+  t = t.replace(/\s*\(radio edit\)/gi, '');
+  t = t.replace(/\s*\(explicit\)/gi, '');
   // Normalize: lowercase, keep only letters/numbers/space/hyphen/slash/apostrophe
   t = t.toLowerCase().replace(/[^a-z0-9 \'\-\/]/g, '');
   // Collapse multiple spaces/slashes

@@ -183,6 +183,26 @@ function parseOnyxSong(obj, sourceOverride) {
   const pkFile = get('_pkg_file') || '';  // PKG metadata filename
   const instruments = get('instruments', 'instrumentEmoji') || '';
 
+  // FIX: Re-categorize songs that match official disc titles
+  // This fixes songs labeled as "Custom" that are actually from official RB disc exports
+  if (source === 'Custom' && pkFile) {
+    // Map PKG filenames to official sources
+    const pkgSourceMap = {
+      'RB3ROCKBAND3PASS': 'Rock Band 3',
+      'RB2ROCKBAND2PASS': 'Rock Band 2',
+      'RB1ROCKBAND1PASS': 'Rock Band 1',
+      'GDRBGREENDAYPASS': 'Rock Band Green Day',
+      'LEGOROCKBANDPASS': 'LEGO Rock Band',
+      'BEACHBOYS': 'Rock Band 3',  // Beach Boys pack for RB3 export
+    };
+    for (const [pkg, officialSource] of Object.entries(pkgSourceMap)) {
+      if (pkFile.includes(pkg)) {
+        source = officialSource;
+        break;
+      }
+    }
+  }
+
   if (!artist || !title) return null; // skip non-song PKGs
   const inferred = obj.inferred || obj.Inferred || false;
   return { artist, album: album || null, title, year: isNaN(year) ? null : year, durationMs, source, shortName, instruments, inferred, _pkg_file: pkFile };
