@@ -1,0 +1,566 @@
+{
+  "game": "Guitar Hero III",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "3's & 7's",
+      "artist": "Queens of the Stone Age",
+      "year": 2007,
+      "genre": "Hard Rock",
+      "tier": "7. Live in Japan",
+      "master": true
+    },
+    {
+      "title": "Anarchy in the U.K.",
+      "artist": "Sex Pistols",
+      "year": 1977,
+      "genre": "Punk",
+      "tier": "4. European Invasion",
+      "master": true
+    },
+    {
+      "title": "Barracuda",
+      "artist": "Heart",
+      "year": 1977,
+      "genre": "Classic Rock",
+      "tier": "2. Your First Real Gig",
+      "master": false
+    },
+    {
+      "title": "Before I Forget",
+      "artist": "Slipknot",
+      "year": 2004,
+      "genre": "Alternative Metal",
+      "tier": "7. Live in Japan",
+      "master": true
+    },
+    {
+      "title": "Black Magic Woman",
+      "artist": "Santana",
+      "year": 1970,
+      "genre": "Blues Rock",
+      "tier": "6. Hottest Band on Earth",
+      "master": false
+    },
+    {
+      "title": "Black Sunshine",
+      "artist": "White Zombie",
+      "year": 1992,
+      "genre": "Groove Metal",
+      "tier": "6. Hottest Band on Earth",
+      "master": false
+    },
+    {
+      "title": "Bulls on Parade",
+      "artist": "Rage Against the Machine",
+      "year": 1996,
+      "genre": "Rap Rock",
+      "tier": "2. Your First Real Gig",
+      "master": true
+    },
+    {
+      "title": "Cherub Rock",
+      "artist": "The Smashing Pumpkins",
+      "year": 1993,
+      "genre": "Alternative Rock",
+      "tier": "6. Hottest Band on Earth",
+      "master": true
+    },
+    {
+      "title": "Cities on Flame with Rock and Roll",
+      "artist": "Blue Öyster Cult",
+      "year": 1972,
+      "genre": "Classic Rock",
+      "tier": "4. Getting the Band Back Together",
+      "master": false
+    },
+    {
+      "title": "Cliffs of Dover",
+      "artist": "Eric Johnson",
+      "year": 1990,
+      "genre": "Rock",
+      "tier": "8. Battle for Your Soul",
+      "master": false
+    },
+    {
+      "title": "Cult of Personality",
+      "artist": "Living Colour",
+      "year": 2007,
+      "genre": "Hard Rock",
+      "tier": "7. Live in Japan",
+      "master": true
+    },
+    {
+      "title": "Devil Went Down to Georgia",
+      "artist": "Steve Ouimette",
+      "year": 2007,
+      "genre": "Southern Rock",
+      "tier": "8. Battle for Your Soul",
+      "master": true
+    },
+    {
+      "title": "Even Flow",
+      "artist": "Pearl Jam",
+      "year": 1992,
+      "genre": "Grunge",
+      "tier": "4. European Invasion",
+      "master": true
+    },
+    {
+      "title": "Guitar Battle vs. Slash",
+      "artist": "Slash",
+      "year": 2007,
+      "genre": "Rock",
+      "tier": "5. Big House Blues",
+      "master": true
+    },
+    {
+      "title": "Guitar Battle vs. Tom Morello",
+      "artist": "Tom Morello",
+      "year": 2007,
+      "genre": "Rock",
+      "tier": "2. Your First Real Gig",
+      "master": true
+    },
+    {
+      "title": "Helicopter",
+      "artist": "Bloc Party",
+      "year": 2004,
+      "genre": "Indie Rock",
+      "tier": "5. Jailhouse Rock",
+      "master": true
+    },
+    {
+      "title": "Hit Me with Your Best Shot",
+      "artist": "Pat Benatar",
+      "year": 1980,
+      "genre": "Classic Rock",
+      "tier": "1. Starting Out Small",
+      "master": false
+    },
+    {
+      "title": "Holiday in Cambodia",
+      "artist": "Dead Kennedys",
+      "year": 1980,
+      "genre": "Hardcore Punk",
+      "tier": "5. Big House Blues",
+      "master": false
+    },
+    {
+      "title": "Knights of Cydonia",
+      "artist": "Muse",
+      "year": 2006,
+      "genre": "Alternative Rock",
+      "tier": "7. Live in Japan",
+      "master": true
+    },
+    {
+      "title": "Kool Thing",
+      "artist": "Sonic Youth",
+      "year": 1990,
+      "genre": "Alternative Rock",
+      "tier": "4. European Invasion",
+      "master": true
+    },
+    {
+      "title": "La Grange",
+      "artist": "ZZ Top",
+      "year": 1973,
+      "genre": "Blues Rock",
+      "tier": "5. Big House Blues",
+      "master": false
+    },
+    {
+      "title": "Lay Down",
+      "artist": "Priestess",
+      "year": 2006,
+      "genre": "Hard Rock",
+      "tier": "3. Over Night Success",
+      "master": true
+    },
+    {
+      "title": "The Metal",
+      "artist": "Tenacious D",
+      "year": 2006,
+      "genre": "Hard Rock",
+      "tier": "6. Hottest Band on Earth",
+      "master": true
+    },
+    {
+      "title": "Miss Murder",
+      "artist": "AFI",
+      "year": 2006,
+      "genre": "Alternative",
+      "tier": "3. Making the Video",
+      "master": true
+    },
+    {
+      "title": "Mississippi Queen",
+      "artist": "Mountain",
+      "year": 1970,
+      "genre": "Hard Rock",
+      "tier": "2. Your First Real Gig",
+      "master": false
+    },
+    {
+      "title": "Monsters",
+      "artist": "Matchbook Romance",
+      "year": 2006,
+      "genre": "Alternative",
+      "tier": "6. Battle for Your Souls",
+      "master": true
+    },
+    {
+      "title": "My Name Is Jonas",
+      "artist": "Weezer",
+      "year": 1994,
+      "genre": "Alternative",
+      "tier": "4. European Invasion",
+      "master": true
+    },
+    {
+      "title": "The Number of the Beast",
+      "artist": "Iron Maiden",
+      "year": 1982,
+      "genre": "Heavy Metal",
+      "tier": "8. Battle for Your Soul",
+      "master": true
+    },
+    {
+      "title": "One",
+      "artist": "Metallica",
+      "year": 1988,
+      "genre": "Thrash Metal",
+      "tier": "8. Battle for Your Soul",
+      "master": true
+    },
+    {
+      "title": "Paint It Black",
+      "artist": "The Rolling Stones",
+      "year": 1966,
+      "genre": "Classic Rock",
+      "tier": "3. Making the Video",
+      "master": true
+    },
+    {
+      "title": "Paranoid",
+      "artist": "Black Sabbath",
+      "year": 1970,
+      "genre": "Heavy Metal",
+      "tier": "4. European Invasion",
+      "master": false
+    },
+    {
+      "title": "Pride and Joy",
+      "artist": "Stevie Ray Vaughan",
+      "year": 1983,
+      "genre": "Blues Rock",
+      "tier": "6. Hottest Band on Earth",
+      "master": false
+    },
+    {
+      "title": "Raining Blood",
+      "artist": "Slayer",
+      "year": 1986,
+      "genre": "Thrash Metal",
+      "tier": "8. Battle for Your Soul",
+      "master": true
+    },
+    {
+      "title": "Reptilia",
+      "artist": "The Strokes",
+      "year": 2003,
+      "genre": "Indie Rock",
+      "tier": "2. We Just Wanna Be Famous",
+      "master": true
+    },
+    {
+      "title": "Rock and Roll All Nite",
+      "artist": "Kiss",
+      "year": 1975,
+      "genre": "Classic Rock",
+      "tier": "1. Starting Out Small",
+      "master": false
+    },
+    {
+      "title": "Rock You Like a Hurricane",
+      "artist": "Scorpions",
+      "year": 1984,
+      "genre": "Glam Metal",
+      "tier": "5. Big House Blues",
+      "master": false
+    },
+    {
+      "title": "Sabotage",
+      "artist": "Beastie Boys",
+      "year": 1994,
+      "genre": "Rap Rock",
+      "tier": "1. Getting a Band Together",
+      "master": true
+    },
+    {
+      "title": "Same Old Song and Dance",
+      "artist": "Aerosmith",
+      "year": 1974,
+      "genre": "Hard Rock",
+      "tier": "5. Big House Blues",
+      "master": true
+    },
+    {
+      "title": "School's Out",
+      "artist": "Alice Cooper",
+      "year": 1972,
+      "genre": "Glam Rock",
+      "tier": "2. Your First Real Gig",
+      "master": false
+    },
+    {
+      "title": "The Seeker",
+      "artist": "The Who",
+      "year": 1970,
+      "genre": "Classic Rock",
+      "tier": "3. Making the Video",
+      "master": false
+    },
+    {
+      "title": "Slow Ride",
+      "artist": "Foghat",
+      "year": 1975,
+      "genre": "Classic Rock",
+      "tier": "1. Starting Out Small",
+      "master": false
+    },
+    {
+      "title": "Story of My Life",
+      "artist": "Social Distortion",
+      "year": 1990,
+      "genre": "Punk",
+      "tier": "1. Starting Out Small",
+      "master": false
+    },
+    {
+      "title": "Stricken",
+      "artist": "Disturbed",
+      "year": 2005,
+      "genre": "Alternative Metal",
+      "tier": "7. Live in Japan",
+      "master": true
+    },
+    {
+      "title": "Suck My Kiss",
+      "artist": "Red Hot Chili Peppers",
+      "year": 1991,
+      "genre": "Alternative",
+      "tier": "3. Over Night Success",
+      "master": true
+    },
+    {
+      "title": "Sunshine of Your Love",
+      "artist": "Cream",
+      "year": 1968,
+      "genre": "Blues Rock",
+      "tier": "2. Your First Real Gig",
+      "master": false
+    },
+    {
+      "title": "Talk Dirty to Me",
+      "artist": "Poison",
+      "year": 1987,
+      "genre": "Glam Metal",
+      "tier": "1. Starting Out Small",
+      "master": false
+    },
+    {
+      "title": "Welcome to the Jungle",
+      "artist": "Guns N' Roses",
+      "year": 1987,
+      "genre": "Hard Rock",
+      "tier": "5. Big House Blues",
+      "master": true
+    },
+    {
+      "title": "When You Were Young",
+      "artist": "The Killers",
+      "year": 2006,
+      "genre": "Alternative",
+      "tier": "3. Making the Video",
+      "master": true
+    },
+    {
+      "title": "Avalancha",
+      "artist": "Héroes del Silencio",
+      "year": 1995,
+      "genre": "Hard Rock",
+      "master": true
+    },
+    {
+      "title": "Can't Be Saved",
+      "artist": "Senses Fail",
+      "year": 2006,
+      "genre": "Emo",
+      "master": true
+    },
+    {
+      "title": "Closer",
+      "artist": "Lacuna Coil",
+      "year": 2006,
+      "genre": "Alternative Metal",
+      "master": true
+    },
+    {
+      "title": "Don't Hold Back",
+      "artist": "The Sleeping",
+      "year": 2006,
+      "genre": "Alternative",
+      "master": true
+    },
+    {
+      "title": "Down 'n Dirty",
+      "artist": "L.A. Slum Lords",
+      "year": 2007,
+      "genre": "Punk",
+      "master": true
+    },
+    {
+      "title": "F.C.P.R.E.M.I.X.",
+      "artist": "The Fall of Troy",
+      "year": 2005,
+      "genre": "Post-Hardcore",
+      "master": true
+    },
+    {
+      "title": "Generation Rock",
+      "artist": "Revolverheld",
+      "year": 2005,
+      "genre": "Pop Rock",
+      "master": true
+    },
+    {
+      "title": "Go That Far",
+      "artist": "Bret Michaels Band",
+      "year": 2006,
+      "genre": "Hard Rock",
+      "master": true
+    },
+    {
+      "title": "Hier kommt Alex",
+      "artist": "Die Toten Hosen",
+      "year": 1988,
+      "genre": "Punk Rock",
+      "master": true
+    },
+    {
+      "title": "I'm in the Band",
+      "artist": "The Hellacopters",
+      "year": 2005,
+      "genre": "Hard Rock",
+      "master": true
+    },
+    {
+      "title": "Impulse",
+      "artist": "An Endless Sporadic",
+      "year": 2007,
+      "genre": "Progressive Metal",
+      "master": true
+    },
+    {
+      "title": "In Love",
+      "artist": "Scouts of St. Sebastian",
+      "year": 2006,
+      "genre": "Garage Rock",
+      "master": true
+    },
+    {
+      "title": "In the Belly of a Shark",
+      "artist": "Gallows",
+      "year": 2006,
+      "genre": "Post-Hardcore",
+      "master": true
+    },
+    {
+      "title": "Mauvais Garçon",
+      "artist": "Naast",
+      "year": 2007,
+      "genre": "Garage Rock",
+      "master": true
+    },
+    {
+      "title": "Metal Heavy Lady",
+      "artist": "Lions",
+      "year": 2007,
+      "genre": "Hard Rock",
+      "master": true
+    },
+    {
+      "title": "Minus Celsius",
+      "artist": "Backyard Babies",
+      "year": 2003,
+      "genre": "Hard Rock",
+      "master": true
+    },
+    {
+      "title": "My Curse",
+      "artist": "Killswitch Engage",
+      "year": 2006,
+      "genre": "Metalcore",
+      "master": true
+    },
+    {
+      "title": "Nothing for Me Here",
+      "artist": "Dope",
+      "year": 2007,
+      "genre": "Nu Metal",
+      "master": true
+    },
+    {
+      "title": "Prayer of the Refugee",
+      "artist": "Rise Against",
+      "year": 2006,
+      "genre": "Melodic Hardcore",
+      "master": true
+    },
+    {
+      "title": "Radio Song",
+      "artist": "Superbus",
+      "year": 2004,
+      "genre": "Pop Rock",
+      "master": true
+    },
+    {
+      "title": "Ruby",
+      "artist": "Kaiser Chiefs",
+      "year": 2007,
+      "genre": "Indie Rock",
+      "master": true
+    },
+    {
+      "title": "She Bangs the Drums",
+      "artist": "The Stone Roses",
+      "year": 1989,
+      "genre": "Alternative",
+      "master": false
+    },
+    {
+      "title": "Take This Life",
+      "artist": "In Flames",
+      "year": 2006,
+      "genre": "Melodic Death Metal",
+      "master": true
+    },
+    {
+      "title": "The Way It Ends",
+      "artist": "Prototype",
+      "year": 2006,
+      "genre": "Progressive Metal",
+      "master": true
+    },
+    {
+      "title": "Through the Fire and Flames",
+      "artist": "DragonForce",
+      "year": 2006,
+      "genre": "Power Metal",
+      "master": true
+    }
+  ],
+  "year": 2007
+}

@@ -1,0 +1,33 @@
+{
+  "game": "Rock Band DLC",
+  "type": "dlc",
+  "compatibility": "rb4_only",
+  "year_range": "2015+",
+  "description": "Released 2015 onwards, works in Rock Band 4 and Fortnite Festival",
+  "songs": [
+    {"title": "Feel Good Inc.", "artist": "Gorillaz", "year": 2005, "genre": "Alternative"},
+    {"title": "Dick in a Box", "artist": "The Lonely Island", "year": 2011, "genre": "Comedy"},
+    {"title": "I'm on a Boat", "artist": "The Lonely Island", "year": 2009, "genre": "Comedy"},
+    {"title": "Jacked Up", "artist": "The Lonely Island", "year": 2011, "genre": "Comedy"},
+    {"title": "YOLO", "artist": "The Lonely Island", "year": 2012, "genre": "Comedy"},
+    {"title": "Shut Up and Pass", "artist": "The Lonely Island", "year": 2013, "genre": "Comedy"},
+    {"title": "DiSorder", "artist": "The Lonely Island", "year": 2009, "genre": "Comedy"},
+    {"title": "I Don't Give a Hoot", "artist": "The Lonely Island", "year": 2009, "genre": "Comedy"},
+    {"title": "Nature Roads", "artist": "The Lone Bellow", "year": 2013, "genre": "Folk"},
+    {"title": "Take a Broken Heart", "artist": "The Lone Bellow", "year": 2013, "genre": "Folk"},
+    {"title": "You Can Be My Yoko Ono", "artist": "Barenaked Ladies", "year": 2012, "genre": "Rock"},
+    {"title": "One Week", "artist": "Barenaked Ladies", "year": 1998, "genre": "Rock"},
+    {"title": "Testing", "artist": "Bad Rabbi", "year": 2014, "genre": "Comedy"},
+    {"title": "Plotting the Return", "artist": "Bad Rabbi", "year": 2014, "genre": "Comedy"},
+    {"title": "The Great Escape", "artist": "P.O.D.", "year": 2012, "genre": "Nu-Metal"},
+    {"title": "Lost in Chaos", "artist": "Rob Zombie", "year": 2014, "genre": "Metal"},
+    {"title": "Teenage Monster", "artist": "Rob Zombie", "year": 2014, "genre": "Metal"},
+    {"title": "Lucifer", "artist": "Rob Zombie", "year": 2014, "genre": "Metal"},
+    {"title": "We Are an American Band", "artist": "Grand Funk Railroad", "year": 1973, "genre": "Classic Rock"},
+    {"title": "Closer to the Heart", "artist": "Rush", "year": 1977, "genre": "Progressive"},
+    {"title": "The Spirit of Radio", "artist": "Rush", "year": 1979, "genre": "Progressive"},
+    {"title": "Limelight", "artist": "Rush", "year": 1981, "genre": "Progressive"},
+    {"title": "Tom Sawyer", "artist": "Rush", "year": 1981, "genre": "Progressive"},
+    {"title": "Working Man", "artist": "Rush", "year": 1974, "genre": "Progressive"}
+  ]
+}

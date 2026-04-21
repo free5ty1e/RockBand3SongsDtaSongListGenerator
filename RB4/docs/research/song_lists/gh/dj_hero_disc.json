@@ -1,0 +1,529 @@
+{
+  "game": "DJ Hero",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "Ace of Spades",
+      "artist": "Motörhead",
+      "title2": "Noisia",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Ain't No Love in the Heart of the City",
+      "artist": "Bobby \"Blue\" Bland",
+      "title2": "Connie Price & The Keystones",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Ain't No Love in the Heart of the City",
+      "artist": "Bobby \"Blue\" Bland",
+      "title2": "How Do U Want It",
+      "artist2": "2Pac",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "FreeStyleGames",
+      "artist": "All Eyez on Me",
+      "title2": "2Pac",
+      "artist2": "Bitter Sweet Symphony (Instrumental)",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "FreeStyleGames",
+      "artist": "Another One Bites the Dust",
+      "title2": "Queen",
+      "artist2": "Brass Monkey",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Beastie Boys",
+      "artist": "DJ Z-Trip",
+      "title2": "Another One Bites the Dust",
+      "artist2": "Queen",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Da Funk",
+      "artist": "Daft Punk",
+      "title2": "FreeStyleGames",
+      "artist2": "Around the World",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Daft Punk",
+      "artist": "Bust a Move",
+      "title2": "Young MC",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Shlomo",
+      "artist": "The Big Beat",
+      "title2": "Billy Squier",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "The Scratch Perverts",
+      "artist": "The Scratch Perverts",
+      "title2": "Beverly Hills",
+      "artist2": "Weezer",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Evidence",
+      "artist": "FreeStyleGames",
+      "title2": "The Big Beat",
+      "artist2": "Billy Squier",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Lapdance",
+      "artist": "N.E.R.D.",
+      "title2": "FreeStyleGames",
+      "artist2": "Bitter Sweet Symphony (Instrumental)",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Rock the Bells",
+      "artist": "LL Cool J",
+      "title2": "DJ Jazzy Jeff",
+      "artist2": "Boom Boom Pow",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "The Black Eyed Peas",
+      "artist": "Satisfaction",
+      "title2": "Benny Benassi",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Grandmaster Flash",
+      "artist": "Grandmaster Flash",
+      "title2": "Grandmaster Flash",
+      "artist2": "Bring the Noise 20XX",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Public Enemy",
+      "artist": "Justice",
+      "title2": "DJ Z-Trip",
+      "artist2": "Bring the Noise 20XX (DJ-Guitar Mix)",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Public Enemy",
+      "artist": "FreeStyleGames",
+      "title2": "Bustin' Loose",
+      "artist2": "Chuck Brown & The Soul Searchers",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Bust a Move",
+      "artist": "Young MC",
+      "title2": "FreeStyleGames",
+      "artist2": "Bustin' Loose",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Chuck Brown & The Soul Searchers",
+      "artist": "Time of the Season",
+      "title2": "The Zombies",
+      "artist2": "DJ Shadow",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Change Clothes",
+      "artist": "Jay-Z",
+      "title2": "2Pac",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Da Funk",
+      "artist": "Daft Punk",
+      "title2": "N.A.S.A.",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Day 'n' Nite",
+      "artist": "Kid Cudi",
+      "title2": "Boom Boom Pow",
+      "artist2": "The Black Eyed Peas",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "FreeStyleGames",
+      "artist": "Disco Inferno",
+      "title2": "50 Cent",
+      "artist2": "Last Night a DJ Saved My Life",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Indeep",
+      "artist": "FreeStyleGames",
+      "title2": "Disco Inferno",
+      "artist2": "50 Cent",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Let's Dance",
+      "artist": "David Bowie",
+      "title2": "FreeStyleGames",
+      "artist2": "Disturbia",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Rihanna",
+      "artist": "Control",
+      "title2": "Kid Sister",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Disturbia",
+      "artist": "Rihanna",
+      "title2": "Disco Inferno",
+      "artist2": "The Trammps",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "FreeStyleGames",
+      "artist": "Disturbia",
+      "title2": "Rihanna",
+      "artist2": "Somebody Told Me",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "The Killers",
+      "artist": "FreeStyleGames",
+      "title2": "David Axelrod",
+      "artist2": "Eric B. Is President",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Eric B. & Rakim",
+      "artist": "FreeStyleGames",
+      "title2": "Excuse Me Miss",
+      "artist2": "Jay-Z",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Give It to Me Baby",
+      "artist": "Rick James",
+      "title2": "FreeStyleGames",
+      "artist2": "Feel Good Inc.",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Gorillaz",
+      "artist": "Atomic",
+      "title2": "Blondie",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Street Sweeper Social Club",
+      "artist": "Intergalactic",
+      "title2": "Beastie Boys",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Fix Up, Look Sharp",
+      "artist": "Dizzee Rascal",
+      "title2": "Justice",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Fix Up, Look Sharp",
+      "artist": "Dizzee Rascal",
+      "title2": "DJ Shadow",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Q-Tip",
+      "artist": "Billy Squier",
+      "title2": "J.Period",
+      "artist2": "Noisia",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "The Scratch Perverts",
+      "artist": "Grandmaster Flash",
+      "title2": "Cars",
+      "artist2": "Gary Numan",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Grandmaster Flash",
+      "artist": "Beastie Boys",
+      "title2": "DJ Shadow",
+      "artist2": "DJ Shadow",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Hollaback Girl",
+      "artist": "Gwen Stefani",
+      "title2": "Feel Good Inc.",
+      "artist2": "Gorillaz",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "FreeStyleGames",
+      "artist": "Hollaback Girl",
+      "title2": "Gwen Stefani",
+      "artist2": "Give It to Me Baby",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Rick James",
+      "artist": "FreeStyleGames",
+      "title2": "Hollaback Girl",
+      "artist2": "Gwen Stefani",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Last Night a DJ Saved My Life",
+      "artist": "Indeep",
+      "title2": "DJ AM",
+      "artist2": "How Ya Like Me Now",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Kool Moe Dee",
+      "artist": "I Like to Move It",
+      "title2": "Reel 2 Real",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "I Heard It Through the Grapevine",
+      "artist": "Marvin Gaye",
+      "title2": "Feel Good Inc.",
+      "artist2": "Gorillaz",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "FreeStyleGames",
+      "artist": "I Heard It Through the Grapevine",
+      "title2": "Marvin Gaye",
+      "artist2": "Let's Dance",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "David Bowie",
+      "artist": "FreeStyleGames",
+      "title2": "I Want You Back",
+      "artist2": "The Jackson 5",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Gang Starr",
+      "artist": "DJ Yoda",
+      "title2": "I Want You Back",
+      "artist2": "The Jackson 5",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Semi-Charmed Life",
+      "artist": "Third Eye Blind",
+      "title2": "FreeStyleGames",
+      "artist2": "I Want You Back",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "The Jackson 5",
+      "artist": "Semi-Charmed Life",
+      "title2": "Third Eye Blind",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Ice Ice Baby",
+      "artist": "Vanilla Ice",
+      "title2": "Straight Up",
+      "artist2": "Paula Abdul",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "FreeStyleGames",
+      "artist": "Ice Ice Baby",
+      "title2": "Vanilla Ice",
+      "artist2": "U Can't Touch This",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "MC Hammer",
+      "artist": "FreeStyleGames",
+      "title2": "Insane in the Brain",
+      "artist2": "Cypress Hill",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Spooky",
+      "artist": "Classics IV",
+      "title2": "FreeStyleGames",
+      "artist2": "Insane in the Brain",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Cypress Hill",
+      "artist": "David Axelrod",
+      "title2": "FreeStyleGames",
+      "artist2": "Intergalactic",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Beastie Boys",
+      "artist": "Rapture",
+      "title2": "Blondie",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Izzo (H.O.V.A.)",
+      "artist": "Jay-Z",
+      "title2": "I Want You Back",
+      "artist2": "The Jackson 5",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "FreeStyleGames",
+      "artist": "Izzo (H.O.V.A.)",
+      "title2": "Jay-Z",
+      "artist2": "My Name Is",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Eminem",
+      "artist": "FreeStyleGames",
+      "title2": "Boogie Down Productions",
+      "artist2": "Let's Dance",
+      "year": null,
+      "genre": null,
+      "master": true
+    }
+  ],
+  "year": 2009
+}

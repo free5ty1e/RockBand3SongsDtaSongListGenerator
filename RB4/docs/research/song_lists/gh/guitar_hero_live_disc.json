@@ -1,0 +1,259 @@
+{
+  "game": "Guitar Hero Live",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "45",
+      "artist": "The Gaslight Anthem",
+      "year": 2012,
+      "genre": "Rock"
+    },
+    {
+      "title": "The Anthem",
+      "artist": "Good Charlotte",
+      "year": 2002,
+      "genre": "Rock"
+    },
+    {
+      "title": "Bangarang",
+      "artist": "Skrillex featuring Sirah",
+      "year": 2011,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Been Away Too Long",
+      "artist": "Soundgarden",
+      "year": 2012,
+      "genre": "Rock"
+    },
+    {
+      "title": "Berzerk",
+      "artist": "Eminem",
+      "year": 2013,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Bones Exposed",
+      "artist": "Of Mice & Men",
+      "year": 2014,
+      "genre": "Metal"
+    },
+    {
+      "title": "California King Bed",
+      "artist": "Rihanna",
+      "year": 2010,
+      "genre": "Pop"
+    },
+    {
+      "title": "Club Foot",
+      "artist": "Kasabian",
+      "year": 2004,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Counting Stars",
+      "artist": "OneRepublic",
+      "year": 2013,
+      "genre": "Pop"
+    },
+    {
+      "title": "Demons",
+      "artist": "Imagine Dragons",
+      "year": 2012,
+      "genre": "Pop"
+    },
+    {
+      "title": "Everybody Talks",
+      "artist": "Neon Trees",
+      "year": 2011,
+      "genre": "Pop"
+    },
+    {
+      "title": "Girls",
+      "artist": "The 1975",
+      "year": 2013,
+      "genre": "Indie"
+    },
+    {
+      "title": "Gold on the Ceiling",
+      "artist": "The Black Keys",
+      "year": 2011,
+      "genre": "Rock"
+    },
+    {
+      "title": "Grounds for Divorce",
+      "artist": "Elbow",
+      "year": 2008,
+      "genre": "Indie"
+    },
+    {
+      "title": "Here's to Never Growing Up",
+      "artist": "Avril Lavigne",
+      "year": 2013,
+      "genre": "Pop"
+    },
+    {
+      "title": "Ho Hey",
+      "artist": "The Lumineers",
+      "year": 2012,
+      "genre": "Indie"
+    },
+    {
+      "title": "I Will Wait",
+      "artist": "Mumford & Sons",
+      "year": 2012,
+      "genre": "Indie"
+    },
+    {
+      "title": "Keep on Swinging",
+      "artist": "Rival Sons",
+      "year": 2012,
+      "genre": "Rock"
+    },
+    {
+      "title": "The Kill",
+      "artist": "Thirty Seconds to Mars",
+      "year": 2005,
+      "genre": "Rock"
+    },
+    {
+      "title": "King for a Day",
+      "artist": "Pierce the Veil featuring Kellin Quinn",
+      "year": 2012,
+      "genre": "Metal"
+    },
+    {
+      "title": "Lazaretto",
+      "artist": "Jack White",
+      "year": 2014,
+      "genre": "Rock"
+    },
+    {
+      "title": "Lies",
+      "artist": "Deap Vally",
+      "year": 2013,
+      "genre": "Indie"
+    },
+    {
+      "title": "Little Monster",
+      "artist": "Royal Blood",
+      "year": 2014,
+      "genre": "Rock"
+    },
+    {
+      "title": "Lived a Lie",
+      "artist": "You Me at Six",
+      "year": 2014,
+      "genre": "Rock"
+    },
+    {
+      "title": "Love Bites (So Do I)",
+      "artist": "Halestorm",
+      "year": 2012,
+      "genre": "Rock"
+    },
+    {
+      "title": "Mind Your Manners",
+      "artist": "Pearl Jam",
+      "year": 2013,
+      "genre": "Rock"
+    },
+    {
+      "title": "Mountain Sound",
+      "artist": "Of Monsters and Men",
+      "year": 2012,
+      "genre": "Indie"
+    },
+    {
+      "title": "My Songs Know What You Did in the Dark (Light Em Up)",
+      "artist": "Fall Out Boy",
+      "year": 2013,
+      "genre": "Rock"
+    },
+    {
+      "title": "Now",
+      "artist": "Paramore",
+      "year": 2013,
+      "genre": "Rock"
+    },
+    {
+      "title": "Nuclear Family",
+      "artist": "Green Day",
+      "year": 2012,
+      "genre": "Rock"
+    },
+    {
+      "title": "Paint It Black",
+      "artist": "The Rolling Stones",
+      "year": 1966,
+      "genre": "Rock"
+    },
+    {
+      "title": "R U Mine?",
+      "artist": "Arctic Monkeys",
+      "year": 2013,
+      "genre": "Indie"
+    },
+    {
+      "title": "The Rock Show",
+      "artist": "Blink-182",
+      "year": 2001,
+      "genre": "Rock"
+    },
+    {
+      "title": "Shadow Moses",
+      "artist": "Bring Me the Horizon",
+      "year": 2013,
+      "genre": "Metal"
+    },
+    {
+      "title": "Sundial",
+      "artist": "Wolfmother",
+      "year": 2009,
+      "genre": "Rock"
+    },
+    {
+      "title": "Tie Your Mother Down",
+      "artist": "Queen",
+      "year": 1976,
+      "genre": "Rock"
+    },
+    {
+      "title": "Tragedy + Time",
+      "artist": "Rise Against",
+      "year": 2014,
+      "genre": "Rock"
+    },
+    {
+      "title": "Victory Over the Sun",
+      "artist": "Biffy Clyro",
+      "year": 2013,
+      "genre": "Rock"
+    },
+    {
+      "title": "Waking Up in Vegas",
+      "artist": "Katy Perry",
+      "year": 2008,
+      "genre": "Pop"
+    },
+    {
+      "title": "Wastelands",
+      "artist": "Linkin Park",
+      "year": 2014,
+      "genre": "Rock"
+    },
+    {
+      "title": "When You Were Young",
+      "artist": "The Killers",
+      "year": 2006,
+      "genre": "Rock"
+    },
+    {
+      "title": "Won't Get Fooled Again",
+      "artist": "The Who",
+      "year": 1971,
+      "genre": "Rock"
+    }
+  ],
+  "year": 2015
+}

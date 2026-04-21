@@ -1,0 +1,751 @@
+{
+  "game": "GH: Warriors of Rock",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "Again",
+      "artist": "Flyleaf",
+      "year": 2009,
+      "genre": "Modern Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Aqualung",
+      "artist": "Jethro Tull",
+      "year": 1971,
+      "genre": "Classic Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Bat Country",
+      "artist": "Avenged Sevenfold",
+      "year": 2005,
+      "genre": "Heavy Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Been Caught Stealing",
+      "artist": "Jane's Addiction",
+      "year": 1990,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Black Rain",
+      "artist": "Soundgarden",
+      "year": 2010,
+      "genre": "Grunge",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Black Widow of La Porte",
+      "artist": "John 5 featuring Jim Root",
+      "year": 2007,
+      "genre": "Heavy Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Bleed It Out",
+      "artist": "Linkin Park",
+      "year": 2007,
+      "genre": "Rap Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Bloodlines",
+      "artist": "Dethklok",
+      "year": 2009,
+      "genre": "Melodic Death Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Bodies",
+      "artist": "Drowning Pool",
+      "year": 2001,
+      "genre": "Nu Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Bohemian Rhapsody",
+      "artist": "Queen",
+      "year": 1975,
+      "genre": "Classic Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Burn",
+      "artist": "Deep Purple",
+      "year": 1974,
+      "genre": "Hard Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Burnin' for You",
+      "artist": "Blue Öyster Cult",
+      "year": 1981,
+      "genre": "Classic Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Call Me the Breeze",
+      "artist": "Lynyrd Skynyrd",
+      "year": 1974,
+      "genre": "Southern Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Calling",
+      "artist": "Strung Out",
+      "year": 2007,
+      "genre": "Modern Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Chemical Warfare",
+      "artist": "Slayer",
+      "year": 1984,
+      "genre": "Thrash Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Cherry Bomb",
+      "artist": "The Runaways",
+      "year": 2010,
+      "genre": "Hard Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Children of the Grave",
+      "artist": "Black Sabbath",
+      "year": 1971,
+      "genre": "Heavy Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Cryin'",
+      "artist": "Aerosmith",
+      "year": 1993,
+      "genre": "Blues Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Dance, Dance",
+      "artist": "Fall Out Boy",
+      "year": 2005,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Dancing Through Sunday",
+      "artist": "AFI",
+      "year": 2003,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Deadfall",
+      "artist": "Snot",
+      "year": 1997,
+      "genre": "Hardcore Punk",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Fascination Street",
+      "artist": "The Cure",
+      "year": 1989,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "The Feel Good Drag",
+      "artist": "Anberlin",
+      "year": 2008,
+      "genre": "Modern Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Feels Like the First Time",
+      "artist": "Foreigner",
+      "year": 1977,
+      "genre": "Classic Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Fortunate Son",
+      "artist": "Creedence Clearwater Revival",
+      "year": 1969,
+      "genre": "Southern Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Free Ride",
+      "artist": "The Edgar Winter Group",
+      "year": 1972,
+      "genre": "Classic Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Fury of the Storm",
+      "artist": "DragonForce",
+      "year": 2004,
+      "genre": "Power Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Get Free",
+      "artist": "The Vines",
+      "year": 2002,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Ghost",
+      "artist": "Slash featuring Ian Astbury",
+      "year": 2010,
+      "genre": "Hard Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Graduate",
+      "artist": "Third Eye Blind",
+      "year": 1997,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Hard to See",
+      "artist": "Five Finger Death Punch",
+      "year": 2009,
+      "genre": "Hard Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Holy Wars... The Punishment Due",
+      "artist": "Megadeth",
+      "year": 1990,
+      "genre": "Thrash Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "How You Remind Me",
+      "artist": "Nickelback",
+      "year": 2001,
+      "genre": "Hard Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "I Know What I Am",
+      "artist": "Band of Skulls",
+      "year": 2009,
+      "genre": "Indie Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "I'm Broken",
+      "artist": "Pantera",
+      "year": 1994,
+      "genre": "Groove Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "I'm Not Okay (I Promise)",
+      "artist": "My Chemical Romance",
+      "year": 2004,
+      "genre": "Pop Punk",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "If You Want Peace... Prepare for War",
+      "artist": "Children of Bodom",
+      "year": 2005,
+      "genre": "Melodic Death Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Indians",
+      "artist": "Anthrax",
+      "year": 1987,
+      "genre": "Thrash Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Interstate Love Song",
+      "artist": "Stone Temple Pilots",
+      "year": 1994,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "It's Only Another Parsec...",
+      "artist": "RX Bandits",
+      "year": 2009,
+      "genre": "Modern Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Jet City Woman",
+      "artist": "Queensrÿche",
+      "year": 1990,
+      "genre": "Hard Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Lasso",
+      "artist": "Phoenix",
+      "year": 2009,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Listen to Her Heart",
+      "artist": "Tom Petty and the Heartbreakers",
+      "year": 1978,
+      "genre": "Classic Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Losing My Religion",
+      "artist": "R.E.M.",
+      "year": 1991,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Love Gun",
+      "artist": "Kiss",
+      "year": 1977,
+      "genre": "Glam Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Lunatic Fringe",
+      "artist": "Red Rider",
+      "year": 1981,
+      "genre": "Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Machinehead",
+      "artist": "Bush",
+      "year": 1994,
+      "genre": "Post-Grunge",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Modern Day Cowboy",
+      "artist": "Tesla",
+      "year": 1986,
+      "genre": "Classic Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Money for Nothing",
+      "artist": "Dire Straits",
+      "year": 1985,
+      "genre": "Pop Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Motivation",
+      "artist": "Sum 41",
+      "year": 2001,
+      "genre": "Pop Punk",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Move It On Over",
+      "artist": "George Thorogood and the Destroyers",
+      "year": 1978,
+      "genre": "Blues Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Nemesis",
+      "artist": "Arch Enemy",
+      "year": 2005,
+      "genre": "Melodic Death Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "No More Mr. Nice Guy",
+      "artist": "Alice Cooper",
+      "year": 1973,
+      "genre": "Classic Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "No Way Back",
+      "artist": "Foo Fighters",
+      "year": 2005,
+      "genre": "Post-Grunge",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "The Outsider",
+      "artist": "A Perfect Circle",
+      "year": 2003,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Paranoid",
+      "artist": "Metallica & Ozzy Osbourne",
+      "year": 2009,
+      "genre": "Heavy Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Pour Some Sugar on Me",
+      "artist": "Def Leppard",
+      "year": 1987,
+      "genre": "Glam Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Psychosocial",
+      "artist": "Slipknot",
+      "year": 2008,
+      "genre": "Nu Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Ravenous",
+      "artist": "Atreyu",
+      "year": 2009,
+      "genre": "Metalcore",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Re-Ignition",
+      "artist": "Bad Brains",
+      "year": 1987,
+      "genre": "Punk",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Renegade",
+      "artist": "Styx",
+      "year": 1978,
+      "genre": "Hard Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "(You Can Still) Rock in America",
+      "artist": "Night Ranger",
+      "year": 1983,
+      "genre": "Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Rockin' in the Free World",
+      "artist": "Neil Young",
+      "year": 1989,
+      "genre": "Classic Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Savior",
+      "artist": "Rise Against",
+      "year": 2008,
+      "genre": "Melodic Hardcore",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Scumbag Blues",
+      "artist": "Them Crooked Vultures",
+      "year": 2008,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Self Esteem",
+      "artist": "The Offspring",
+      "year": 1994,
+      "genre": "Pop Punk",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Setting Fire to Sleeping Giants",
+      "artist": "The Dillinger Escape Plan",
+      "year": 2004,
+      "genre": "Mathcore",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Seven Nation Army",
+      "artist": "The White Stripes",
+      "year": 2003,
+      "genre": "Blues Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Sharp Dressed Man",
+      "artist": "ZZ Top",
+      "year": 1983,
+      "genre": "Blues Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Slow Hands",
+      "artist": "Interpol",
+      "year": 2004,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Speeding",
+      "artist": "Steve Vai",
+      "year": 2010,
+      "genre": "Speed Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Stray Cat Blues",
+      "artist": "The Rolling Stones",
+      "year": 1968,
+      "genre": "Blues Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Sudden Death",
+      "artist": "Megadeth",
+      "year": 2010,
+      "genre": "Thrash Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Suffocated",
+      "artist": "Orianthi",
+      "year": 2009,
+      "genre": "Modern Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Theme from Spiderman",
+      "artist": "Ramones",
+      "year": 1995,
+      "genre": "Punk",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "There's No Secrets This Year",
+      "artist": "Silversun Pickups",
+      "year": 2009,
+      "genre": "Indie Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "This Day We Fight!",
+      "artist": "Megadeth",
+      "year": 2009,
+      "genre": "Thrash Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Tick Tick Boom",
+      "artist": "The Hives",
+      "year": 2007,
+      "genre": "Garage Punk",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Ties That Bind",
+      "artist": "Alter Bridge",
+      "year": 2007,
+      "genre": "Hard Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Tones of Home",
+      "artist": "Blind Melon",
+      "year": 1992,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "2112 Pt. 1 – Overture",
+      "artist": "Rush",
+      "year": 1976,
+      "genre": "Prog Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "2112 Pt. 2 – The Temples of Syrinx",
+      "artist": "Rush",
+      "year": 1976,
+      "genre": "Prog Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "2112 Pt. 3 – Discovery",
+      "artist": "Rush",
+      "year": 1976,
+      "genre": "Prog Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "2112 Pt. 4 – Presentation",
+      "artist": "Rush",
+      "year": 1976,
+      "genre": "Prog Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "2112 Pt. 5 – Oracle: The Dream",
+      "artist": "Rush",
+      "year": 1976,
+      "genre": "Prog Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "2112 Pt. 6 – Soliloquy",
+      "artist": "Rush",
+      "year": 1976,
+      "genre": "Prog Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "2112 Pt. 7 – Grand Finale",
+      "artist": "Rush",
+      "year": 1976,
+      "genre": "Prog Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Unskinny Bop",
+      "artist": "Poison",
+      "year": 1990,
+      "genre": "Glam Rock",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Uprising",
+      "artist": "Muse",
+      "year": 2009,
+      "genre": "Alternative",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Waidmanns Heil",
+      "artist": "Rammstein",
+      "year": 2009,
+      "genre": "Industrial",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "We're Not Gonna Take It",
+      "artist": "Twisted Sister",
+      "year": 1984,
+      "genre": "Glam Metal",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "What Do I Get?",
+      "artist": "Buzzcocks",
+      "year": 1978,
+      "genre": "Punk",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Wish",
+      "artist": "Nine Inch Nails",
+      "year": 1992,
+      "genre": "Industrial",
+      "master": true,
+      "exportable": true
+    }
+  ],
+  "year": 2010
+}

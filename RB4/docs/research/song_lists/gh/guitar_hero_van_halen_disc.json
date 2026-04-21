@@ -1,0 +1,430 @@
+{
+  "game": "GH: Van Halen",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "Ain't Talkin' 'Bout Love",
+      "artist": "Van Halen",
+      "year": 1978,
+      "genre": "Hard Rock",
+      "tier": "3. West Hollywood",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "And the Cradle Will Rock...",
+      "artist": "Van Halen",
+      "year": 1980,
+      "genre": "Hard Rock",
+      "tier": "5. New York City",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Atomic Punk",
+      "artist": "Van Halen",
+      "year": 1978,
+      "genre": "Hard Rock",
+      "tier": "3. West Hollywood",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Beautiful Girls",
+      "artist": "Van Halen",
+      "year": 1979,
+      "genre": "Hard Rock",
+      "tier": "7. Dallas",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Best of You",
+      "artist": "Foo Fighters",
+      "year": 2005,
+      "genre": "Alternative Rock",
+      "tier": "4. Rome",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Cathedral",
+      "artist": "Van Halen",
+      "year": 1982,
+      "genre": "Hard Rock",
+      "tier": "10. The Early Years",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Come to Life",
+      "artist": "Alter Bridge",
+      "year": 2007,
+      "genre": "Post-Grunge",
+      "tier": "6. Berlin",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Dance the Night Away",
+      "artist": "Van Halen",
+      "year": 1979,
+      "genre": "Hard Rock",
+      "tier": "3. West Hollywood",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Dope Nose",
+      "artist": "Weezer",
+      "year": 2002,
+      "genre": "Alternative Rock",
+      "tier": "4. Rome",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Double Vision",
+      "artist": "Foreigner",
+      "year": 1978,
+      "genre": "Rock",
+      "tier": "4. Rome",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "The End of Heartache",
+      "artist": "Killswitch Engage",
+      "year": 2004,
+      "genre": "Metalcore",
+      "tier": "8. London",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Eruption",
+      "artist": "Van Halen",
+      "year": 1978,
+      "genre": "Hard Rock",
+      "tier": "10. The Early Years",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Everybody Wants Some!!",
+      "artist": "Van Halen",
+      "year": 1980,
+      "genre": "Hard Rock",
+      "tier": "5. New York City",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Feel Your Love Tonight",
+      "artist": "Van Halen",
+      "year": 1978,
+      "genre": "Hard Rock",
+      "tier": "7. Dallas",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "First Date",
+      "artist": "Blink-182",
+      "year": 2001,
+      "genre": "Pop Punk",
+      "tier": "2. Los Angeles",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Hang 'Em High",
+      "artist": "Van Halen",
+      "year": 1982,
+      "genre": "Hard Rock",
+      "tier": "9. New Netherlands",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Hear About It Later",
+      "artist": "Van Halen",
+      "year": 1981,
+      "genre": "Hard Rock",
+      "tier": "7. Dallas",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Hot for Teacher",
+      "artist": "Van Halen",
+      "year": 1984,
+      "genre": "Hard Rock",
+      "tier": "10. The Early Years",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Ice Cream Man",
+      "artist": "Van Halen",
+      "year": 1978,
+      "genre": "Hard Rock",
+      "tier": "7. Dallas",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "I'm the One",
+      "artist": "Van Halen",
+      "year": 1978,
+      "genre": "Hard Rock",
+      "tier": "10. The Early Years",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "I Want It All",
+      "artist": "Queen",
+      "year": 1989,
+      "genre": "Hard Rock",
+      "tier": "6. Berlin",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Intruder/(Oh) Pretty Woman",
+      "artist": "Van Halen",
+      "year": 1982,
+      "genre": "Hard Rock",
+      "tier": "3. West Hollywood",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Jamie's Cryin'",
+      "artist": "Van Halen",
+      "year": 1978,
+      "genre": "Hard Rock",
+      "tier": "3. West Hollywood",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Jump",
+      "artist": "Van Halen",
+      "year": 1984,
+      "genre": "Hard Rock",
+      "tier": "5. New York City",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Little Guitars",
+      "artist": "Van Halen",
+      "year": 1982,
+      "genre": "Hard Rock",
+      "tier": "9. New Netherlands",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Loss of Control",
+      "artist": "Van Halen",
+      "year": 1980,
+      "genre": "Hard Rock",
+      "tier": "9. New Netherlands",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Master Exploder",
+      "artist": "Tenacious D",
+      "year": 2006,
+      "genre": "Comedy Rock",
+      "tier": "8. London",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Mean Street",
+      "artist": "Van Halen",
+      "year": 1981,
+      "genre": "Hard Rock",
+      "tier": "9. New Netherlands",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Pain",
+      "artist": "Jimmy Eat World",
+      "year": 2004,
+      "genre": "Alternative Rock",
+      "tier": "4. Rome",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Painkiller",
+      "artist": "Judas Priest",
+      "year": 1990,
+      "genre": "Heavy Metal",
+      "tier": "8. London",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Panama",
+      "artist": "Van Halen",
+      "year": 1984,
+      "genre": "Hard Rock",
+      "tier": "1. Van Halen Intro",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Pretty Fly (for a White Guy)",
+      "artist": "The Offspring",
+      "year": 1998,
+      "genre": "Punk Rock",
+      "tier": "6. Berlin",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Rock and Roll Is Dead",
+      "artist": "Lenny Kravitz",
+      "year": 1995,
+      "genre": "Rock",
+      "tier": "4. Rome",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Romeo Delight",
+      "artist": "Van Halen",
+      "year": 1980,
+      "genre": "Hard Rock",
+      "tier": "10. The Early Years",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Runnin' with the Devil",
+      "artist": "Van Halen",
+      "year": 1978,
+      "genre": "Hard Rock",
+      "tier": "1. Van Halen Intro",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Safe European Home",
+      "artist": "The Clash",
+      "year": 1978,
+      "genre": "Punk Rock",
+      "tier": "2. Los Angeles",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Semi-Charmed Life",
+      "artist": "Third Eye Blind",
+      "year": 1997,
+      "genre": "Alternative Rock",
+      "tier": "2. Los Angeles",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Sick, Sick, Sick",
+      "artist": "Queens of the Stone Age",
+      "year": 2007,
+      "genre": "Hard Rock",
+      "tier": "8. London",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "So This Is Love?",
+      "artist": "Van Halen",
+      "year": 1981,
+      "genre": "Hard Rock",
+      "tier": "7. Dallas",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Somebody Get Me a Doctor",
+      "artist": "Van Halen",
+      "year": 1979,
+      "genre": "Hard Rock",
+      "tier": "9. New Netherlands",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Space Truckin'",
+      "artist": "Deep Purple",
+      "year": 1972,
+      "genre": "Hard Rock",
+      "tier": "6. Berlin",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Spanish Fly",
+      "artist": "Van Halen",
+      "year": 1979,
+      "genre": "Hard Rock",
+      "tier": "10. The Early Years",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Stacy's Mom",
+      "artist": "Fountains of Wayne",
+      "year": 2003,
+      "genre": "Power Pop",
+      "tier": "2. Los Angeles",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "The Takedown",
+      "artist": "Yellowcard",
+      "year": 2007,
+      "genre": "Pop Punk",
+      "tier": "6. Berlin",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Unchained",
+      "artist": "Van Halen",
+      "year": 1981,
+      "genre": "Hard Rock",
+      "tier": "5. New York City",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "White Wedding (Part 1)",
+      "artist": "Billy Idol",
+      "year": 1982,
+      "genre": "Rock",
+      "tier": "2. Los Angeles",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "You Really Got Me",
+      "artist": "Van Halen",
+      "year": 1978,
+      "genre": "Hard Rock",
+      "tier": "5. New York City",
+      "master": true,
+      "exportable": true
+    }
+  ],
+  "year": 2010
+}

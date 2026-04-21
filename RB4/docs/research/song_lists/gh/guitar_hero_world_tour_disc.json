@@ -1,0 +1,523 @@
+{
+  "game": "Guitar Hero World Tour",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "About a Girl (Unplugged Live)",
+      "artist": "Nirvana",
+      "year": 1994,
+      "genre": "Grunge"
+    },
+    {
+      "title": "Aggro",
+      "artist": "The Enemy",
+      "year": 2007,
+      "genre": "Rock"
+    },
+    {
+      "title": "American Woman",
+      "artist": "The Guess Who",
+      "year": 1970,
+      "genre": "Rock"
+    },
+    {
+      "title": "Antisocial",
+      "artist": "Trust",
+      "year": 1980,
+      "genre": "Hard Rock"
+    },
+    {
+      "title": "Are You Gonna Go My Way",
+      "artist": "Lenny Kravitz",
+      "year": 1993,
+      "genre": "Rock"
+    },
+    {
+      "title": "Assassin",
+      "artist": "Muse",
+      "year": 2006,
+      "genre": "Alternative"
+    },
+    {
+      "title": "B.Y.O.B.",
+      "artist": "System of a Down",
+      "year": 2005,
+      "genre": "Metal"
+    },
+    {
+      "title": "Band on the Run",
+      "artist": "Wings",
+      "year": 1973,
+      "genre": "Rock"
+    },
+    {
+      "title": "Beat It",
+      "artist": "Michael Jackson",
+      "year": 1982,
+      "genre": "Pop"
+    },
+    {
+      "title": "Beautiful Disaster",
+      "artist": "311",
+      "year": 1997,
+      "genre": "Rock"
+    },
+    {
+      "title": "Crazy Train",
+      "artist": "Ozzy Osbourne",
+      "year": 1980,
+      "genre": "Heavy Metal"
+    },
+    {
+      "title": "Dammit",
+      "artist": "Blink-182",
+      "year": 1997,
+      "genre": "Punk"
+    },
+    {
+      "title": "Demolition Man (Live)",
+      "artist": "Sting",
+      "year": 2005,
+      "genre": "Rock"
+    },
+    {
+      "title": "Do It Again",
+      "artist": "Steely Dan",
+      "year": 1972,
+      "genre": "Rock"
+    },
+    {
+      "title": "Escuela de Calor",
+      "artist": "Radio Futura",
+      "year": 1984,
+      "genre": "Rock"
+    },
+    {
+      "title": "Everlong",
+      "artist": "Foo Fighters",
+      "year": 1997,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Eye of the Tiger",
+      "artist": "Survivor",
+      "year": 1982,
+      "genre": "Rock"
+    },
+    {
+      "title": "Feel the Pain",
+      "artist": "Dinosaur Jr.",
+      "year": 1994,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Float On",
+      "artist": "Modest Mouse",
+      "year": 2004,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Freak on a Leash",
+      "artist": "Korn",
+      "year": 1998,
+      "genre": "Nu Metal"
+    },
+    {
+      "title": "Go Your Own Way",
+      "artist": "Fleetwood Mac",
+      "year": 1977,
+      "genre": "Rock"
+    },
+    {
+      "title": "Good God",
+      "artist": "Anouk",
+      "year": 2007,
+      "genre": "Rock"
+    },
+    {
+      "title": "Hail to the Freaks",
+      "artist": "Beatsteaks",
+      "year": 2008,
+      "genre": "Punk"
+    },
+    {
+      "title": "Heartbreaker",
+      "artist": "Pat Benatar",
+      "year": 1979,
+      "genre": "Rock"
+    },
+    {
+      "title": "Hey Man, Nice Shot",
+      "artist": "Filter",
+      "year": 1995,
+      "genre": "Industrial"
+    },
+    {
+      "title": "Hollywood Nights",
+      "artist": "Bob Seger",
+      "year": 1978,
+      "genre": "Rock"
+    },
+    {
+      "title": "Hot for Teacher",
+      "artist": "Van Halen",
+      "year": 1984,
+      "genre": "Hard Rock"
+    },
+    {
+      "title": "Hotel California",
+      "artist": "Eagles",
+      "year": 1976,
+      "genre": "Rock"
+    },
+    {
+      "title": "The Joker",
+      "artist": "Steve Miller Band",
+      "year": 1973,
+      "genre": "Rock"
+    },
+    {
+      "title": "Kick Out the Jams",
+      "artist": "MC5's Wayne Kramer",
+      "year": 2008,
+      "genre": "Rock"
+    },
+    {
+      "title": "The Kill",
+      "artist": "Thirty Seconds to Mars",
+      "year": 2005,
+      "genre": "Alternative"
+    },
+    {
+      "title": "L'Via L'Viaquez",
+      "artist": "The Mars Volta",
+      "year": 2005,
+      "genre": "Progressive Rock"
+    },
+    {
+      "title": "La Bamba",
+      "artist": "Los Lobos",
+      "year": 1987,
+      "genre": "Rock"
+    },
+    {
+      "title": "Lazy Eye",
+      "artist": "Silversun Pickups",
+      "year": 2006,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Livin' on a Prayer",
+      "artist": "Bon Jovi",
+      "year": 1986,
+      "genre": "Rock"
+    },
+    {
+      "title": "Love Me Two Times",
+      "artist": "The Doors",
+      "year": 1967,
+      "genre": "Rock"
+    },
+    {
+      "title": "Love Removal Machine",
+      "artist": "The Cult",
+      "year": 1987,
+      "genre": "Rock"
+    },
+    {
+      "title": "Love Spreads",
+      "artist": "The Stone Roses",
+      "year": 1994,
+      "genre": "Alternative"
+    },
+    {
+      "title": "The Middle",
+      "artist": "Jimmy Eat World",
+      "year": 2001,
+      "genre": "Pop Punk"
+    },
+    {
+      "title": "Misery Business",
+      "artist": "Paramore",
+      "year": 2007,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Monsoon",
+      "artist": "Tokio Hotel",
+      "year": 2005,
+      "genre": "Rock"
+    },
+    {
+      "title": "Mountain Song",
+      "artist": "Jane's Addiction",
+      "year": 1988,
+      "genre": "Rock"
+    },
+    {
+      "title": "Mr. Crowley",
+      "artist": "Ozzy Osbourne",
+      "year": 1980,
+      "genre": "Heavy Metal"
+    },
+    {
+      "title": "Never Too Late",
+      "artist": "The Answer",
+      "year": 2005,
+      "genre": "Rock"
+    },
+    {
+      "title": "No Sleep Till Brooklyn",
+      "artist": "Beastie Boys featuring Kerry King",
+      "year": 1986,
+      "genre": "Hip Hop"
+    },
+    {
+      "title": "Nuvole E Lenzuola",
+      "artist": "Negramaro",
+      "year": 2006,
+      "genre": "Rock"
+    },
+    {
+      "title": "Obstacle 1",
+      "artist": "Interpol",
+      "year": 2002,
+      "genre": "Post-Punk"
+    },
+    {
+      "title": "On the Road Again (Live)",
+      "artist": "Willie Nelson",
+      "year": 1980,
+      "genre": "Country"
+    },
+    {
+      "title": "One Armed Scissor",
+      "artist": "At the Drive-In",
+      "year": 2000,
+      "genre": "Post-Hardcore"
+    },
+    {
+      "title": "The One I Love",
+      "artist": "R.E.M.",
+      "year": 1987,
+      "genre": "Alternative"
+    },
+    {
+      "title": "One Way or Another",
+      "artist": "Blondie",
+      "year": 1978,
+      "genre": "New Wave"
+    },
+    {
+      "title": "Our Truth",
+      "artist": "Lacuna Coil",
+      "year": 2006,
+      "genre": "Gothic Metal"
+    },
+    {
+      "title": "Overkill",
+      "artist": "Motörhead",
+      "year": 2008,
+      "genre": "Heavy Metal"
+    },
+    {
+      "title": "Parabola",
+      "artist": "Tool",
+      "year": 2002,
+      "genre": "Progressive Rock"
+    },
+    {
+      "title": "Pretty Vacant",
+      "artist": "Sex Pistols",
+      "year": 2007,
+      "genre": "Punk"
+    },
+    {
+      "title": "Prisoner of Society",
+      "artist": "The Living End",
+      "year": 1998,
+      "genre": "Punk"
+    },
+    {
+      "title": "Pull Me Under",
+      "artist": "Dream Theater",
+      "year": 1992,
+      "genre": "Progressive Metal"
+    },
+    {
+      "title": "Purple Haze (Live)",
+      "artist": "The Jimi Hendrix Experience",
+      "year": 1968,
+      "genre": "Rock"
+    },
+    {
+      "title": "Ramblin' Man",
+      "artist": "The Allman Brothers Band",
+      "year": 1973,
+      "genre": "Southern Rock"
+    },
+    {
+      "title": "Re-Education (Through Labor)",
+      "artist": "Rise Against",
+      "year": 2008,
+      "genre": "Punk"
+    },
+    {
+      "title": "Rebel Yell",
+      "artist": "Billy Idol",
+      "year": 1984,
+      "genre": "Rock"
+    },
+    {
+      "title": "Rooftops (A Liberation Broadcast)",
+      "artist": "Lostprophets",
+      "year": 2006,
+      "genre": "Rock"
+    },
+    {
+      "title": "Santeria",
+      "artist": "Sublime",
+      "year": 1996,
+      "genre": "Reggae"
+    },
+    {
+      "title": "Satch Boogie",
+      "artist": "Joe Satriani",
+      "year": 1987,
+      "genre": "Instrumental Rock"
+    },
+    {
+      "title": "Schism",
+      "artist": "Tool",
+      "year": 2001,
+      "genre": "Progressive Rock"
+    },
+    {
+      "title": "Scream Aim Fire",
+      "artist": "Bullet for My Valentine",
+      "year": 2008,
+      "genre": "Metal"
+    },
+    {
+      "title": "Shiver",
+      "artist": "Coldplay",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Some Might Say",
+      "artist": "Oasis",
+      "year": 1995,
+      "genre": "Britpop"
+    },
+    {
+      "title": "Soul Doubt",
+      "artist": "NOFX",
+      "year": 1992,
+      "genre": "Punk"
+    },
+    {
+      "title": "Spiderwebs",
+      "artist": "No Doubt",
+      "year": 1995,
+      "genre": "Ska"
+    },
+    {
+      "title": "Stillborn",
+      "artist": "Black Label Society",
+      "year": 2003,
+      "genre": "Heavy Metal"
+    },
+    {
+      "title": "Stranglehold",
+      "artist": "Ted Nugent",
+      "year": 1975,
+      "genre": "Rock"
+    },
+    {
+      "title": "Sweet Home Alabama (Live)",
+      "artist": "Lynyrd Skynyrd",
+      "year": 1973,
+      "genre": "Southern Rock"
+    },
+    {
+      "title": "Ted Nugent Guitar Duel",
+      "artist": "Ted Nugent",
+      "year": 2008,
+      "genre": "Rock"
+    },
+    {
+      "title": "Today",
+      "artist": "The Smashing Pumpkins",
+      "year": 1993,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Too Much, Too Young, Too Fast",
+      "artist": "Airbourne",
+      "year": 2007,
+      "genre": "Hard Rock"
+    },
+    {
+      "title": "Toy Boy",
+      "artist": "Stuck in the Sound",
+      "year": 2006,
+      "genre": "Rock"
+    },
+    {
+      "title": "Trapped Under Ice",
+      "artist": "Metallica",
+      "year": 1984,
+      "genre": "Thrash Metal"
+    },
+    {
+      "title": "Up Around the Bend",
+      "artist": "Creedence Clearwater Revival",
+      "year": 1970,
+      "genre": "Rock"
+    },
+    {
+      "title": "Vicarious",
+      "artist": "Tool",
+      "year": 2006,
+      "genre": "Progressive Rock"
+    },
+    {
+      "title": "VinterNoll2",
+      "artist": "Kent",
+      "year": 2002,
+      "genre": "Britpop"
+    },
+    {
+      "title": "Weapon of Choice",
+      "artist": "Black Rebel Motorcycle Club",
+      "year": 2007,
+      "genre": "Rock"
+    },
+    {
+      "title": "What I've Done",
+      "artist": "Linkin Park",
+      "year": 2007,
+      "genre": "Alternative"
+    },
+    {
+      "title": "The Wind Cries Mary",
+      "artist": "The Jimi Hendrix Experience",
+      "year": 1967,
+      "genre": "Rock"
+    },
+    {
+      "title": "You're Gonna Say Yeah!",
+      "artist": "HushPuppies",
+      "year": 2006,
+      "genre": "Rock"
+    },
+    {
+      "title": "Zakk Wylde Guitar Duel",
+      "artist": "Zakk Wylde",
+      "year": 2008,
+      "genre": "Rock"
+    }
+  ],
+  "year": 2008
+}

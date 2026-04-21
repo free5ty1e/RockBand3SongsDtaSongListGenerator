@@ -1,0 +1,286 @@
+{
+  "game": "GH: Aerosmith",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "All Day and All of the Night",
+      "artist": "The Kinks",
+      "year": 1964,
+      "genre": "Rock",
+      "tier": "2. First Taste of Success",
+      "master": false,
+      "exportable": true
+    },
+    {
+      "title": "All the Young Dudes",
+      "artist": "Mott the Hoople",
+      "year": 1972,
+      "genre": "Glam Rock",
+      "tier": "1. Getting the Band Together",
+      "master": false,
+      "exportable": true
+    },
+    {
+      "title": "Always on the Run",
+      "artist": "Lenny Kravitz and Slash",
+      "year": 1991,
+      "genre": "Hard Rock",
+      "tier": "5. The Great American Band",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Back in the Saddle",
+      "artist": "Aerosmith",
+      "year": 1976,
+      "genre": "Hard Rock",
+      "tier": "5. The Great American Band",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Beyond Beautiful",
+      "artist": "Aerosmith",
+      "year": 2001,
+      "genre": "Hard Rock",
+      "tier": "5. The Great American Band",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Bright Light Fright",
+      "artist": "Aerosmith",
+      "year": 1977,
+      "genre": "Hard Rock",
+      "tier": "4. International Superstars",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Cat Scratch Fever",
+      "artist": "Ted Nugent",
+      "year": 1977,
+      "genre": "Hard Rock",
+      "tier": "6. Rock N Roll Legends",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Complete Control",
+      "artist": "The Clash",
+      "year": 1977,
+      "genre": "Punk Rock",
+      "tier": "3. The Triumphant Return",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Draw the Line",
+      "artist": "Aerosmith",
+      "year": 1977,
+      "genre": "Hard Rock",
+      "tier": "1. Getting the Band Together",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Dream On",
+      "artist": "Aerosmith",
+      "year": 1973,
+      "genre": "Hard Rock",
+      "tier": "5. The Great American Band",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Dream Police",
+      "artist": "Cheap Trick",
+      "year": 1979,
+      "genre": "Power Pop",
+      "tier": "1. Getting the Band Together",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Guitar Battle vs Joe Perry",
+      "artist": "Joe Perry",
+      "year": 2008,
+      "genre": "Hard Rock",
+      "tier": "6. Rock N Roll Legends",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Hard to Handle",
+      "artist": "The Black Crowes",
+      "year": 1990,
+      "genre": "Southern Rock",
+      "tier": "5. The Great American Band",
+      "master": false,
+      "exportable": true
+    },
+    {
+      "title": "I Hate Myself for Loving You",
+      "artist": "Joan Jett",
+      "year": 1988,
+      "genre": "Hard Rock",
+      "tier": "2. First Taste of Success",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "King of Rock",
+      "artist": "Run-D.M.C.",
+      "year": 1985,
+      "genre": "Hip Hop",
+      "tier": "4. International Superstars",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Livin' on the Edge",
+      "artist": "Aerosmith",
+      "year": 1993,
+      "genre": "Hard Rock",
+      "tier": "3. The Triumphant Return",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Love in an Elevator",
+      "artist": "Aerosmith",
+      "year": 1989,
+      "genre": "Hard Rock",
+      "tier": "3. The Triumphant Return",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Make It",
+      "artist": "Aerosmith",
+      "year": 1973,
+      "genre": "Hard Rock",
+      "tier": "1. Getting the Band Together",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Mama Kin",
+      "artist": "Aerosmith",
+      "year": 1973,
+      "genre": "Hard Rock",
+      "tier": "6. Rock N Roll Legends",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Movin' Out",
+      "artist": "Aerosmith",
+      "year": 1973,
+      "genre": "Hard Rock",
+      "tier": "2. First Taste of Success",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "No Surprize",
+      "artist": "Aerosmith",
+      "year": 1979,
+      "genre": "Hard Rock",
+      "tier": "2. First Taste of Success",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Nobody's Fault",
+      "artist": "Aerosmith",
+      "year": 1976,
+      "genre": "Hard Rock",
+      "tier": "4. International Superstars",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Personality Crisis",
+      "artist": "New York Dolls",
+      "year": 1973,
+      "genre": "Glam Rock",
+      "tier": "3. The Triumphant Return",
+      "master": false,
+      "exportable": true
+    },
+    {
+      "title": "Rag Doll",
+      "artist": "Aerosmith",
+      "year": 1987,
+      "genre": "Hard Rock",
+      "tier": "3. The Triumphant Return",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Sex Type Thing",
+      "artist": "Stone Temple Pilots",
+      "year": 1992,
+      "genre": "Grunge",
+      "tier": "6. Rock N Roll Legends",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "She Sells Sanctuary",
+      "artist": "The Cult",
+      "year": 1985,
+      "genre": "Gothic Rock",
+      "tier": "4. International Superstars",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Sweet Emotion",
+      "artist": "Aerosmith",
+      "year": 1975,
+      "genre": "Hard Rock",
+      "tier": "2. First Taste of Success",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Toys in the Attic",
+      "artist": "Aerosmith",
+      "year": 1975,
+      "genre": "Hard Rock",
+      "tier": "6. Rock N Roll Legends",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Train Kept A-Rollin'",
+      "artist": "Aerosmith",
+      "year": 1974,
+      "genre": "Hard Rock",
+      "tier": "6. Rock N Roll Legends",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Uncle Salty",
+      "artist": "Aerosmith",
+      "year": 1975,
+      "genre": "Hard Rock",
+      "tier": "1. Getting the Band Together",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Walk This Way",
+      "artist": "Aerosmith featuring Run-D.M.C.",
+      "year": 1986,
+      "genre": "Hard Rock",
+      "tier": "4. International Superstars",
+      "master": true,
+      "exportable": true
+    }
+  ],
+  "year": 2008
+}

@@ -1,0 +1,247 @@
+{
+  "game": "GH Encore: 80s",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "18 and Life",
+      "artist": "Skid Row",
+      "year": 1989,
+      "genre": "Hair Metal",
+      "master": false,
+      "tier": "Opening Licks"
+    },
+    {
+      "title": "Ain't Nothin' But a Good Time",
+      "artist": "Poison",
+      "year": 1988,
+      "genre": "Hair Metal",
+      "master": false,
+      "tier": "Relentless Riffs"
+    },
+    {
+      "title": "Ballroom Blitz",
+      "artist": "Krokus",
+      "year": 1984,
+      "genre": "Hair Metal",
+      "master": false,
+      "tier": "Return of the Shred"
+    },
+    {
+      "title": "Balls to the Wall",
+      "artist": "Accept",
+      "year": 1984,
+      "genre": "Heavy Metal",
+      "master": false,
+      "tier": "Opening Licks"
+    },
+    {
+      "title": "Bang Your Head (Metal Health)",
+      "artist": "Quiet Riot",
+      "year": 1983,
+      "genre": "Hair Metal",
+      "master": false,
+      "tier": "Opening Licks"
+    },
+    {
+      "title": "Bathroom Wall",
+      "artist": "Faster Pussycat",
+      "year": 1987,
+      "genre": "Hair Metal",
+      "master": false,
+      "tier": "Relentless Riffs"
+    },
+    {
+      "title": "Because, It's Midnite",
+      "artist": "Limozeen",
+      "year": 2003,
+      "genre": "Hair Metal",
+      "master": true,
+      "tier": "Amp Warmers"
+    },
+    {
+      "title": "Caught in a Mosh",
+      "artist": "Anthrax",
+      "year": 1987,
+      "genre": "Thrash Metal",
+      "master": false,
+      "tier": "Furious Fretwork"
+    },
+    {
+      "title": "Electric Eye",
+      "artist": "Judas Priest",
+      "year": 1982,
+      "genre": "Heavy Metal",
+      "master": true,
+      "tier": "Furious Fretwork"
+    },
+    {
+      "title": "Heat of the Moment",
+      "artist": "Asia",
+      "year": 1982,
+      "genre": "AOR",
+      "master": false,
+      "tier": "Amp Warmers"
+    },
+    {
+      "title": "Hold on Loosely",
+      "artist": ".38 Special",
+      "year": 1981,
+      "genre": "Rock",
+      "master": false,
+      "tier": "String Snappers"
+    },
+    {
+      "title": "Holy Diver",
+      "artist": "Dio",
+      "year": 1983,
+      "genre": "Heavy Metal",
+      "master": false,
+      "tier": "String Snappers"
+    },
+    {
+      "title": "I Ran (So Far Away)",
+      "artist": "A Flock of Seagulls",
+      "year": 1982,
+      "genre": "New Wave",
+      "master": true,
+      "tier": "Opening Licks"
+    },
+    {
+      "title": "I Wanna Rock",
+      "artist": "Twisted Sister",
+      "year": 1984,
+      "genre": "Heavy Metal",
+      "master": true,
+      "tier": "String Snappers"
+    },
+    {
+      "title": "Lonely Is the Night",
+      "artist": "Billy Squier",
+      "year": 1981,
+      "genre": "Rock",
+      "master": false,
+      "tier": "Relentless Riffs"
+    },
+    {
+      "title": "Los Angeles",
+      "artist": "X",
+      "year": 1980,
+      "genre": "Punk",
+      "master": false,
+      "tier": "Relentless Riffs"
+    },
+    {
+      "title": "No One Like You",
+      "artist": "Scorpions",
+      "year": 1982,
+      "genre": "Hard Rock",
+      "master": false,
+      "tier": "Amp Warmers"
+    },
+    {
+      "title": "Only a Lad",
+      "artist": "Oingo Boingo",
+      "year": 1981,
+      "genre": "New Wave",
+      "master": false,
+      "tier": "Return of the Shred"
+    },
+    {
+      "title": "Play with Me",
+      "artist": "Extreme",
+      "year": 1989,
+      "genre": "Hair Metal",
+      "master": false,
+      "tier": "Furious Fretwork"
+    },
+    {
+      "title": "Police Truck",
+      "artist": "Dead Kennedys",
+      "year": 1980,
+      "genre": "Punk",
+      "master": false,
+      "tier": "Furious Fretwork"
+    },
+    {
+      "title": "Radar Love",
+      "artist": "White Lion",
+      "year": 1989,
+      "genre": "Hair Metal",
+      "master": false,
+      "tier": "Amp Warmers"
+    },
+    {
+      "title": "Round and Round",
+      "artist": "Ratt",
+      "year": 1984,
+      "genre": "Hair Metal",
+      "master": false,
+      "tier": "Return of the Shred"
+    },
+    {
+      "title": "Seventeen",
+      "artist": "Winger",
+      "year": 1988,
+      "genre": "Hair Metal",
+      "master": false,
+      "tier": "Furious Fretwork"
+    },
+    {
+      "title": "Shakin'",
+      "artist": "Eddie Money",
+      "year": 1982,
+      "genre": "Rock",
+      "master": false,
+      "tier": "Amp Warmers"
+    },
+    {
+      "title": "Synchronicity II",
+      "artist": "The Police",
+      "year": 1983,
+      "genre": "New Wave",
+      "master": false,
+      "tier": "Return of the Shred"
+    },
+    {
+      "title": "Turning Japanese",
+      "artist": "The Vapors",
+      "year": 1980,
+      "genre": "New Wave",
+      "master": false,
+      "tier": "String Snappers"
+    },
+    {
+      "title": "The Warrior",
+      "artist": "Scandal",
+      "year": 1984,
+      "genre": "Pop Rock",
+      "master": true,
+      "tier": "String Snappers"
+    },
+    {
+      "title": "We Got the Beat",
+      "artist": "The Go-Go's",
+      "year": 1982,
+      "genre": "New Wave",
+      "master": false,
+      "tier": "Opening Licks"
+    },
+    {
+      "title": "What I Like About You",
+      "artist": "The Romantics",
+      "year": 1980,
+      "genre": "Punk",
+      "master": false,
+      "tier": "Return of the Shred"
+    },
+    {
+      "title": "Wrathchild",
+      "artist": "Iron Maiden",
+      "year": 1981,
+      "genre": "Heavy Metal",
+      "master": false,
+      "tier": "Relentless Riffs"
+    }
+  ],
+  "year": 2007
+}

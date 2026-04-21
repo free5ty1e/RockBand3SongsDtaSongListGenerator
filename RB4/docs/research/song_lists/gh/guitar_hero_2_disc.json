@@ -1,0 +1,391 @@
+{
+  "game": "Guitar Hero II",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "Bad Reputation",
+      "artist": "Thin Lizzy",
+      "year": 1977,
+      "genre": "Hard Rock",
+      "tier": "5. Return of the Shred",
+      "master": false
+    },
+    {
+      "title": "Beast and the Harlot",
+      "artist": "Avenged Sevenfold",
+      "year": 2006,
+      "genre": "Metal",
+      "tier": "8. Face-Melters",
+      "master": false
+    },
+    {
+      "title": "Billion Dollar Babies",
+      "artist": "Alice Cooper",
+      "year": 1973,
+      "genre": "Glam Rock",
+      "tier": "3. String-Snappers",
+      "master": false
+    },
+    {
+      "title": "Can't You Hear Me Knockin'",
+      "artist": "The Rolling Stones",
+      "year": 1971,
+      "genre": "Rock",
+      "tier": "4. Thrash and Burn",
+      "master": false
+    },
+    {
+      "title": "Carry Me Home",
+      "artist": "The Living End",
+      "year": 2000,
+      "genre": "Punk Rock",
+      "tier": "8. Face-Melters",
+      "master": false
+    },
+    {
+      "title": "Carry On Wayward Son",
+      "artist": "Kansas",
+      "year": 1976,
+      "genre": "Progressive Rock",
+      "tier": "3. String-Snappers",
+      "master": false
+    },
+    {
+      "title": "Cherry Pie",
+      "artist": "Warrant",
+      "year": 1990,
+      "genre": "Glam Metal",
+      "tier": "2. Amp Warmers",
+      "master": false
+    },
+    {
+      "title": "Crazy on You",
+      "artist": "Heart",
+      "year": 1976,
+      "genre": "Rock",
+      "tier": "6. Relentless Riffs",
+      "master": false
+    },
+    {
+      "title": "Dead!",
+      "artist": "My Chemical Romance",
+      "year": 2006,
+      "genre": "Emo",
+      "tier": "6. Relentless Riffs",
+      "master": true
+    },
+    {
+      "title": "Free Bird",
+      "artist": "Lynyrd Skynyrd",
+      "year": 1973,
+      "genre": "Southern Rock",
+      "tier": "8. Face-Melters",
+      "master": false
+    },
+    {
+      "title": "Freya",
+      "artist": "The Sword",
+      "year": 2006,
+      "genre": "Heavy Metal",
+      "tier": "6. Relentless Riffs",
+      "master": false
+    },
+    {
+      "title": "Girlfriend",
+      "artist": "Matthew Sweet",
+      "year": 1991,
+      "genre": "Alternative Rock",
+      "tier": "4. Thrash and Burn",
+      "master": false
+    },
+    {
+      "title": "Hangar 18",
+      "artist": "Megadeth",
+      "year": 1990,
+      "genre": "Thrash Metal",
+      "tier": "8. Face-Melters",
+      "master": false
+    },
+    {
+      "title": "Heart-Shaped Box",
+      "artist": "Nirvana",
+      "year": 1993,
+      "genre": "Grunge",
+      "tier": "1. Opening Licks",
+      "master": false
+    },
+    {
+      "title": "Hush",
+      "artist": "Deep Purple",
+      "year": 1968,
+      "genre": "Hard Rock",
+      "tier": "4. Thrash and Burn",
+      "master": false
+    },
+    {
+      "title": "Institutionalized",
+      "artist": "Suicidal Tendencies",
+      "year": 1983,
+      "genre": "Crossover Thrash",
+      "tier": "8. Face-Melters",
+      "master": false
+    },
+    {
+      "title": "Jessica",
+      "artist": "The Allman Brothers Band",
+      "year": 1973,
+      "genre": "Southern Rock",
+      "tier": "5. Return of the Shred",
+      "master": false
+    },
+    {
+      "title": "John the Fisherman",
+      "artist": "Primus",
+      "year": 1991,
+      "genre": "Alternative Metal",
+      "tier": "5. Return of the Shred",
+      "master": true
+    },
+    {
+      "title": "Killing in the Name",
+      "artist": "Rage Against the Machine",
+      "year": 1992,
+      "genre": "Rap Metal",
+      "tier": "6. Relentless Riffs",
+      "master": false
+    },
+    {
+      "title": "Laid to Rest",
+      "artist": "Lamb of God",
+      "year": 2004,
+      "genre": "Metalcore",
+      "tier": "7. Furious Fretwork",
+      "master": false
+    },
+    {
+      "title": "Last Child",
+      "artist": "Aerosmith",
+      "year": 1976,
+      "genre": "Hard Rock",
+      "tier": "5. Return of the Shred",
+      "master": false
+    },
+    {
+      "title": "Life Wasted",
+      "artist": "Pearl Jam",
+      "year": 2006,
+      "genre": "Grunge",
+      "tier": "2. Amp Warmers",
+      "master": false
+    },
+    {
+      "title": "Madhouse",
+      "artist": "Anthrax",
+      "year": 1985,
+      "genre": "Thrash Metal",
+      "tier": "7. Furious Fretwork",
+      "master": false
+    },
+    {
+      "title": "Message in a Bottle",
+      "artist": "The Police",
+      "year": 1979,
+      "genre": "New Wave",
+      "tier": "3. String-Snappers",
+      "master": false
+    },
+    {
+      "title": "Misirlou",
+      "artist": "Dick Dale",
+      "year": 1962,
+      "genre": "Surf Rock",
+      "tier": "8. Face-Melters",
+      "master": false
+    },
+    {
+      "title": "Monkey Wrench",
+      "artist": "Foo Fighters",
+      "year": 1997,
+      "genre": "Alternative Rock",
+      "tier": "4. Thrash and Burn",
+      "master": false
+    },
+    {
+      "title": "Mother",
+      "artist": "Danzig",
+      "year": 1988,
+      "genre": "Heavy Metal",
+      "tier": "2. Amp Warmers",
+      "master": false
+    },
+    {
+      "title": "Possum Kingdom",
+      "artist": "Toadies",
+      "year": 1994,
+      "genre": "Alternative Rock",
+      "tier": "1. Opening Licks",
+      "master": true
+    },
+    {
+      "title": "Psychobilly Freakout",
+      "artist": "Reverend Horton Heat",
+      "year": 1990,
+      "genre": "Psychobilly",
+      "tier": "7. Furious Fretwork",
+      "master": false
+    },
+    {
+      "title": "Rock and Roll, Hoochie Koo",
+      "artist": "Rick Derringer",
+      "year": 1973,
+      "genre": "Rock",
+      "tier": "5. Return of the Shred",
+      "master": false
+    },
+    {
+      "title": "Rock This Town",
+      "artist": "Stray Cats",
+      "year": 1981,
+      "genre": "Rockabilly",
+      "tier": "7. Furious Fretwork",
+      "master": false
+    },
+    {
+      "title": "Salvation",
+      "artist": "Rancid",
+      "year": 1994,
+      "genre": "Punk Rock",
+      "tier": "1. Opening Licks",
+      "master": false
+    },
+    {
+      "title": "Search and Destroy",
+      "artist": "The Stooges",
+      "year": 1973,
+      "genre": "Punk Rock",
+      "tier": "3. String-Snappers",
+      "master": false
+    },
+    {
+      "title": "Shout at the Devil",
+      "artist": "Mötley Crüe",
+      "year": 1983,
+      "genre": "Glam Metal",
+      "tier": "1. Opening Licks",
+      "master": false
+    },
+    {
+      "title": "Stop!",
+      "artist": "Jane's Addiction",
+      "year": 1990,
+      "genre": "Alternative Rock",
+      "tier": "6. Relentless Riffs",
+      "master": true
+    },
+    {
+      "title": "Strutter",
+      "artist": "Kiss",
+      "year": 1974,
+      "genre": "Hard Rock",
+      "tier": "1. Amp Warmers",
+      "master": false
+    },
+    {
+      "title": "Surrender",
+      "artist": "Cheap Trick",
+      "year": 1978,
+      "genre": "Power Pop",
+      "tier": "1. Opening Licks",
+      "master": false
+    },
+    {
+      "title": "Sweet Child o' Mine",
+      "artist": "Guns N' Roses",
+      "year": 1987,
+      "genre": "Hard Rock",
+      "tier": "4. Thrash and Burn",
+      "master": false
+    },
+    {
+      "title": "Tattooed Love Boys",
+      "artist": "The Pretenders",
+      "year": 1980,
+      "genre": "New Wave",
+      "tier": "5. Return of the Shred",
+      "master": false
+    },
+    {
+      "title": "Them Bones",
+      "artist": "Alice in Chains",
+      "year": 1992,
+      "genre": "Grunge",
+      "tier": "3. String-Snappers",
+      "master": false
+    },
+    {
+      "title": "Tonight I'm Gonna Rock You Tonight",
+      "artist": "Spinal Tap",
+      "year": 1984,
+      "genre": "Comedy Rock",
+      "tier": "2. Amp Warmers",
+      "master": false
+    },
+    {
+      "title": "Trippin' on a Hole in a Paper Heart",
+      "artist": "Stone Temple Pilots",
+      "year": 1996,
+      "genre": "Grunge",
+      "tier": "6. Relentless Riffs",
+      "master": false
+    },
+    {
+      "title": "The Trooper",
+      "artist": "Iron Maiden",
+      "year": 1983,
+      "genre": "Heavy Metal",
+      "tier": "7. Furious Fretwork",
+      "master": false
+    },
+    {
+      "title": "War Pigs",
+      "artist": "Black Sabbath",
+      "year": 1970,
+      "genre": "Heavy Metal",
+      "tier": "3. String-Snappers",
+      "master": false
+    },
+    {
+      "title": "Who Was in My Room Last Night?",
+      "artist": "The Butthole Surfers",
+      "year": 1993,
+      "genre": "Alternative Rock",
+      "tier": "4. Thrash and Burn",
+      "master": false
+    },
+    {
+      "title": "Woman",
+      "artist": "Wolfmother",
+      "year": 2006,
+      "genre": "Hard Rock",
+      "tier": "2. Amp Warmers",
+      "master": false
+    },
+    {
+      "title": "You Really Got Me",
+      "artist": "Van Halen",
+      "year": 1978,
+      "genre": "Hard Rock",
+      "tier": "2. Amp Warmers",
+      "master": false
+    },
+    {
+      "title": "YYZ",
+      "artist": "Rush",
+      "year": 1981,
+      "genre": "Progressive Rock",
+      "tier": "7. Furious Fretwork",
+      "master": false
+    }
+  ],
+  "year": 2006
+}

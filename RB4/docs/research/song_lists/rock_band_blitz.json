@@ -1,0 +1,32 @@
+{
+  "game": "Rock Band Blitz",
+  "year": 2012,
+  "type": "disc",
+  "songs": [
+    {"title": "A Little Less Sixteen Candles, a Little More 'Touch Me'", "artist": "Fall Out Boy", "year": 2005, "genre": "Pop/Rock"},
+    {"title": "Always", "artist": "Blink-182", "year": 2003, "genre": "Punk"},
+    {"title": "Bang Your Head (Metal Health)", "artist": "Quiet Riot", "year": 1983, "genre": "Metal"},
+    {"title": "Cult of Personality", "artist": "Living Colour", "year": 1988, "genre": "Rock"},
+    {"title": "Death on Two Legs (Dedicated To...)", "artist": "Queen", "year": 1975, "genre": "Classic Rock"},
+    {"title": "Diamond Eyes (Boom-Lay Boom-Lay Boom)", "artist": "Shinedown", "year": 2010, "genre": "Nu Metal"},
+    {"title": "Give It Away", "artist": "Red Hot Chili Peppers", "year": 1991, "genre": "Alternative"},
+    {"title": "I'm Still Standing", "artist": "Elton John", "year": 1983, "genre": "Classic Rock"},
+    {"title": "Jessie's Girl", "artist": "Rick Springfield", "year": 1981, "genre": "Classic Rock"},
+    {"title": "Jungle Boogie", "artist": "Kool & the Gang", "year": 1973, "genre": "R&B/Soul/Funk"},
+    {"title": "Kids in the Street", "artist": "All-American Rejects", "year": 2012, "genre": "Emo"},
+    {"title": "Moves Like Jagger", "artist": "Maroon 5 feat. Christina Aguilera", "year": 2011, "genre": "Pop/Rock"},
+    {"title": "Once Bitten, Twice Shy", "artist": "Great White", "year": 1989, "genre": "Rock"},
+    {"title": "One Week", "artist": "Barenaked Ladies", "year": 1998, "genre": "Rock"},
+    {"title": "Pumped Up Kicks", "artist": "Foster the People", "year": 2011, "genre": "Indie Rock"},
+    {"title": "Raise Your Glass", "artist": "P!nk", "year": 2010, "genre": "Pop/Rock"},
+    {"title": "Shine", "artist": "Collective Soul", "year": 1994, "genre": "Rock"},
+    {"title": "Shout", "artist": "Tears for Fears", "year": 1985, "genre": "New Wave"},
+    {"title": "Sing", "artist": "My Chemical Romance", "year": 2010, "genre": "Emo"},
+    {"title": "So Far Away", "artist": "Avenged Sevenfold", "year": 2010, "genre": "Metal"},
+    {"title": "Spoonman", "artist": "Soundgarden", "year": 1994, "genre": "Grunge"},
+    {"title": "Stronger (What Doesn't Kill You)", "artist": "Kelly Clarkson", "year": 2011, "genre": "Pop/Rock"},
+    {"title": "These Days", "artist": "Foo Fighters", "year": 2011, "genre": "Alternative"},
+    {"title": "We Are Young", "artist": "fun. feat. Janelle Monáe", "year": 2012, "genre": "Indie Rock"},
+    {"title": "The Wicker Man", "artist": "Iron Maiden", "year": 2000, "genre": "Metal"}
+  ]
+}

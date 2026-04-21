@@ -1,0 +1,517 @@
+{
+  "game": "Guitar Hero 5",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "2 Minutes to Midnight",
+      "artist": "Iron Maiden",
+      "year": 1984,
+      "genre": "Heavy Metal"
+    },
+    {
+      "title": "20th Century Boy",
+      "artist": "T. Rex",
+      "year": 1973,
+      "genre": "Glam Rock"
+    },
+    {
+      "title": "21st Century Schizoid Man",
+      "artist": "King Crimson",
+      "year": 1969,
+      "genre": "Prog Rock"
+    },
+    {
+      "title": "A-Punk",
+      "artist": "Vampire Weekend",
+      "year": 2008,
+      "genre": "Indie Pop"
+    },
+    {
+      "title": "All Along the Watchtower",
+      "artist": "Bob Dylan",
+      "year": 1967,
+      "genre": "Folk Rock"
+    },
+    {
+      "title": "All The Pretty Faces",
+      "artist": "The Killers",
+      "year": 2006,
+      "genre": "Alternative"
+    },
+    {
+      "title": "American Girl",
+      "artist": "Tom Petty and the Heartbreakers",
+      "year": 1976,
+      "genre": "Power Pop"
+    },
+    {
+      "title": "Back Round",
+      "artist": "Wolfmother",
+      "year": 2009,
+      "genre": "Hard Rock"
+    },
+    {
+      "title": "Bleed American",
+      "artist": "Jimmy Eat World",
+      "year": 2001,
+      "genre": "Pop Punk"
+    },
+    {
+      "title": "Blue Day",
+      "artist": "Darker My Love",
+      "year": 2008,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Blue Orchid",
+      "artist": "The White Stripes",
+      "year": 2005,
+      "genre": "Blues Rock"
+    },
+    {
+      "title": "Brianstorm",
+      "artist": "Arctic Monkeys",
+      "year": 2006,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Bring the Noise 20XX",
+      "artist": "Public Enemy featuring Zakk Wylde",
+      "year": 2008,
+      "genre": "Hip Hop"
+    },
+    {
+      "title": "Bullet with Butterfly Wings",
+      "artist": "The Smashing Pumpkins",
+      "year": 1995,
+      "genre": "Grunge"
+    },
+    {
+      "title": "Cigarettes, Wedding Bands",
+      "artist": "Band of Horses",
+      "year": 2007,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Comedown",
+      "artist": "Bush",
+      "year": 1994,
+      "genre": "Grunge"
+    },
+    {
+      "title": "Dancing with Myself",
+      "artist": "Billy Idol",
+      "year": 1982,
+      "genre": "New Wave"
+    },
+    {
+      "title": "Deadbolt",
+      "artist": "Thrice",
+      "year": 2002,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Demon(s)",
+      "artist": "Darkest Hour",
+      "year": 2007,
+      "genre": "Melodic Death Metal"
+    },
+    {
+      "title": "Disconnected",
+      "artist": "Face to Face",
+      "year": 1995,
+      "genre": "Pop Punk"
+    },
+    {
+      "title": "Done with Everything, Die for Nothing",
+      "artist": "Children of Bodom",
+      "year": 2008,
+      "genre": "Melodic Death Metal"
+    },
+    {
+      "title": "Do You Feel Like We Do? (Live)",
+      "artist": "Peter Frampton",
+      "year": 1976,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Du Hast",
+      "artist": "Rammstein",
+      "year": 1997,
+      "genre": "Industrial"
+    },
+    {
+      "title": "Ex-Girlfriend",
+      "artist": "No Doubt",
+      "year": 2000,
+      "genre": "Pop Rock"
+    },
+    {
+      "title": "Fame",
+      "artist": "David Bowie",
+      "year": 1975,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Feel Good Inc.",
+      "artist": "Gorillaz",
+      "year": 2005,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Gamma Ray",
+      "artist": "Beck",
+      "year": 2008,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Gratitude",
+      "artist": "Beastie Boys",
+      "year": 1992,
+      "genre": "Rap Rock"
+    },
+    {
+      "title": "Hungry Like the Wolf",
+      "artist": "Duran Duran",
+      "year": 1982,
+      "genre": "New Wave"
+    },
+    {
+      "title": "Hurts So Good",
+      "artist": "John Mellencamp",
+      "year": 1982,
+      "genre": "Pop Rock"
+    },
+    {
+      "title": "Incinerate",
+      "artist": "Sonic Youth",
+      "year": 2006,
+      "genre": "Alternative"
+    },
+    {
+      "title": "In My Place",
+      "artist": "Coldplay",
+      "year": 2002,
+      "genre": "Pop Rock"
+    },
+    {
+      "title": "In the Meantime",
+      "artist": "Spacehog",
+      "year": 2006,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Jailbreak",
+      "artist": "Thin Lizzy",
+      "year": 1976,
+      "genre": "Hard Rock"
+    },
+    {
+      "title": "Judith",
+      "artist": "A Perfect Circle",
+      "year": 2000,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Kryptonite",
+      "artist": "3 Doors Down",
+      "year": 2000,
+      "genre": "Post-Grunge"
+    },
+    {
+      "title": "L.A.",
+      "artist": "Elliott Smith",
+      "year": 2000,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Lithium (Live)",
+      "artist": "Nirvana",
+      "year": 1992,
+      "genre": "Grunge"
+    },
+    {
+      "title": "Lonely Is the Night",
+      "artist": "Billy Squier",
+      "year": 1981,
+      "genre": "Rock"
+    },
+    {
+      "title": "Looks That Kill",
+      "artist": "Mötley Crüe",
+      "year": 1983,
+      "genre": "Heavy Metal"
+    },
+    {
+      "title": "Lust for Life (Live)",
+      "artist": "Iggy Pop",
+      "year": 1977,
+      "genre": "Punk"
+    },
+    {
+      "title": "Maiden, Mother & Crone",
+      "artist": "The Sword",
+      "year": 2008,
+      "genre": "Stoner Rock"
+    },
+    {
+      "title": "Make It wit Chu",
+      "artist": "Queens of the Stone Age",
+      "year": 2007,
+      "genre": "Hard Rock"
+    },
+    {
+      "title": "Medicate",
+      "artist": "AFI",
+      "year": 2009,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Mirror People",
+      "artist": "Love and Rockets",
+      "year": 1988,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Nearly Lost You",
+      "artist": "Screaming Trees",
+      "year": 1992,
+      "genre": "Grunge"
+    },
+    {
+      "title": "Never Miss a Beat",
+      "artist": "Kaiser Chiefs",
+      "year": 2008,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "No One to Depend On (Live)",
+      "artist": "Santana",
+      "year": 1992,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "One Big Holiday",
+      "artist": "My Morning Jacket",
+      "year": 2003,
+      "genre": "Indie Rock"
+    },
+    {
+      "title": "Only Happy When It Rains",
+      "artist": "Garbage",
+      "year": 1995,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Play That Funky Music",
+      "artist": "Wild Cherry",
+      "year": 1976,
+      "genre": "Funk"
+    },
+    {
+      "title": "Plug In Baby",
+      "artist": "Muse",
+      "year": 2001,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Ring of Fire",
+      "artist": "Johnny Cash",
+      "year": 1963,
+      "genre": "Country"
+    },
+    {
+      "title": "The Rock Show",
+      "artist": "Blink-182",
+      "year": 2001,
+      "genre": "Pop Punk"
+    },
+    {
+      "title": "Runnin' Down a Dream",
+      "artist": "Tom Petty",
+      "year": 1989,
+      "genre": "Heartland Rock"
+    },
+    {
+      "title": "Saturday Night's Alright for Fighting",
+      "artist": "Elton John",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Scatterbrain (Live)",
+      "artist": "Jeff Beck",
+      "year": 2008,
+      "genre": "Prog Rock"
+    },
+    {
+      "title": "Send a Little Love Token",
+      "artist": "The Duke Spirit",
+      "year": 2008,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Seven",
+      "artist": "Sunny Day Real Estate",
+      "year": 1994,
+      "genre": "Emo"
+    },
+    {
+      "title": "Sex on Fire",
+      "artist": "Kings of Leon",
+      "year": 2008,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Shout It Out Loud",
+      "artist": "Kiss",
+      "year": 1976,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "Six Days a Week",
+      "artist": "The Bronx",
+      "year": 2008,
+      "genre": "Punk"
+    },
+    {
+      "title": "Smells Like Teen Spirit",
+      "artist": "Nirvana",
+      "year": 1991,
+      "genre": "Grunge"
+    },
+    {
+      "title": "Sneak Out",
+      "artist": "Rose Hill Drive",
+      "year": 2008,
+      "genre": "Blues Rock"
+    },
+    {
+      "title": "So Lonely",
+      "artist": "The Police",
+      "year": 1978,
+      "genre": "Reggae"
+    },
+    {
+      "title": "Song 2",
+      "artist": "Blur",
+      "year": 1997,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Sowing Season (Yeah)",
+      "artist": "Brand New",
+      "year": 2006,
+      "genre": "Emo"
+    },
+    {
+      "title": "The Spirit of Radio (Live)",
+      "artist": "Rush",
+      "year": 1980,
+      "genre": "Prog Rock"
+    },
+    {
+      "title": "Steady, As She Goes",
+      "artist": "The Raconteurs",
+      "year": 2006,
+      "genre": "Blues Rock"
+    },
+    {
+      "title": "Streamline Woman",
+      "artist": "Gov't Mule",
+      "year": 2006,
+      "genre": "Southern Rock"
+    },
+    {
+      "title": "Sultans of Swing",
+      "artist": "Dire Straits",
+      "year": 1978,
+      "genre": "Rock"
+    },
+    {
+      "title": "Superstition",
+      "artist": "Stevie Wonder",
+      "year": 1972,
+      "genre": "Funk"
+    },
+    {
+      "title": "Sweating Bullets",
+      "artist": "Megadeth",
+      "year": 1992,
+      "genre": "Heavy Metal"
+    },
+    {
+      "title": "Sympathy for the Devil",
+      "artist": "The Rolling Stones",
+      "year": 1968,
+      "genre": "Rock"
+    },
+    {
+      "title": "They Say",
+      "artist": "Scars on Broadway",
+      "year": 2008,
+      "genre": "Hard Rock"
+    },
+    {
+      "title": "Under Pressure",
+      "artist": "Queen and David Bowie",
+      "year": 1982,
+      "genre": "Rock"
+    },
+    {
+      "title": "Wannabe in L.A.",
+      "artist": "Eagles of Death Metal",
+      "year": 2008,
+      "genre": "Hard Rock"
+    },
+    {
+      "title": "We're an American Band",
+      "artist": "Grand Funk Railroad",
+      "year": 1973,
+      "genre": "Classic Rock"
+    },
+    {
+      "title": "What I Got",
+      "artist": "Sublime",
+      "year": 1996,
+      "genre": "Reggae"
+    },
+    {
+      "title": "Why Bother?",
+      "artist": "Weezer",
+      "year": 1996,
+      "genre": "Pop Punk"
+    },
+    {
+      "title": "Wolf Like Me",
+      "artist": "TV on the Radio",
+      "year": 2006,
+      "genre": "Alternative"
+    },
+    {
+      "title": "Woman From Tokyo ('99 Remix)",
+      "artist": "Deep Purple",
+      "year": 1999,
+      "genre": "Hard Rock"
+    },
+    {
+      "title": "You and Me",
+      "artist": "Attack! Attack!",
+      "year": 2008,
+      "genre": "Pop Rock"
+    },
+    {
+      "title": "You Give Love a Bad Name",
+      "artist": "Bon Jovi",
+      "year": 1986,
+      "genre": "Hard Rock"
+    },
+    {
+      "title": "Younk Funk",
+      "artist": "The Derek Trucks Band",
+      "year": 1998,
+      "genre": "Funk"
+    }
+  ],
+  "year": 2009
+}

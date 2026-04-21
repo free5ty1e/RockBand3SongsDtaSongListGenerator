@@ -1,0 +1,203 @@
+{
+  "game": "GH: On Tour",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "All Star",
+      "artist": "Smash Mouth",
+      "year": 1999,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "All the Small Things",
+      "artist": "Blink-182",
+      "year": 1999,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Anna Molly",
+      "artist": "Incubus",
+      "year": 2006,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Are You Gonna Be My Girl",
+      "artist": "Jet",
+      "year": 2003,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Avalancha",
+      "artist": "Héroes del Silencio",
+      "year": 1995,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Black Magic Woman",
+      "artist": "Santana",
+      "year": 1970,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Breed",
+      "artist": "Nirvana",
+      "year": 1991,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "China Grove",
+      "artist": "The Doobie Brothers",
+      "year": 1973,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Do What You Want",
+      "artist": "OK Go",
+      "year": 2005,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Heaven",
+      "artist": "Los Lonely Boys",
+      "year": 2004,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Helicopter",
+      "artist": "Bloc Party",
+      "year": 2005,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Hit Me with Your Best Shot",
+      "artist": "Pat Benatar",
+      "year": 1980,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "I Don't Wanna Stop",
+      "artist": "Ozzy Osbourne",
+      "year": 2007,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "I Know a Little",
+      "artist": "Lynyrd Skynyrd",
+      "year": 1977,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Jessie's Girl",
+      "artist": "Rick Springfield",
+      "year": 1981,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Jet Airliner",
+      "artist": "Steve Miller Band",
+      "year": 1977,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Knock Me Down",
+      "artist": "Red Hot Chili Peppers",
+      "year": 1989,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "La Grange",
+      "artist": "ZZ Top",
+      "year": 1973,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Monsoon",
+      "artist": "Tokio Hotel",
+      "year": 2007,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Pride and Joy",
+      "artist": "Stevie Ray Vaughan",
+      "year": 1983,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Rock and Roll All Nite",
+      "artist": "Kiss",
+      "year": 1975,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Rock the Night",
+      "artist": "Europe",
+      "year": 1986,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Spiderwebs",
+      "artist": "No Doubt",
+      "year": 1995,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Stray Cat Strut",
+      "artist": "Stray Cats",
+      "year": 1981,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "This Love",
+      "artist": "Maroon 5",
+      "year": 2002,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "We're Not Gonna Take It",
+      "artist": "Twisted Sister",
+      "year": 1984,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "What I Want",
+      "artist": "Daughtry",
+      "year": 2006,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Youth Gone Wild",
+      "artist": "Skid Row",
+      "year": 1989,
+      "genre": null,
+      "master": true
+    }
+  ],
+  "year": 2008
+}

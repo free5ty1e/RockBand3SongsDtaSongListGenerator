@@ -1,0 +1,475 @@
+{
+  "game": "GH: Metallica",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "Ace of Spades",
+      "artist": "Motörhead",
+      "year": 2008,
+      "genre": "Heavy Metal",
+      "tier": "5. Damaged Justice Tour",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Albatross",
+      "artist": "Corrosion of Conformity",
+      "year": 1994,
+      "genre": "Heavy Metal",
+      "tier": "4. Hammersmith Apollo",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "All Nightmare Long",
+      "artist": "Metallica",
+      "year": 2008,
+      "genre": "Thrash Metal",
+      "tier": "5. Damaged Justice Tour",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "Am I Evil?",
+      "artist": "Diamond Head",
+      "year": 1982,
+      "genre": "Heavy Metal",
+      "tier": "6. The Meadowlands",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Armed and Ready",
+      "artist": "Michael Schenker Group",
+      "year": 1980,
+      "genre": "Hard Rock",
+      "tier": "4. Hammersmith Apollo",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "Battery",
+      "artist": "Metallica",
+      "year": 1986,
+      "genre": "Thrash Metal",
+      "tier": "6. The Meadowlands",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Beautiful Mourning",
+      "artist": "Machine Head",
+      "year": 2007,
+      "genre": "Heavy Metal",
+      "tier": "7. Donington Park",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "The Black River",
+      "artist": "The Sword",
+      "year": 2008,
+      "genre": "Heavy Metal",
+      "tier": "5. Damaged Justice Tour",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Blood and Thunder",
+      "artist": "Mastodon",
+      "year": 2004,
+      "genre": "Progressive Metal",
+      "tier": "6. The Meadowlands",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "The Boys Are Back in Town",
+      "artist": "Thin Lizzy",
+      "year": 1976,
+      "genre": "Hard Rock",
+      "tier": "4. Hammersmith Apollo",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Broken, Beat & Scarred",
+      "artist": "Metallica",
+      "year": 2008,
+      "genre": "Thrash Metal",
+      "tier": "9. The Stone Nightclub",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "Creeping Death",
+      "artist": "Metallica",
+      "year": 1984,
+      "genre": "Thrash Metal",
+      "tier": "6. The Meadowlands",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Cyanide",
+      "artist": "Metallica",
+      "year": 2008,
+      "genre": "Thrash Metal",
+      "tier": "9. The Stone Nightclub",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "Demon Cleaner",
+      "artist": "Kyuss",
+      "year": 1994,
+      "genre": "Stoner Rock",
+      "tier": "2. Tushino Air Field",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Disposable Heroes",
+      "artist": "Metallica",
+      "year": 1986,
+      "genre": "Thrash Metal",
+      "tier": "7. Donington Park",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Dyers Eve",
+      "artist": "Metallica",
+      "year": 1988,
+      "genre": "Thrash Metal",
+      "tier": "7. Donington Park",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Enter Sandman",
+      "artist": "Metallica",
+      "year": 1991,
+      "genre": "Thrash Metal",
+      "tier": "3. Metallica at Tushino",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Evil",
+      "artist": "Mercyful Fate",
+      "year": 2008,
+      "genre": "Heavy Metal",
+      "tier": "7. Donington Park",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Fade to Black",
+      "artist": "Metallica",
+      "year": 1984,
+      "genre": "Thrash Metal",
+      "tier": "4. Hammersmith Apollo",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Fight Fire With Fire",
+      "artist": "Metallica",
+      "year": 1984,
+      "genre": "Thrash Metal",
+      "tier": "7. Donington Park",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "For Whom the Bell Tolls",
+      "artist": "Metallica",
+      "year": 1984,
+      "genre": "Thrash Metal",
+      "tier": "1. The Forum",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Frantic",
+      "artist": "Metallica",
+      "year": 2003,
+      "genre": "Thrash Metal",
+      "tier": "5. Damaged Justice Tour",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Fuel",
+      "artist": "Metallica",
+      "year": 1997,
+      "genre": "Thrash Metal",
+      "tier": "5. Damaged Justice Tour",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Hell Bent for Leather",
+      "artist": "Judas Priest",
+      "year": 1978,
+      "genre": "Heavy Metal",
+      "tier": "5. Damaged Justice Tour",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "Hit the Lights",
+      "artist": "Metallica",
+      "year": 1983,
+      "genre": "Thrash Metal",
+      "tier": "5. Damaged Justice Tour",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "King Nothing",
+      "artist": "Metallica",
+      "year": 1996,
+      "genre": "Thrash Metal",
+      "tier": "3. Metallica at Tushino",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Master of Puppets",
+      "artist": "Metallica",
+      "year": 1986,
+      "genre": "Thrash Metal",
+      "tier": "6. The Meadowlands",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "The Memory Remains",
+      "artist": "Metallica",
+      "year": 1997,
+      "genre": "Thrash Metal",
+      "tier": "4. Hammersmith Apollo",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Mercyful Fate",
+      "artist": "Metallica",
+      "year": 1998,
+      "genre": "Thrash Metal",
+      "tier": "6. The Meadowlands",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Mommy's Little Monster",
+      "artist": "Social Distortion",
+      "year": 1998,
+      "genre": "Punk Rock",
+      "tier": "5. Damaged Justice Tour",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Mother of Mercy",
+      "artist": "Samhain",
+      "year": 1986,
+      "genre": "Gothic Rock",
+      "tier": "2. Tushino Air Field",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "My Apocalypse",
+      "artist": "Metallica",
+      "year": 2008,
+      "genre": "Thrash Metal",
+      "tier": "9. The Stone Nightclub",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "No Excuses",
+      "artist": "Alice in Chains",
+      "year": 1994,
+      "genre": "Grunge",
+      "tier": "2. Tushino Air Field",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "No Leaf Clover",
+      "artist": "Metallica",
+      "year": 1999,
+      "genre": "Thrash Metal",
+      "tier": "3. Metallica at Tushino",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Nothing Else Matters",
+      "artist": "Metallica",
+      "year": 1991,
+      "genre": "Thrash Metal",
+      "tier": "3. Metallica at Tushino",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "One",
+      "artist": "Metallica",
+      "year": 1988,
+      "genre": "Thrash Metal",
+      "tier": "5. Damaged Justice Tour",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Orion",
+      "artist": "Metallica",
+      "year": 1986,
+      "genre": "Thrash Metal",
+      "tier": "4. Hammersmith Apollo",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Sad but True",
+      "artist": "Metallica",
+      "year": 1991,
+      "genre": "Thrash Metal",
+      "tier": "3. Metallica at Tushino",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Seek & Destroy",
+      "artist": "Metallica",
+      "year": 1983,
+      "genre": "Thrash Metal",
+      "tier": "6. The Meadowlands",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "The Shortest Straw",
+      "artist": "Metallica",
+      "year": 1988,
+      "genre": "Thrash Metal",
+      "tier": "7. Donington Park",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Stacked Actors",
+      "artist": "Foo Fighters",
+      "year": 1999,
+      "genre": "Alternative Rock",
+      "tier": "4. Hammersmith Apollo",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "Stone Cold Crazy",
+      "artist": "Queen",
+      "year": 1974,
+      "genre": "Hard Rock",
+      "tier": "6. The Meadowlands",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "The Thing That Should Not Be",
+      "artist": "Metallica",
+      "year": 1986,
+      "genre": "Thrash Metal",
+      "tier": "8. The Ice Cave",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Toxicity",
+      "artist": "System of a Down",
+      "year": 2001,
+      "genre": "Alternative Metal",
+      "tier": "4. Hammersmith Apollo",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "Tuesday's Gone",
+      "artist": "Lynyrd Skynyrd",
+      "year": 1973,
+      "genre": "Southern Rock",
+      "tier": "2. Tushino Air Field",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Turn the Page",
+      "artist": "Bob Seger and the Silver Bullet Band",
+      "year": 1976,
+      "genre": "Rock",
+      "tier": "2. Tushino Air Field",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "The Unforgiven",
+      "artist": "Metallica",
+      "year": 1991,
+      "genre": "Thrash Metal",
+      "tier": "1. The Forum",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "War Ensemble",
+      "artist": "Slayer",
+      "year": 1990,
+      "genre": "Thrash Metal",
+      "tier": "7. Donington Park",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "War Inside My Head",
+      "artist": "Suicidal Tendencies",
+      "year": 1990,
+      "genre": "Punk Metal",
+      "tier": "5. Damaged Justice Tour",
+      "master": true,
+      "exportable": false
+    },
+    {
+      "title": "Welcome Home (Sanitarium)",
+      "artist": "Metallica",
+      "year": 1986,
+      "genre": "Thrash Metal",
+      "tier": "4. Hammersmith Apollo",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Wherever I May Roam",
+      "artist": "Metallica",
+      "year": 1991,
+      "genre": "Thrash Metal",
+      "tier": "4. Hammersmith Apollo",
+      "master": true,
+      "exportable": true
+    },
+    {
+      "title": "Whiplash",
+      "artist": "Metallica",
+      "year": 1983,
+      "genre": "Thrash Metal",
+      "tier": "7. Donington Park",
+      "master": true,
+      "exportable": true
+    }
+  ],
+  "year": 2009
+}

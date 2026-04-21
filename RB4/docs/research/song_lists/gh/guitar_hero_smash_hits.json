@@ -1,0 +1,391 @@
+{
+  "game": "GH Smash Hits",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "Back in the Saddle",
+      "artist": "Aerosmith",
+      "year": 1977,
+      "genre": "Rock",
+      "original_game": "Guitar Hero: Aerosmith",
+      "exportable": false
+    },
+    {
+      "title": "Bark at the Moon",
+      "artist": "Ozzy Osbourne",
+      "year": 1983,
+      "genre": "Heavy Metal",
+      "original_game": "Guitar Hero",
+      "exportable": false
+    },
+    {
+      "title": "Barracuda",
+      "artist": "Heart",
+      "year": 1977,
+      "genre": "Hard Rock",
+      "original_game": "Guitar Hero III: Legends of Rock",
+      "exportable": false
+    },
+    {
+      "title": "Beast and the Harlot",
+      "artist": "Avenged Sevenfold",
+      "year": 2005,
+      "genre": "Heavy Metal",
+      "original_game": "Guitar Hero II",
+      "exportable": false
+    },
+    {
+      "title": "Carry On Wayward Son",
+      "artist": "Kansas",
+      "year": 1976,
+      "genre": "Prog Rock",
+      "original_game": "Guitar Hero II",
+      "exportable": false
+    },
+    {
+      "title": "Caught in a Mosh",
+      "artist": "Anthrax",
+      "year": 1987,
+      "genre": "Thrash Metal",
+      "original_game": "Guitar Hero Encore: Rocks the 80s",
+      "exportable": true
+    },
+    {
+      "title": "Cherry Pie",
+      "artist": "Warrant",
+      "year": 1990,
+      "genre": "Classic Rock",
+      "original_game": "Guitar Hero II",
+      "exportable": false
+    },
+    {
+      "title": "Cowboys from Hell",
+      "artist": "Pantera",
+      "year": 1991,
+      "genre": "Groove Metal",
+      "original_game": "Guitar Hero",
+      "exportable": false
+    },
+    {
+      "title": "Cult of Personality",
+      "artist": "Living Colour",
+      "year": 2007,
+      "genre": "Funk Metal",
+      "original_game": "Guitar Hero III: Legends of Rock",
+      "exportable": true
+    },
+    {
+      "title": "Electric Eye",
+      "artist": "Judas Priest",
+      "year": 1982,
+      "genre": "Heavy Metal",
+      "original_game": "Guitar Hero Encore: Rocks the 80s",
+      "exportable": false
+    },
+    {
+      "title": "Free Bird",
+      "artist": "Lynyrd Skynyrd",
+      "year": 1973,
+      "genre": "Southern Rock",
+      "original_game": "Guitar Hero II",
+      "exportable": true
+    },
+    {
+      "title": "Freya",
+      "artist": "The Sword",
+      "year": 2006,
+      "genre": "Heavy Metal",
+      "original_game": "Guitar Hero II",
+      "exportable": true
+    },
+    {
+      "title": "Godzilla",
+      "artist": "Blue Öyster Cult",
+      "year": 1977,
+      "genre": "Classic Rock",
+      "original_game": "Guitar Hero",
+      "exportable": false
+    },
+    {
+      "title": "Heart-Shaped Box",
+      "artist": "Nirvana",
+      "year": 1993,
+      "genre": "Grunge",
+      "original_game": "Guitar Hero II",
+      "exportable": true
+    },
+    {
+      "title": "Hey You",
+      "artist": "The Exies",
+      "year": 2004,
+      "genre": "Modern Rock",
+      "original_game": "Guitar Hero",
+      "exportable": true
+    },
+    {
+      "title": "Hit Me with Your Best Shot",
+      "artist": "Pat Benatar",
+      "year": 1980,
+      "genre": "Rock",
+      "original_game": "Guitar Hero III: Legends of Rock",
+      "exportable": true
+    },
+    {
+      "title": "I Love Rock 'n Roll",
+      "artist": "Joan Jett and the Blackhearts",
+      "year": 1982,
+      "genre": "Hard Rock",
+      "original_game": "Guitar Hero",
+      "exportable": true
+    },
+    {
+      "title": "I Wanna Rock",
+      "artist": "Twisted Sister",
+      "year": 1984,
+      "genre": "Glam Metal",
+      "original_game": "Guitar Hero Encore: Rocks the 80s",
+      "exportable": true
+    },
+    {
+      "title": "Killer Queen",
+      "artist": "Queen",
+      "year": 1974,
+      "genre": "Classic Rock",
+      "original_game": "Guitar Hero",
+      "exportable": false
+    },
+    {
+      "title": "Killing in the Name",
+      "artist": "Rage Against the Machine",
+      "year": 1992,
+      "genre": "Alternative",
+      "original_game": "Guitar Hero II",
+      "exportable": false
+    },
+    {
+      "title": "Laid to Rest",
+      "artist": "Lamb of God",
+      "year": 2004,
+      "genre": "Groove Metal",
+      "original_game": "Guitar Hero II",
+      "exportable": false
+    },
+    {
+      "title": "Lay Down",
+      "artist": "Priestess",
+      "year": 2006,
+      "genre": "Hard Rock",
+      "original_game": "Guitar Hero III: Legends of Rock",
+      "exportable": false
+    },
+    {
+      "title": "Message in a Bottle",
+      "artist": "The Police",
+      "year": 1979,
+      "genre": "Reggae Rock",
+      "original_game": "Guitar Hero II",
+      "exportable": true
+    },
+    {
+      "title": "Miss Murder",
+      "artist": "AFI",
+      "year": 2006,
+      "genre": "Alternative",
+      "original_game": "Guitar Hero III: Legends of Rock",
+      "exportable": true
+    },
+    {
+      "title": "Monkey Wrench",
+      "artist": "Foo Fighters",
+      "year": 1997,
+      "genre": "Alternative",
+      "original_game": "Guitar Hero II",
+      "exportable": true
+    },
+    {
+      "title": "More Than a Feeling",
+      "artist": "Boston",
+      "year": 1976,
+      "genre": "Classic Rock",
+      "original_game": "Guitar Hero",
+      "exportable": false
+    },
+    {
+      "title": "Mother",
+      "artist": "Danzig",
+      "year": 1988,
+      "genre": "Hard Rock",
+      "original_game": "Guitar Hero II",
+      "exportable": false
+    },
+    {
+      "title": "No One Knows",
+      "artist": "Queens of the Stone Age",
+      "year": 2002,
+      "genre": "Stoner Rock",
+      "original_game": "Guitar Hero",
+      "exportable": true
+    },
+    {
+      "title": "Nothin' but a Good Time",
+      "artist": "Poison",
+      "year": 1988,
+      "genre": "Glam Rock",
+      "original_game": "Guitar Hero Encore: Rocks the 80s",
+      "exportable": true
+    },
+    {
+      "title": "Play with Me",
+      "artist": "Extreme",
+      "year": 1989,
+      "genre": "Glam Metal",
+      "original_game": "Guitar Hero Encore: Rocks the 80s",
+      "exportable": true
+    },
+    {
+      "title": "Psychobilly Freakout",
+      "artist": "Reverend Horton Heat",
+      "year": 1990,
+      "genre": "Rockabilly",
+      "original_game": "Guitar Hero II",
+      "exportable": true
+    },
+    {
+      "title": "Raining Blood",
+      "artist": "Slayer",
+      "year": 1986,
+      "genre": "Thrash Metal",
+      "original_game": "Guitar Hero III: Legends of Rock",
+      "exportable": false
+    },
+    {
+      "title": "Rock and Roll All Nite",
+      "artist": "Kiss",
+      "year": 1975,
+      "genre": "Classic Rock",
+      "original_game": "Guitar Hero III: Legends of Rock",
+      "exportable": true
+    },
+    {
+      "title": "Round and Round",
+      "artist": "Ratt",
+      "year": 1984,
+      "genre": "Glam Metal",
+      "original_game": "Guitar Hero Encore: Rocks the 80s",
+      "exportable": false
+    },
+    {
+      "title": "Shout at the Devil",
+      "artist": "Mötley Crüe",
+      "year": 1983,
+      "genre": "Glam Metal",
+      "original_game": "Guitar Hero II",
+      "exportable": true
+    },
+    {
+      "title": "Smoke on the Water",
+      "artist": "Deep Purple",
+      "year": 1972,
+      "genre": "Hard Rock",
+      "original_game": "Guitar Hero",
+      "exportable": false
+    },
+    {
+      "title": "Stellar",
+      "artist": "Incubus",
+      "year": 1999,
+      "genre": "Alternative",
+      "original_game": "Guitar Hero",
+      "exportable": false
+    },
+    {
+      "title": "Stop!",
+      "artist": "Jane's Addiction",
+      "year": 1990,
+      "genre": "Alternative",
+      "original_game": "Guitar Hero II",
+      "exportable": false
+    },
+    {
+      "title": "Take It Off",
+      "artist": "The Donnas",
+      "year": 2002,
+      "genre": "Rock",
+      "original_game": "Guitar Hero",
+      "exportable": false
+    },
+    {
+      "title": "Take Me Out",
+      "artist": "Franz Ferdinand",
+      "year": 2004,
+      "genre": "Indie Rock",
+      "original_game": "Guitar Hero",
+      "exportable": false
+    },
+    {
+      "title": "Them Bones",
+      "artist": "Alice in Chains",
+      "year": 1992,
+      "genre": "Grunge",
+      "original_game": "Guitar Hero II",
+      "exportable": false
+    },
+    {
+      "title": "Through the Fire and Flames",
+      "artist": "DragonForce",
+      "year": 2006,
+      "genre": "Power Metal",
+      "original_game": "Guitar Hero III: Legends of Rock",
+      "exportable": false
+    },
+    {
+      "title": "Thunder Kiss '65",
+      "artist": "White Zombie",
+      "year": 1992,
+      "genre": "Groove Metal",
+      "original_game": "Guitar Hero",
+      "exportable": false
+    },
+    {
+      "title": "Trippin' on a Hole in a Paper Heart",
+      "artist": "Stone Temple Pilots",
+      "year": 1996,
+      "genre": "Alternative",
+      "original_game": "Guitar Hero II",
+      "exportable": false
+    },
+    {
+      "title": "The Trooper",
+      "artist": "Iron Maiden",
+      "year": 1983,
+      "genre": "Heavy Metal",
+      "original_game": "Guitar Hero II",
+      "exportable": true
+    },
+    {
+      "title": "Unsung",
+      "artist": "Helmet",
+      "year": 1992,
+      "genre": "Hard Rock",
+      "original_game": "Guitar Hero",
+      "exportable": false
+    },
+    {
+      "title": "Woman",
+      "artist": "Wolfmother",
+      "year": 2006,
+      "genre": "Rock",
+      "original_game": "Guitar Hero II",
+      "exportable": true
+    },
+    {
+      "title": "YYZ",
+      "artist": "Rush",
+      "year": 1981,
+      "genre": "Prog Rock",
+      "original_game": "Guitar Hero II",
+      "exportable": true
+    }
+  ],
+  "year": 2009
+}

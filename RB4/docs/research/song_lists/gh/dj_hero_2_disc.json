@@ -1,0 +1,754 @@
+{
+  "game": "DJ Hero 2",
+  "type": "disc",
+  "songs": [
+    {
+      "title": "Regulate",
+      "artist": "Warren G",
+      "title2": "Galvanize",
+      "artist2": "The Chemical Brothers",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Leave Home",
+      "artist": "The Chemical Brothers",
+      "title2": "Replay",
+      "artist2": "Iyaz",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Rude Boy",
+      "artist": "Rihanna",
+      "title2": "Bounce",
+      "artist2": "MSTRKRFT",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Don't Cha",
+      "artist": "Pussycat Dolls",
+      "title2": "I Know You Want Me (Calle Ocho)",
+      "artist2": "Pitbull",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Where's Your Head At?",
+      "artist": "Basement Jaxx",
+      "title2": "Bonkers",
+      "artist2": "Dizzee Rascal",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Just Dance",
+      "artist": "Lady Gaga",
+      "title2": "Ghosts N Stuff",
+      "artist2": "Deadmau5",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "California Love",
+      "artist": "2Pac",
+      "title2": "Nothin' on You",
+      "artist2": "B.o.B",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "I Will Be Here",
+      "artist": "Tiësto",
+      "title2": "Speed Rail",
+      "artist2": "Tiësto",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Nasty",
+      "artist": "Janet Jackson",
+      "title2": "D.A.N.C.E.",
+      "artist2": "Justice",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "War",
+      "artist": "Edwin Starr",
+      "title2": "Waters of Nazareth",
+      "artist2": "Justice",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Informer",
+      "artist": "Snow",
+      "title2": "ABC",
+      "artist2": "The Jackson 5",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Hero",
+      "artist": "Nas",
+      "title2": "Get By",
+      "artist2": "Talib Kweli",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Acapella",
+      "artist": "Kelis",
+      "title2": "Human After All",
+      "artist2": "Daft Punk",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Midnight in a Perfect World",
+      "artist": "DJ Shadow",
+      "title2": "ABC",
+      "artist2": "The Jackson 5",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "O.P.P.",
+      "artist": "Naughty By Nature",
+      "title2": "A-Trak",
+      "artist2": "American Boy",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Estelle",
+      "artist": "Good Times",
+      "title2": "Chic",
+      "artist2": "Heads Will Roll",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Yeah Yeah Yeahs",
+      "artist": "Where's Your Head At?",
+      "title2": "Basement Jaxx",
+      "artist2": "Love Don't Let Me Go (Walking Away)",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "David Guetta",
+      "artist": "Low",
+      "title2": "Flo Rida",
+      "artist2": "Jump Around",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "House of Pain",
+      "artist": "Put Your Hands Where My Eyes Could See",
+      "title2": "Busta Rhymes",
+      "artist2": "Axel F",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Harold Faltermeyer",
+      "artist": "Get Busy",
+      "title2": "Sean Paul",
+      "artist2": "Galang",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "M.I.A.",
+      "artist": "Under Me Sleng Teng",
+      "title2": "Wayne Smith",
+      "artist2": "Jungle Boogie",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Kool & the Gang",
+      "artist": "The Message",
+      "title2": "Grandmaster Flash and the Furious Five",
+      "artist2": "In Da Club",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "50 Cent",
+      "artist": "Get Low",
+      "title2": "Lil Jon & the East Side Boyz",
+      "artist2": "I Want Your Soul",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Armand Van Helden",
+      "artist": "Push It",
+      "title2": "Salt-N-Pepa",
+      "artist2": "Lollipop",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Lil Wayne",
+      "artist": "Not Afraid",
+      "title2": "Eminem",
+      "artist2": "Dillinja",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Welcome To Jamrock",
+      "artist": "Damian Marley",
+      "title2": "Ridin'",
+      "artist2": "Chamillionaire",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Crank That (Soulja Boy)",
+      "artist": "Soulja Boy Tell 'Em",
+      "title2": "I'm Not Alone",
+      "artist2": "Calvin Harris",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Show Me Love",
+      "artist": "Robin S",
+      "title2": "Push The Feeling On",
+      "artist2": "Nightcrawlers",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "I Know You Want Me (Calle Ocho)",
+      "artist": "Pitbull",
+      "title2": "Planet Rock",
+      "artist2": "Afrika Bambaataa and The Soul Sonic Force",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Push It",
+      "artist": "Salt-N-Pepa",
+      "title2": "LoveGame",
+      "artist2": "Lady Gaga",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Heartless",
+      "artist": "Kanye West",
+      "title2": "Black & Gold",
+      "artist2": "Sam Sparro",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Love Is Gone",
+      "artist": "David Guetta",
+      "title2": "You Gonna Want Me",
+      "artist2": "Tiga",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "The Way I Are",
+      "artist": "Timbaland",
+      "title2": "A-Trak",
+      "artist2": "Bounce",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "MSTRKRFT",
+      "artist": "Pump Up The Volume",
+      "title2": "M|}A|}R|}R|S",
+      "artist2": "Buffalo Gals",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Malcolm McLaren",
+      "artist": "Who Am I (What's My Name)?",
+      "title2": "Snoop Dogg",
+      "artist2": "Oops (Oh My)",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Tweet",
+      "artist": "Clinton Sparks",
+      "title2": "In The Ayer",
+      "artist2": "Flo Rida",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "I Can't Live Without My Radio",
+      "artist": "LL Cool J",
+      "title2": "The Message",
+      "artist2": "Grandmaster Flash and the Furious Five",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "RZA",
+      "artist": "Welcome to Jamrock",
+      "title2": "Damian Marley",
+      "artist2": "A Fifth of Beethoven",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Walter Murphy",
+      "artist": "RZA",
+      "title2": "D-Code",
+      "artist2": "California Love",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "2Pac",
+      "artist": "Bonkers",
+      "title2": "Dizzee Rascal",
+      "artist2": "Omen",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "The Prodigy",
+      "artist": "Groove Is In The Heart",
+      "title2": "Deee-Lite",
+      "artist2": "Le Freak",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Chic",
+      "artist": "Pon De Floor",
+      "title2": "Major Lazer",
+      "artist2": "Axel F",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Harold Faltermeyer",
+      "artist": "Diplo",
+      "title2": "In Da Club",
+      "artist2": "50 Cent",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Go DJ",
+      "artist": "Lil' Wayne",
+      "title2": "Say Something",
+      "artist2": "Timbaland",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Put On",
+      "artist": "Young Jeezy",
+      "title2": "Love Lockdown",
+      "artist2": "Kanye West",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Bad Girls",
+      "artist": "Donna Summer",
+      "title2": "Memories",
+      "artist2": "David Guetta",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Pirate Soundsystem",
+      "artist": "Lollipop",
+      "title2": "Lil Wayne",
+      "artist2": "Low",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Flo Rida",
+      "artist": "I Can't Live Without My Radio",
+      "title2": "LL Cool J",
+      "artist2": "Good Times",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Chic",
+      "artist": "Get Ur Freak On",
+      "title2": "Missy Elliott",
+      "artist2": "Sean Paul",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "I'm Not Alone",
+      "artist": "Calvin Harris",
+      "title2": "Blue Monday",
+      "artist2": "New Order",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Love Lockdown",
+      "artist": "Kanye West",
+      "title2": "The Day That Never Comes",
+      "artist2": "Metallica",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "DJ Shadow",
+      "artist": "Pump Up The Volume",
+      "title2": "M|}A|}R|}R|S",
+      "artist2": "Put Your Hands Where My Eyes Could See",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Busta Rhymes",
+      "artist": "DJ Jazzy Jeff",
+      "title2": "War",
+      "artist2": "Edwin Starr",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Superstition",
+      "artist": "Stevie Wonder",
+      "title2": "Pon De Replay",
+      "artist2": "Rihanna",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Get Busy",
+      "artist": "Sean Paul",
+      "title2": "Bad Girls",
+      "artist2": "Donna Summer",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Newcleus",
+      "artist": "Heartless",
+      "title2": "Kanye West",
+      "artist2": "Midnight in a Perfect World",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "DJ Shadow",
+      "artist": "Diplo",
+      "title2": "Blue Monday",
+      "artist2": "New Order",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Pon De Floor",
+      "artist": "Major Lazer",
+      "title2": "Dillinja",
+      "artist2": "Get Ur Freak On",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Missy Elliott",
+      "artist": "DJ Z-Trip",
+      "title2": "Busy Child",
+      "artist2": "The Crystal Method",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Planet Rock",
+      "artist": "Afrika Bambaataa and The Soul Sonic Force",
+      "title2": "DJ Z-Trip",
+      "artist2": "D.A.N.C.E.",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Justice",
+      "artist": "A-Trak",
+      "title2": "Put On",
+      "artist2": "Young Jeezy",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Enuff",
+      "artist": "DJ Shadow",
+      "title2": "DJ Shadow",
+      "artist2": "Galvanize",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "The Chemical Brothers",
+      "artist": "Scratch Perverts",
+      "title2": "Omen",
+      "artist2": "The Prodigy",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "The Box",
+      "artist": "Orbital",
+      "title2": "Scratch Perverts",
+      "artist2": "DJ Qbert",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "DJ Qbert",
+      "artist": "Newcleus",
+      "title2": "DJ Qbert",
+      "artist2": "Killer",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Adamski",
+      "artist": "DJ Tiësto",
+      "title2": "Bad Romance",
+      "artist2": "Lady Gaga",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "DJ Tiësto",
+      "artist": "A-Trak",
+      "title2": "Blakroc",
+      "artist2": "I Remember",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Deadmau5",
+      "artist": "American Boy",
+      "title2": "Estelle",
+      "artist2": "Stylo",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Gorillaz",
+      "artist": "Jump Around",
+      "title2": "House of Pain",
+      "artist2": "Move for Me",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Kaskade",
+      "artist": "You're a Jerk",
+      "title2": "New Boyz",
+      "artist2": "Chain Gang",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Sam Cooke",
+      "artist": "Mo' Money, Mo' Problems",
+      "title2": "The Notorious B.I.G.",
+      "artist2": "Firestarter",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "The Prodigy",
+      "artist": "C'mon",
+      "title2": "Tiësto",
+      "artist2": "[edit",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "List of downloadable content in DJ Hero",
+      "artist": "downloadable content",
+      "title2": "OMG",
+      "artist2": "Usher",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "FreeStyleGames",
+      "artist": "\\[17\\",
+      "title2": "Umbrella",
+      "artist2": "Rihanna",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Let's Get It On",
+      "artist": "Marvin Gaye",
+      "title2": "FreeStyleGames",
+      "artist2": "\\[17\\",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Shutterbugg",
+      "artist": "Big Boi",
+      "title2": "Return of the Mack",
+      "artist2": "Mark Morrison",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "FreeStyleGames",
+      "artist": "\\[17\\",
+      "title2": "Hustler",
+      "artist2": "Simian Mobile Disco",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Pump Up the Jam",
+      "artist": "Technotronic",
+      "title2": "FreeStyleGames",
+      "artist2": "\\[17\\",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "I'm in the House",
+      "artist": "Steve Aoki",
+      "title2": "FreeStyleGames",
+      "artist2": "\\[17\\",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "I'm in Miami Bitch",
+      "artist": "LMFAO",
+      "title2": "Green Velvet",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "\\[17\\",
+      "artist": "Feel It in My Bones",
+      "title2": "Tiësto",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Tiësto",
+      "artist": "Tiësto",
+      "title2": "Tiësto",
+      "artist2": "FreeStyleGames",
+      "year": null,
+      "genre": null,
+      "master": true
+    },
+    {
+      "title": "Tiësto",
+      "artist": "Tiësto",
+      "title2": "Traffic",
+      "artist2": "Tiësto",
+      "year": null,
+      "genre": null,
+      "master": true
+    }
+  ],
+  "year": 2010
+}
