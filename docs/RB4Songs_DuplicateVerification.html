@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>RB4 Songs - Duplicate Verification</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; margin: 0; padding: 20px; background: #0f0f1a; color: #e0e0e0; font-size: 14px; }
+    h1 { color: #ffd700; font-size: 1.5em; margin: 0 0 5px 0; }
+    .subtitle { color: #888; font-size: 0.85em; margin-bottom: 20px; }
+    .summary { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-bottom: 20px; }
+    .summary-card { background: #1a1a2e; border: 1px solid #333; border-radius: 8px; padding: 12px; }
+    .summary-card .num { font-size: 1.8em; font-weight: bold; color: #ffd700; }
+    .summary-card .label { color: #888; font-size: 0.8em; }
+    .legend { background: #1a1a2e; border: 1px solid #333; border-radius: 8px; padding: 12px; margin-bottom: 20px; font-size: 0.8em; color: #aaa; }
+    .legend span { margin-right: 15px; }
+    .legend strong { color: #fff; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+    th { background: #1a1a2e; color: #ffd700; padding: 8px 6px; text-align: left; font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid #ffd700; position: sticky; top: 0; }
+    td { padding: 6px; border-bottom: 1px solid #222; vertical-align: top; }
+    tr:hover td { background: #1a1a3a; }
+    .artist { color: #4fc3f7; font-weight: bold; }
+    .title { color: #ffd700; }
+    .winner-row { background: #0a1f0a; }
+    .winner-row td { border-left: 3px solid #00e676; }
+    .dupe-row td { border-left: 3px solid #ff5722; }
+    .shortname { color: #90caf9; font-family: monospace; font-size: 0.85em; }
+    .source { color: #aaa; font-size: 0.85em; }
+    .pkg { color: #555; font-family: monospace; font-size: 0.75em; word-break: break-all; }
+    .dur { color: #888; text-align: right; white-space: nowrap; }
+    .tag { display: inline-block; padding: 1px 4px; border-radius: 3px; font-size: 0.75em; font-weight: bold; }
+    .tag-winner { background: #00e676; color: #000; }
+    .tag-dupe { background: #ff5722; color: #fff; }
+    .section-title { color: #ffd700; font-size: 1em; margin: 25px 0 10px 0; border-bottom: 1px solid #333; padding-bottom: 5px; }
+    .info-box { background: #1a1a2e; border: 1px solid #ffd700; border-radius: 8px; padding: 12px; margin-bottom: 20px; }
+    .info-box h3 { color: #ffd700; margin: 0 0 8px 0; font-size: 0.9em; }
+    .info-box p { margin: 3px 0; color: #aaa; font-size: 0.85em; }
+    .info-box strong { color: #fff; }
+  </style>
+</head>
+<body>
+<h1>RB4 Songs - Duplicate Verification Table</h1>
+<p class="subtitle">These songs appear in MULTIPLE PKGs. Please verify on PS4 how they display and which version is shown.</p>
+
+<div class="info-box">
+  <h3>Count Summary</h3>
+  <p>Custom songs in rb4_custom_songs.json: <strong>3705</strong></p>
+  <p>Internal duplicate groups (same artist+title in multiple PKGs): <strong>73</strong></p>
+  <p>Duplicate entries (2nd+ occurrence): <strong>82</strong></p>
+  <p>Final unique songs (first occurrence): <strong>3623</strong></p>
+  <p>Baseline overlap (also in rb4songlistWithRivals.txt): <strong>9</strong></p>
+  <p>Total unique after baseline merge: <strong>3712</strong></p>
+</div>
+
+<div class="summary">
+  <div class="summary-card"><div class="num">73</div><div class="label">Duplicate Groups</div></div>
+  <div class="summary-card"><div class="num">82</div><div class="label">Dupes Removed</div></div>
+  <div class="summary-card"><div class="num">3623</div><div class="label">Custom Unique</div></div>
+  <div class="summary-card"><div class="num">90</div><div class="label">Baseline Only</div></div>
+  <div class="summary-card"><div class="num">3712</div><div class="label">Total Unique</div></div>
+</div>
+
+<div class="legend">
+  <span><strong class="tag tag-winner">W</strong> <strong>Winner</strong> = First occurrence kept</span>
+  <span><strong class="tag tag-dupe">D</strong> <strong>Duplicate</strong> = Removed (2nd+ occurrence)</span>
+</div>
+
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Artist</th>
+  <th>Title</th>
+  <th>Short Name</th>
+  <th>Source</th>
+  <th>PKG File</th>
+  <th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="winner-row">
+    <td>1</td>
+    <td class="artist">311</td>
+    <td class="title">Amber</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o602807875_amber_311</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">3:01</td>
+  </tr><tr class="dupe-row">
+      <td>1</td>
+      <td class="artist">311</td>
+      <td class="title">Amber</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> amber</td>
+      <td class="source">Rock Band 3 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RBLEGACYDLCPASS3-A0000-V0100</td>
+      <td class="dur">3:01</td>
+    </tr><tr class="winner-row">
+    <td>2</td>
+    <td class="artist">311</td>
+    <td class="title">Beautiful Disaster</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o356704851_beautifuldisast</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">2:20</td>
+  </tr><tr class="dupe-row">
+      <td>2</td>
+      <td class="artist">311</td>
+      <td class="title">Beautiful Disaster</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> beautifuldisaster</td>
+      <td class="source">Rock Band 3 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RBLEGACYDLCPASS3-A0000-V0100</td>
+      <td class="dur">2:20</td>
+    </tr><tr class="winner-row">
+    <td>3</td>
+    <td class="artist">311</td>
+    <td class="title">Down</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> (empty)</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">?:??</td>
+  </tr><tr class="dupe-row">
+      <td>3</td>
+      <td class="artist">311</td>
+      <td class="title">Down</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> down2</td>
+      <td class="source">Rock Band 3 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RBLEGACYDLCPASS3-A0000-V0100</td>
+      <td class="dur">2:24</td>
+    </tr><tr class="winner-row">
+    <td>4</td>
+    <td class="artist">AC/DC</td>
+    <td class="title">Let There Be Rock</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> cu_acdcltbe</td>
+    <td class="source">Custom</td>
+    <td class="pkg">DELISTEDRBSONGS1</td>
+    <td class="dur">2:15</td>
+  </tr><tr class="dupe-row">
+      <td>4</td>
+      <td class="artist">AC/DC</td>
+      <td class="title">Let There Be Rock</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> cu_acdcltbe</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-DELISTEDRBSONGS1</td>
+      <td class="dur">2:15</td>
+    </tr><tr class="dupe-row">
+      <td>4</td>
+      <td class="artist">AC/DC</td>
+      <td class="title">Let There Be Rock</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> letthereberock</td>
+      <td class="source">Rock Band 2</td>
+      <td class="pkg">UP8802-CUSA02084_00-UNEXPORTABLEPORT-A0000-V0100</td>
+      <td class="dur">2:51</td>
+    </tr><tr class="winner-row">
+    <td>5</td>
+    <td class="artist">Amy Winehouse</td>
+    <td class="title">Rehab</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> (empty)</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">?:??</td>
+  </tr><tr class="dupe-row">
+      <td>5</td>
+      <td class="artist">Amy Winehouse</td>
+      <td class="title">Rehab</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> rehab</td>
+      <td class="source">Rock Band 3</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB3ROCKBAND3PASS-A0000-V0100</td>
+      <td class="dur">1:44</td>
+    </tr><tr class="winner-row">
+    <td>6</td>
+    <td class="artist">Arctic Monkeys</td>
+    <td class="title">Crying Lightning</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o708251368_cryinglightning</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">3:41</td>
+  </tr><tr class="dupe-row">
+      <td>6</td>
+      <td class="artist">Arctic Monkeys</td>
+      <td class="title">Crying Lightning</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o853053485_cryinglightning</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+      <td class="dur">2:56</td>
+    </tr><tr class="winner-row">
+    <td>7</td>
+    <td class="artist">Arctic Monkeys</td>
+    <td class="title">Pretty Visitors</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o378750331_prettyvisitors</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">2:56</td>
+  </tr><tr class="dupe-row">
+      <td>7</td>
+      <td class="artist">Arctic Monkeys</td>
+      <td class="title">Pretty Visitors</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o720807160_prettyvisitors</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+      <td class="dur">2:33</td>
+    </tr><tr class="winner-row">
+    <td>8</td>
+    <td class="artist">Arctic Monkeys</td>
+    <td class="title">R U Mine?</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o479550976_rumine_arcticmo</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">3:08</td>
+  </tr><tr class="dupe-row">
+      <td>8</td>
+      <td class="artist">Arctic Monkeys</td>
+      <td class="title">R U Mine?</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> rumine</td>
+      <td class="source">Rock Band 3 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RBLEGACYDLCPASS3-A0000-V0100</td>
+      <td class="dur">3:08</td>
+    </tr><tr class="winner-row">
+    <td>9</td>
+    <td class="artist">Avril Lavigne</td>
+    <td class="title">Complicated</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> complicated</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P03AVRIL</td>
+    <td class="dur">2:04</td>
+  </tr><tr class="dupe-row">
+      <td>9</td>
+      <td class="artist">Avril Lavigne</td>
+      <td class="title">Complicated</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4PRESEASONPASS-A0000-V0100</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>10</td>
+    <td class="artist">Avril Lavigne</td>
+    <td class="title">Goodbye</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> algoodbye</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P03AVRIL</td>
+    <td class="dur">2:19</td>
+  </tr><tr class="dupe-row">
+      <td>10</td>
+      <td class="artist">Avril Lavigne</td>
+      <td class="title">Goodbye</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> goodbye</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P03AVRIL</td>
+      <td class="dur">2:33</td>
+    </tr><tr class="winner-row">
+    <td>11</td>
+    <td class="artist">Avril Lavigne</td>
+    <td class="title">Nobody's Fool</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> alnobodysfool</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P03AVRIL</td>
+    <td class="dur">2:15</td>
+  </tr><tr class="dupe-row">
+      <td>11</td>
+      <td class="artist">Avril Lavigne</td>
+      <td class="title">Nobody's Fool</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> avrilnobodysfool</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P03AVRIL</td>
+      <td class="dur">2:56</td>
+    </tr><tr class="winner-row">
+    <td>12</td>
+    <td class="artist">Avril Lavigne</td>
+    <td class="title">Smile</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> alsmile</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P03AVRIL</td>
+    <td class="dur">2:15</td>
+  </tr><tr class="dupe-row">
+      <td>12</td>
+      <td class="artist">Avril Lavigne</td>
+      <td class="title">Smile</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> smile</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P03AVRIL</td>
+      <td class="dur">2:15</td>
+    </tr><tr class="dupe-row">
+      <td>12</td>
+      <td class="artist">Avril Lavigne</td>
+      <td class="title">Smile</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4SEASON21TOS30-A0000-V0100</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>13</td>
+    <td class="artist">Avril Lavigne</td>
+    <td class="title">What the Hell</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> whatthehell</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P03AVRIL</td>
+    <td class="dur">2:15</td>
+  </tr><tr class="dupe-row">
+      <td>13</td>
+      <td class="artist">Avril Lavigne</td>
+      <td class="title">What The Hell</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> whatthehell</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4PRESEASONPASS-A0000-V0100</td>
+      <td class="dur">2:25</td>
+    </tr><tr class="winner-row">
+    <td>14</td>
+    <td class="artist">Avril Lavigne</td>
+    <td class="title">When You're Gone</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> alwhenyouregonev2</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P03AVRIL</td>
+    <td class="dur">2:15</td>
+  </tr><tr class="dupe-row">
+      <td>14</td>
+      <td class="artist">Avril Lavigne</td>
+      <td class="title">When You're Gone</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> whenyouregonetruce</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P03AVRIL</td>
+      <td class="dur">2:15</td>
+    </tr><tr class="winner-row">
+    <td>15</td>
+    <td class="artist">Badfinger</td>
+    <td class="title">No Matter What</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> cu_badfingernomatterwhat</td>
+    <td class="source">Custom</td>
+    <td class="pkg">BADFINGER0000001</td>
+    <td class="dur">2:04</td>
+  </tr><tr class="dupe-row">
+      <td>15</td>
+      <td class="artist">Badfinger</td>
+      <td class="title">No Matter What</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> cu_badfingernomatterwhat</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-BADFINGER0000001</td>
+      <td class="dur">2:04</td>
+    </tr><tr class="winner-row">
+    <td>16</td>
+    <td class="artist">Barenaked Ladies</td>
+    <td class="title">One Little Slip</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> cu_o487221252_onelittleslip_b</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-BARENAKEDLADIES1</td>
+    <td class="dur">2:58</td>
+  </tr><tr class="dupe-row">
+      <td>16</td>
+      <td class="artist">Barenaked Ladies</td>
+      <td class="title">One Little Slip</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>17</td>
+    <td class="artist">Black Sabbath</td>
+    <td class="title">Paranoid</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> cu_bsp</td>
+    <td class="source">Custom</td>
+    <td class="pkg">DELISTEDRBSONGS1</td>
+    <td class="dur">2:58</td>
+  </tr><tr class="dupe-row">
+      <td>17</td>
+      <td class="artist">Black Sabbath</td>
+      <td class="title">Paranoid</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> cu_bsp</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-DELISTEDRBSONGS1</td>
+      <td class="dur">2:58</td>
+    </tr><tr class="dupe-row">
+      <td>17</td>
+      <td class="artist">Black Sabbath</td>
+      <td class="title">Paranoid</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-UNEXPORTABLEPORT-A0000-V0100</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>18</td>
+    <td class="artist">Blue Öyster Cult</td>
+    <td class="title">Godzilla</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> (empty)</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+    <td class="dur">?:??</td>
+  </tr><tr class="dupe-row">
+      <td>18</td>
+      <td class="artist">Blue Öyster Cult</td>
+      <td class="title">Godzilla</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> godzilla</td>
+      <td class="source">Rock Band 1 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RBLEGACYDLCPASS1-A0000-V0100</td>
+      <td class="dur">2:15</td>
+    </tr><tr class="winner-row">
+    <td>19</td>
+    <td class="artist">Bonnie Tyler</td>
+    <td class="title">Total Eclipse of the Heart</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o359995500_totaleclipseoft</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">2:50</td>
+  </tr><tr class="dupe-row">
+      <td>19</td>
+      <td class="artist">Bonnie Tyler</td>
+      <td class="title">Total Eclipse of the Heart</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> totaleclipse</td>
+      <td class="source">Rock Band 3 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RBLEGACYDLCPASS3-A0000-V0100</td>
+      <td class="dur">2:50</td>
+    </tr><tr class="winner-row">
+    <td>20</td>
+    <td class="artist">Bush</td>
+    <td class="title">Glycerine</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> glycerine_pv1</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P04BUSHH</td>
+    <td class="dur">2:12</td>
+  </tr><tr class="dupe-row">
+      <td>20</td>
+      <td class="artist">Bush</td>
+      <td class="title">Glycerine</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4SEASON11TOS20-A0000-V0100</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>21</td>
+    <td class="artist">Caballo Dorado</td>
+    <td class="title">No Rompas Mi Corazon</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> cu_o724053335</td>
+    <td class="source">Custom</td>
+    <td class="pkg">CABALLODORADO001</td>
+    <td class="dur">2:04</td>
+  </tr><tr class="dupe-row">
+      <td>21</td>
+      <td class="artist">Caballo Dorado</td>
+      <td class="title">No Rompas Mi Corazon</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> cu_o724053335</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CABALLODORADO001</td>
+      <td class="dur">2:04</td>
+    </tr><tr class="winner-row">
+    <td>22</td>
+    <td class="artist">Carrie Underwood</td>
+    <td class="title">Church Bells</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> churchbells</td>
+    <td class="source">Rock Band 4 DLC</td>
+    <td class="pkg">RB4DLCUNRELEASED</td>
+    <td class="dur">2:29</td>
+  </tr><tr class="dupe-row">
+      <td>22</td>
+      <td class="artist">Carrie Underwood</td>
+      <td class="title">Church Bells</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> churchbells</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4DLCUNRELEASED-A0000-V0100</td>
+      <td class="dur">2:29</td>
+    </tr><tr class="winner-row">
+    <td>23</td>
+    <td class="artist">Counting Crows</td>
+    <td class="title">Colorblind</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o338008886_colorblind_coun</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P05CNCRW</td>
+    <td class="dur">3:19</td>
+  </tr><tr class="dupe-row">
+      <td>23</td>
+      <td class="artist">Counting Crows</td>
+      <td class="title">Colorblind</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o338008886_colorblind_coun</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+      <td class="dur">3:19</td>
+    </tr><tr class="winner-row">
+    <td>24</td>
+    <td class="artist">Counting Crows</td>
+    <td class="title">Mr. Jones</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> mrjones_pv1</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+    <td class="dur">2:56</td>
+  </tr><tr class="dupe-row">
+      <td>24</td>
+      <td class="artist">Counting Crows</td>
+      <td class="title">Mr. Jones</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> mrjones</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4PRESEASONPASS-A0000-V0100</td>
+      <td class="dur">2:57</td>
+    </tr><tr class="winner-row">
+    <td>25</td>
+    <td class="artist">Def Leppard</td>
+    <td class="title">Photograph</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> (empty)</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-RBLEGACYDLCPASS2-A0000-V0100</td>
+    <td class="dur">?:??</td>
+  </tr><tr class="dupe-row">
+      <td>25</td>
+      <td class="artist">Def Leppard</td>
+      <td class="title">Photograph</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> photograph2</td>
+      <td class="source">Rock Band 3 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RBLEGACYDLCPASS3-A0000-V0100</td>
+      <td class="dur">3:11</td>
+    </tr><tr class="winner-row">
+    <td>26</td>
+    <td class="artist">Dire Straits</td>
+    <td class="title">Money for Nothing</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> new_moneyfornothing</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P16MISCS</td>
+    <td class="dur">2:15</td>
+  </tr><tr class="dupe-row">
+      <td>26</td>
+      <td class="artist">Dire Straits</td>
+      <td class="title">Money for Nothing</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> cu_new_moneyfornothing</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-DIRESTRAITS00001</td>
+      <td class="dur">2:15</td>
+    </tr><tr class="winner-row">
+    <td>27</td>
+    <td class="artist">Disney</td>
+    <td class="title">He's A Pirate</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> hesapiratepirates</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+    <td class="dur">2:40</td>
+  </tr><tr class="dupe-row">
+      <td>27</td>
+      <td class="artist">Disney</td>
+      <td class="title">He's A Pirate</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o547622208_hesapirate_disn</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+      <td class="dur">2:40</td>
+    </tr><tr class="winner-row">
+    <td>28</td>
+    <td class="artist">Disney</td>
+    <td class="title">The Black Pearl</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> blackpearlpirates</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+    <td class="dur">2:15</td>
+  </tr><tr class="dupe-row">
+      <td>28</td>
+      <td class="artist">Disney</td>
+      <td class="title">The Black Pearl</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o62028132_theblackpearl_di</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+      <td class="dur">2:15</td>
+    </tr><tr class="winner-row">
+    <td>29</td>
+    <td class="artist">Elvis</td>
+    <td class="title">A Little Less Conversation</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> (empty)</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-ELVIS00000000001</td>
+    <td class="dur">?:??</td>
+  </tr><tr class="dupe-row">
+      <td>29</td>
+      <td class="artist">Elvis</td>
+      <td class="title">A Little Less Conversation</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-ELVIS00000000001</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>30</td>
+    <td class="artist">Everclear</td>
+    <td class="title">Father of Mine</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> (empty)</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P06EVRCL</td>
+    <td class="dur">?:??</td>
+  </tr><tr class="dupe-row">
+      <td>30</td>
+      <td class="artist">Everclear</td>
+      <td class="title">Father of Mine</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P06EVRCL</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>31</td>
+    <td class="artist">Grant Kirkhope</td>
+    <td class="title">Bubblegloop Swamp</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> cu_gk_bubblegloopswamp</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-GRANTKIRKHOPE001</td>
+    <td class="dur">2:04</td>
+  </tr><tr class="dupe-row">
+      <td>31</td>
+      <td class="artist">Grant Kirkhope</td>
+      <td class="title">Bubblegloop Swamp</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-GRANTKIRKHOPE001</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>32</td>
+    <td class="artist">HUNTR/X</td>
+    <td class="title">Golden</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> huntrxgolden</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+    <td class="dur">2:15</td>
+  </tr><tr class="dupe-row">
+      <td>32</td>
+      <td class="artist">HUNTR/X</td>
+      <td class="title">Golden</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o774935701_golden_huntrx</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+      <td class="dur">2:15</td>
+    </tr><tr class="winner-row">
+    <td>33</td>
+    <td class="artist">Incubus</td>
+    <td class="title">New Skin</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> incnewskin</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P13INCYA</td>
+    <td class="dur">3:41</td>
+  </tr><tr class="dupe-row">
+      <td>33</td>
+      <td class="artist">Incubus</td>
+      <td class="title">New Skin</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> incubusnewskin</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P13INCYA</td>
+      <td class="dur">3:41</td>
+    </tr><tr class="winner-row">
+    <td>34</td>
+    <td class="artist">Incubus</td>
+    <td class="title">Nice To Know You</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> incubusntky</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P13INCYA</td>
+    <td class="dur">3:01</td>
+  </tr><tr class="dupe-row">
+      <td>34</td>
+      <td class="artist">Incubus</td>
+      <td class="title">Nice To Know You</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> nicetoknowyoughost</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P13INCYA</td>
+      <td class="dur">2:15</td>
+    </tr><tr class="dupe-row">
+      <td>34</td>
+      <td class="artist">Incubus</td>
+      <td class="title">Nice To Know You</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> nicetoknowyounoghost</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P13INCYA</td>
+      <td class="dur">2:15</td>
+    </tr><tr class="winner-row">
+    <td>35</td>
+    <td class="artist">Iron Maiden</td>
+    <td class="title">Run to the Hills</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> cu_magma</td>
+    <td class="source">Custom</td>
+    <td class="pkg">DELISTEDRBSONGS1</td>
+    <td class="dur">5:45</td>
+  </tr><tr class="dupe-row">
+      <td>35</td>
+      <td class="artist">Iron Maiden</td>
+      <td class="title">Run to the Hills</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> cu_magma</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-DELISTEDRBSONGS1</td>
+      <td class="dur">5:45</td>
+    </tr><tr class="dupe-row">
+      <td>35</td>
+      <td class="artist">Iron Maiden</td>
+      <td class="title">Run to the Hills</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> runtothehills</td>
+      <td class="source">Rock Band 1</td>
+      <td class="pkg">UP8802-CUSA02084_00-UNEXPORTABLEPORT-A0000-V0100</td>
+      <td class="dur">5:00</td>
+    </tr><tr class="winner-row">
+    <td>36</td>
+    <td class="artist">John Denver</td>
+    <td class="title">Take Me Home, Country Roads</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> takemehomecountry</td>
+    <td class="source">Rock Band 4 DLC</td>
+    <td class="pkg">UP8802-CUSA02084_00-RB4DELISTEDSONGS-A0000-V0100</td>
+    <td class="dur">2:06</td>
+  </tr><tr class="dupe-row">
+      <td>36</td>
+      <td class="artist">John Denver</td>
+      <td class="title">Take Me Home, Country Roads</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4SEASON21TOS30-A0000-V0100</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>37</td>
+    <td class="artist">Journey</td>
+    <td class="title">Any Way You Want It</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> cu_jawywi</td>
+    <td class="source">Custom</td>
+    <td class="pkg">DELISTEDRBSONGS1</td>
+    <td class="dur">4:02</td>
+  </tr><tr class="dupe-row">
+      <td>37</td>
+      <td class="artist">Journey</td>
+      <td class="title">Any Way You Want It</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> cu_jawywi</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-DELISTEDRBSONGS1</td>
+      <td class="dur">4:02</td>
+    </tr><tr class="dupe-row">
+      <td>37</td>
+      <td class="artist">Journey</td>
+      <td class="title">Any Way You Want It</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> anywayyouwantit</td>
+      <td class="source">Rock Band 2</td>
+      <td class="pkg">UP8802-CUSA02084_00-UNEXPORTABLEPORT-A0000-V0100</td>
+      <td class="dur">4:03</td>
+    </tr><tr class="winner-row">
+    <td>38</td>
+    <td class="artist">Linkin Park</td>
+    <td class="title">Figure.09</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o251678278_figure09_linkin</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">2:33</td>
+  </tr><tr class="dupe-row">
+      <td>38</td>
+      <td class="artist">Linkin Park</td>
+      <td class="title">Figure.09</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o868195519_figure09_linkin</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+      <td class="dur">2:15</td>
+    </tr><tr class="winner-row">
+    <td>39</td>
+    <td class="artist">Linkin Park</td>
+    <td class="title">Given Up</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o708534159_givenup_linkinp</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">2:56</td>
+  </tr><tr class="dupe-row">
+      <td>39</td>
+      <td class="artist">Linkin Park</td>
+      <td class="title">Given Up</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> givenup</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4SEASON21TOS30-A0000-V0100</td>
+      <td class="dur">2:35</td>
+    </tr><tr class="winner-row">
+    <td>40</td>
+    <td class="artist">Linkin Park</td>
+    <td class="title">Lying From You</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o712459985_lyingfromyou_li</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">2:33</td>
+  </tr><tr class="dupe-row">
+      <td>40</td>
+      <td class="artist">Linkin Park</td>
+      <td class="title">Lying From You</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> lyingfromyou</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4PRESEASONPASS-A0000-V0100</td>
+      <td class="dur">2:18</td>
+    </tr><tr class="winner-row">
+    <td>41</td>
+    <td class="artist">Linkin Park</td>
+    <td class="title">Pushing Me Away</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o616716122_pushingmeaway_l</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">2:15</td>
+  </tr><tr class="dupe-row">
+      <td>41</td>
+      <td class="artist">Linkin Park</td>
+      <td class="title">Pushing Me Away</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o725725846_pushingmeaway_l</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+      <td class="dur">2:15</td>
+    </tr><tr class="winner-row">
+    <td>42</td>
+    <td class="artist">Linkin Park</td>
+    <td class="title">Rebellion (ft. Daron Malakian)</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o799080733_rebellionftdaro</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">2:55</td>
+  </tr><tr class="dupe-row">
+      <td>42</td>
+      <td class="artist">Linkin Park</td>
+      <td class="title">Rebellion (ft. Daron Malakian)</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> rebellion</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4PRESEASONPASS-A0000-V0100</td>
+      <td class="dur">2:56</td>
+    </tr><tr class="winner-row">
+    <td>43</td>
+    <td class="artist">Linkin Park</td>
+    <td class="title">Two Faced</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o15530014_twofaced_linkinp</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">2:33</td>
+  </tr><tr class="dupe-row">
+      <td>43</td>
+      <td class="artist">Linkin Park</td>
+      <td class="title">Two Faced</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o442195564_twofaced_linkin</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+      <td class="dur">2:58</td>
+    </tr><tr class="winner-row">
+    <td>44</td>
+    <td class="artist">Linkin Park</td>
+    <td class="title">Wastelands</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o376030648_wastelands_link</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">3:41</td>
+  </tr><tr class="dupe-row">
+      <td>44</td>
+      <td class="artist">Linkin Park</td>
+      <td class="title">Wastelands</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o910062798_wastelands_link</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+      <td class="dur">2:56</td>
+    </tr><tr class="winner-row">
+    <td>45</td>
+    <td class="artist">Lizzo</td>
+    <td class="title">Juice</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> juice</td>
+    <td class="source">Rock Band 4 DLC</td>
+    <td class="pkg">UP8802-CUSA02084_00-RB4DELISTEDSONGS-A0000-V0100</td>
+    <td class="dur">1:12</td>
+  </tr><tr class="dupe-row">
+      <td>45</td>
+      <td class="artist">Lizzo</td>
+      <td class="title">Juice</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> juice</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4SEASON11TOS20-A0000-V0100</td>
+      <td class="dur">1:44</td>
+    </tr><tr class="winner-row">
+    <td>46</td>
+    <td class="artist">Maroon 5</td>
+    <td class="title">Maps</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> maps2</td>
+    <td class="source">Rock Band 4 DLC</td>
+    <td class="pkg">RB4DLCUNRELEASED</td>
+    <td class="dur">1:48</td>
+  </tr><tr class="dupe-row">
+      <td>46</td>
+      <td class="artist">Maroon 5</td>
+      <td class="title">Maps</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> maps2</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4DLCUNRELEASED-A0000-V0100</td>
+      <td class="dur">1:48</td>
+    </tr><tr class="winner-row">
+    <td>47</td>
+    <td class="artist">Matchbox Twenty</td>
+    <td class="title">Push</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> push</td>
+    <td class="source">Rock Band 4 DLC</td>
+    <td class="pkg">UP8802-CUSA02084_00-RB4SEASON01TOS10-A0000-V0100</td>
+    <td class="dur">2:18</td>
+  </tr><tr class="dupe-row">
+      <td>47</td>
+      <td class="artist">Matchbox Twenty</td>
+      <td class="title">Push</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-THEECURENOTINRB4</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>48</td>
+    <td class="artist">Metallica</td>
+    <td class="title">Battery</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> cu_mb</td>
+    <td class="source">Custom</td>
+    <td class="pkg">DELISTEDRBSONGS1</td>
+    <td class="dur">3:38</td>
+  </tr><tr class="dupe-row">
+      <td>48</td>
+      <td class="artist">Metallica</td>
+      <td class="title">Battery</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> cu_mb</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-DELISTEDRBSONGS1</td>
+      <td class="dur">3:38</td>
+    </tr><tr class="dupe-row">
+      <td>48</td>
+      <td class="artist">Metallica</td>
+      <td class="title">Battery</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> battery</td>
+      <td class="source">Rock Band 2</td>
+      <td class="pkg">UP8802-CUSA02084_00-UNEXPORTABLEPORT-A0000-V0100</td>
+      <td class="dur">4:21</td>
+    </tr><tr class="winner-row">
+    <td>49</td>
+    <td class="artist">Metallica</td>
+    <td class="title">Enter Sandman</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> cu_mes</td>
+    <td class="source">Custom</td>
+    <td class="pkg">DELISTEDRBSONGS1</td>
+    <td class="dur">3:38</td>
+  </tr><tr class="dupe-row">
+      <td>49</td>
+      <td class="artist">Metallica</td>
+      <td class="title">Enter Sandman</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> cu_mes</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-DELISTEDRBSONGS1</td>
+      <td class="dur">3:38</td>
+    </tr><tr class="dupe-row">
+      <td>49</td>
+      <td class="artist">Metallica</td>
+      <td class="title">Enter Sandman</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> entersandman</td>
+      <td class="source">Rock Band 1</td>
+      <td class="pkg">UP8802-CUSA02084_00-UNEXPORTABLEPORT-A0000-V0100</td>
+      <td class="dur">3:50</td>
+    </tr><tr class="winner-row">
+    <td>50</td>
+    <td class="artist">Michael Jackson</td>
+    <td class="title">Don't Stop 'til You Get Enough</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> dontstoptilyougetmj</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P11MJACK</td>
+    <td class="dur">2:31</td>
+  </tr><tr class="dupe-row">
+      <td>50</td>
+      <td class="artist">Michael Jackson</td>
+      <td class="title">Don't Stop 'Til You Get Enough</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> far_dontstoptillyougetv2</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P11MJACK</td>
+      <td class="dur">2:31</td>
+    </tr><tr class="winner-row">
+    <td>51</td>
+    <td class="artist">Michael Jackson</td>
+    <td class="title">I Just Can't Stop Loving You</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> far_ijustcantstoploving</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P11MJACK</td>
+    <td class="dur">2:31</td>
+  </tr><tr class="dupe-row">
+      <td>51</td>
+      <td class="artist">Michael Jackson</td>
+      <td class="title">I Just Can't Stop Loving You</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> ijustcantstopmj</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P11MJACK</td>
+      <td class="dur">2:19</td>
+    </tr><tr class="winner-row">
+    <td>52</td>
+    <td class="artist">Michael Jackson</td>
+    <td class="title">Smooth Criminal</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> far_smoothcriminal</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P11MJACK</td>
+    <td class="dur">2:40</td>
+  </tr><tr class="dupe-row">
+      <td>52</td>
+      <td class="artist">Michael Jackson</td>
+      <td class="title">Smooth Criminal</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P11MJACK</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="dupe-row">
+      <td>52</td>
+      <td class="artist">Michael Jackson</td>
+      <td class="title">Smooth Criminal</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> smoothcriminalmj</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P11MJACK</td>
+      <td class="dur">2:40</td>
+    </tr><tr class="winner-row">
+    <td>53</td>
+    <td class="artist">My Chemical Romance</td>
+    <td class="title">Welcome to the Black Parade</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> (empty)</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-RB2ROCKBAND2PASS-A0000-V0100</td>
+    <td class="dur">?:??</td>
+  </tr><tr class="dupe-row">
+      <td>53</td>
+      <td class="artist">My Chemical Romance</td>
+      <td class="title">Welcome to the Black Parade</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> theblackparade</td>
+      <td class="source">Rock Band 1 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RBLEGACYDLCPASS2-A0000-V0100</td>
+      <td class="dur">2:40</td>
+    </tr><tr class="winner-row">
+    <td>54</td>
+    <td class="artist">Nintendo</td>
+    <td class="title">Mario Party 1 Theme</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> cu_o455195774_marioparty1them</td>
+    <td class="source">Custom</td>
+    <td class="pkg">NINTENDO00000001</td>
+    <td class="dur">3:01</td>
+  </tr><tr class="dupe-row">
+      <td>54</td>
+      <td class="artist">Nintendo</td>
+      <td class="title">Mario Party 1 Theme</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> cu_o455195774_marioparty1them</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-NINTENDO00000001</td>
+      <td class="dur">3:01</td>
+    </tr><tr class="winner-row">
+    <td>55</td>
+    <td class="artist">Nintendo</td>
+    <td class="title">Rainbow Road</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> cu_o257270717_rainbowroad_nin</td>
+    <td class="source">Custom</td>
+    <td class="pkg">NINTENDO00000001</td>
+    <td class="dur">2:56</td>
+  </tr><tr class="dupe-row">
+      <td>55</td>
+      <td class="artist">Nintendo</td>
+      <td class="title">Rainbow Road</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> cu_o257270717_rainbowroad_nin</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-NINTENDO00000001</td>
+      <td class="dur">2:56</td>
+    </tr><tr class="winner-row">
+    <td>56</td>
+    <td class="artist">Nobuo Uematsu</td>
+    <td class="title">The Final Battle (FFIX)</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> ffix_finalbattle</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P07FNLFN</td>
+    <td class="dur">4:02</td>
+  </tr><tr class="dupe-row">
+      <td>56</td>
+      <td class="artist">Nobuo Uematsu</td>
+      <td class="title">The Final Battle (FFIX)</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o835101701_thefinalbattlef</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P07FNLFN</td>
+      <td class="dur">4:02</td>
+    </tr><tr class="winner-row">
+    <td>57</td>
+    <td class="artist">Nonpoint</td>
+    <td class="title">Alive and Kicking</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> ugc_5004569</td>
+    <td class="source">Rock Band 2</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+    <td class="dur">3:28</td>
+  </tr><tr class="dupe-row">
+      <td>57</td>
+      <td class="artist">Nonpoint</td>
+      <td class="title">Alive and Kicking</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> aliveandkicking_rbn</td>
+      <td class="source">Rock Band Network 1</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4RBNRERELEASES-A0000-V0100</td>
+      <td class="dur">2:58</td>
+    </tr><tr class="winner-row">
+    <td>58</td>
+    <td class="artist">Nonpoint</td>
+    <td class="title">Crazy</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> ugc_5006197</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+    <td class="dur">3:38</td>
+  </tr><tr class="dupe-row">
+      <td>58</td>
+      <td class="artist">Nonpoint</td>
+      <td class="title">Crazy</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> crazy_rbn</td>
+      <td class="source">Rock Band Network 1</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4RBNRERELEASES-A0000-V0100</td>
+      <td class="dur">3:38</td>
+    </tr><tr class="winner-row">
+    <td>59</td>
+    <td class="artist">Pearl Jam</td>
+    <td class="title">Alive</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> alive</td>
+    <td class="source">Rock Band 2</td>
+    <td class="pkg">UP8802-CUSA02084_00-RB2ROCKBAND2PASS-A0000-V0100</td>
+    <td class="dur">3:52</td>
+  </tr><tr class="dupe-row">
+      <td>59</td>
+      <td class="artist">Pearl Jam</td>
+      <td class="title">Alive</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4SEASON01TOS10-A0000-V0100</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>60</td>
+    <td class="artist">Rush</td>
+    <td class="title">Limelight</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> limelight</td>
+    <td class="source">Rock Band 1 DLC</td>
+    <td class="pkg">UP8802-CUSA02084_00-RBLEGACYDLCPASS1-A0000-V0100</td>
+    <td class="dur">3:20</td>
+  </tr><tr class="dupe-row">
+      <td>60</td>
+      <td class="artist">Rush</td>
+      <td class="title">Limelight</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-RBLEGACYDLCPASS1-A0000-V0100</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>61</td>
+    <td class="artist">Sia</td>
+    <td class="title">Chandelier</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> (empty)</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P14KTSIA</td>
+    <td class="dur">?:??</td>
+  </tr><tr class="dupe-row">
+      <td>61</td>
+      <td class="artist">Sia</td>
+      <td class="title">Chandelier</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> chandelier</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4PRESEASONPASS-A0000-V0100</td>
+      <td class="dur">1:55</td>
+    </tr><tr class="winner-row">
+    <td>62</td>
+    <td class="artist">Sia</td>
+    <td class="title">The Greatest (ft. Kendrick Lamar)</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> o275487678_thegreatestftke</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P14KTSIA</td>
+    <td class="dur">3:05</td>
+  </tr><tr class="dupe-row">
+      <td>62</td>
+      <td class="artist">Sia</td>
+      <td class="title">The Greatest (ft. Kendrick Lamar)</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> thegreatest</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P14KTSIA</td>
+      <td class="dur">3:05</td>
+    </tr><tr class="winner-row">
+    <td>63</td>
+    <td class="artist">The Calling</td>
+    <td class="title">Wherever You Will Go</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> (empty)</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P18FIXED</td>
+    <td class="dur">?:??</td>
+  </tr><tr class="dupe-row">
+      <td>63</td>
+      <td class="artist">The Calling</td>
+      <td class="title">Wherever You Will Go</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> whereveryouwillgo</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4SEASON31TOS35-A0000-V0100</td>
+      <td class="dur">1:24</td>
+    </tr><tr class="winner-row">
+    <td>64</td>
+    <td class="artist">The Cranberries</td>
+    <td class="title">Animal Instinct</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> animal</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+    <td class="dur">2:58</td>
+  </tr><tr class="dupe-row">
+      <td>64</td>
+      <td class="artist">The Cranberries</td>
+      <td class="title">Animal Instinct</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>65</td>
+    <td class="artist">the cranberries</td>
+    <td class="title">Dreams</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> dreamscoverbyaenv</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+    <td class="dur">2:15</td>
+  </tr><tr class="dupe-row">
+      <td>65</td>
+      <td class="artist">The Cranberries</td>
+      <td class="title">Dreams</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> dreams3</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4PRESEASONPASS-A0000-V0100</td>
+      <td class="dur">2:10</td>
+    </tr><tr class="winner-row">
+    <td>66</td>
+    <td class="artist">The Cranberries</td>
+    <td class="title">Zombie</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> tc_zombie_byaenv</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+    <td class="dur">2:15</td>
+  </tr><tr class="dupe-row">
+      <td>66</td>
+      <td class="artist">The Cranberries</td>
+      <td class="title">Zombie</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> zombie</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4PRESEASONPASS-A0000-V0100</td>
+      <td class="dur">2:57</td>
+    </tr><tr class="winner-row">
+    <td>67</td>
+    <td class="artist">The Isley Brothers</td>
+    <td class="title">Shout</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> shout2</td>
+    <td class="source">Rock Band 4 DLC</td>
+    <td class="pkg">UP8802-CUSA02084_00-RB4PRESEASONPASS-A0000-V0100</td>
+    <td class="dur">3:20</td>
+  </tr><tr class="dupe-row">
+      <td>67</td>
+      <td class="artist">The Isley Brothers</td>
+      <td class="title">Shout</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-RBLEGACYDLCPASS3-A0000-V0100</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>68</td>
+    <td class="artist">The Neighbourhood</td>
+    <td class="title">Closer</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> (empty)</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P15MISCS</td>
+    <td class="dur">?:??</td>
+  </tr><tr class="dupe-row">
+      <td>68</td>
+      <td class="artist">The Neighbourhood</td>
+      <td class="title">Closer</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> (empty)</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4PRESEASONPASS-A0000-V0100</td>
+      <td class="dur">?:??</td>
+    </tr><tr class="winner-row">
+    <td>69</td>
+    <td class="artist">The Strokes</td>
+    <td class="title">Is This It</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> (empty)</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P16STROK</td>
+    <td class="dur">?:??</td>
+  </tr><tr class="dupe-row">
+      <td>69</td>
+      <td class="artist">The Strokes</td>
+      <td class="title">Is This It</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o87204379_isthisit_thestro</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P16STROK</td>
+      <td class="dur">2:13</td>
+    </tr><tr class="winner-row">
+    <td>70</td>
+    <td class="artist">The Strokes</td>
+    <td class="title">Last Nite</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> lastnite</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P16STROK</td>
+    <td class="dur">2:31</td>
+  </tr><tr class="dupe-row">
+      <td>70</td>
+      <td class="artist">The Strokes</td>
+      <td class="title">Last Nite</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> o427158052_lastnite_thestr</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P16STROK</td>
+      <td class="dur">2:46</td>
+    </tr><tr class="winner-row">
+    <td>71</td>
+    <td class="artist">The Strokes</td>
+    <td class="title">Meet me in the Bathroom</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> meetmeinthebathroommgmv0</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P16STROK</td>
+    <td class="dur">2:15</td>
+  </tr><tr class="dupe-row">
+      <td>71</td>
+      <td class="artist">The Strokes</td>
+      <td class="title">Meet Me in the Bathroom</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> strokes_meetme</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P16STROK</td>
+      <td class="dur">2:15</td>
+    </tr><tr class="winner-row">
+    <td>72</td>
+    <td class="artist">Twenty One Pilots</td>
+    <td class="title">Stressed Out</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> (empty)</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P08GARBG</td>
+    <td class="dur">?:??</td>
+  </tr><tr class="dupe-row">
+      <td>72</td>
+      <td class="artist">Twenty One Pilots</td>
+      <td class="title">Stressed Out</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> stressedout</td>
+      <td class="source">Rock Band 4 DLC</td>
+      <td class="pkg">UP8802-CUSA02084_00-RB4PRESEASONPASS-A0000-V0100</td>
+      <td class="dur">2:19</td>
+    </tr><tr class="winner-row">
+    <td>73</td>
+    <td class="artist">"Weird Al" Yankovic</td>
+    <td class="title">Foil</td>
+    <td class="shortname"><span class="tag tag-winner">W</span> foilway</td>
+    <td class="source">Custom</td>
+    <td class="pkg">UP8802-CUSA02084_00-CREQ2604P17WRDAL</td>
+    <td class="dur">2:45</td>
+  </tr><tr class="dupe-row">
+      <td>73</td>
+      <td class="artist">"Weird Al" Yankovic</td>
+      <td class="title">Foil</td>
+      <td class="shortname"><span class="tag tag-dupe">D</span> way_foil_pvh</td>
+      <td class="source">Custom</td>
+      <td class="pkg">UP8802-CUSA02084_00-CREQ2604P17WRDAL</td>
+      <td class="dur">2:31</td>
+    </tr></tbody></table></body></html>
