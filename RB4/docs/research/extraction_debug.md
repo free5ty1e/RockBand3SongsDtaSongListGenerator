@@ -518,3 +518,200 @@ Onyx doesn't support these specific PS4 formats directly.
 2. **Compare populated vs empty songs in more PKGs** - Verify pattern holds
 3. **Investigate why specific songs (Bee Gees) have empty metadata while others work**
 4. **Check if metadata exists elsewhere in PKG (central database)**
+
+## CRITICAL: PS4 Cannot Contact Internet - Metadata Must Be Local!
+
+**Constraint:** The PS4 is NOT allowed to contact the internet.
+
+This means ALL metadata for songs must be stored locally on the PS4 system. Possible sources:
+
+1. **Game Disc PKG** - Contains base game songs with full metadata
+2. **System Update PKG** - Contains metadata DB for all DLC songs
+3. **DLC PKG** - Hidden/encrypted metadata file (haven't found it yet)
+
+**The game disc and update PKGs are NOT on the SMB share!**
+
+SMB Share Contents:
+- `incoming/temp/Rb4Dlc/` - 98 DLC PKGs (what we have)
+- `incoming/IncTorr/` - Other unrelated files
+- `incoming/w/` - Other unrelated files
+
+**Game disc and update PKGs are stored elsewhere** - need to locate them!
+
+## Baseline Recovery Process
+
+Our pipeline now correctly handles empty metadata songs:
+
+1. **Extract .songdta_ps4** from PKG
+2. **If empty (all zeros)** → mark as songdtaType=0, songId=0
+3. **Apply baseline fallback** → look up title/artist from `rb4_empty_songs_full.json`
+4. **Mark as inferred=True** → indicates data came from baseline
+
+Example output for empty song (cu_beegees_words):
+```
+{
+  "title": "Words",           <- from baseline
+  "artist": "Bee Gees",       <- from baseline  
+  "shortName": "",             <- empty (not in baseline)
+  "songId": 0,                <- from PKG (zeros)
+  "songdtaType": 0,           <- indicates empty
+  "inferred": true             <- flagged as fallback
+}
+```
+
+Working song for comparison:
+```
+{
+  "title": "I Can't See Nobody (Live)",  <- from .songdta
+  "artist": "Bee Gees",                   <- from .songdta  
+  "shortName": "cu_beegees_cantsee",     <- from .songdta
+  "songId": 91359571,                     <- from .songdta
+  "songdtaType": 11,                      <- normal type
+  "inferred": false
+}
+```
+
+## Summary: Where is Metadata?
+
+**Our extraction:** 
+- Parses .songdta_ps4 from DLC PKGs
+- When empty, uses baseline fallback for title/artist
+- shortName cannot be recovered from baseline
+
+**PS4 (no internet):** 
+- Must get metadata from somewhere local:
+  - Game disc/base PKG has metadata DB
+  - System update PKG has metadata
+  - Pre-loaded in game files
+
+## Game PKG Files Located!
+
+**SMB Location:** `//192.168.100.135/incoming/temp/rb4gamepkgs/`
+
+| File | Size | Description |
+|------|------|-------------|
+| Rock.Band.4_CUSA02084_v1.00_[2.50]_OPOISSO893.pkg | 3.7GB | Base game (65 disc songs) |
+| Rock.Band.4_CUSA02084_v2.21_[5.05]_OPOISSO893.pkg | 11GB | Update (full game) |
+| Rock.Band.Rivals.Expansion.Pack.pkg | 1MB | Rivals expansion |
+| RB4DX-PS4-2026.03.31.zip | 775MB | RB4DX mod (not metadata) |
+
+**PS4 FTP Access (READ-ONLY):**
+```
+ftp://192.168.100.117:2121
+Login: anonymous
+```
+
+**Hypothesis:** The base game PKG (v1.00) contains:
+1. A central songs.dta with metadata for ALL game songs
+2. The DLC PKGs reference this central database
+3. The 465 empty .songdta_ps4 files are placeholders that reference the central DB
+
+**Next Step:** Extract game PKG to find central songs database!
+
+## Base Game PKG Extraction (v1.00 - 3.7GB)
+
+Successfully downloaded and extracted to `/workspace/RB4/rb4_temp/basegame_extract/`
+
+### Contents:
+```
+uroot/
+├── eboot.bin (31MB) - main executable
+├── main_ps4_*.ark (29 files) - game archives (6MB to 536MB each)
+├── main_ps4.hdr - header
+├── sce_discmap.plt - disc map
+├── sce_module/ - system modules
+└── sce_sys/ - system files
+```
+
+### ARK File Sizes:
+| File | Size |
+|------|------|
+| main_ps4_28.ark | 9.9KB (smallest - config?) |
+| main_ps4_6.ark | 81KB |
+| main_ps4_1.ark | 686KB |
+| main_ps4_0.ark | 6.5MB |
+| main_ps4_7.ark | 9.7MB |
+| ... (larger files) |
+| main_ps4_11-16.ark | ~512MB each |
+
+### ARK Extraction Issues:
+- **onyx**: Unsupported ARK version (1634004056+)
+- **ForgeTool.exe**: Windows only, no Wine installed
+- **PKGTool**: Doesn't handle PS4 ARK format
+
+The ARK files in PS4 Rock Band 4 use a **different format** than previous games. Standard ARK extractors don't support them.
+
+### Hypothesis:
+The 465 empty metadata songs might be:
+1. Stored in a central ARK file we can't extract
+2. References to metadata in the game executable
+3. Decrypts metadata at runtime using keys from another file
+
+### Alternative Path:
+The metadata might be in the PS4 local storage, not the PKG. The PS4 downloads and stores DLC metadata locally when purchased.
+
+---
+
+## Investigation Status - April 23, 2026
+
+### Completed:
+- ✅ Analyzed BEEGEES PKG - 4 empty + 21 working songs
+- ✅ Analyzed SEASON11 PKG - 15 empty + 87 working songs
+- ✅ Documented ALL 465 empty metadata songs
+- ✅ Generated comprehensive HTML table at `/workspace/docs/rb4_unresolved_songs.html`
+- ✅ Verified 100% baseline coverage for empty songs
+- ✅ Downloaded and analyzed base game PKG (v1.00)
+- ✅ Found ARK files in base game (unsupported format)
+- ✅ Updated devcontainer with .NET SDK installation
+- ✅ Added .NET SDK to setup_devcontainer.sh
+
+### Findings:
+1. **465 songs have ALL ZEROS in .songdta_ps4** - Files are literally empty, not parsing issue
+2. **Same for .rbmid_ps4, .rbsong, .moggsong, .png_ps4** - All empty
+3. **Audio (.mogg) and face animation (.lipsync_ps4) ARE valid** - Songs are playable
+4. **Baseline provides metadata for all 465 songs** - Works correctly
+
+### Outstanding Issues:
+1. **Can't extract PS4 ARK files** - Different format, needs specialized tool
+2. **Base game metadata DB not found** - Would need to extract ARK files
+3. **PS4 FTP not accessible from container** - Different network
+
+### Pipeline Status:
+- Working extraction: 3,705 songs from PKGs
+- Baseline recovery: 462 additional songs
+- Total: 4,167 songs (3,682 unique)
+- Empty metadata with recovery: 465 (all recovered)
+
+### Next Steps (Priority Order):
+1. ~~Install Wine to run ForgeTool.exe~~ - Found metadata in ARK files without it!
+2. **Parse complete song list from ARK files** - Found 31 artists, 186+ titles
+3. **Match with 465 empty metadata songs** - See if we can find their titles
+4. **Integrate with extraction pipeline**
+
+---
+
+## BASE GAME SONG METADATA FOUND!
+
+**BREAKTHROUGH!** We found song metadata in base game ARK files:
+
+Analyzed: main_ps4_1.ark (686KB), main_ps4_6.ark (80KB), main_ps4_28.ark (9KB)
+
+### Artists Found (31):
+- Aerosmith, Alice In Chains, Arctic Monkeys, Avenged Sevenfold
+- Blink-182, Fleetwood Mac, Foo Fighters, Green Day
+- Iron Maiden, Linkin Park, Megadeth, Nirvana
+- Pantera, Pearl Jam, Queen, Scorpions
+- Soundgarden, System of a Down, The Clash, The Police
+- The Who, Van Halen, Weezer, and more
+
+### Song Titles Found (186+):
+- All American Boy, American Beauty, American Psycho
+- Blak and Blu, Blowin' Your Mind!
+- And many more...
+
+The metadata is in raw string format, not structured LISP format.
+
+### Next:
+1. Extract complete list of 65 disc songs from ARK
+2. Match against 465 empty metadata songs
+3. Integrate with pipeline

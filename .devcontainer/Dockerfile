@@ -36,6 +36,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     smbclient \
     libicu-dev \
     icu-devtools \
+    nano \
     && rm -rf /var/lib/apt/lists/*
 
 # ── Node.js 22 (NodeSource) ───────────────────────────────────────────────────

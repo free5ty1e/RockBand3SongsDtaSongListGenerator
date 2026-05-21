@@ -65,6 +65,31 @@ if [ ! -d "rb4dx_repo" ]; then
 fi
 echo "   ✅ RB4 tools ready"
 
+# 7. Install .NET SDK for building tools
+echo ""
+echo "📦 Installing .NET SDK..."
+export HOME_DIR="/home/vscode"
+if [ ! -d "$HOME_DIR/dotnet" ]; then
+    echo "   - Downloading .NET 8.0 SDK..."
+    wget -q https://dot.net/v1/dotnet-install.sh -O /tmp/dotnet-install.sh
+    chmod +x /tmp/dotnet-install.sh
+    mkdir -p $HOME_DIR/dotnet
+    /tmp/dotnet-install.sh --install-dir $HOME_DIR/dotnet --channel 8.0 2>&1 | tail -3
+    echo, "   - .NET SDK installed"
+fi
+export PATH="$HOME_DIR/dotnet:$PATH"
+echo "   - .NET $(dotnet --version 2>/dev/null || echo 'available')"
+
+# 8. Copy pre-built ForgeTool binaries for easy access
+echo ""
+echo "🛠️ Copying pre-built binaries..."
+mkdir -p /workspace/binaries
+if [ -f "/workspace/rb4dx_repo/dependencies/ForgeTool/ForgeTool.exe" ]; then
+    cp /workspace/rb4dx_repo/dependencies/ForgeTool/ForgeTool.exe /workspace/binaries/
+    echo "   - ForgeTool.exe copied to /workspace/binaries/"
+fi
+echo "   ✅ Binaries ready"
+
 echo ""
 echo "=========================================="
 echo "✅ Dev container ready!"
