@@ -183,30 +183,49 @@ function parseOnyxSong(obj, sourceOverride) {
   const pkFile = get('_pkg_file') || '';  // PKG metadata filename
   const instruments = get('instruments', 'instrumentEmoji') || '';
 
-  // FIX: Re-categorize songs that match official disc titles
-  // This fixes songs labeled as "Custom" that are actually from official RB disc exports
+  // FIX: Use gameOrigin from binary data (already extracted correctly)
+  // The gameOrigin field contains: rb1_dlc, rb2_dlc, rb3_dlc, rb4_dlc, rb1, rb2, rb3, rbn1, rbn2, greenday, lego, etc.
+  // This is already set in extract_binary_dta.py and stored in the JSON
+  
+  // Only override source if it's explicitly Custom - check gameOrigin
+  const gameOrigin = obj.gameOrigin || obj.gameOrigin || '';
+  if (source === 'Custom' && gameOrigin) {
+    const originMap = {
+      'rb1_dlc': 'Rock Band 1 DLC',
+      'rb2_dlc': 'Rock Band 2 DLC',
+      'rb3_dlc': 'Rock Band 3 DLC',
+      'rb4_dlc': 'Rock Band 4 DLC',
+      'rb1': 'Rock Band 1',
+      'rb2': 'Rock Band 2',
+      'rb3': 'Rock Band 3',
+      'rbn1': 'Rock Band Network 1',
+      'rbn2': 'Rock Band Network 2',
+      'legacy_rbn': 'Rock Band Network 1',
+      'greenday': 'Rock Band Green Day',
+      'gdrb': 'Rock Band Green Day',
+      'lego': 'LEGO Rock Band',
+      'beatles': 'The Beatles: Rock Band',
+      'tbrb': 'The Beatles: Rock Band',
+      'ugc_plus': 'Custom',
+      'ugc': 'Custom',
+    };
+    if (originMap[gameOrigin.toLowerCase()]) {
+      source = originMap[gameOrigin.toLowerCase()];
+    }
+  }
+  
+  // Legacy/fallback: Map PKG filenames to official sources (for songs where gameOrigin is empty)
   if (source === 'Custom' && pkFile) {
-    // Map PKG filenames to official sources
     const pkgSourceMap = {
-      // Disc exports
       'RB3ROCKBAND3PASS': 'Rock Band 3',
       'RB2ROCKBAND2PASS': 'Rock Band 2',
       'RB1ROCKBAND1PASS': 'Rock Band 1',
       'GDRBGREENDAYPASS': 'Rock Band Green Day',
       'LEGOROCKBANDPASS': 'LEGO Rock Band',
       'BEACHBOYS': 'Rock Band 3',
-      
-      // RB4 DLC (season passes, re-releases)
       'RB4PRESEASONPASS': 'Rock Band 4 DLC',
       'RB4SEASON': 'Rock Band 4 DLC',
       'RB4RBNRERELEASES': 'Rock Band Network 1',
-      
-      // Legacy DLC passes (RB1-3 era)
-      'RBLEGACYDLCPASS1': 'Rock Band 1 DLC',
-      'RBLEGACYDLCPASS2': 'Rock Band 2 DLC',
-      'RBLEGACYDLCPASS3': 'Rock Band 3 DLC',
-      
-      // RBN (when re-released for RB4)
       'RBN': 'Rock Band Network 1',
     };
     for (const [pkg, officialSource] of Object.entries(pkgSourceMap)) {
