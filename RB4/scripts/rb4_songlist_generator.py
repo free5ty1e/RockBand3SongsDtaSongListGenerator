@@ -91,7 +91,7 @@ def save_processed_pkgs(processed, processed_pkgs_file):
     """Save list of processed PKGs."""
     if processed_pkgs_file:
         with open(processed_pkgs_file, 'w') as f:
-            json.dump(sorted(processed), f, indent=2)
+            json.dump(sorted(processed), f, indent=2, ensure_ascii=False)
 
 def load_update_history():
     """Load update history."""
@@ -141,9 +141,11 @@ class ErrorTracker:
         if ERROR_LOG_FILE:
             with open(ERROR_LOG_FILE, 'w') as f:
                 json.dump({
-                    'errors': self.errors,
-                    'warnings': self.warnings
-                }, f, indent=2)
+                    "date": today_date,
+                    "count": len(processed),
+                    "pkgs": list(processed)
+                }, f, indent=2, ensure_ascii=False)
+
     
     def summary(self):
         total_errors = sum(len(v) for v in self.errors.values())
@@ -154,7 +156,7 @@ def save_update_history(history):
     """Save update history."""
     if UPDATE_HISTORY_FILE:
         with open(UPDATE_HISTORY_FILE, 'w') as f:
-            json.dump(history, f, indent=2)
+            json.dump(history, f, indent=2, ensure_ascii=False)
 
 def record_update(new_songs, total_songs_count):
     """Record this update in history."""
@@ -257,11 +259,9 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None,
         run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract PkgTool.Core pkg_extractinnerpfs "{pkg_path}" {pfs_file}', show_output=True, indent="\t\t", timeout=3600)
         
         # Step 2: Extract PFS contents with limited parallelism to avoid file lock errors
-        # Using environment variables to limit thread pool size and avoid parallel extraction
         log(f"\t\t{icon('music')} [3/4] Extracting song data from PFS...")
         sys.stdout.flush()
         try:
-            # Limit to 2 threads to reduce file lock conflicts
             run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 DOTNET_ProcessorCount=2 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
         except RuntimeError as e:
             if error_tracker:
@@ -281,8 +281,6 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None,
             log(f"\t\tNo songdta files found!")
             return []
         
-        # Extract metadata using Python script
-        # Write to metadata_dir if provided, otherwise temp_dir
         if metadata_dir:
             os.makedirs(metadata_dir, exist_ok=True)
             temp_output = os.path.join(metadata_dir, f'metadata_{basename}.json')
@@ -291,37 +289,27 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None,
         files_arg = ' '.join(f'"{f}"' for f in songdta_files)
         run_cmd(f'python3 /workspace/RB4/scripts/extract_binary_dta.py {files_arg} {temp_output}', show_output=True, indent="\t\t", timeout=300)
         
-        # Load and tag with source
         with open(temp_output) as f:
             songs = json.load(f)
         
-        # Handle empty songs using baseline if provided
         if empty_baseline:
             for song in songs:
-                # Use _debug_file (filename) as the key for the baseline mapping
                 filename = song.get('_debug_file', '')
                 short_name = filename.replace('.songdta_ps4', '')
-                
                 if not song.get('artist') or song.get('artist') == 'Unknown':
                     if short_name in empty_baseline:
                         baseline_info = empty_baseline[short_name]
-                        # Use baseline if current is empty or 'Unknown'
                         current_title = song.get('title')
                         current_artist = song.get('artist')
-                        
                         if not current_title or current_title == short_name:
                             song['title'] = baseline_info.get('title') or current_title
                         if not current_artist or current_artist == 'Unknown':
                             song['artist'] = baseline_info.get('artist') or current_artist
-                        # Mark as inferred so we know it came from fallback
                         song['inferred'] = True
-    
+        
         for song in songs:
             binary_source = song.get('source', '')
-            use_pkg_source = (
-                source_name not in ('unknown', 'Custom') or 
-                binary_source in ('Custom', 'unknown', '')
-            )
+            use_pkg_source = (source_name not in ('unknown', 'Custom') or binary_source in ('Custom', 'unknown', ''))
             if use_pkg_source:
                 song['source'] = source_name
         
@@ -329,11 +317,49 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None,
         return songs
         
     finally:
-        # Clean up to free disk space
         log(f"\t\t{icon('wrench')} [4/4] Cleaning up extraction files...")
         sys.stdout.flush()
         shutil.rmtree(work_dir, ignore_errors=True)
         log(success(f"Done: {pkg_name}"))
+
+def process_song_dates(all_songs, output_json):
+    """Handles date migration for existing songs and assigns current date to new ones.
+    Returns: (processed_songs, baseline_date)
+    """
+    from datetime import datetime
+    import os
+    
+    existing = []
+    if os.path.exists(output_json):
+        with open(output_json) as f:
+            try:
+                existing = json.load(f)
+            except json.JSONDecodeError:
+                existing = []
+    
+    # Hardcoded baseline date as requested by user: Saturday, April 18, 2026
+    baseline_date = '2026.04.18'
+    
+    existing_dict = {}
+    for s in existing:
+        if 'artist' in s and 'title' in s:
+            existing_dict[(s['artist'], s['title'])] = s
+    
+    today_date = datetime.now().strftime('%Y.%m.%d')
+    
+    processed_songs = []
+    for s in all_songs:
+        key = (s.get('artist'), s.get('title'))
+        if key in existing_dict:
+            existing_song = existing_dict[key]
+            # Use existing date if available, otherwise fallback to the baseline date
+            s['dateAdded'] = existing_song.get('dateAdded') or baseline_date
+        else:
+            # Truly new songs get today's date
+            s['dateAdded'] = today_date
+        processed_songs.append(s)
+    
+    return processed_songs, baseline_date
 
 
 def main():
@@ -344,13 +370,10 @@ def main():
 Examples:
   # Extract from local PKG directory (default paths)
   python3 RB4/scripts/rb4_extract_songs.py
-
   # Extract from network share mounted locally
   python3 RB4/scripts/rb4_extract_songs.py --pkg-dir /mnt/rb4dlc
-
   # Force full re-extraction (disable incremental mode)
   python3 RB4/scripts/rb4_extract_songs.py --pkg-dir /mnt/rb4dlc --no-incremental
-
   # Use custom temp directory
   python3 RB4/scripts/rb4_extract_songs.py --pkg-dir /mnt/rb4dlc --temp-dir /tmp/rb4_extract
 '''
@@ -381,10 +404,9 @@ Examples:
                         help='Log file path (default: temp_dir/rb4_extract_<timestamp>.log)')
     parser.add_argument('--progress-length', type=int, default=DEFAULT_PROGRESS_BAR_LENGTH,
                         help=f'Progress bar length in characters (default: {DEFAULT_PROGRESS_BAR_LENGTH})')
-
+    
     args = parser.parse_args()
-
-    # Ensure directories exist on fresh checkout
+    
     os.makedirs(args.temp_dir, exist_ok=True)
     os.makedirs(args.metadata_dir, exist_ok=True)
     os.makedirs(args.songlist_dir, exist_ok=True)
@@ -397,7 +419,6 @@ Examples:
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
         LOG_FILE = os.path.join(args.temp_dir, f'rb4_extract_{ts}.log')
     
-    # Derive state file paths from temp_dir
     PROCESSED_PKGS_FILE = get_processed_pkgs_file(args.temp_dir)
     UPDATE_HISTORY_FILE = get_update_history_file(args.temp_dir)
     ERROR_LOG_FILE = get_error_log_file(args.temp_dir)
@@ -405,62 +426,52 @@ Examples:
     log(f"{icon('floppy')} Logging to: {LOG_FILE}")
     log(f"{icon('clock')} Started at {datetime.now().isoformat()}")
     
-    # Initialize error tracker
     error_tracker = ErrorTracker()
     if not args.incremental:
         log(f"{icon('wrench')} Full rebuild mode - clearing previous state...")
         for f in [PROCESSED_PKGS_FILE, UPDATE_HISTORY_FILE, args.output_json]:
             if os.path.exists(f):
                 os.remove(f)
-        # Clear output directory BEFORE generating (skip directories)
         if os.path.exists(args.songlist_dir):
             for f in os.listdir(args.songlist_dir):
                 fpath = os.path.join(args.songlist_dir, f)
                 if os.path.isfile(fpath):
                     os.remove(fpath)
+                elif os.path.isdir(fpath) and f != 'songlistdata':
+                    import shutil
+                    shutil.rmtree(fpath)
     
-    # Find all PKG files
     empty_baseline = load_empty_songs_baseline()
     if empty_baseline:
         log(f"Loaded empty songs baseline with {len(empty_baseline)} entries")
-
-    if args.smb:
-        # Use smbclient to list PKGs from SMB share
+    
+    if args.reprocess_cached_metadata:
+        log(f"\n{icon('sparkles')} Generating song lists from existing metadata...")
+        pkg_files = []
+    elif args.smb:
         log("Accessing PKGs via SMB...")
         sys.path.insert(0, '/workspace/RB4/scripts')
         from smb_pkg_finder import list_pkgs as smb_list_pkgs
         pkg_names = smb_list_pkgs()
-        pkg_files = pkg_names  # Store just names, we'll fetch one at a time
+        pkg_files = pkg_names
     else:
-        # Handle --reprocess-cached-metadata: skip PKG scanning entirely
-        if args.reprocess_cached_metadata:
-            log(f"{icon('cached')} Reprocessing cached metadata (skipping PKG scan)...")
-            pkg_files = []
-        else:
-            # Local directory - filter out macOS hidden files (starting with ._)
-            if not os.path.isdir(args.pkg_dir):
-                log(f"ERROR: PKG directory not found: {args.pkg_dir}")
-                sys.exit(1)
-            
-            pkg_files = [
-                os.path.join(args.pkg_dir, f) 
-                for f in os.listdir(args.pkg_dir) 
-                if f.endswith('.pkg') and not f.startswith('._')
-            ]
+        if not os.path.isdir(args.pkg_dir):
+            log(f"ERROR: PKG directory not found: {args.pkg_dir}")
+            sys.exit(1)
+        pkg_files = [os.path.join(args.pkg_dir, f) for f in os.listdir(args.pkg_dir) if f.endswith('.pkg') and not f.startswith('._')]
+
     
-    # Skip to "no new PKGs" section for reprocess
     if args.reprocess_cached_metadata:
         log(f"\n{icon('sparkles')} Generating song lists from existing metadata...")
     
-    log(f"{icon('package')} Found {len(pkg_files)} PKG files in {args.pkg_dir}")
+    pkg_dir_display = args.pkg_dir if not args.smb else "SMB Share"
+    log(f"{icon('package')} Found {len(pkg_files)} PKG files in {pkg_dir_display}")
     
-    # Load processed PKGs for incremental mode
     processed = load_processed_pkgs(PROCESSED_PKGS_FILE) if args.incremental else set()
     log(f"Incremental mode: {'enabled' if args.incremental else 'disabled'}")
     if processed:
         log(f"  Already processed: {len(processed)} PKGs")
     
-    # Filter out already-processed PKGs
     if args.incremental:
         new_pkgs = [p for p in pkg_files if os.path.basename(p) not in processed]
         skipped = len(pkg_files) - len(new_pkgs)
@@ -471,190 +482,153 @@ Examples:
     if not pkg_files:
         log(f"{icon('check')} No new PKGs to process.")
         log(f"\n{icon('sparkles')} Generating song lists from existing data...")
-        
-        # Load existing songs from metadata directory
         log(f"{icon('loading')} Loading songs from {args.metadata_dir}...")
         from empty_song_processor import get_songs_with_fallback
-        baseline_path = '/workspace/RB4/rb4_empty_songs_full.json'
-        songs = get_songs_with_fallback(args.metadata_dir)
+        all_songs = get_songs_with_fallback(args.metadata_dir)
         
-        # Save as output JSON
-        with open(args.output_json, 'w') as f:
-            json.dump(songs, f, indent=2)
-        log(f"Saved {len(songs)} songs to {args.output_json}")
-        
-        # Generate TXT lists
-        run_cmd(f'cd /workspace/RB4 && node generate_rb4_song_list.js --baseline {args.baseline} --custom {args.output_json} --processed {PROCESSED_PKGS_FILE}')
-        
-        # Generate HTML
-        log(f"{icon('html')} Generating HTML song list...")
-        html_output = f"{args.songlist_dir}/RB4SongList.html"
-        run_cmd(f'python3 /workspace/RB4/scripts/generate_html_list.py {args.metadata_dir} {html_output}')
-        
-        # Copy to docs for GitHub Pages
-        docs_index = "/workspace/docs/RB4SongList.html"
-        if os.path.exists(html_output):
-            import shutil
-            shutil.copy(html_output, docs_index)
-            log(f"{icon('docs')} Copied HTML to docs for GitHub Pages: {docs_index}")
-        
-        # Auto-backup latest run
-        log(f"\n{icon('backup')} Running automatic backup...")
-        backup_script = os.path.join(os.path.dirname(__file__), 'backup_rb4_run.sh')
-        if os.path.exists(backup_script):
-            run_cmd(f'bash {backup_script}')
-            log(f"{icon('backup')} Backup complete!")
-        
-        log(success("Pipeline complete!"))
-        sys.exit(0)
+        # We skip the save and generation here and let the common pipeline handle it
+        # by simply continuing instead of sys.exit(0)
+    else:
+        log(f"{icon('folder')} Processing {len(pkg_files)} new PKGs...")
+        # ... (rest of the extraction logic)
+
     
     log(f"{icon('folder')} Processing {len(pkg_files)} new PKGs...")
-    
     all_songs = []
     total_pkgs = len(pkg_files)
     
     for idx, pkg_path in enumerate(sorted(pkg_files), 1):
         source = get_pkg_source(pkg_path)
         pkg_name = os.path.basename(pkg_path)
-        
-        # For SMB mode: fetch one file at a time
         if args.smb:
             log(f"[{idx}/{total_pkgs}] Fetching: {pkg_name}")
             sys.stdout.flush()
-            
-            # Fetch from SMB to temp dir
-            sys.path.insert(0, '/workspace/RB4/scripts')
-            from smb_pkg_finder import get_pkg_file
-            fetch_ok = get_pkg_file(pkg_name, args.temp_dir)
-            
-            if not fetch_ok:
-                log(f"  ERROR: Failed to fetch {pkg_name} from SMB")
-                continue
-            
-            # Use the fetched file
-            pkg_path = os.path.join(args.temp_dir, pkg_name)
+            local_pkg_path = os.path.join(args.temp_dir, pkg_name)
+            if os.path.exists(local_pkg_path):
+                pkg_path = local_pkg_path
+            else:
+                sys.path.insert(0, '/workspace/RB4/scripts')
+                from smb_pkg_finder import get_pkg_file
+                if not get_pkg_file(pkg_name, args.temp_dir):
+                    log(f"  ERROR: Failed to fetch {pkg_name} from SMB")
+                    continue
+                pkg_path = local_pkg_path
         
         log(f"[{idx}/{total_pkgs}] Processing: {pkg_name}")
         sys.stdout.flush()
-        
         try:
             songs = extract_songdta_from_pkg(pkg_path, source, args.temp_dir, args.metadata_dir, empty_baseline, error_tracker)
             all_songs.extend(songs)
-            
-            # For SMB mode: clean up immediately after processing to free space
             if args.smb and os.path.exists(pkg_path):
                 os.remove(pkg_path)
-                log(f"\tCleaned up {pkg_name} to free space")
-            
-            # Mark as processed
             processed.add(pkg_name)
             save_processed_pkgs(processed, PROCESSED_PKGS_FILE)
-            
             pct = int(idx / total_pkgs * 100)
             log(f"{icon('chart')} {progress_bar(idx, total_pkgs, length=args.progress_length)} | {icon('music')} {len(all_songs)} songs")
             sys.stdout.flush()
-            
         except Exception as e:
             error_msg = str(e)
-            # Categorize the error based on what failed
-            if 'pkg_extractinnerpfs' in error_msg:
-                error_tracker.add_error('pfs_image_extract_failed', pkg_name, error_msg)
-            elif 'pfs_extract' in error_msg:
-                error_tracker.add_error('pfs_contents_extract_failed', pkg_name, error_msg)
-            elif 'UnauthorizedAccessException' in error_msg or 'MemoryMapped' in error_msg:
-                error_tracker.add_error('memory_map_error', pkg_name, error_msg)
-            else:
-                error_tracker.add_error('pkg_processing_failed', pkg_name, error_msg)
+            if 'pkg_extractinnerpfs' in error_msg: error_tracker.add_error('pfs_image_extract_failed', pkg_name, error_msg)
+            elif 'pfs_extract' in error_msg: error_tracker.add_error('pfs_contents_extract_failed', pkg_name, error_msg)
+            elif 'UnauthorizedAccessException' in error_msg or 'MemoryMapped' in error_msg: error_tracker.add_error('memory_map_error', pkg_name, error_msg)
+            else: error_tracker.add_error('pkg_processing_failed', pkg_name, error_msg)
             log(error(f"ERROR processing {pkg_name}: {e}"))
             continue
     
     log(f"\n{icon('trophy')} Extracted {icon('music')} {len(all_songs)} songs from {icon('package')} {len(pkg_files)} PKGs")
     
-    # Load existing songs if incremental mode and file exists
     if args.incremental and os.path.exists(args.output_json):
         with open(args.output_json) as f:
             existing = json.load(f)
-        # Merge (new songs will override duplicates)
-        existing_dict = {(s['artist'], s['title']): s for s in existing}
-        for song in all_songs:
-            key = (song['artist'], song['title'])
-            existing_dict[key] = song
-        all_songs = list(existing_dict.values())
+        
+        # Use a list for existing songs to preserve duplicates
+        # We only deduplicate if the song is truly a duplicate (same artist, title, album, year, duration)
+        # or if we want to specifically merge newly extracted metadata into old entries.
+        
+        # To preserve duplicates from the source HTML/JSON:
+        all_songs_merged = existing[:]
+        
+        # For each newly extracted song, check if it's truly new or an update to an existing one
+        for new_song in all_songs:
+            # Search for a match in existing songs
+            match_idx = -1
+            for i, ex_song in enumerate(all_songs_merged):
+                if (ex_song.get('artist') == new_song.get('artist') and 
+                    ex_song.get('title') == new_song.get('title') and 
+                    ex_song.get('shortName') == new_song.get('shortName')):
+                    match_idx = i
+                    break
+            
+            if match_idx != -1:
+                # Update the existing entry with new metadata
+                all_songs_merged[match_idx].update(new_song)
+            else:
+                # It's a truly new song
+                all_songs_merged.append(new_song)
+                
+        all_songs = all_songs_merged
         log(f"Merged with existing: {len(all_songs)} total songs")
     
-    # Filter out garbage entries
+    all_songs, baseline_date = process_song_dates(all_songs, args.output_json)
+    
     valid_songs = [s for s in all_songs if s.get('title') or s.get('artist')]
     garbage = len(all_songs) - len(valid_songs)
     if garbage > 0:
         log(f"Filtered out {garbage} garbage entries")
     
-    # NEW: Track empty songs separately (these are REAL songs with unparseable metadata)
-    # They have no title/artist because .songdta_ps4 contains only zeros
     empty_songs = [s for s in all_songs if not s.get('title') and not s.get('artist')]
     if empty_songs:
         empty_output = os.path.join(os.path.dirname(args.output_json), 'empty_songs.json')
         with open(empty_output, 'w') as f:
-            json.dump(empty_songs, f, indent=2)
-        log(f"Saved {len(empty_songs)} empty songs (unparseable metadata) to: {empty_output}")
+            json.dump(empty_songs, f, indent=2, ensure_ascii=False)
+        log(f"Saved {len(empty_songs)} empty songs to: {empty_output}")
     
-    # Record update for history (always, to show in output)
-    # Track which songs are new in this run
     existing_set = set()
     if os.path.exists(args.output_json):
         with open(args.output_json) as f:
             existing = json.load(f)
-            existing_set = {(s['artist'], s['title']) for s in existing}
+            existing_set = {(s['artist'], s['title']) for s in existing if 'artist' in s and 'title' in s}
     
-    new_only = [s for s in valid_songs if (s['artist'], s['title']) not in existing_set]
+    new_only = [s for s in valid_songs if (s.get('artist'), s.get('title')) not in existing_set]
     if new_only:
         record_update(new_only, len(valid_songs))
         log(f"Recorded {len(new_only)} new songs in update history")
     elif len(all_songs) > 0:
-        # Even if no truly new songs, record this run (for --no-incremental)
         record_update(valid_songs, len(valid_songs))
         log(f"Recorded {len(valid_songs)} songs in update history (full rebuild)")
     
-    # Write JSON
     with open(args.output_json, 'w') as f:
-        json.dump(valid_songs, f, indent=2)
+        json.dump(valid_songs, f, indent=2, ensure_ascii=False)
     log(f"\n{icon('floppy')} Written: {args.output_json}")
     
-    # Check for issues
-    zero_dur = [s for s in valid_songs if s.get('durationMs', 0) == 0]
-    if zero_dur:
-        log(f"\n⚠️  Songs with durationMs=0: {len(zero_dur)}")
-    
-    # Generate song lists
     log(f"\n{icon('sparkles')} Generating song lists...")
-    run_cmd(f'cd /workspace/RB4 && node generate_rb4_song_list.js --baseline {args.baseline} --custom {args.output_json} --processed {PROCESSED_PKGS_FILE}')
+    abs_baseline = os.path.abspath(args.baseline)
+    abs_custom = os.path.abspath(args.output_json)
+    abs_processed = os.path.abspath(PROCESSED_PKGS_FILE)
+    abs_outdir = os.path.abspath(args.songlist_dir)
+    run_cmd(f'cd /workspace/RB4 && node generate_rb4_song_list.js --baseline {abs_baseline} --baseline-date {baseline_date} --custom {abs_custom} --processed {abs_processed} --outdir {abs_outdir}')
     
-    # Generate HTML output
     log(f"{icon('html')} Generating HTML song list...")
-    html_output = f"{args.songlist_dir}/RB4SongList.html"
-    run_cmd(f'python3 /workspace/RB4/scripts/generate_html_list.py {args.metadata_dir} {html_output}')
+    abs_metadata_dir = os.path.abspath(args.metadata_dir)
+    abs_html_output = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', args.songlist_dir, 'RB4SongList.html'))
+    run_cmd(f'python3 /workspace/RB4/scripts/generate_html_list.py {abs_metadata_dir} {abs_html_output} --baseline-date {baseline_date}')
     
-    # Copy to docs for GitHub Pages
     docs_index = "/workspace/docs/RB4SongList.html"
-    if os.path.exists(html_output):
+    if os.path.exists(abs_html_output) and abs_html_output != docs_index:
         import shutil
-        shutil.copy(html_output, docs_index)
+        shutil.copy(abs_html_output, docs_index)
         log(f"{icon('docs')} Copied HTML to docs for GitHub Pages: {docs_index}")
     
-    # Save error tracking report
     error_tracker.save()
     log(f"\n📊 Error Report: {error_tracker.summary()}")
-    log(f"   Full report saved to: {ERROR_LOG_FILE}")
     
-    # Auto-backup latest run
     log(f"\n{icon('backup')} Running automatic backup...")
     backup_script = os.path.join(os.path.dirname(__file__), 'backup_rb4_run.sh')
     if os.path.exists(backup_script):
         run_cmd(f'bash {backup_script}')
-        log(f"{icon('backup')} Backup complete!")
     
-    log("\n✅ Pipeline complete!")
-    log(f"{icon('clip')} Processed PKGs saved to: {PROCESSED_PKGS_FILE}")
-
+    log(success("Pipeline complete!"))
+    sys.exit(0)
 
 if __name__ == '__main__':
     main()

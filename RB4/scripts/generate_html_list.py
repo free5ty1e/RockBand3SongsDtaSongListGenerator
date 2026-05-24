@@ -20,7 +20,7 @@ INSTRUMENT_ICONS = {
     'real_keys': '🎹',
 }
 
-def generate_html(metadata_dir, output_file, page_title=None):
+def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None):
     """Generate HTML file from metadata directory."""
     
     if page_title is None:
@@ -141,7 +141,8 @@ def generate_html(metadata_dir, output_file, page_title=None):
             "shortName": short_name,
             "instruments": instruments_display,
             "inferred": infer,
-            "pkg": pkg_file
+            "pkg": pkg_file,
+            "dateAdded": s.get("dateAdded") or baseline_date or ""
         })
     
     js_data = json.dumps(js_songs)
@@ -225,7 +226,7 @@ def generate_html(metadata_dir, output_file, page_title=None):
                 }
                 return true;
             });
-            const cols = ['artist', 'title', 'album', 'year', 'duration', 'source', 'instruments', 'shortName', 'inferred', 'pkg'];
+            const cols = ['artist', 'title', 'album', 'year', 'duration', 'source', 'instruments', 'shortName', 'dateAdded', 'inferred', 'pkg'];
             f.sort((a, b) => {
                 const va = a[cols[col]], vb = b[cols[col]];
                 if (typeof va === 'number') return asc ? va - vb : vb - va;
@@ -244,6 +245,7 @@ def generate_html(metadata_dir, output_file, page_title=None):
                     <td><span class="source-${s.source.replace(/\s+/g, '')}">${s.source}</span></td>
                     <td class="instr">${s.instruments || ''}</td>
                     <td style="font-family:monospace;font-size:11px;">${s.shortName || ''}</td>
+                    <td style="font-family:monospace;font-size:11px;">${s.dateAdded || ''}</td>
                     <td class="inferred">${s.inferred || ''}</td>
                     <td style="font-family:monospace;font-size:10px;color:#888;">${s.pkg || ''}</td>
                 </tr>
@@ -399,8 +401,9 @@ def generate_html(metadata_dir, output_file, page_title=None):
                 <th onclick="sort(5)">Source ⬍</th>
                 <th onclick="sort(6)">Instruments ⬍</th>
                 <th onclick="sort(7)">ShortName ⬍</th>
-                <th onclick="sort(8)">Inferred* ⬍</th>
-                <th onclick="sort(9)">PKG ⬍</th>
+                <th onclick="sort(8)">Date Added ⬍</th>
+                <th onclick="sort(9)">Inferred* ⬍</th>
+                <th onclick="sort(10)">PKG ⬍</th>
             </tr>
         </thead>
         <tbody id="body"></tbody>
@@ -425,6 +428,7 @@ if __name__ == '__main__':
     parser.add_argument('metadata_dir', help='Directory with metadata JSON files')
     parser.add_argument('output_html', help='Output HTML file')
     parser.add_argument('--title', default=None, help='HTML page title')
+    parser.add_argument('--baseline-date', default=None, help='Baseline date for songs without one')
     args = parser.parse_args()
     
     # Load config for custom title
@@ -437,4 +441,4 @@ if __name__ == '__main__':
                     title = line.split('=', 1)[1].strip().strip('"')
                     break
     
-    generate_html(args.metadata_dir, args.output_html, title)
+    generate_html(args.metadata_dir, args.output_html, title, args.baseline_date)

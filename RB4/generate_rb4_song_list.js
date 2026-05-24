@@ -238,46 +238,11 @@ function parseOnyxSong(obj, sourceOverride) {
 
   if (!artist || !title) return null; // skip non-song PKGs
   const inferred = obj.inferred || obj.Inferred || false;
-  return { artist, album: album || null, title, year: isNaN(year) ? null : year, durationMs, source, shortName, instruments, inferred, _pkg_file: pkFile };
+  return { artist, album: album || null, title, year: isNaN(year) ? null : year, durationMs, source, shortName, instruments, inferred, _pkg_file: pkFile, dateAdded: obj.dateAdded };
 }
 
 // ── Format a song as an output line (artist-sorted style) ────────────────────
-function formatArtistLine(song) {
-  const album   = song.album  || '(unknown album)';
-  const year    = song.year   != null ? song.year : '?';
-  const dur     = msToMmSs(song.durationMs);
-  const shortName = song.shortName || '';
-  const pkgFile = song._pkg_file || '';  // PKG metadata filename
-  let instruments = song.instruments || '';
-  
-  // For baseline (official) songs OR inferred songs, default to full band + vocals
-  // Emoji order: 🎸=guitar, 🎸=bass, 🥁=drums, 🎤=vocals
-  // Check for harmony (vocalParts > 1 means multiple vocal tracks)
-  const isBaseline = song.source && (
-    song.source === 'Rock Band 4' || 
-    song.source === 'Rock Band 4 Rivals' || 
-    song.source.startsWith('Rock Band 4 ')  // Covers "Rock Band 4 DLC", "Rock Band 4 Rivals xpak", etc.
-  );
-  const isInferred = song.inferred && (song.inferred === true || song.inferred === '✓' || song.inferred === 'true');
-  if (song.vocalParts && song.vocalParts > 1) {
-    instruments = '🎸 🎸 🥁 🎤 🎤';  // Multiple vocal mics for harmony
-  } else if (!instruments && (isBaseline || isInferred)) {
-    instruments = '🎸 🎸 🥁 🎤';  // guitar, bass, drums, vocals
-  }
-  
-  // Add inference indicator for songs that used empty song fallback
-  const inferred = song.inferred ? ' 🔍' : '';
-  
-  // PKG source info - show both shortName and PKG filename
-  const shortNameStr = shortName ? `[${shortName}]` : '';
-  const pkgStr = pkgFile ? `<${pkgFile}>` : '';
-  const pkgDisplay = [shortNameStr, pkgStr].filter(x => x).join(' ');
-
-  return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source} ${pkgDisplay}${inferred} ${instruments}`;
-}
-
-// ── Format a song as a name-sorted line ──────────────────────────────────────
-function formatNameLine(song) {
+function formatArtistLine(song, baselineDate) {
   const album   = song.album  || '(unknown album)';
   const year    = song.year   != null ? song.year : '?';
   const dur     = msToMmSs(song.durationMs);
@@ -289,7 +254,7 @@ function formatNameLine(song) {
   const isBaseline = song.source && (
     song.source === 'Rock Band 4' || 
     song.source === 'Rock Band 4 Rivals' || 
-    song.source.startsWith('Rock Band 4 ')  // Covers "Rock Band 4 DLC", "Rock Band 4 Rivals xpak", etc.
+    song.source.startsWith('Rock Band 4 ')
   );
   const isInferred = song.inferred && (song.inferred === true || song.inferred === '✓' || song.inferred === 'true');
   if (song.vocalParts && song.vocalParts > 1) {
@@ -298,15 +263,43 @@ function formatNameLine(song) {
     instruments = '🎸 🎸 🥁 🎤';
   }
   
-  // Add inference indicator for songs that used empty song fallback
   const inferred = song.inferred ? ' 🔍' : '';
-  
-  // PKG source info - show both shortName and PKG filename
   const shortNameStr = shortName ? `[${shortName}]` : '';
   const pkgStr = pkgFile ? `<${pkgFile}>` : '';
   const pkgDisplay = [shortNameStr, pkgStr].filter(x => x).join(' ');
+  const dateStr = (song.dateAdded || baselineDate) ? `(Added: ${song.dateAdded || baselineDate})` : '';
 
-  return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source} ${pkgDisplay}${inferred} ${instruments}`;
+  return `${song.artist} (${album}) - ${song.title} (${year} / ${dur}) - ${song.source} ${pkgDisplay}${inferred} ${instruments} ${dateStr}`.trim();
+}
+
+// ── Format a song as a name-sorted line ──────────────────────────────────────
+function formatNameLine(song, baselineDate) {
+  const album   = song.album  || '(unknown album)';
+  const year    = song.year   != null ? song.year : '?';
+  const dur     = msToMmSs(song.durationMs);
+  const shortName = song.shortName || '';
+  const pkgFile = song._pkg_file || '';  // PKG metadata filename
+  let instruments = song.instruments || '';
+  
+  const isBaseline = song.source && (
+    song.source === 'Rock Band 4' || 
+    song.source === 'Rock Band 4 Rivals' || 
+    song.source.startsWith('Rock Band 4 ')
+  );
+  const isInferred = song.inferred && (song.inferred === true || song.inferred === '✓' || song.inferred === 'true');
+  if (song.vocalParts && song.vocalParts > 1) {
+    instruments = '🎸 🎸 🥁 🎤 🎤';
+  } else if (!instruments && (isBaseline || isInferred)) {
+    instruments = '🎸 🎸 🥁 🎤';
+  }
+  
+  const inferred = song.inferred ? ' 🔍' : '';
+  const shortNameStr = shortName ? `[${shortName}]` : '';
+  const pkgStr = pkgFile ? `<${pkgFile}>` : '';
+  const pkgDisplay = [shortNameStr, pkgStr].filter(x => x).join(' ');
+  const dateStr = (song.dateAdded || baselineDate) ? `(Added: ${song.dateAdded || baselineDate})` : '';
+
+  return `${song.title} by ${song.artist} on ${album} (${year} / ${dur}) - ${song.source} ${pkgDisplay}${inferred} ${instruments} ${dateStr}`.trim();
 }
 
 // ── Build stats header ────────────────────────────────────────────────────────
@@ -544,12 +537,14 @@ function main(argv) {
     timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
   }
   let verbose      = false;
+  let baselineDate = null;
   let processedArg = null;
   let allowDuplicates = false;
 
   for (let i = 2; i < argv.length; i++) {
     switch (argv[i]) {
       case '--baseline': baselineFile = argv[++i]; break;
+      case '--baseline-date': baselineDate = argv[++i]; break;
       case '--custom':   customFile   = argv[++i]; break;
       case '--outdir':   outDir       = argv[++i]; break;
       case '--timezone': timezone     = argv[++i]; break;
@@ -700,8 +695,8 @@ function main(argv) {
 
   const header = buildHeader(allSongs, timestamp, duplicatesCount);
 
-  const artistLines = artistSorted.map(formatArtistLine);
-  const nameLines   = nameSorted.map(formatNameLine);
+  const artistLines = artistSorted.map(song => formatArtistLine(song, baselineDate));
+  const nameLines   = nameSorted.map(song => formatNameLine(song, baselineDate));
 
   writePair(
     artistLines, artistSorted, header,

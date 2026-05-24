@@ -14,6 +14,9 @@ mkdir -p "$BACKUP_DIR"
 cp output/*.txt "$BACKUP_DIR/" 2>/dev/null || true
 cp output/*.html "$BACKUP_DIR/" 2>/dev/null || true
 
+# Persistent state files
+cp /workspace/docs/songlistdata/*.json "$BACKUP_DIR/" 2>/dev/null || true
+
 # Intermediate files in rb4_temp
 cp rb4_temp/rb4_custom_songs.json "$BACKUP_DIR/" 2>/dev/null || true
 cp rb4_temp/processed_pkgs.json "$BACKUP_DIR/" 2>/dev/null || true
