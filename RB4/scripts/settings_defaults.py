@@ -17,7 +17,7 @@ DEFAULT_PKG_DIR = "/workspace/RB4/pkgs"
 DEFAULT_TEMP_DIR = "/workspace/RB4/rb4_temp"
 DEFAULT_OUTPUT_JSON = "/workspace/docs/songlistdata/rb4_custom_songs.json"
 DEFAULT_SONGLIST_DIR = "/workspace/docs"
-DEFAULT_METADATA_DIR = "/workspace/output/PkgMetadataExtracted"
+DEFAULT_METADATA_DIR = "/workspace/docs/songlistdata/metadata"
 DEFAULT_DOCS_DIR = "/workspace/docs"
 
 # ── State File Names (relative to temp_dir) ──────────────────────────────

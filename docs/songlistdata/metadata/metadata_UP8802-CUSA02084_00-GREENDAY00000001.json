@@ -1,0 +1,46 @@
+[
+  {
+    "artist": "Green Day",
+    "title": "Espionage",
+    "album": "Austin Powers: The Spy Who Shagged Me",
+    "year": 1999,
+    "durationMs": 176000,
+    "source": "Custom",
+    "songId": 103655362,
+    "shortName": "cu_greenday_espionage",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 1999,
+    "originalYear": 1999,
+    "albumTrackNumber": 7,
+    "genre": "rock",
+    "previewStart": 4000.0,
+    "previewEnd": 34000.0,
+    "difficulty": {
+      "guitar": 176.0,
+      "bass": 181.0,
+      "vocals": 0.0,
+      "drums": 178.0,
+      "band": 243.0,
+      "keys": 0.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83e\udd41",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Female",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 0,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_greenday_espionage.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

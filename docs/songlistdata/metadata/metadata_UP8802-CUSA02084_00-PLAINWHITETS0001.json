@@ -1,0 +1,47 @@
+[
+  {
+    "artist": "Plain White T's",
+    "title": "Underdog Rock",
+    "album": "Underdog Soundtrack",
+    "year": 2007,
+    "durationMs": 181000,
+    "source": "Custom",
+    "songId": 91177636,
+    "shortName": "cu_o439707410_underdogrock_pl",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 2007,
+    "originalYear": 2007,
+    "albumTrackNumber": 1,
+    "genre": "rock",
+    "previewStart": 70000.0,
+    "previewEnd": 100000.0,
+    "difficulty": {
+      "guitar": 221.0,
+      "bass": 181.0,
+      "vocals": 218.0,
+      "drums": 345.0,
+      "band": 243.0,
+      "keys": 0.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83c\udfa4\ud83e\udd41",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "vocals",
+      "drums"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Male",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 3,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_o439707410_underdogrock_pl.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

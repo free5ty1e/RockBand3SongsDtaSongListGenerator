@@ -1,0 +1,48 @@
+[
+  {
+    "artist": "Benny Benassi",
+    "title": "Satisfaction",
+    "album": "Hypnotica",
+    "year": 2003,
+    "durationMs": 124000,
+    "source": "Custom",
+    "songId": 91297375,
+    "shortName": "cu_sheepqueen_satisfaction",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 2003,
+    "originalYear": 2003,
+    "albumTrackNumber": 1,
+    "genre": "popdanceelectronic",
+    "previewStart": 50000.0,
+    "previewEnd": 80000.0,
+    "difficulty": {
+      "guitar": 0.0,
+      "bass": 181.0,
+      "vocals": 1.0,
+      "drums": 124.0,
+      "band": 165.0,
+      "keys": 153.0,
+      "realKeys": 153.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfa4\ud83e\udd41\ud83c\udfb9\ud83c\udfb9",
+    "instrumentList": [
+      "bass",
+      "vocals",
+      "drums",
+      "keys",
+      "real_keys"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Male",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 2,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_sheepqueen_satisfaction.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

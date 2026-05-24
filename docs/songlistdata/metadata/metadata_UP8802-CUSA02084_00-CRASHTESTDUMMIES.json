@@ -1,0 +1,49 @@
+[
+  {
+    "artist": "Crash Test Dummies",
+    "title": "Mmm Mmm Mmm Mmm",
+    "album": "God Shuffled His Feet",
+    "year": 1993,
+    "durationMs": 124000,
+    "source": "Custom",
+    "songId": 91374683,
+    "shortName": "cu_far_mmmmmmmmmmmm",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 1993,
+    "originalYear": 1993,
+    "albumTrackNumber": 3,
+    "genre": "alternative",
+    "previewStart": 30000.0,
+    "previewEnd": 60000.0,
+    "difficulty": {
+      "guitar": 139.0,
+      "bass": 181.0,
+      "vocals": 218.0,
+      "drums": 124.0,
+      "band": 215.0,
+      "keys": 153.0,
+      "realKeys": 211.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83c\udfa4\ud83e\udd41\ud83c\udfb9\ud83c\udfb9",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "vocals",
+      "drums",
+      "keys",
+      "real_keys"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Male",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 3,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_far_mmmmmmmmmmmm.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

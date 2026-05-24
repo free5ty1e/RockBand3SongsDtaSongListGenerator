@@ -1,0 +1,47 @@
+[
+  {
+    "artist": "Billy Joel",
+    "title": "Why Should I Worry",
+    "album": "My Lives",
+    "year": 1998,
+    "durationMs": 176000,
+    "source": "Custom",
+    "songId": 105973163,
+    "shortName": "cu_billyjoel_whyshouldiworry",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 1998,
+    "originalYear": 1998,
+    "albumTrackNumber": 15,
+    "genre": "poprock",
+    "previewStart": 80000.0,
+    "previewEnd": 110000.0,
+    "difficulty": {
+      "guitar": 176.0,
+      "bass": 181.0,
+      "vocals": 218.0,
+      "drums": 178.0,
+      "band": 267.0,
+      "keys": 0.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83c\udfa4\ud83e\udd41",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "vocals",
+      "drums"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Male",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 3,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_billyjoel_whyshouldiworry.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

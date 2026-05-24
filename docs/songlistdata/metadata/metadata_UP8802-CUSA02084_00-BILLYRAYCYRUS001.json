@@ -1,0 +1,47 @@
+[
+  {
+    "artist": "Billy Ray Cyrus",
+    "title": "Achy Breaky Heart",
+    "album": "Some Gave All",
+    "year": 1992,
+    "durationMs": 151000,
+    "source": "Custom",
+    "songId": 93499182,
+    "shortName": "cu_brc_abh",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 1992,
+    "originalYear": 1992,
+    "albumTrackNumber": 2,
+    "genre": "country",
+    "previewStart": 36000.0,
+    "previewEnd": 66000.0,
+    "difficulty": {
+      "guitar": 176.0,
+      "bass": 181.0,
+      "vocals": 175.0,
+      "drums": 151.0,
+      "band": 215.0,
+      "keys": 0.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83c\udfa4\ud83e\udd41",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "vocals",
+      "drums"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Female",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 3,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_brc_abh.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "artist": "The Toonosaurs",
+    "title": "Spider-Man Theme (The Animated Series)",
+    "album": "TV Cartoon Fan Collection",
+    "year": 2011,
+    "durationMs": 151000,
+    "source": "Custom",
+    "songId": 99417869,
+    "shortName": "cu_o747684411_spidermanthemet",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 2011,
+    "originalYear": 2011,
+    "albumTrackNumber": 1,
+    "genre": "rock",
+    "previewStart": 4000.0,
+    "previewEnd": 34000.0,
+    "difficulty": {
+      "guitar": 221.0,
+      "bass": 181.0,
+      "vocals": 1.0,
+      "drums": 151.0,
+      "band": 243.0,
+      "keys": 0.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83c\udfa4\ud83e\udd41",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "vocals",
+      "drums"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Female",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 1,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_o747684411_spidermanthemet.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

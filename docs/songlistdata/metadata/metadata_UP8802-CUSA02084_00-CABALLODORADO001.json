@@ -1,0 +1,47 @@
+[
+  {
+    "artist": "Caballo Dorado",
+    "title": "No Rompas Mi Corazon",
+    "album": "No Rompas Mi Corazon",
+    "year": 1997,
+    "durationMs": 124000,
+    "source": "Custom",
+    "songId": 91861018,
+    "shortName": "cu_o724053335",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 1997,
+    "originalYear": 1997,
+    "albumTrackNumber": 1,
+    "genre": "country",
+    "previewStart": 64000.0,
+    "previewEnd": 94000.0,
+    "difficulty": {
+      "guitar": 139.0,
+      "bass": 1.0,
+      "vocals": 132.0,
+      "drums": 124.0,
+      "band": 163.0,
+      "keys": 0.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83c\udfa4\ud83e\udd41",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "vocals",
+      "drums"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Male",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 1,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_o724053335.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

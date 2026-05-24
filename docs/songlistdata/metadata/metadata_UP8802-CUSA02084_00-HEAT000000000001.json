@@ -1,0 +1,47 @@
+[
+  {
+    "artist": "H.e.a.t.",
+    "title": "Best of the Broken",
+    "album": "Into the Great Unknown",
+    "year": 2017,
+    "durationMs": 178000,
+    "source": "Custom",
+    "songId": 92698341,
+    "shortName": "cu_heat_bestofthebroken",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 2017,
+    "originalYear": 2017,
+    "albumTrackNumber": 5,
+    "genre": "rock",
+    "previewStart": 90000.0,
+    "previewEnd": 120000.0,
+    "difficulty": {
+      "guitar": 221.0,
+      "bass": 228.0,
+      "vocals": 279.0,
+      "drums": 178.0,
+      "band": 267.0,
+      "keys": 0.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83c\udfa4\ud83e\udd41",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "vocals",
+      "drums"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Male",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 3,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_heat_bestofthebroken.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

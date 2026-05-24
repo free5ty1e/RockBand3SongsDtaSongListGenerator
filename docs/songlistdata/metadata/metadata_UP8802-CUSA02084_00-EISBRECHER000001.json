@@ -1,0 +1,49 @@
+[
+  {
+    "artist": "Eisbrecher",
+    "title": "Leider",
+    "album": "Antik\u00f6rper",
+    "year": 2006,
+    "durationMs": 178000,
+    "source": "Custom",
+    "songId": 98126691,
+    "shortName": "cu_eisbrecher_leider",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 2006,
+    "originalYear": 2006,
+    "albumTrackNumber": 3,
+    "genre": "alternative",
+    "previewStart": 80000.0,
+    "previewEnd": 110000.0,
+    "difficulty": {
+      "guitar": 267.0,
+      "bass": 181.0,
+      "vocals": 353.0,
+      "drums": 178.0,
+      "band": 292.0,
+      "keys": 211.0,
+      "realKeys": 211.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83c\udfa4\ud83e\udd41\ud83c\udfb9\ud83c\udfb9",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "vocals",
+      "drums",
+      "keys",
+      "real_keys"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Male",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 3,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_eisbrecher_leider.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

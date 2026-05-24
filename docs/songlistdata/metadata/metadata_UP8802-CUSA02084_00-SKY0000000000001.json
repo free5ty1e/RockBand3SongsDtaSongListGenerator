@@ -1,0 +1,47 @@
+[
+  {
+    "artist": "Sky",
+    "title": "Some Kinda Wonderful",
+    "album": "Piece of Paradise",
+    "year": 1998,
+    "durationMs": 178000,
+    "source": "Custom",
+    "songId": 100684137,
+    "shortName": "cu_o424618085_somekindawonder",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 1998,
+    "originalYear": 1998,
+    "albumTrackNumber": 4,
+    "genre": "rock",
+    "previewStart": 41000.0,
+    "previewEnd": 71000.0,
+    "difficulty": {
+      "guitar": 221.0,
+      "bass": 293.0,
+      "vocals": 218.0,
+      "drums": 178.0,
+      "band": 267.0,
+      "keys": 0.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83c\udfa4\ud83e\udd41",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "vocals",
+      "drums"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Male",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 3,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_o424618085_somekindawonder.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "artist": "Doubledrive",
+    "title": "Mexican Radio",
+    "album": "1000 Yard Stare",
+    "year": 1999,
+    "durationMs": 175000,
+    "source": "Custom",
+    "songId": 93826247,
+    "shortName": "cu_doubledrive_mexicanradio",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 1999,
+    "originalYear": 1999,
+    "albumTrackNumber": 12,
+    "genre": "rock",
+    "previewStart": 80000.0,
+    "previewEnd": 110000.0,
+    "difficulty": {
+      "guitar": 176.0,
+      "bass": 181.0,
+      "vocals": 175.0,
+      "drums": 242.0,
+      "band": 243.0,
+      "keys": 0.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83c\udfa4\ud83e\udd41",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "vocals",
+      "drums"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Male",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 3,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_doubledrive_mexicanradio.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

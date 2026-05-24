@@ -1,0 +1,47 @@
+[
+  {
+    "artist": "The Black Crowes",
+    "title": "Go Faster",
+    "album": "By Your Side",
+    "year": 1998,
+    "durationMs": 178000,
+    "source": "Custom",
+    "songId": 104036806,
+    "shortName": "cu_bc_gofaster",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 1998,
+    "originalYear": 1998,
+    "albumTrackNumber": 1,
+    "genre": "rock",
+    "previewStart": 30000.0,
+    "previewEnd": 60000.0,
+    "difficulty": {
+      "guitar": 221.0,
+      "bass": 181.0,
+      "vocals": 279.0,
+      "drums": 178.0,
+      "band": 267.0,
+      "keys": 0.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83c\udfa4\ud83e\udd41",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "vocals",
+      "drums"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Male",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 3,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_bc_gofaster.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

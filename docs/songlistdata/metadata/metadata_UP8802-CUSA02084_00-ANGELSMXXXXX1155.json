@@ -1,0 +1,47 @@
+[
+  {
+    "artist": "Sarah McLachlan",
+    "title": "Angel",
+    "album": "Surfacing",
+    "year": 1997,
+    "durationMs": 175000,
+    "source": "Custom",
+    "songId": 96471155,
+    "shortName": "angelsm",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 1997,
+    "originalYear": 1997,
+    "albumTrackNumber": 7,
+    "genre": "poprock",
+    "previewStart": 63000.0,
+    "previewEnd": 93000.0,
+    "difficulty": {
+      "guitar": 0.0,
+      "bass": 1.0,
+      "vocals": 175.0,
+      "drums": 0.0,
+      "band": 215.0,
+      "keys": 269.0,
+      "realKeys": 269.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfa4\ud83c\udfb9\ud83c\udfb9",
+    "instrumentList": [
+      "bass",
+      "vocals",
+      "keys",
+      "real_keys"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Female",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 1,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "angelsm.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

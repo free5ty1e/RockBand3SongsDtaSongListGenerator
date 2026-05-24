@@ -1,0 +1,46 @@
+[
+  {
+    "artist": "Pinball Madness 3",
+    "title": "Mean Machines",
+    "album": "Pinball Madness 3",
+    "year": 2000,
+    "durationMs": 221000,
+    "source": "Custom",
+    "songId": 101660765,
+    "shortName": "cu_o844353659_meanmachines_pi",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 2000,
+    "originalYear": 2000,
+    "albumTrackNumber": 1,
+    "genre": "metal",
+    "previewStart": 30000.0,
+    "previewEnd": 60000.0,
+    "difficulty": {
+      "guitar": 221.0,
+      "bass": 228.0,
+      "vocals": 0.0,
+      "drums": 448.0,
+      "band": 243.0,
+      "keys": 0.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83e\udd41",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Female",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 0,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_o844353659_meanmachines_pi.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

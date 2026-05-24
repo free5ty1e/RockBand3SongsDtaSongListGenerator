@@ -1,0 +1,47 @@
+[
+  {
+    "artist": "Jim Guthrie & Jj Ipsen",
+    "title": "The Light In Us All",
+    "album": "You, Me, & Gravity: The Music of Planet Coaster",
+    "year": 2016,
+    "durationMs": 176000,
+    "source": "Custom",
+    "songId": 100463785,
+    "shortName": "cu_jjipsen_lightinusall",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 2016,
+    "originalYear": 2016,
+    "albumTrackNumber": 1,
+    "genre": "novelty",
+    "previewStart": 90000.0,
+    "previewEnd": 120000.0,
+    "difficulty": {
+      "guitar": 176.0,
+      "bass": 228.0,
+      "vocals": 0.0,
+      "drums": 178.0,
+      "band": 243.0,
+      "keys": 1.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83e\udd41\ud83c\udfb9",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "keys"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Female",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 0,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_jjipsen_lightinusall.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

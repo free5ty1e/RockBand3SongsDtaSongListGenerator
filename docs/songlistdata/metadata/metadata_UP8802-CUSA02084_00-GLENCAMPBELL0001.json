@@ -1,0 +1,47 @@
+[
+  {
+    "artist": "Glen Campbell",
+    "title": "Sun Do Shine",
+    "album": "Rock-a-doodle",
+    "year": 1991,
+    "durationMs": 151000,
+    "source": "Custom",
+    "songId": 96175910,
+    "shortName": "cu_glencampbell_sundoshine",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 1991,
+    "originalYear": 1991,
+    "albumTrackNumber": 1,
+    "genre": "country",
+    "previewStart": 30000.0,
+    "previewEnd": 60000.0,
+    "difficulty": {
+      "guitar": 221.0,
+      "bass": 181.0,
+      "vocals": 175.0,
+      "drums": 151.0,
+      "band": 243.0,
+      "keys": 0.0,
+      "realKeys": 0.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83c\udfa4\ud83e\udd41",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "vocals",
+      "drums"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Male",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 3,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_glencampbell_sundoshine.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]

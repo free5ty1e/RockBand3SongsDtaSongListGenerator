@@ -1,0 +1,48 @@
+[
+  {
+    "artist": "Estaban Garcia",
+    "title": "Malaguena",
+    "album": "Flamenco Y Rosas",
+    "year": 1995,
+    "durationMs": 178000,
+    "source": "Custom",
+    "songId": 92198997,
+    "shortName": "cu_esteban_malaguena",
+    "gameOrigin": "ugc_plus",
+    "albumYear": 1995,
+    "originalYear": 1995,
+    "albumTrackNumber": 22,
+    "genre": "latin",
+    "previewStart": 40000.0,
+    "previewEnd": 70000.0,
+    "difficulty": {
+      "guitar": 267.0,
+      "bass": 181.0,
+      "vocals": 0.0,
+      "drums": 178.0,
+      "band": 267.0,
+      "keys": 211.0,
+      "realKeys": 211.0
+    },
+    "instruments": "\ud83c\udfb8\ud83c\udfb8\ud83e\udd41\ud83c\udfb9\ud83c\udfb9",
+    "instrumentList": [
+      "guitar",
+      "bass",
+      "drums",
+      "keys",
+      "real_keys"
+    ],
+    "tutorial": 0,
+    "albumArt": 1,
+    "cover": 0,
+    "vocalGender": "Male",
+    "animTempo": "",
+    "hasMarkup": 0,
+    "vocalParts": 0,
+    "fake": 0,
+    "songdtaType": 11,
+    "version": -1,
+    "_debug_file": "cu_esteban_malaguena.songdta_ps4",
+    "parse_mode": "exact_offsets"
+  }
+]
