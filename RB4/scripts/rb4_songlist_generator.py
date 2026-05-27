@@ -242,85 +242,115 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None,
     """Extract only .songdta_ps4 files from a PKG using two-step extraction."""
     pkg_name = os.path.basename(pkg_path)
     log(style(f"[1/4] Extracting: {pkg_name}", color_name='cyan'))
-    log(f"\t\t{icon('gear')} [1/4] Extracting: {pkg_name}")
+    log(f"		{icon('gear')} [1/4] Extracting: {pkg_name}")
     sys.stdout.flush()
-    
     basename = pkg_name.replace('.pkg', '')
     work_dir = os.path.join(temp_dir, 'pfs_extract_' + basename)
     pfs_file = os.path.join(work_dir, "inner.pfs")
     pfs_extract_dir = os.path.join(work_dir, "pfs_contents")
-    
     os.makedirs(work_dir, exist_ok=True)
-    
     try:
         # Step 1: Extract inner PFS image
-        log(f"\t\t{icon('floppy')} [2/4] Extracting PFS image...")
+        log(f"		{icon('floppy')} [2/4] Extracting PFS image...")
         sys.stdout.flush()
-        run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract PkgTool.Core pkg_extractinnerpfs "{pkg_path}" {pfs_file}', show_output=True, indent="\t\t", timeout=3600)
         
-        # Step 2: Extract PFS contents with limited parallelism to avoid file lock errors
-        log(f"\t\t{icon('music')} [3/4] Extracting song data from PFS...")
+        # Use /tmp for extraction to avoid MemoryMappedFile UnauthorizedAccessException on some filesystems
+        tmp_pkg_path = f"/tmp/{pkg_name}"
+        tmp_pfs_file = f"/tmp/{basename}_inner.pfs"
+        
+        run_cmd(f'cp \"{pkg_path}\" \"{tmp_pkg_path}\"')
+        run_cmd(f'sudo env DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract PkgTool.Core pkg_extractinnerpfs \"{tmp_pkg_path}\" \"{tmp_pfs_file}\"', show_output=True, indent="		", timeout=3600)
+        run_cmd(f'sudo chown vscode:vscode \"{tmp_pfs_file}\"')
+        run_cmd(f'mv \"{tmp_pfs_file}\" \"{pfs_file}\"')
+        run_cmd(f'rm \"{tmp_pkg_path}\"')
+        
+        # Step 2: Extract PFS contents
+        log(f"		{icon('music')} [3/4] Extracting song data from PFS...")
         sys.stdout.flush()
+        
+        tmp_pfs_extract_dir = f"/tmp/pfs_extract_{basename}"
+        tmp_pfs_extract_dir_retry = f"/tmp/pfs_extract_{basename}_retry"
+        
         try:
-            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 DOTNET_ProcessorCount=2 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
+            # Extract to /tmp first, then move to work_dir
+            run_cmd(f'sudo env DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 DOTNET_ProcessorCount=2 PkgTool.Core pfs_extract \"{pfs_file}\" \"{tmp_pfs_extract_dir}\"', show_output=True, indent="			", timeout=3600)
+            run_cmd(f'sudo chown -R vscode:vscode \"{tmp_pfs_extract_dir}\"')
+            run_cmd(f'cp -r \"{tmp_pfs_extract_dir}\" \"{pfs_extract_dir}\"')
+            run_cmd(f'rm -rf \"{tmp_pfs_extract_dir}\"')
         except RuntimeError as e:
-            if error_tracker:
-                error_tracker.add_error('pfs_extraction_failed', pkg_name, str(e))
-            log(f"\t\tFirst attempt failed: {e}")
-            log("\t\tRetrying with single thread...")
-            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 DOTNET_ProcessorCount=1 PkgTool.Core pfs_extract {pfs_file} {pfs_extract_dir}', show_output=True, indent="\t\t\t", timeout=3600)
-        
-        # Find all .songdta_ps4 files
+            if error_tracker: error_tracker.add_error('pfs_extraction_failed', pkg_name, str(e))
+            log(f"		First attempt failed: {e}")
+            log("		Retrying with single thread...")
+            run_cmd(f'sudo env DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 DOTNET_ProcessorCount=1 PkgTool.Core pfs_extract \"{pfs_file}\" \"{tmp_pfs_extract_dir_retry}\"', show_output=True, indent="			", timeout=3600)
+            run_cmd(f'sudo chown -R vscode:vscode \"{tmp_pfs_extract_dir_retry}\"')
+            run_cmd(f'cp -r \"{tmp_pfs_extract_dir_retry}\" \"{pfs_extract_dir}\"')
+            run_cmd(f'rm -rf \"{tmp_pfs_extract_dir_retry}\"')
+
         songdta_files = []
         for root, dirs, files in os.walk(pfs_extract_dir):
             for f in files:
-                if f.endswith('.songdta_ps4'):
-                    songdta_files.append(os.path.join(root, f))
-        
+                if f.endswith('.songdta_ps4'): songdta_files.append(os.path.join(root, f))
         if not songdta_files:
-            log(f"\t\tNo songdta files found!")
+            log(f"		No songdta files found!")
             return []
-        
-        if metadata_dir:
-            os.makedirs(metadata_dir, exist_ok=True)
-            temp_output = os.path.join(metadata_dir, f'metadata_{basename}.json')
-        else:
-            temp_output = os.path.join(temp_dir, f'metadata_{basename}.json')
-        files_arg = ' '.join(f'"{f}"' for f in songdta_files)
-        run_cmd(f'python3 /workspace/RB4/scripts/extract_binary_dta.py {files_arg} {temp_output}', show_output=True, indent="\t\t", timeout=300)
-        
-        with open(temp_output) as f:
-            songs = json.load(f)
-        
-        if empty_baseline:
-            for song in songs:
-                filename = song.get('_debug_file', '')
-                short_name = filename.replace('.songdta_ps4', '')
-                if not song.get('artist') or song.get('artist') == 'Unknown':
-                    if short_name in empty_baseline:
-                        baseline_info = empty_baseline[short_name]
-                        current_title = song.get('title')
-                        current_artist = song.get('artist')
-                        if not current_title or current_title == short_name:
-                            song['title'] = baseline_info.get('title') or current_title
-                        if not current_artist or current_artist == 'Unknown':
-                            song['artist'] = baseline_info.get('artist') or current_artist
-                        song['inferred'] = True
-        
+    except RuntimeError as e:
+        log(f"		Standard extraction failed: {e}")
+        log("		Attempting fallback to pkg_extract...")
+        try:
+            fallback_dir = os.path.join(work_dir, "full_extract")
+            os.makedirs(fallback_dir, exist_ok=True)
+            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract PkgTool.Core pkg_extract "{pkg_path}" {fallback_dir}', show_output=True, indent="		", timeout=3600)
+            songdta_files = []
+            for root, dirs, files in os.walk(fallback_dir):
+                for f in files:
+                    if f.endswith('.songdta_ps4'): songdta_files.append(os.path.join(root, f))
+            if not songdta_files: raise RuntimeError("Fallback pkg_extract failed to find any .songdta_ps4 files")
+            log(f"		Fallback successful: Found {len(songdta_files)} songdta files")
+        except Exception as fallback_e:
+            log(f"		Fallback pkg_extract also failed: {fallback_e}")
+            log("\t\tAttempting ultimate fallback to pkg_makegp4...")
+            try:
+                gp4_dir = os.path.join(work_dir, "gp4_extract")
+                os.makedirs(gp4_dir, exist_ok=True)
+                run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract PkgTool.Core pkg_makegp4 "{pkg_path}" {gp4_dir}', show_output=True, indent="		", timeout=3600)
+                
+                songdta_files = []
+                songs_dir = os.path.join(gp4_dir, "songs")
+                if os.path.exists(songs_dir):
+                    for root, dirs, files in os.walk(songs_dir):
+                        for f in files:
+                            if f.endswith('.songdta_ps4'): songdta_files.append(os.path.join(root, f))
+                
+                if not songdta_files:
+                    raise RuntimeError("Ultimate fallback pkg_makegp4 failed to find any .songdta_ps4 files")
+                log(f"		Ultimate fallback successful: Found {len(songdta_files)} songdta files")
+            except Exception as gp4_e:
+                if error_tracker:
+                    error_tracker.add_error('extraction_completely_failed', pkg_name, str(gp4_e))
+                log(f"		All extraction methods failed: {gp4_e}")
+                return []
+
+    if metadata_dir:
+        os.makedirs(metadata_dir, exist_ok=True)
+        temp_output = os.path.join(metadata_dir, f'metadata_{basename}.json')
+    else:
+        temp_output = os.path.join(temp_dir, f'metadata_{basename}.json')
+    files_arg = ' '.join(f'"{f}"' for f in songdta_files)
+    run_cmd(f'python3 /workspace/RB4/scripts/extract_binary_dta.py {files_arg} {temp_output}', show_output=True, indent="		", timeout=300)
+    with open(temp_output) as f:
+        songs = json.load(f)
+    if empty_baseline:
         for song in songs:
-            binary_source = song.get('source', '')
-            use_pkg_source = (source_name not in ('unknown', 'Custom') or binary_source in ('Custom', 'unknown', ''))
-            if use_pkg_source:
-                song['source'] = source_name
-        
-        log(f"\t\tExtracted {len(songs)} songs")
-        return songs
-        
-    finally:
-        log(f"\t\t{icon('wrench')} [4/4] Cleaning up extraction files...")
-        sys.stdout.flush()
-        shutil.rmtree(work_dir, ignore_errors=True)
-        log(success(f"Done: {pkg_name}"))
+            filename = song.get('_debug_file', '')
+            short_name = filename.replace('.songdta_ps4', '')
+            if not song.get('artist') or song.get('artist') == 'Unknown':
+                if short_name in empty_baseline:
+                    baseline_info = empty_baseline[short_name]
+                    if not song.get('title') or song.get('title') == short_name:
+                        song['title'] = baseline_info.get('title') or song.get('title')
+                    if not song.get('artist') or song.get('artist') == 'Unknown':
+                        song['artist'] = baseline_info.get('artist') or song.get('artist')
+    return songs
 
 def process_song_dates(all_songs, output_json):
     """Handles date migration for existing songs and assigns current date to new ones.
@@ -504,14 +534,21 @@ Examples:
             log(f"[{idx}/{total_pkgs}] Fetching: {pkg_name}")
             sys.stdout.flush()
             local_pkg_path = os.path.join(args.temp_dir, pkg_name)
+            test_pkg_path = f"/workspace/rb4_temp/test_pkgs/{pkg_name}"
             if os.path.exists(local_pkg_path):
                 pkg_path = local_pkg_path
+            elif os.path.exists(test_pkg_path):
+                log(f"		Using local copy: {test_pkg_path}")
+                pkg_path = test_pkg_path
             else:
                 sys.path.insert(0, '/workspace/RB4/scripts')
                 from smb_pkg_finder import get_pkg_file
                 if not get_pkg_file(pkg_name, args.temp_dir):
                     log(f"  ERROR: Failed to fetch {pkg_name} from SMB")
-                    continue
+                pkg_path = local_pkg_path
+
+                pkg_path = local_pkg_path
+
                 pkg_path = local_pkg_path
         
         log(f"[{idx}/{total_pkgs}] Processing: {pkg_name}")
