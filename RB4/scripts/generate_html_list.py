@@ -171,12 +171,16 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
             // Calculate default ranges from data
             const years = SONG_DATA.map(s => s.year).filter(y => y);
             const durs = SONG_DATA.map(s => s.duration).filter(d => d);
+            const dates = SONG_DATA.map(s => s.dateAdded).filter(d => d).sort();
             const minYear = Math.min(...years), maxYear = Math.max(...years);
             const minDur = Math.min(...durs), maxDur = Math.max(...durs);
+            const minDate = dates[0] || '', maxDate = dates[dates.length - 1] || '';
             document.getElementById('yearFrom').value = minYear;
             document.getElementById('yearTo').value = maxYear;
             document.getElementById('durMin').value = minDur;
             document.getElementById('durMax').value = maxDur;
+            document.getElementById('dateFrom').value = minDate;
+            document.getElementById('dateTo').value = maxDate;
             document.getElementById('yearFrom').placeholder = minYear;
             document.getElementById('yearTo').placeholder = maxYear;
             document.getElementById('durMin').placeholder = minDur;
@@ -191,6 +195,8 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
             window.DEFAULT_MAX_YEAR = maxYear;
             window.DEFAULT_MIN_DUR = minDur;
             window.DEFAULT_MAX_DUR = maxDur;
+            window.DEFAULT_MIN_DATE = minDate;
+            window.DEFAULT_MAX_DATE = maxDate;
             filter();
         }
         
@@ -200,10 +206,14 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
             const yt = document.getElementById('yearTo').value;
             const df = document.getElementById('durMin').value;
             const dt = document.getElementById('durMax').value;
+            const ddf = document.getElementById('dateFrom').value;
+            const ddt = document.getElementById('dateTo').value;
             const yearFrom = yf ? parseInt(yf) : window.DEFAULT_MIN_YEAR || 0;
             const yearTo = yt ? parseInt(yt) : window.DEFAULT_MAX_YEAR || 9999;
             const durMin = df ? parseInt(df) : window.DEFAULT_MIN_DUR || 0;
             const durMax = dt ? parseInt(dt) : window.DEFAULT_MAX_DUR || 99999;
+            const dateFrom = ddf || window.DEFAULT_MIN_DATE || '';
+            const dateTo = ddt || window.DEFAULT_MAX_DATE || '';
             const src = document.getElementById('source').value;
             const checkedInsts = [...document.querySelectorAll('#instFilter input:checked')].map(i => i.value);
             
@@ -211,6 +221,7 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
                 if (search && !s.artist.toLowerCase().includes(search) && !s.title.toLowerCase().includes(search) && !s.album.toLowerCase().includes(search) && !s.shortName.toLowerCase().includes(search)) return false;
                 if (s.year && (s.year < yearFrom || s.year > yearTo)) return false;
                 if (s.duration && (s.duration < durMin || s.duration > durMax)) return false;
+                if (s.dateAdded && (s.dateAdded < dateFrom || s.dateAdded > dateTo)) return false;
                 if (src && s.source !== src) return false;
                 if (checkedInsts.length > 0 && s.instruments) {
                     const instLower = s.instruments.toLowerCase();
@@ -254,6 +265,8 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
             document.getElementById('yearTo').value = '';
             document.getElementById('durMin').value = '';
             document.getElementById('durMax').value = '';
+            document.getElementById('dateFrom').value = '';
+            document.getElementById('dateTo').value = '';
             document.getElementById('source').value = '';
             document.querySelectorAll('#instFilter input').forEach(i => i.checked = true);
             filter();
@@ -358,8 +371,17 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
             <input type="number" id="yearTo" onchange="filter()">
         </div>
         <div class="control-group">
+            <label>📅 Added From</label>
+            <input type="text" id="dateFrom" placeholder="YYYY.MM.DD" onkeyup="filter()">
+        </div>
+        <div class="control-group">
+            <label>📅 Added To</label>
+            <input type="text" id="dateTo" placeholder="YYYY.MM.DD" onkeyup="filter()">
+        </div>
+        <div class="control-group">
             <label>⏱️ Min Duration (sec)</label>
             <input type="number" id="durMin" onchange="filter()">
+        </div>
         </div>
         <div class="control-group">
             <label>⏱️ Max Duration (sec)</label>
