@@ -648,7 +648,7 @@ Examples:
     log(f"{icon('html')} Generating HTML song list...")
     abs_metadata_dir = os.path.abspath(args.metadata_dir)
     abs_html_output = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', args.songlist_dir, 'RB4SongList.html'))
-    run_cmd(f'python3 /workspace/RB4/scripts/generate_html_list.py {abs_metadata_dir} {abs_html_output} --baseline-date {baseline_date}')
+    run_cmd(f'python3 /workspace/RB4/scripts/generate_html_list.py {abs_metadata_dir} {abs_html_output} --baseline-date {baseline_date} --custom-songs-json {args.output_json}')
     
     docs_index = "/workspace/docs/RB4SongList.html"
     if os.path.exists(abs_html_output) and abs_html_output != docs_index:

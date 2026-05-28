@@ -20,7 +20,7 @@ INSTRUMENT_ICONS = {
     'real_keys': '🎹',
 }
 
-def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None):
+def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None, custom_songs_json=None):
     """Generate HTML file from metadata directory."""
     
     if page_title is None:
@@ -43,49 +43,41 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
     except:
         last_updated = now.strftime('%A, %B %d, %Y at %I:%M %p')
     
-    baseline = load_empty_songs_baseline()
-    songs = get_songs_with_fallback(metadata_dir, baseline)
+    # Load songs from the processed JSON source of truth
+    all_songs = []
+    if custom_songs_json and os.path.exists(custom_songs_json):
+        with open(custom_songs_json, 'r', encoding='utf-8') as f:
+            all_songs = json.load(f)
+    else:
+        # Fallback to existing logic
+        baseline = load_empty_songs_baseline()
+        songs = get_songs_with_fallback(metadata_dir, baseline)
+        
+        baseline_file = '/workspace/RB4/rb4songlistWithRivals.txt'
+        baseline_songs = []
+        if os.path.exists(baseline_file):
+            import re
+            with open(baseline_file, 'r') as f:
+                for line in f:
+                    line = line.strip()
+                    if not line: continue
+                    m = re.match(r'^(.+?) \(([^)]+)\)\s*-\s*(.+?)\s*\((\d+)', line)
+                    if m:
+                        artist, album, title, year = m.group(1).strip(), m.group(2).strip(), m.group(3).strip(), int(m.group(4))
+                        key = f"{artist}|{title}".lower()
+                        exists = any(f"{s.get('artist','')}|{s.get('title','')}".lower() == key for s in songs)
+                        if not exists:
+                            line_parts = line.split(' - ')
+                            src = line_parts[-1].strip() if line_parts else 'Rock Band 4'
+                            baseline_songs.append({
+                                'artist': artist, 'title': title, 'album': album, 'year': year,
+                                'durationMs': 0, 'duration_str': '', 'source': src,
+                                'shortName': '', 'instruments': '🎸🎸🥁🎤 guitar, bass, drums, vocals',
+                                'inferred': '', 'from_baseline': True
+                            })
+        all_songs = songs + baseline_songs
     
-    # Also load and merge baseline songs (rb4songlistWithRivals.txt)
-    baseline_file = '/workspace/RB4/rb4songlistWithRivals.txt'
-    baseline_songs = []
-    if os.path.exists(baseline_file):
-        import re
-        with open(baseline_file, 'r') as f:
-            for line in f:
-                line = line.strip()
-                if not line:
-                    continue
-                m = re.match(r'^(.+?) \(([^)]+)\)\s*-\s*(.+?)\s*\((\d+)', line)
-                if m:
-                    artist = m.group(1).strip()
-                    album = m.group(2).strip()
-                    title = m.group(3).strip()
-                    year = int(m.group(4))
-                    # Check if this song already exists in extracted songs
-                    key = f"{artist}|{title}".lower()
-                    exists = any(f"{s.get('artist','')}|{s.get('title','')}".lower() == key for s in songs)
-                    if not exists:
-                        # Extract source name (e.g., "Rock Band 4 v1.00") - after the last " - "
-                        line_parts = line.split(' - ')
-                        src = line_parts[-1].strip() if line_parts else 'Rock Band 4'
-                        baseline_songs.append({
-                            'artist': artist,
-                            'title': title,
-                            'album': album,
-                            'year': year,
-                            'durationMs': 0,
-                            'duration_str': '',
-                            'source': src,
-                            'shortName': '',
-                            'instruments': '🎸🎸🥁🎤 guitar, bass, drums, vocals',
-                            'inferred': '',
-                            'from_baseline': True
-                        })
-    
-    # Combine extracted songs + baseline-only songs
-    all_songs = songs + baseline_songs
-    print(f"Extracted: {len(songs)} songs + Baseline-only: {len(baseline_songs)} = {len(all_songs)} total")
+    print(f"Using {len(all_songs)} songs for HTML generation")
     
     js_songs = []
     for s in all_songs:
@@ -429,6 +421,7 @@ if __name__ == '__main__':
     parser.add_argument('output_html', help='Output HTML file')
     parser.add_argument('--title', default=None, help='HTML page title')
     parser.add_argument('--baseline-date', default=None, help='Baseline date for songs without one')
+    parser.add_argument('--custom-songs-json', default=None, help='Path to the processed songs JSON')
     args = parser.parse_args()
     
     # Load config for custom title
@@ -441,4 +434,4 @@ if __name__ == '__main__':
                     title = line.split('=', 1)[1].strip().strip('"')
                     break
     
-    generate_html(args.metadata_dir, args.output_html, title, args.baseline_date)
+    generate_html(args.metadata_dir, args.output_html, title, args.baseline_date, args.custom_songs_json)
