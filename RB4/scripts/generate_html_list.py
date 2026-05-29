@@ -321,8 +321,8 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
         * {{ box-sizing: border-box; }}
         body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background: {t['body_bg']}; color: {t['text']}; }}
         h1 {{ color: {t['accent']}; margin-bottom: 10px; }}
-        .controls {{ display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; padding: 15px; background: {t['panel_bg']}; border-radius: 8px; }}
-        .control-group {{ display: flex; flex-direction: column; gap: 5px; }}
+        .controls {{ display: flex; gap: 15px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 20px; padding: 15px; background: {t['panel_bg']}; border-radius: 8px; }}
+        .control-group {{ display: flex; flex-direction: column; gap: 5px; flex: 0 0 auto; }}
         .control-group label {{ font-size: 12px; color: #888; }}
         input, select {{ padding: 8px 12px; border-radius: 4px; border: 1px solid #333; background: {t['input_bg']}; color: {t['text']}; font-size: 14px; }}
         button {{ padding: 8px 12px; border-radius: 4px; border: 1px solid #333; background: {t['input_bg']}; color: {t['text']}; font-size: 14px; cursor: pointer; }}
@@ -381,7 +381,6 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
         <div class="control-group">
             <label>⏱️ Min Duration (sec)</label>
             <input type="number" id="durMin" onchange="filter()">
-        </div>
         </div>
         <div class="control-group">
             <label>⏱️ Max Duration (sec)</label>
