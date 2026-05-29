@@ -232,11 +232,29 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
             const cols = ['artist', 'title', 'album', 'year', 'duration', 'source', 'instruments', 'shortName', 'dateAdded', 'inferred', 'pkg'];
             f.sort((a, b) => {
                 const va = a[cols[col]], vb = b[cols[col]];
-                if (typeof va === 'number') return asc ? va - vb : vb - va;
-                if (va === undefined || va === '') return asc ? 1 : -1;
-                if (vb === undefined || vb === '') return asc ? -1 : 1;
-                const av = String(va).toLowerCase(), bv = String(vb).toLowerCase();
-                return asc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+                let res = 0;
+                if (typeof va === 'number') {
+                    res = va - vb;
+                } else {
+                    const av = String(va || '').toLowerCase();
+                    const bv = String(vb || '').toLowerCase();
+                    if (av !== bv) {
+                        if (va === undefined || va === '') return 1;
+                        if (vb === undefined || vb === '') return -1;
+                        res = av > bv ? 1 : -1;
+                    }
+                }
+                if (res !== 0) return asc ? res : -res;
+                const artistA = String(a.artist || '').toLowerCase();
+                const artistB = String(b.artist || '').toLowerCase();
+                if (artistA !== artistB) {
+                    const artistRes = artistA > artistB ? 1 : -1;
+                    return asc ? artistRes : -artistRes;
+                }
+                const titleA = String(a.title || '').toLowerCase();
+                const titleB = String(b.title || '').toLowerCase();
+                const titleRes = titleA > titleB ? 1 : -1;
+                return asc ? titleRes : -titleRes;
             });
             document.getElementById('body').innerHTML = f.map(s => `
                 <tr>
