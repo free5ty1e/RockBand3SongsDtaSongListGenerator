@@ -109,13 +109,16 @@ If song loading hangs endlessly on the text screen where it shows a quote or tip
 
 
 
-## Issue: Score Hero song conversion to RB3 XBOX CON format fails with "Vocal note at [xx:y:zzz] is outside any phrases"
+## Issue: Clone Hero song conversion to RB3 XBOX CON format with Onyx fails with "Vocal note at [xx:y:zzz] is outside any phrases"
 1. In the case of Sia - The Greatest, the problem was a missing phrase start marker to match an orphaned phrase end marker.  I uploaded the `notes.chart` file to Grok and asked it to analyze the vocal phrases:
    a. Edit `notes.chart` manually (Notepad):
    b. Find line `49412 = E "phrase_end"`
    c. Insert immediately after: `49428 = E "phrase_start"`
    d. Save and try conversion again.
+   e. On second thought, try this script I came up with to fix this issue: [otherTools/fix_vocal_orphan_markers.py](otherTools/fix_vocal_orphan_markers.py)
 
+## Issue: Clone Hero song conversion to RB3 XBOX CON format with Onyx fails with "ERROR: MIDI Compiler: (PART VOCALS): Confused by vocal phrase overlap around [49:3:180]"
+1. Try this script I came up with to fix this issue: [otherTools/fix_vocal_phrase_overlap.py](otherTools/fix_vocal_phrase_overlap.py)
 
 ## Issue: RB3 XBOX CON file won't convert in Nautilus PS3 Converter tool
 1. Try opening with Onyx and then exporting back out again: PS3 tab, Create XBOX 360 CON File button.
