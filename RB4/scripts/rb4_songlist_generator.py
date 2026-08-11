@@ -257,36 +257,53 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None,
         # Use /tmp for extraction to avoid MemoryMappedFile UnauthorizedAccessException on some filesystems
         tmp_pkg_path = f"/tmp/{pkg_name}"
         tmp_pfs_file = f"/tmp/{basename}_inner.pfs"
+        # Per-PKG bundle-extract dir: avoids the shared /tmp/dotnet_extract
+        # directory being left root-owned by sudo and then blocking the
+        # non-sudo fallback invocations below
+        dotnet_bundle_dir = f"/tmp/dotnet_extract_{basename}"
         
         run_cmd(f'cp \"{pkg_path}\" \"{tmp_pkg_path}\"')
-        run_cmd(f'sudo env DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract PkgTool.Core pkg_extractinnerpfs \"{tmp_pkg_path}\" \"{tmp_pfs_file}\"', show_output=True, indent="		", timeout=3600)
+        run_cmd(f'sudo env DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR={dotnet_bundle_dir} PkgTool.Core pkg_extractinnerpfs \"{tmp_pkg_path}\" \"{tmp_pfs_file}\"', show_output=True, indent="		", timeout=3600)
         run_cmd(f'sudo chown vscode:vscode \"{tmp_pfs_file}\"')
         run_cmd(f'mv \"{tmp_pfs_file}\" \"{pfs_file}\"')
         run_cmd(f'rm \"{tmp_pkg_path}\"')
         
-        # Step 2: Extract PFS contents
+        # Step 2: Extract .songdta_ps4 files
         log(f"		{icon('music')} [3/4] Extracting song data from PFS...")
         sys.stdout.flush()
         
-        tmp_pfs_extract_dir = f"/tmp/pfs_extract_{basename}"
-        tmp_pfs_extract_dir_retry = f"/tmp/pfs_extract_{basename}_retry"
+        if os.path.exists(pfs_extract_dir):
+            run_cmd(f'rm -rf "{pfs_extract_dir}"')
+        os.makedirs(pfs_extract_dir, exist_ok=True)
         
-        try:
-            # Extract to /tmp first, then move to work_dir
-            run_cmd(f'sudo env DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 DOTNET_ProcessorCount=2 PkgTool.Core pfs_extract \"{pfs_file}\" \"{tmp_pfs_extract_dir}\"', show_output=True, indent="			", timeout=3600)
-            run_cmd(f'sudo chown -R vscode:vscode \"{tmp_pfs_extract_dir}\"')
-            run_cmd(f'cp -r \"{tmp_pfs_extract_dir}\" \"{pfs_extract_dir}\"')
-            run_cmd(f'rm -rf \"{tmp_pfs_extract_dir}\"')
-        except RuntimeError as e:
-            if error_tracker: error_tracker.add_error('pfs_extraction_failed', pkg_name, str(e))
-            log(f"		First attempt failed: {e}")
-            log("		Retrying with single thread...")
-            run_cmd(f'sudo env DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 DOTNET_ProcessorCount=1 PkgTool.Core pfs_extract \"{pfs_file}\" \"{tmp_pfs_extract_dir_retry}\"', show_output=True, indent="			", timeout=3600)
-            run_cmd(f'sudo chown -R vscode:vscode \"{tmp_pfs_extract_dir_retry}\"')
-            run_cmd(f'cp -r \"{tmp_pfs_extract_dir_retry}\" \"{pfs_extract_dir}\"')
-            run_cmd(f'rm -rf \"{tmp_pfs_extract_dir_retry}\"')
-
         songdta_files = []
+        try:
+            # Fast sequential extraction of just the .songdta_ps4 files.
+            # Unlike PkgTool's parallel extractor, this handles PFS images that
+            # contain duplicate directory entries (some custom PKGs list the
+            # same song directory twice, which makes PkgTool abort with "file is
+            # being used by another process").
+            run_cmd(f'python3 /workspace/RB4/scripts/pfs_extract_songdta.py "{pfs_file}" "{pfs_extract_dir}"', show_output=True, indent="			", timeout=3600)
+        except RuntimeError as e:
+            log(f"		Sequential songdta extraction failed: {e}")
+            log("		Falling back to PkgTool pfs_extract...")
+            tmp_pfs_extract_dir = f"/tmp/pfs_extract_{basename}"
+            tmp_pfs_extract_dir_retry = f"/tmp/pfs_extract_{basename}_retry"
+            try:
+                # Extract to /tmp first, then move to work_dir
+                run_cmd(f'sudo env DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR={dotnet_bundle_dir} DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 DOTNET_ProcessorCount=2 PkgTool.Core pfs_extract "{pfs_file}" "{tmp_pfs_extract_dir}"', show_output=True, indent="			", timeout=3600)
+                run_cmd(f'sudo chown -R vscode:vscode "{tmp_pfs_extract_dir}"')
+                run_cmd(f'cp -r "{tmp_pfs_extract_dir}" "{pfs_extract_dir}"')
+                run_cmd(f'rm -rf "{tmp_pfs_extract_dir}"')
+            except RuntimeError as retry_e:
+                if error_tracker: error_tracker.add_error('pfs_extraction_failed', pkg_name, str(retry_e))
+                log(f"		First attempt failed: {retry_e}")
+                log("		Retrying with single thread...")
+                run_cmd(f'sudo env DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR={dotnet_bundle_dir} DOTNET_ThreadPool_UnfairSemaphoreSpinLimit=0 DOTNET_ProcessorCount=1 PkgTool.Core pfs_extract "{pfs_file}" "{tmp_pfs_extract_dir_retry}"', show_output=True, indent="			", timeout=3600)
+                run_cmd(f'sudo chown -R vscode:vscode "{tmp_pfs_extract_dir_retry}"')
+                run_cmd(f'cp -r "{tmp_pfs_extract_dir_retry}" "{pfs_extract_dir}"')
+                run_cmd(f'rm -rf "{tmp_pfs_extract_dir_retry}"')
+
         for root, dirs, files in os.walk(pfs_extract_dir):
             for f in files:
                 if f.endswith('.songdta_ps4'): songdta_files.append(os.path.join(root, f))
@@ -299,7 +316,8 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None,
         try:
             fallback_dir = os.path.join(work_dir, "full_extract")
             os.makedirs(fallback_dir, exist_ok=True)
-            run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract PkgTool.Core pkg_extract "{pkg_path}" {fallback_dir}', show_output=True, indent="		", timeout=3600)
+            run_cmd(f'sudo env DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR={dotnet_bundle_dir} PkgTool.Core pkg_extract "{pkg_path}" {fallback_dir}', show_output=True, indent="		", timeout=3600)
+            run_cmd(f'sudo chown -R vscode:vscode "{fallback_dir}"')
             songdta_files = []
             for root, dirs, files in os.walk(fallback_dir):
                 for f in files:
@@ -312,7 +330,8 @@ def extract_songdta_from_pkg(pkg_path, source_name, temp_dir, metadata_dir=None,
             try:
                 gp4_dir = os.path.join(work_dir, "gp4_extract")
                 os.makedirs(gp4_dir, exist_ok=True)
-                run_cmd(f'DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR=/tmp/dotnet_extract PkgTool.Core pkg_makegp4 "{pkg_path}" {gp4_dir}', show_output=True, indent="		", timeout=3600)
+                run_cmd(f'sudo env DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 DOTNET_BUNDLE_EXTRACT_BASE_DIR={dotnet_bundle_dir} PkgTool.Core pkg_makegp4 "{pkg_path}" {gp4_dir}', show_output=True, indent="		", timeout=3600)
+                run_cmd(f'sudo chown -R vscode:vscode "{gp4_dir}"')
                 
                 songdta_files = []
                 songs_dir = os.path.join(gp4_dir, "songs")

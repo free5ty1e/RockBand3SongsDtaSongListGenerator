@@ -1,4 +1,4 @@
-Generated on: Friday, May 29, 2026 at 9:07:58 AM EDT
+Generated on: Tuesday, August 11, 2026 at 4:17:13 PM UTC
 
 Instrument legend:
   🎸 = Guitar/Bass/Pro Guitar
@@ -9,14 +9,14 @@ Instrument legend:
 
 Use these to filter songs: e.g. search for "🎹" to find songs with keyboard parts.
 
-Total songs: 3982
+Total songs: 4039
 Duplicate songs: 84
-Total unique songs: 3898
-Total artists: 1284
-Total albums: 2013
+Total unique songs: 3955
+Total artists: 1292
+Total albums: 2032
 
 Breakdown by source:
-  Custom: 1401
+  Custom: 1458
   LEGO Rock Band: 40
   Rock Band 1: 49
   Rock Band 1 DLC: 891
@@ -655,6 +655,9 @@ Bryan Adams (Reckless) - Run to You (1984 / 2:31) - Custom [cu_bryanadams_runtoy
 Bryan Adams (Reckless) - Summer of '69 (1984 / 2:14) - LEGO Rock Band [summerof69] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 Bryan Adams (Spirit: Stallion of the Cimarron (Music from the Original Motion Picture)) - Get Off My Back (2002 / 2:58) - Custom [cu_o391874971_getoffmyback_br] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 Bryan Adams (Spirit: Stallion of the Cimarron (Music from the Original Motion Picture)) - Here I Am (End Title) (2002 / 2:55) - Custom [cu_ba_hereiam] 🎸🎸🥁🎤guitar, bass, vocals, drums (Added: 2026.04.18)
+BTS (Butter) - Butter (2022 / 2:15) - Custom [butter] 🎸🎸🎤 (Added: 2026.08.11)
+BTS (Love Yourself: Her) - DNA (2017 / 2:04) - Custom [sheepqueen_dna] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+BTS (Map Of The Soul: Persona) - Boy With Luv (ft. Halsey) (2019 / 2:15) - Custom [sheepqueen_boywithluv] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 Buckcherry (15) - Out of Line (2006 / 1:58) - Rock Band 1 DLC [outofline] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 Buckcherry (Black Butterfly) - Rescue Me (2008 / 1:44) - Rock Band 1 DLC [rescueme] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 Buffalo Springfield (Buffalo Springfield) - For What It's Worth (1967 / 2:13) - Rock Band 3 DLC [forwhatitsworth] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
@@ -676,7 +679,17 @@ C&O ((unknown album)) - We Are the Best (2009 / 2:19) - Rock Band 2 [ugc_5001339
 C&O ((unknown album)) - Wings of Infinity (2009 / 3:14) - Rock Band 2 [ugc_5001739] 🎸🎸🎤🥁 (Added: 2026.05.27)
 Caballo Dorado (No Rompas Mi Corazon) - No Rompas Mi Corazon (1997 / 2:04) - Custom [cu_o724053335] 🎸🎸🥁🎤guitar, bass, vocals, drums (Added: 2026.04.18)
 Caesars (Paper Tigers) - Jerk It Out (2005 / 2:56) - Rock Band 3 DLC [jerkitout] 🎸🎸🥁🎹🎹🎤guitar, bass, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
+Cake (Comfort Eagle) - Arco Arena (2001 / 2:04) - Custom [ud_arcoarena] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+CAKE (Comfort Eagle) - Comfort Eagle (2001 / 2:55) - Custom [cake-comforteaglev1] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Cake (Comfort Eagle) - Commissioning a Symphony in C (2001 / 2:04) - Custom [ud_symphonyinc] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Cake (Comfort Eagle) - Long Line of Cars (2001 / 2:31) - Custom [ud_longlineofcars] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Cake (Comfort Eagle) - Love You Madly (2001 / 3:41) - Custom [ud_loveyoumadly] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Cake (Comfort Eagle) - Meanwhile, Rick James... (2001 / 2:58) - Custom [ud_meanwhilerick] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Cake (Comfort Eagle) - Opera Singer (2001 / 2:33) - Custom [operasinger] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+CAKE (Comfort Eagle) - Pretty Pink Ribbon (2001 / 2:19) - Custom [cakeprettypinkv1] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Cake (Comfort Eagle) - Shadow Stabbing (2001 / 2:04) - Custom [ud_shadowstabbing] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 Cake (Comfort Eagle) - Short Skirt/Long Jacket (2001 / 0:00) - Rock Band 4 v1.00  🎸🎸🥁🎤 guitar, bass, drums, vocals (Added: 2026.04.18)
+Cake (Comfort Eagle) - World of Two (2001 / 2:04) - Custom [ud_worldoftwo] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 Calling All Captains (Tailspin) - Tailspin (2021 / 3:01) - Rock Band 4 DLC [tailspin] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 Candy Golf ((unknown album)) - Father's Day (0 / 0:00) - Custom [o328244543_fathersday_cg5] 🔍 🎸🎸🥁🎤 guitar, bass, drums, vocals (Added: 2026.04.18)
 Capital Cities (In a Tidal Wave of Mystery) - Safe and Sound (2013 / 2:18) - Rock Band 4 DLC [safeandsound] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
@@ -704,6 +717,7 @@ Cheap Trick (Dream Police) - Dream Police (1979 / 3:29) - Rock Band 3 DLC [dream
 Cheap Trick (Hello There) - Hello There (1977 / 1:54) - Rock Band 2 [hellothere] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 Chelsea Grin (Desolation of Eden) - Cheyne Stokes (2010 / 4:53) - Rock Band Network 1 [cheynestokes_rbn] 🎸🎸🥁🎤guitar, bass, vocals, drums (Added: 2026.04.18)
 Chely Wright (Single White Female) - Single White Female (1999 / 2:39) - Rock Band 3 DLC [singlewhitefemale2] 🎸🎸🥁🎹🎹🎤guitar, bass, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
+Cherry Bomb (Never Be Me (M?therf?cker)) - Never Be Me (M?therf?cker) (2026 / 2:56) - Custom [o710019907_neverbememtherf] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 Chevelle (Hats Off to the Bull) - Face to the Floor (2011 / 2:52) - Rock Band 3 DLC [facetothefloor] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 Chevelle (Niratias) - Self Destructor (2021 / 4:02) - Rock Band 4 DLC [selfdestructor] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 Chevelle (Wonder What's Next) - Send the Pain Below (2002 / 2:59) - Rock Band 3 DLC [sendthepainbelow] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
@@ -822,6 +836,12 @@ Dana Glover (Shrek (Original Motion Picture Soundtrack)) - It Is You (I Have Lov
 Dance for the Dying (EP 2011) - Thug Love (2011 / 2:55) - Rock Band Network 1 [thuglove_rbn] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 Dance Gavin Dance (Afterburner) - Prisoner (2020 / 2:48) - Rock Band 4 DLC [prisoner] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 Dance Gavin Dance (Happiness) - Tree Village (2009 / 4:39) - Rock Band Network 1 [treevillage_rbn] 🎸🎸🥁🎤guitar, bass, vocals, drums (Added: 2026.04.18)
+Dankmus (It Was the Best of Times, It Was the Blurst of Times) - Blurst of Times (2019 / 3:41) - Custom [o785083715_blurstoftimes_d] 🎸🎤 (Added: 2026.08.11)
+Dankmus. (It Was the Best of Times, It Was the Blurst of Times) - Children Who Are Wrong (2019 / 3:41) - Custom [o231593447_childrenwhoarew] 🎸🎤 (Added: 2026.08.11)
+Dankmus (It Was the Best of Times, It Was the Blurst of Times) - Clown College (2019 / 2:56) - Custom [o740161816_clowncollege_da] 🎸🎤 (Added: 2026.08.11)
+Dankmus (It Was the Best of Times, It Was the Blurst of Times) - No, Money Down (2019 / 2:56) - Custom [o143460504_nomoneydown_dan] 🎸🎤 (Added: 2026.08.11)
+Dankmus (It Was the Best of Times, It Was the Blurst of Times.) - Put It In H! (2019 / 2:19) - Custom [o735192723_putitinh_dankmu] 🎸🎤 (Added: 2026.08.11)
+Dankmus (It Was the Best of Times, It Was the Blurst of Times.) - Yes (2019 / 2:56) - Custom [o18490961_yes_dankmus] 🎸🎤 (Added: 2026.08.11)
 Dante's Dream ((unknown album)) - Gamers Unite (2009 / 3:31) - Custom [ugc_5007785] 🎸🎸🎤🥁🎹🎹 (Added: 2026.05.27)
 Dante's Dream (Episodes) - Episodes (2009 / 2:15) - Custom [ugc_5010199] 🎸🎸🎤🥁🎹🎹 (Added: 2026.05.27)
 Darius Rucker (Learn to Live) - Alright (2008 / 2:32) - Rock Band 3 DLC [alright2] 🎸🎸🥁🎹🎹🎤guitar, bass, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
@@ -1733,6 +1753,7 @@ Kansas (Two for the Show) - Icarus - Borne on Wings of Steel (Live) (1978 / 3:30
 Kansas (Two for the Show) - Point of Know Return (Live) (1978 / 3:34) - Rock Band 1 DLC [pointofknowreturn] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 Kasabian (Empire) - Shoot the Runner (2006 / 2:20) - Rock Band 1 DLC [shoottherunner] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 Kasabian (Kasabian) - Club Foot (2004 / 2:19) - Rock Band 1 DLC [clubfoot] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
+Kasabian (Velociraptor!) - Days Are Forgotten (2011 / 2:56) - Custom [k-daysforgottenv1] 🎸🎸🎤🥁 (Added: 2026.08.11)
 Kate Bush ((unknown album)) - Babooshka (0 / 0:00) - Custom [o672768891_babooshka_kateb] 🔍 🎸🎸🥁🎤 guitar, bass, drums, vocals (Added: 2026.04.18)
 Kate Bush (Hounds of Love) - Running Up That Hill (A Deal with God) (1985 / 2:19) - Custom [o394508411_runningupthathi] 🎸🥁🎹🎹🎤guitar, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
 Katrina and the Waves ((unknown album)) - Walking on Sunshine (1985 / 3:01) - LEGO Rock Band [walkingonsunshine] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
@@ -1768,7 +1789,10 @@ KISS (Dressed To Kill Tour) - Deuce (Live) (1975 / 3:43) - Rock Band 1 DLC [deuc
 KISS (Dressed To Kill Tour) - Parasite (Live) (1975 / 4:09) - Rock Band 1 DLC [parasitelive] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 KISS (Dressed To Kill Tour) - Rock and Roll All Nite (Live) (1975 / 2:57) - Rock Band 3 DLC [rockandrollallnitelive] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 KISS (Rock and Roll Over) - Calling Dr. Love (1976 / 2:40) - Rock Band 1 DLC [callingdrlove] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
+KMFDM (Angst) - Glory (1993 / 2:04) - Custom [glory] 🎸🎸🎤🥁🎹 (Added: 2026.08.11)
 KMFDM (Attak) - Sturm & Drang (2002 / 2:25) - Rock Band 1 DLC [sturmunddrang] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
+KMFDM (Symbols) - Megalomaniac (1997 / 2:12) - Custom [kmfdmmega] 🎸🎸🎤🥁 (Added: 2026.08.11)
+KMFDM (WWIII) - WWIII (2003 / 2:12) - Custom [kmfdmwwiii] 🎸🎸🎤🥁 (Added: 2026.08.11)
 Kool & the Gang (Celebrate!) - Celebration (1980 / 1:55) - Rock Band 4 DLC [celebration] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 Kool & the Gang (Wild and Peaceful) - Jungle Boogie (1973 / 2:46) - Rock Band 3 DLC [jungleboogie] 🎸🎸🥁🎹🎹🎤guitar, bass, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
 Korn ((unknown album)) - Burn It Down (0 / 0:00) - Custom [burnitdown_rbn] 🔍 🎸🎸🥁🎤guitar, bass, drums, vocals, harmony_1, harmony_2 (Added: 2026.04.18)
@@ -1804,6 +1828,17 @@ Lana Del Rey (Ultraviolence) - Shades of Cool (2014 / 2:58) - Custom [o750793940
 Laura Bell Bundy (Achin' and Shakin') - Giddy On Up (2010 / 2:26) - Rock Band 3 DLC [giddyonup2] 🎸🎸🥁🎹🎹🎤guitar, bass, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
 Laura Bell Bundy (Achin' and Shakin') - Rebound (2010 / 2:59) - Rock Band 1 DLC [rebound] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 Legitimate Front (Off the Hook) - She (2012 / 2:30) - Rock Band 4 DLC [she_lf] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
+Lemon Demon (Spirit Phone) - Cabinet Man (2016 / 2:56) - Custom [lemond_cabman_pike] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Lemon Demon (Spirit Phone) - Eighth Wonder (2016 / 3:48) - Custom [lemond_eightwon_pike1x] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Lemon Demon (Spirit Phone) - I Earn My Life (2016 / 2:15) - Custom [lemond_earnlife_pike] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Lemon Demon (Spirit Phone) - Lifetime Achievement Award (2016 / 3:41) - Custom [lemond_ltaa_pike] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Lemon Demon (Spirit Phone) - Man-Made Object (2016 / 4:02) - Custom [lemond_mmobj_pike] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Lemon Demon (Spirit Phone) - No Eyed Girl (2016 / 2:04) - Custom [lemond_noeyed_pike] 🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Lemon Demon (Spirit Phone) - Reaganomics (2016 / 3:41) - Custom [lemond_reagan_pike] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Lemon Demon (Spirit Phone) - Soft Fuzzy Man (2016 / 2:15) - Custom [lemond_softfuzz_pike] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Lemon Demon (Spirit Phone) - Spiral of Ants (2016 / 2:04) - Custom [lemond_soants_pike] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Lemon Demon (Spirit Phone) - When He Died (2016 / 2:19) - Custom [lemond_whendied_pike] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Lemon Demon (Spirit Phone) - You're at the Party (2016 / 2:56) - Custom [lemondemonyoureattheparty] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 Lenny Kravitz (Are You Gonna Go My Way) - Are You Gonna Go My Way (1993 / 2:22) - Rock Band 1 DLC [areyougonnagomyway] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 Lenny Kravitz (Let Love Rule) - Freedom Train (1989 / 1:49) - Rock Band 1 DLC [freedomtrain] 🎸🎸🥁🎤guitar, bass, vocals, drums (Added: 2026.04.18)
 Lenny Kravitz (Let Love Rule) - Let Love Rule (1989 / 2:18) - Rock Band 1 DLC [letloverule] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
@@ -2299,8 +2334,18 @@ Old Dominion ((unknown album)) - One Man Band (2019 / 1:00) - Rock Band 4 DLC [o
 Old Dominion (Happy Endings) - Hotel Key (2018 / 2:20) - Rock Band 4 DLC [hotelkey] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 Oliver Tree ((unknown album)) - Hurt (2018 / 1:08) - Rock Band 4 DLC [hurt] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 Olivia Newton-John (Physical) - Physical (1981 / 1:12) - Rock Band 4 DLC [physical] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
+Olivia Rodrigo (GUTS) - all-american bitch (2023 / 2:58) - Custom [allamericanbitchv1] 🎸🎸🎤🥁 (Added: 2026.08.11)
+Olivia Rodrigo (GUTS) - bad idea right? (2023 / 2:15) - Custom [abadidearighttruce] 🎸🎸🎤🥁 (Added: 2026.08.11)
+Olivia Rodrigo (GUTS) - ballad of a homeschooled girl (2023 / 2:56) - Custom [balladhomeschoollv7] 🎸🎸🎤🥁 (Added: 2026.08.11)
+Olivia Rodrigo (GUTS) - Obsessed (2023 / 2:56) - Custom [obsessedtruce] 🎸🎸🎤🥁 (Added: 2026.08.11)
+Olivia Rodrigo (GUTS) - pretty isn't pretty (2023 / 2:56) - Custom [prettyisntpretty_v4] 🎸🎸🎤🥁 (Added: 2026.08.11)
+Olivia Rodrigo (GUTS) - vampire (RB3 Version) (2023 / 2:15) - Custom [vampiretruce] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 Olivia Rodrigo (Sour) - brutal (2021 / 1:15) - Rock Band 4 DLC [brutal] 🎸🎸🥁🎤guitar, bass, vocals, drums (Added: 2026.04.18)
+Olivia Rodrigo (SOUR) - Deja Vu (2021 / 2:31) - Custom [dejavootruce] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 Olivia Rodrigo (Sour) - good 4 u (2021 / 1:32) - Rock Band 4 DLC [good4u] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
+Olivia Rodrigo (you seem pretty sad for a girl so in love) - begged (Live) (2026 / 2:45) - Custom [rob_olivrod_beggedlive] 🎸🎸🎤🎹🎹 (Added: 2026.08.11)
+Olivia Rodrigo (you seem pretty sad for a girl so in love) - drop dead (Live) (2026 / 3:01) - Custom [rob_olivrod_dropdeadlive] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+Olivia Rodrigo (You Seem Pretty Sad for a Girl So in Love) - The Cure (2026 / 2:56) - Custom [thecuretruce] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 OMI (Me 4 U) - Cheerleader (Felix Jaehn Remix) (2015 / 1:58) - Rock Band 4 DLC [cheerleader] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 One Direction (Made in the A.M.) - Drag Me Down (2015 / 2:29) - Rock Band 4 DLC [dragmedown] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 One Direction (Made in the A.M.) - Never Enough (2015 / 1:20) - Rock Band 4 DLC [neverenough] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
@@ -2346,6 +2391,7 @@ P!nk (Funhouse) - So What (2008 / 2:22) - LEGO Rock Band [sowhat] 🎸🎸🥁�
 P!nk (I'm Not Dead) - Who Knew (2006 / 1:58) - Rock Band 1 DLC [whoknew] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 P!nk (M!ssundaztood) - Get the Party Started (2001 / 2:03) - Rock Band 3 DLC [getthepartystarted] 🎸🎸🥁🎹🎹🎤guitar, bass, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
 Panic at the Disco (A Fever You Can't Sweat Out) - I Write Sins Not Tragedies (2005 / 3:10) - Rock Band 3 DLC [iwritesins] 🎸🎸🥁🎹🎹🎤guitar, bass, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
+Panic at the Disco (Death of a Bachelor) - House Of Memories (2016 / 2:56) - Custom [houseofmemories] 🎸🎸🎤🥁 (Added: 2026.08.11)
 Panic at the Disco (Pray for the Wicked) - High Hopes (2018 / 1:46) - Rock Band 4 DLC [highhopes] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 Panic at the Disco (Pretty. Odd.) - Nine in the Afternoon (2008 / 1:52) - Rock Band 2 [nineintheafternoon] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 Panic at the Disco (Pretty. Odd.) - She's a Handsome Woman (2008 / 1:57) - Rock Band 1 DLC [sheisahandsomewoman] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
@@ -2392,6 +2438,7 @@ Paul McCartney (McCartney) - Maybe I'm Amazed (1970 / 2:56) - Rock Band 3 DLC [m
 Paul McCartney & Wings ((unknown album)) - Band on the Run (0 / 0:00) - Custom [bandontherun] 🔍 🎸🎸🥁🎤guitar, bass, drums, vocals, harmony_1, harmony_2 (Added: 2026.04.18)
 Paul McCartney & Wings (Band on the Run) - Helen Wheels (1973 / 1:20) - Rock Band 3 DLC [helenwheels] 🎸🎸🥁🎹🎹🎤guitar, bass, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
 Paul McCartney & Wings (Band on the Run) - Let Me Roll It (1973 / 2:08) - Rock Band 3 DLC [letmerollit] 🎸🎸🥁🎹🎹🎤guitar, bass, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
+Pavement (Brighten the Corners: Nicene Creedence Edition) - Harness Your Hopes (1996 / 2:12) - Custom [harnessyourhopes] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 Pearl Jam ((unknown album)) - Black (0 / 0:00) - Custom [black] 🔍 🎸🎸🥁🎤guitar, bass, drums, vocals, harmony_1, harmony_2 (Added: 2026.04.18)
 Pearl Jam ((unknown album)) - Porch (0 / 0:00) - Custom [porch] 🔍 🎸🎸🥁🎤guitar, bass, drums, vocals, harmony_1, harmony_2 (Added: 2026.04.18)
 Pearl Jam ((unknown album)) - The Trees (0 / 0:00) - Custom [thetrees] 🔍 🎸🎸🥁🎤guitar, bass, drums, vocals, harmony_1, harmony_2 (Added: 2026.04.18)
@@ -3262,6 +3309,7 @@ The Killers ((unknown album)) - Smile Like You Mean It (0 / 0:00) - Custom [smil
 The Killers (Day & Age) - Spaceman (2008 / 2:14) - Rock Band 1 DLC [spaceman] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 The Killers (Hot Fuss) - Mr. Brightside (2004 / 2:59) - Rock Band 1 DLC [mrbrightside] 🎸🎸🥁🎤guitar, bass, vocals, drums (Added: 2026.04.18)
 The Killers (Run For Cover (Workout Mix)) - Caution (2020 / 3:01) - Rock Band 4 DLC [caution] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
+The Killers (Sam's Town) - Read My Mind (2006 / 2:58) - Custom [readmymind] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 The Killers (Sam's Town) - When You Were Young (2006 / 3:20) - Rock Band 1 [whenyouwereyoung] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 The Knack ((unknown album)) - My Sharona (1979 / 2:00) - Rock Band 1 DLC [mysharona] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 The Konks (The Konks) - 29 Fingers (2005 / 1:20) - Rock Band 1 [29fingers] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
@@ -3343,6 +3391,13 @@ The Original Broadway Cast of Hamilton (Hamilton (Original Broadway Cast Recordi
 The Original Broadway Cast of Hamilton (Hamilton (Original Broadway Cast Recording) [Full Album]) - Hamilton Act I (Part II) (2015 / 5:33) - Custom [ef_ham_part2] 🎸🎸🥁🎹🎹🎤guitar, bass, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
 The Original Broadway Cast of Hamilton (Hamilton (Original Broadway Cast Recording) [Full Album]) - Hamilton Act II (Part I) (2015 / 4:02) - Custom [ef_ham_part3] 🎸🎸🥁🎹🎹🎤guitar, bass, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
 The Original Broadway Cast of Hamilton (Hamilton (Original Broadway Cast Recording) [Full Album]) - Hamilton Act II (Part II) (2015 / 4:27) - Custom [ef_ham_part4] 🎸🎸🥁🎹🎹🎤guitar, bass, vocals, drums, keys, real_keys, harmony_1, harmony_2 (Added: 2026.04.18)
+The Original Broadway Cast of Waitress (Waitress (Original Broadway Cast Recording)) - She Used To Be Mine (2016 / 2:04) - Custom [ef_wait_sutbm_cat] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+The Original Cast of Heathers: The Musical (Heathers (World Premiere Cast Recording)) - Dead Girl Walking (2014 / 4:02) - Custom [ef_heathers_dgw_c3x] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+The Original Cast of Heathers: The Musical (Heathers: The Musical (World Premiere Cast Recording)) - Candy Store (2014 / 2:56) - Custom [candystore] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+The Original Cast of Heathers: The Musical (Heathers: The Musical (World Premiere Cast Recording)) - Dead Girl Walking (Reprise) (2014 / 2:15) - Custom [ef_heathers_dgwr] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+The Original Cast of Heathers: The Musical (Heathers: The Musical (World Premiere Cast Recording)) - Freeze Your Brain (2014 / 2:15) - Custom [ef_heathers_fyb_v2] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+The Original Cast of Heathers: The Musical (Heathers: The Musical (World Premiere Cast Recording)) - Lifeboat (2014 / 2:04) - Custom [heathers_lifeboat2] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
+The Original Cast of Heathers: The Musical (Heathers: The Musical (World Premiere Cast Recording)) - Shine A Light (Reprise) (2014 / 2:04) - Custom [heathers_salr_ef] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 The Outlaws ((unknown album)) - Green Grass and High Tides (1975 / 4:15) - Rock Band 1 [greengrass] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 The Police ((unknown album)) - Every Breath You Take (0 / 0:00) - Custom [everybreathyoutake] 🔍 🎸🎸🥁🎤guitar, bass, drums, vocals, harmony_1, harmony_2 (Added: 2026.04.18)
 The Police (Ghost in the Machine) - Every Little Thing She Does Is Magic (1981 / 3:01) - LEGO Rock Band [everylittlething] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
@@ -3383,6 +3438,7 @@ The Revivalists (Take Good Care) - Change (2018 / 1:40) - Rock Band 4 DLC [chang
 The Rolling Stones (Let It Bleed) - Gimme Shelter (1969 / 2:15) - Rock Band 1 [gimmeshelter] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 The Romantics (The Romantics) - What I Like About You (1980 / 2:33) - Rock Band 4 DLC [whatilikeaboutyou] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 The Runaways ((unknown album)) - Cherry Bomb (1976 / 2:10) - Rock Band 1 DLC [cherrybomb] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
+The Runaways (The Runaways) - Cherry Bomb '10 (1976 / 2:15) - Custom [cherrybomb10rerecord] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 The Shelters (The Shelters) - Rebel Heart (2016 / 1:11) - Rock Band 4 DLC [rebelheart] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1 (Added: 2026.04.18)
 The Shins (Oh, Inverted World) - New Slang (2001 / 1:38) - Rock Band 1 DLC [newslang] 🎸🎸🥁🎤guitar, bass, vocals, drums (Added: 2026.04.18)
 The Shins (Wincing The Night Away) - Australia (2007 / 2:49) - Rock Band Network 1 [australia_rbn] 🎸🎸🥁🎤guitar, bass, vocals, drums (Added: 2026.04.18)
@@ -3740,6 +3796,7 @@ Twenty One Pilots (Suicide Squad: The Album) - Heathens (2016 / 1:48) - Rock Ban
 Twisted Sister (Stay Hungry) - I Wanna Rock (1984 / 2:35) - Rock Band 4 DLC [iwannarock] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 Twisted Sister (Stay Hungry) - We're Not Gonna Take It (1984 / 2:57) - Rock Band 4 DLC [werenotgonnatakeit] 🎸🎸🥁🎤guitar, bass, vocals, drums, harmony_1, harmony_2 (Added: 2026.04.18)
 Two Door Cinema Club (Tourist History) - What You Know (2010 / 1:12) - Rock Band 4 DLC [whatyouknow] 🎸🎸🥁🎤guitar, bass, vocals, drums (Added: 2026.04.18)
+Tyler, The Creator (Cherry Bomb) - CHERRY BOMB (2015 / 2:15) - Custom [o877413935_cherrybomb_tyle] 🎸🎸🎤🥁🎹🎹 (Added: 2026.08.11)
 U2 ((unknown album)) - A Promised Land (0 / 0:00) - Custom [promisedland] 🔍 🎸🎸🥁🎤guitar, bass, drums, vocals, harmony_1, harmony_2 (Added: 2026.04.18)
 U2 (Achtung Baby) - One (1991 / 2:28) - Rock Band 4 DLC [one] 🎸🎸🥁🎤guitar, bass, vocals, drums (Added: 2026.04.18)
 U2 (Boy) - I Will Follow (1980 / 0:00) - Rock Band 4 v1.00  🎸🎸🥁🎤 guitar, bass, drums, vocals (Added: 2026.04.18)
@@ -3982,6 +4039,7 @@ Processed PKGs:
   UP8802-CUSA02084_00-CREQ2604P16STROK.pkg
   UP8802-CUSA02084_00-CREQ2604P17WRDAL.pkg
   UP8802-CUSA02084_00-CREQ2604P18FIXED.pkg
+  UP8802-CUSA02084_00-CREQ2608OLIVHEAT.pkg
   UP8802-CUSA02084_00-CRP20260520SPGNR.pkg
   UP8802-CUSA02084_00-DANAGLOVER000001.pkg
   UP8802-CUSA02084_00-DEFLEPPARD000001.pkg
