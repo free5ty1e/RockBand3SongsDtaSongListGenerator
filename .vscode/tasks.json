@@ -27,6 +27,18 @@
       "group": "test"
     },
     {
+      "label": "Opencode: Upgrade to Latest",
+      "type": "shell",
+      "command": "bash ${workspaceFolder}/.devcontainer/upgrade_opencode.sh",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": "build",
+      "detail": "Download and install the latest version of OpenCode from GitHub without rebuilding the container"
+    },    
+    {
       "label": "Opencode: Fix Sessions After Rebuild",
       "type": "shell",
       "command": "bash ${workspaceFolder}/.devcontainer/fix-sessions.sh",
