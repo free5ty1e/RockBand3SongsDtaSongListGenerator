@@ -144,7 +144,14 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
     # Build JS as a regular string to avoid f-string issues
     js_code = '''
         const SONG_DATA = ''' + js_data + ''';
-        let col = 0, asc = true; // Default sort: artist (column 0), ascending
+        let col = 8, asc = false; // Default sort: date added (column 8), descending (newest first)
+        const colLabels = ['Artist', 'Title', 'Album', 'Year', 'Duration', 'Source', 'Instruments', 'ShortName', 'Date Added', 'Inferred*', 'PKG'];
+        function updateSortIndicators() {
+            document.querySelectorAll('th').forEach((th, i) => {
+                const mark = i === col ? (asc ? '▲' : '▼') : '⬍';
+                th.textContent = (colLabels[i] || th.textContent) + ' ' + mark;
+            });
+        }
         
         function setTheme(themeName) {
             const t = THEMES[themeName];
@@ -197,6 +204,7 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
             window.DEFAULT_MAX_DUR = maxDur;
             window.DEFAULT_MIN_DATE = minDate;
             window.DEFAULT_MAX_DATE = maxDate;
+            updateSortIndicators();
             filter();
         }
         
@@ -247,14 +255,10 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
                 if (res !== 0) return asc ? res : -res;
                 const artistA = String(a.artist || '').toLowerCase();
                 const artistB = String(b.artist || '').toLowerCase();
-                if (artistA !== artistB) {
-                    const artistRes = artistA > artistB ? 1 : -1;
-                    return asc ? artistRes : -artistRes;
-                }
+                if (artistA !== artistB) return artistA > artistB ? 1 : -1;
                 const titleA = String(a.title || '').toLowerCase();
                 const titleB = String(b.title || '').toLowerCase();
-                const titleRes = titleA > titleB ? 1 : -1;
-                return asc ? titleRes : -titleRes;
+                return titleA > titleB ? 1 : -1;
             });
             document.getElementById('body').innerHTML = f.map(s => `
                 <tr>
@@ -275,7 +279,7 @@ def generate_html(metadata_dir, output_file, page_title=None, baseline_date=None
             document.getElementById('stats').textContent = `Showing ${f.length} of ${SONG_DATA.length} songs`;
         }
         
-        function sort(c) { col = c; asc = !asc; filter(); }
+        function sort(c) { col = c; asc = !asc; updateSortIndicators(); filter(); }
         
         function resetFilters() {
             document.getElementById('search').value = '';
